@@ -2,8 +2,44 @@ import React from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
+import { server } from "../../env";
+import Cookies from "js-cookie";
+import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const Signup = (props) => {
+
+  const signup = async (e) => {
+
+    e.preventDefault();
+
+    var params = Array.from(e.target.elements)
+      .filter((el) => el.name)
+      .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
+
+    // var format = /[ `!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?~]/;
+    // if (format.test(e.target.username.value)) {
+    //   this.setState({
+    //     message: (
+    //       <Alert
+    //         className="danger"
+    //         message="No special characters are allowed in username."
+    //       />
+    //     ),
+    //   });
+    //   return;
+    // }
+
+    axios
+      .post(server + "/api/user/signup", params)
+      .then((rsp) => {
+        console.log(rsp);
+        this.props.history.push("/verifyEmail");
+      })
+      .catch((error) => {
+      });
+  };
+
   return(
     <>
     <Navbar/>
@@ -26,29 +62,36 @@ const Signup = (props) => {
                 >
                 <img src="images/or.svg" alt="or" class="img-fluid" />
               </div>
-              <form>
+              <form onSubmit={signup}>
                 <div class="form-group">
-                  <label for="">Your Email Address</label>
+                  <label for="">Your Name</label>
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="Enter your email"
+                    placeholder="Enter your Name"
+                    name="name"
+                    required
+                    autoFocus={true}
                   />
                 </div>
                 <div class="form-group">
-                  <label for="">Your Contact Number</label>
+                  <label for="">Your Email</label>
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="Enter your Contact Number"
+                    placeholder="Enter your Email"
+                    name="email"
+                    required
                   />
                 </div>
                 <div class="form-group">
                   <label for="">Your Password</label>
                   <input
-                    type="text"
+                    type="password"
                     class="form-control"
                     placeholder="Create a Password"
+                    name="password"
+                    required
                   />
                 </div>
                 <div class="form-group">
@@ -59,7 +102,7 @@ const Signup = (props) => {
               </form>
             </div>
             <div class="login_links">
-              <p>Or <a href="login.html">Log In</a> Instead</p>
+              <p>Or <Link to="/login">Log In</Link> Instead</p>
             </div>
           </div>
         </div>

@@ -1,11 +1,54 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Navbar from './../components/Navbar';
 import MobileNavbar from './../components/MobileNavbar';
 import Footer from './../components/Footer';
 
 const Cart = (props) => {
 
+  const [displayCart, setDisplayCart] = useState([]);
+
+  const [netAmount, setNetAmount] = useState(0);
+  const [totalAmount, setTotalAmount] = useState(0);
+
   const [orderSuccess, setOrderSuccess] = useState(false);
+
+  const updateDisplayCart = () => {
+    const loadCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const localCart = [];
+    let localAmount = 0;
+    for (const item of loadCart) {
+      if (item[0] === "trex") {
+        localCart.push(["T - REX", item[1], 37133, 1, "images/cycle_warenty.png"]);
+        localAmount += 37133;
+      } else if (item[0] === "emx") {
+        localCart.push(["EMX", item[1], 52371, 1, "images/bicycle_2.png"]);
+        localAmount += 52371;
+      } else if (item[0] === "doodle") {
+        localCart.push(["DOODLE", item[1], 76000, 1, "images/bicycle_3.png"]);
+        localAmount += 76000;
+      }
+    }
+    setDisplayCart(localCart);
+    setNetAmount(localAmount);
+    calculateAmount(netAmount);
+    console.log(loadCart, localCart);
+  }
+
+  const calculateAmount = (netAmount) => {
+    setTotalAmount(Math.ceil(netAmount * 1.05));
+  }
+
+  useEffect(() => {
+    updateDisplayCart();
+  }, []);
+
+  const addToCart = (cart, bike) => {
+    localStorage.setItem("cart", cart.push(bike)); //UPDATE
+  }
+
+  const createOrder = async () => {
+    //setOrderSuccess(true);
+  }
 
   return(
     <>
@@ -62,150 +105,56 @@ const Cart = (props) => {
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>
-                        <img
-                          src="images/cycle_warenty.png"
-                          alt="a"
-                          class="img-fluid"
-                        />
-                      </td>
-                      <td>
-                        <h5>T - REX</h5>
-                        <p>Color : <i class="fa fa-circle"></i></p>
-                      </td>
-                      <td>
-                        <h5>₹ 37,133</h5>
-                      </td>
-                      <td>
-                        <div class="incre">
-                          <a href="javascript:void(0)" class="button-container">
-                            <i class="fa fa-minus cart-qty-minus"></i>
-                          </a>
-                          <input
-                            type="text"
-                            name="qty"
-                            class="qty"
-                            maxlength="12"
-                            value="0"
-                            class="input-text qty"
-                          />
+                    {
+                      displayCart.map((item) =>
+                        <tr>
+                          <td>
+                            <img
+                              src={item[4]}
+                              alt="a"
+                              class="img-fluid"
+                            />
+                          </td>
+                          <td>
+                            <h5>{item[0]}</h5>
+                            <p>Color : <i class="fa fa-circle" style={{"color": item[1]}}></i></p>
+                          </td>
+                          <td>
+                            <h5>₹ {item[2]}</h5>
+                          </td>
+                          <td>
+                            <div class="incre">
+                              <a href="javascript:void(0)" class="button-container">
+                                <i class="fa fa-minus cart-qty-minus"></i>
+                              </a>
+                              <input
+                                type="text"
+                                name="qty"
+                                class="qty"
+                                maxlength="12"
+                                value={item[3]}
+                                class="input-text qty"
+                              />
 
-                          <a href="javascript:void(0)" class="button-container">
-                            <i class="fa fa-plus cart-qty-plus"></i>
-                          </a>
-                        </div>
-                      </td>
-                      <td>
-                        <h5>₹ 37,133</h5>
-                      </td>
-                      <td>
-                        <a href="javascript:void(0)"
-                          ><img
-                            src="images/close_ic.png"
-                            alt="x"
-                            class="img-fluid"
-                        /></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <img
-                          src="images/bicycle_2.png"
-                          alt="a"
-                          class="img-fluid"
-                        />
-                      </td>
-                      <td>
-                        <h5>EMX</h5>
-                        <p>
-                          Color :
-                          <i class="fa fa-circle" style={{"color": "#f6f635"}}></i>
-                        </p>
-                      </td>
-                      <td>
-                        <h5>₹ 52,371</h5>
-                      </td>
-                      <td>
-                        <div class="incre">
-                          <a href="javascript:void(0)" class="button-container">
-                            <i class="fa fa-minus cart-qty-minus"></i>
-                          </a>
-                          <input
-                            type="text"
-                            name="qty"
-                            class="qty"
-                            maxlength="12"
-                            value="0"
-                            class="input-text qty"
-                          />
-
-                          <a href="javascript:void(0)" class="button-container">
-                            <i class="fa fa-plus cart-qty-plus"></i>
-                          </a>
-                        </div>
-                      </td>
-                      <td>
-                        <h5>₹ 52,371</h5>
-                      </td>
-                      <td>
-                        <a href="javascript:void(0)"
-                          ><img
-                            src="images/close_ic.png"
-                            alt="x"
-                            class="img-fluid"
-                        /></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <img
-                          src="images/bicycle_3.png"
-                          alt="a"
-                          class="img-fluid"
-                        />
-                      </td>
-                      <td>
-                        <h5>DOODLE</h5>
-                        <p>
-                          Color :
-                          <i class="fa fa-circle" style={{"color": "#1a1a1a"}}></i>
-                        </p>
-                      </td>
-                      <td>
-                        <h5>₹ 76,000</h5>
-                      </td>
-                      <td>
-                        <div class="incre">
-                          <a href="javascript:void(0)" class="button-container">
-                            <i class="fa fa-minus cart-qty-minus"></i>
-                          </a>
-                          <input
-                            type="text"
-                            name="qty"
-                            class="qty"
-                            maxlength="12"
-                            value="0"
-                            class="input-text qty"
-                          />
-
-                          <a href="javascript:void(0)" class="button-container">
-                            <i class="fa fa-plus cart-qty-plus"></i>
-                          </a>
-                        </div>
-                      </td>
-                      <td>
-                        <h5>₹ 76,000</h5>
-                      </td>
-                      <td>
-                        <a href="javascript:void(0)"
-                          ><img
-                            src="images/close_ic.png"
-                            alt="x"
-                            class="img-fluid"
-                        /></a>
-                      </td>
-                    </tr>
+                              <a href="javascript:void(0)" class="button-container">
+                                <i class="fa fa-plus cart-qty-plus"></i>
+                              </a>
+                            </div>
+                          </td>
+                          <td>
+                            <h5>₹ {item[2] * item[3]}</h5>
+                          </td>
+                          <td>
+                            <a href="javascript:void(0)"
+                              ><img
+                                src="images/close_ic.png"
+                                alt="x"
+                                class="img-fluid"
+                            /></a>
+                          </td>
+                        </tr>
+                      )
+                    }
                   </tbody>
                 </table>
               </div>
@@ -221,7 +170,7 @@ const Cart = (props) => {
                   <table>
                     <tr>
                       <td>Subtotal :</td>
-                      <td>₹ 1,65,504.00</td>
+                      <td>₹ {netAmount}</td>
                     </tr>
                     <tr>
                       <td>Discount :</td>
@@ -229,18 +178,21 @@ const Cart = (props) => {
                     </tr>
                     <tr>
                       <td>GST (5%):</td>
-                      <td>₹15024.00</td>
+                      <td>₹ {Math.ceil(totalAmount * 5 / 105)}</td>
                     </tr>
                     <tr>
                       <td>Total :</td>
-                      <td>₹ 1,65,504.00</td>
+                      <td>₹ {totalAmount}</td>
                     </tr>
                   </table>
                 </div>
                 <div class="total_invo_btn">
-                  <button type="submit" class="btn btn_submit" onClick={()=>{setOrderSuccess(true)}}>
-                    <span>₹ 1,65,504.00 </span
-                    ><span
+                  <button type="submit" class="btn btn_submit" onClick={()=>{
+                    // createOrder()
+                    setOrderSuccess(true)
+                    }}>
+                    <span>₹ {totalAmount} </span>
+                    <span
                       >Checkout
                       <img src="images/arrw_w_rgt.svg" alt="a" class="img-fluid"
                     /></span>
@@ -259,7 +211,7 @@ const Cart = (props) => {
           <div class="row">
             <div class="col-12">
               <div class="product_list_head">
-                <h5>You Might Be Intrested In</h5>
+                <h5>You Might Be Interested In</h5>
               </div>
             </div>
           </div>

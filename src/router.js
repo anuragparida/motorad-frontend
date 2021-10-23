@@ -20,6 +20,9 @@ import BookRide from "./pages/bookRide";
 import AllProducts from "./pages/products/allProducts";
 import Login from "./pages/auth/login";
 import Signup from "./pages/auth/signup";
+import ProductEMX from "./pages/products/productEmx";
+import ProductTREX from "./pages/products/productTrex";
+import ProductDOODLE from "./pages/products/productDoodle";
 
 export default function Router() {
   return (
@@ -29,6 +32,9 @@ export default function Router() {
             <Route path="/orders" component={Order} /> */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        <Route path="/emx" component={ProductEMX} />
+        <Route path="/trex" component={ProductTREX} />
+        <Route path="/doodle" component={ProductDOODLE} />
         <Route path="/bikes" component={AllProducts} />
         <Route path="/emi" component={EMI} />
         <Route path="/warranty" component={Warranty} />

@@ -118,10 +118,10 @@ const Navbar = (props) => {
                                <a href="javascript:void(0)" class="drp_dwn_clk_4"><img src="images/user_icon.svg" alt="logo" class="img-fluid"/></a>
                                <ul class="assurance_drop_dwn_4">
                                  <li>
-                                     <a href="sign-up.html">Sign Up</a>
+                                     <Link to="/signup">Sign Up</Link>
                                  </li>
                                  <li>
-                                     <a href="login.html">Log In</a>
+                                     <Link to="/login">Log In</Link>
                                  </li>
                              </ul>
                            </li>
@@ -138,24 +138,24 @@ const Navbar = (props) => {
                 <div class="col-lg-3">
                     <div class="bog_drop_wraps">
                         <img src="images/cycle_warenty.png" alt="a" class="img-fluid"/>
-                        <a href="#">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></a>
+                        <Link to="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="bog_drop_wraps">
                         <img src="images/bicycle_2.png" alt="a" class="img-fluid"/>
-                        <a href="#">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></a>
+                        <Link to="/emx">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="bog_drop_wraps">
                         <img src="images/bicycle_3.png" alt="a" class="img-fluid"/>
-                        <a href="#">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></a>
+                        <Link to="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
                     </div>
                 </div>
                 <div class="col-12">
                     <div class="big_dop_btn">
-                        <Link to="/bikes">View all Products <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
+                        <a href="/bikes">View all Products <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></a>
                     </div>
                 </div>
             </div>
@@ -163,6 +163,8 @@ const Navbar = (props) => {
     </div>
            
         </section>
+    
+    {props.children}
     </div>
   );
 }
