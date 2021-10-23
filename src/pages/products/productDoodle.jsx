@@ -3,7 +3,7 @@ import Navbar from '../../components/Navbar';
 import MobileNavbar from '../../components/MobileNavbar';
 import Footer from '../../components/Footer';
 import AOS from 'aos';
-import ScriptTag from 'react-script-tag';
+// import ScriptTag from 'react-script-tag';
 
 const ProductDOODLE = (props) => {
 
