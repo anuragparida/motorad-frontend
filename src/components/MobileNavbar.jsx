@@ -12,47 +12,47 @@ const MobileNavbar = (props) => {
                 <li>
                     <a href="javascript:void(0)" data-toggle="collapse" data-target="#collapseExamplea" aria-expanded="false" aria-controls="collapseExamplea">THE BIKES</a>
                     <ul class="mobile_submnu collapse" id="collapseExamplea">
-                        <li><a href="#"><img src="images/sm1.png" alt="a" class="img-fluid"/>T- REX</a></li>
-                        <li><a href="#"><img src="images/sm2.png" alt="a" class="img-fluid"/>EMX</a></li>
-                        <li><a href="#"><img src="images/sm3.png" alt="a" class="img-fluid"/>DOODLE</a></li>
+                        <li><Link to="/trex"><img src="images/sm1.png" alt="a" class="img-fluid"/>T- REX</Link></li>
+                        <li><Link to="/emx"><img src="images/sm2.png" alt="a" class="img-fluid"/>EMX</Link></li>
+                        <li><Link to="/doodle"><img src="images/sm3.png" alt="a" class="img-fluid"/>DOODLE</Link></li>
                     </ul>
                 </li>
                 
                 <li><a href="javascript:void(0)" data-toggle="collapse" data-target="#collapseExampleaa" aria-expanded="false" aria-controls="collapseExampleaa">ASSURANCE</a>
                 
                     <ul class="mobile_submnu collapse" id="collapseExampleaa">
-                        <li><a href="warrenty.html">Activate Warranty</a></li>
-                        <li><a href="insuarence.html">Insurance</a></li>
-                        <li><a href="rsa.html">RSA</a></li>
+                        <li><Link to="/warranty">Activate Warranty</Link></li>
+                        <li><Link to="/insurance">Insurance</Link></li>
+                        <li><Link to="/rsa">RSA</Link></li>
                         <li><Link to="/emi">EMI</Link></li>
-                        <li><a href="buy-smart.html">Buy Smart</a></li>
+                        <li><Link to="/buysmart">Buy Smart</Link></li>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0)" data-toggle="collapse" data-target="#collapseExampleaaa" aria-expanded="false" aria-controls="collapseExampleaaa">EM WORLD</a>
                 <ul class="mobile_submnu collapse" id="collapseExampleaaa">
-                        <li><a href="community.html">Community</a></li>
-                        <li><a href="buy-smart.html">Blogs</a></li>
+                        <li><Link to="/community">Community</Link></li>
+                        <li><Link to="#">Blogs</Link></li>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0)" data-toggle="collapse" data-target="#collapseExampleaaaa" aria-expanded="false" aria-controls="collapseExampleaaaa">REACH US</a>
                     <ul class="mobile_submnu collapse" id="collapseExampleaaaa">
                         <li>
-                             <a href="about-us.html">About Us</a>
+                             <Link to="/about">About Us</Link>
                          </li>
                          <li>
-                             <a href="faq.html">FAQs</a>
+                             <Link to="/faq">FAQs</Link>
                          </li>
                          <li>
-                             <a href="partner.html">Partner with Us</a>
+                             <Link to="/partner">Partner with Us</Link>
                          </li>
                          <li>
-                             <a href="find-store.html">Find a Store</a>
+                             <Link to="/store">Find a Store</Link>
                          </li>
                          <li>
-                             <a href="carrer.html">Careers</a>
+                             <Link to="/careers">Careers</Link>
                          </li>
                          <li>
-                             <a href="contact.html">Contact Us</a>
+                             <Link to="/contact">Contact Us</Link>
                          </li>
                     </ul>
                 </li>
@@ -70,9 +70,9 @@ const MobileNavbar = (props) => {
          
          <div class="mobile_ftr">
              <ul>
-                 <li><a href="tos.html">Terms &amp; Conditions</a></li>
-                 <li><a href="privacy.html">Privacy Policy</a></li>
-                 <li><a href="cookie.html">Cookie Policy</a></li>
+                 <li><Link to="/tos">Terms &amp; Conditions</Link></li>
+                 <li><Link to="/privacy">Privacy Policy</Link></li>
+                 <li><Link to="/cookies">Cookie Policy</Link></li>
              </ul>
          </div>
         

@@ -3,6 +3,7 @@ import MobileNavbar from "../components/MobileNavbar";
 import Navbar from './../components/Navbar';
 import Footer from './../components/Footer';
 import AOS from 'aos';
+import { Link } from 'react-router-dom';
 
 const Landing = (props) => {
 
@@ -23,9 +24,9 @@ const Landing = (props) => {
                          <img src="images/manin-hero-img.gif" alt="a" class="img-fluid w-100"/>
                      </div>
                      <div class="home_hero_bike_title">
-                         <h3 class="text-outline text-outline-hover" data-text="DOODLE">DOODLE</h3>
-                         <h3 class="text-outline text-outline-hover" data-text="EMX">EMX</h3>
-                         <h3 class="text-outline text-outline-hover" data-text="T-REX">T-REX</h3>
+                         <Link to="/doodle"><h3 class="text-outline text-outline-hover" data-text="DOODLE">DOODLE</h3></Link>
+                         <Link to="/doodle"><h3 class="text-outline text-outline-hover" data-text="EMX">EMX</h3></Link>
+                         <Link to="/doodle"><h3 class="text-outline text-outline-hover" data-text="T-REX">T-REX</h3></Link>
                      </div>
                  </div>
              </div>
@@ -34,10 +35,12 @@ const Landing = (props) => {
                     <div class="moobile_cycle mt_50">
                         <img src="images/EMX.gif" alt="a" class="img-fluid w-100"/>
                     </div>
+                    <a href="/emx">
                      <div class="home_hero_bike_title">
                         
                          <h3 class="text-outline text-outline-hover" data-text="EMX">EMX</h3>
                      </div>
+                     </a>
                  </div>
                  <div class="col-12">
                     <div class="moobile_cycle">
@@ -483,7 +486,9 @@ const Landing = (props) => {
                 </div>
             </div>
              <div class="row expo_bike_slider">
+                 
                  <div class="col-lg-4">
+                    <Link to="/trex">
                      <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
                          <img src="images/cycle_warenty.png" alt="a" class="img-fluid"/>
                          
@@ -521,8 +526,10 @@ const Landing = (props) => {
                              </tr>
                          </table>
                      </div>
+                    </Link>
                  </div>
                  <div class="col-lg-4">
+                    <Link to="/emx">
                      <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
                          <img src="images/bicycle_3.png" alt="a" class="img-fluid"/>
                          
@@ -560,8 +567,10 @@ const Landing = (props) => {
                              </tr>
                          </table>
                      </div>
+                     </Link>
                  </div>
                  <div class="col-lg-4">
+                    <Link to="/trex">
                      <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
                          <img src="images/bicycle_2.png" alt="a" class="img-fluid"/>
                          
@@ -599,6 +608,7 @@ const Landing = (props) => {
                              </tr>
                          </table>
                      </div>
+                     </Link>
                  </div>
              </div>
          </div>

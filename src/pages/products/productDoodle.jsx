@@ -3,40 +3,9 @@ import Navbar from '../../components/Navbar';
 import MobileNavbar from '../../components/MobileNavbar';
 import Footer from '../../components/Footer';
 import AOS from 'aos';
+import ScriptTag from 'react-script-tag';
 
 const ProductDOODLE = (props) => {
-  // <script>
-  //     enterView({
-  //       selector: "section",
-  //       enter: function (el) {
-  //         el.classList.add("entered");
-  //       },
-  //     });
-
-  //     var frameNumber = 0, // start video at frame 0
-  //       // lower numbers = faster playback
-  //       playbackConst = 1000,
-  //       // get page height from video duration
-  //       setHeight = document.getElementById("set-height"),
-  //       // select video element
-  //       vid = document.getElementById("v0");
-  //     // var vid = $('#v0')[0]; // jquery option
-
-  //     // dynamically set the page height according to video length
-  //     vid.addEventListener("loadedmetadata", function () {
-  //       setHeight.style.height =
-  //         Math.floor(vid.duration) * playbackConst + "px";
-  //     });
-
-  //     // Use requestAnimationFrame for smooth playback
-  //     function scrollPlay() {
-  //       var frameNumber = window.pageYOffset / playbackConst;
-  //       vid.currentTime = frameNumber;
-  //       window.requestAnimationFrame(scrollPlay);
-  //     }
-
-  //     window.requestAnimationFrame(scrollPlay);
-  //   </script>
 
   useEffect(() => {
     AOS.init();
@@ -1250,6 +1219,8 @@ const ProductDOODLE = (props) => {
     <a href="#" class="back-top-btn d-none d-lg-block">
       <i class="fa fa-angle-up"></i>
     </a>
+    {/* <ScriptTag isHydrating={true} type="text/javascript" src="js/videoScroll.js" /> */}
+    
     </>
   );
 }
