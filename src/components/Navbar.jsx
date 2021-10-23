@@ -81,7 +81,7 @@ const Navbar = (props) => {
                              <Link to="/community">Community</Link>
                          </li>
                          <li>
-                             <a href="about-us.html">Blogs</a>
+                             <a href="#">Blogs</a>
                          </li>
                      </ul>
                   </li>

@@ -14,7 +14,7 @@ const Footer = (props) => {
                          <p>EMotorad (EM) is an electric vehicles company that strives to bring futuristic e-bikes at an affordable price for adventure seekers, daily commuters, or casual riders.</p>
                          
                          <h6>Support</h6>
-                         <a href="#"> <img src="images/ques_icon.svg" alt="a" class="img-fluid"/>Contact Support</a>
+                         <Link to="#"> <img src="images/ques_icon.svg" alt="a" class="img-fluid"/>Contact Support</Link>
                      </div>
                  </div>
                  <div class="col-lg-7">
@@ -23,11 +23,11 @@ const Footer = (props) => {
                              <div class="ftr_links">
                                  <h6>About</h6>
                                  <ul>
-                                     <li><a href="about-us.html">Our Story</a></li>
-                                     <li><a href="contact.html">Contact Us</a></li>
-                                     <li><a href="carrer.html">Careers</a></li>
-                                     <li><a href="community.html">Community</a></li>
-                                     <li><a href="faq.html">FAQs</a></li>
+                                     <li><Link to="/about">Our Story</Link></li>
+                                     <li><Link to="/contact">Contact Us</Link></li>
+                                     <li><Link to="/careers">Careers</Link></li>
+                                     <li><Link to="/community">Community</Link></li>
+                                     <li><Link to="/faq">FAQs</Link></li>
                                  </ul>
                              </div>
                          </div>
@@ -35,10 +35,10 @@ const Footer = (props) => {
                              <div class="ftr_links">
                                  <h6>Products</h6>
                                  <ul>
-                                     <li><a href="#">T-REX</a></li>
-                                     <li><a href="emi.html">EMX</a></li>
-                                     <li><a href="#">DOODLE</a></li>
-                                     <li><a href="all-products.html">All Products</a></li>
+                                     <li><Link to="/trex">T-REX</Link></li>
+                                     <li><Link to="/emx">EMX</Link></li>
+                                     <li><Link to="/doodle">DOODLE</Link></li>
+                                     <li><a href="/bikes">All Products</a></li>
                                  </ul>
                              </div>
                          </div>
@@ -46,11 +46,11 @@ const Footer = (props) => {
                              <div class="ftr_links">
                                  <h6>Assurance</h6>
                                  <ul>
-                                     <li><a href="warrenty.html">Warranty</a></li>
-                                     <li><a href="insuarence.html">Insurance</a></li>
-                                     <li><a href="rsa.html">RSA</a></li>
-                                     <li><a href="emi.html">EMI</a></li>
-                                     <li><a href="buy-smart.html">Buy Smart</a></li>
+                                     <li><Link to="/warranty">Warranty</Link></li>
+                                     <li><Link to="/insurance">Insurance</Link></li>
+                                     <li><Link to="/rsa">RSA</Link></li>
+                                     <li><Link to="/emi">EMI</Link></li>
+                                     <li><Link to="/buysmart">Buy Smart</Link></li>
                                  </ul>
                              </div>
                          </div>
@@ -75,16 +75,16 @@ const Footer = (props) => {
                  <div class="col-lg-8 ordr_2">
                      <div class="ftr_btm_lft">
                          <ul>
-                             <li><a href="#"><img src="images/india-flag.png" alt="a" class="img-fluid"/> India</a>
+                             <li><Link to="#"><img src="images/india-flag.png" alt="a" class="img-fluid"/> India</Link>
                                  <ul class="assurance_drop_dwn_5">
-                                    <li><a href="#"><img src="images/india-flag.png" alt="a" class="img-fluid"/> India</a></li>
-                                    <li><a href="#"><img src="images/uae.png" alt="a" class="img-fluid"/> UAE</a></li>
-                                    <li><a href="#"><img src="images/japan.png" alt="a" class="img-fluid"/> Japan</a></li>
-                                    <li><a href="#"><img src="images/nepal.png" alt="a" class="img-fluid"/> Nepal</a></li>
+                                    <li><Link to="#"><img src="images/india-flag.png" alt="a" class="img-fluid"/> India</Link></li>
+                                    <li><Link to="#"><img src="images/uae.png" alt="a" class="img-fluid"/> UAE</Link></li>
+                                    <li><Link to="#"><img src="images/japan.png" alt="a" class="img-fluid"/> Japan</Link></li>
+                                    <li><Link to="#"><img src="images/nepal.png" alt="a" class="img-fluid"/> Nepal</Link></li>
                                 </ul>
                              </li>
-                             <li><a href="#">&copy; 2021 EMotorad, All Rights Reserved</a></li>
-                             <li><a href="https://flamecloud.co.uk/">Designed &amp; Developed by <img src="images/fc.svg" alt="a" class="img-fluid"/></a></li>
+                             <li><Link to="#">&copy; 2021 EMotorad, All Rights Reserved</Link></li>
+                             <li><Link to="https://flamecloud.co.uk/">Designed &amp; Developed by <img src="images/fc.svg" alt="a" class="img-fluid"/></Link></li>
                          </ul>
                      </div>
                  </div>
@@ -92,10 +92,10 @@ const Footer = (props) => {
                       <div class="header_social_icons">
                          <ul>
                              <li>Follow Us</li>
-                             <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                             <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                             <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                             <li><Link to="#"><i class="fa fa-facebook-square"></i></Link></li>
+                             <li><Link to="#"><i class="fa fa-twitter"></i></Link></li>
+                             <li><Link to="#"><i class="fa fa-instagram"></i></Link></li>
+                             <li><Link to="#"><i class="fa fa-linkedin-square"></i></Link></li>
                          </ul>
                      </div>
                  </div>
