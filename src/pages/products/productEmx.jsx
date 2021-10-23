@@ -43,8 +43,8 @@ const ProductEMX = (props) => {
   }, []);
 
   const addToCart = async () => {
-    let cart = localStorage.getItem("cart") || [];
-    cart = []; //REMOVE THIS
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    // cart = []; //REMOVE THIS
     let currentItem = false;
     for (const item of cart) {
       if (item[0]==="emx") {

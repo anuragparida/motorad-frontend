@@ -146,6 +146,9 @@ const Cart = (props) => {
                           </td>
                           <td>
                             <a href="javascript:void(0)"
+                            onClick={() => {
+                              setDisplayCart(displayCart.filter(i => i !== item))
+                            }}
                               ><img
                                 src="images/close_ic.png"
                                 alt="x"
