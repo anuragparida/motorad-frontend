@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
@@ -6,12 +6,19 @@ import { Link } from 'react-router-dom';
 import { server } from "../../env";
 import Cookies from "js-cookie";
 import axios from "axios";
+import Alert from './../../components/Alert';
+import Loader from './../../components/Loader';
 
 const Login = (props) => {
+
+  const [message, setMessage] = useState("");
+  const [loader, setLoader] = useState("");
 
   const login = async (e) => {
 
     e.preventDefault();
+
+    setLoader(<Loader/>);
 
     var params = Array.from(e.target.elements)
       .filter((el) => el.name)
@@ -21,15 +28,25 @@ const Login = (props) => {
     axios
     .post(server + "/api/user/login", params)
     .then((rsp) => {
+      // ADD IS VERIFIED CHECK
       console.log(rsp);
       Cookies.set("token", rsp.data.payload.token);
       Cookies.set("tokenDate", new Date());
 
+      setMessage(<Alert className="success" message={rsp.data.message} />);
+      setLoader("");
+
+      var dataLayer = window.dataLayer || [];
+      dataLayer.push({
+        event: "loginSuccess",
+      });
       window.location.href = "/";
     })
     .catch((err) => {
       console.log(err.response);
       if (err.response) {
+        setMessage(<Alert className="danger" message={err.response.data.message} />);
+        setLoader("");
         if (err.response.status === 422) {
           if (err.response.data.payload.is_email_verified === 0) {
             this.props.history.push("/verifyEmail");
@@ -63,6 +80,7 @@ const Login = (props) => {
                 <img src="images/or.svg" alt="or" class="img-fluid" />
               </div>
               <form onSubmit={login}>
+                {message}
                 <div class="form-group">
                   <label for="">Your Email Address / Contact Number</label>
                   <input
@@ -88,7 +106,7 @@ const Login = (props) => {
                   />
                 </div>
                 <div class="form-group">
-                  <button type="submit" class="btn btn_submit">Log In</button>
+                  <button type="submit" class="btn btn_submit">Log In {loader}</button>
                 </div>
               </form>
             </div>

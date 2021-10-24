@@ -2,36 +2,39 @@ import React, {useState, useEffect} from "react";
 import Navbar from './../components/Navbar';
 import MobileNavbar from './../components/MobileNavbar';
 import Footer from './../components/Footer';
+import axios from "axios";
+import { server, config, checkAccess } from "../env";
+import isLoggedIn from './../utils/checkLogin';
 
 const Cart = (props) => {
 
-  const [displayCart, setDisplayCart] = useState([]);
+  const [cart, setCart] = useState([]);
+
+  const [displayData, setDisplayData] = useState([]);
 
   const [netAmount, setNetAmount] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
 
   const [orderSuccess, setOrderSuccess] = useState(false);
 
-  const updateDisplayCart = () => {
-    const loadCart = JSON.parse(localStorage.getItem("cart")) || [];
-    const localCart = [];
-    let localAmount = 0;
-    for (const item of loadCart) {
-      if (item[0] === "trex") {
-        localCart.push(["T - REX", item[1], 37133, 1, "images/cycle_warenty.png"]);
-        localAmount += 37133;
-      } else if (item[0] === "emx") {
-        localCart.push(["EMX", item[1], 52371, 1, "images/bicycle_2.png"]);
-        localAmount += 52371;
-      } else if (item[0] === "doodle") {
-        localCart.push(["DOODLE", item[1], 76000, 1, "images/bicycle_3.png"]);
-        localAmount += 76000;
-      }
+  const loadCart = async() => {
+    if(!isLoggedIn()){
+      window.location.href = "/login";
     }
-    setDisplayCart(localCart);
-    setNetAmount(localAmount);
-    calculateAmount(netAmount);
-    console.log(loadCart, localCart);
+    else {
+      await axios
+      .get(server + "/api/cart/read", config)
+      .then((rsp) => {
+        console.log(rsp); //CHANGE THIS
+        const localCart = rsp.data.payload;
+        setCart(rsp.data.payload);
+        localCart.product.forEach()
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
+    }
   }
 
   const calculateAmount = (netAmount) => {
@@ -39,12 +42,8 @@ const Cart = (props) => {
   }
 
   useEffect(() => {
-    updateDisplayCart();
+    loadCart();
   }, []);
-
-  const addToCart = (cart, bike) => {
-    localStorage.setItem("cart", cart.push(bike)); //UPDATE
-  }
 
   const createOrder = async () => {
     //setOrderSuccess(true);
@@ -106,7 +105,7 @@ const Cart = (props) => {
                   </thead>
                   <tbody>
                     {
-                      displayCart.map((item) =>
+                      cart.map((item) =>
                         <tr>
                           <td>
                             <img
@@ -146,9 +145,9 @@ const Cart = (props) => {
                           </td>
                           <td>
                             <a href="javascript:void(0)"
-                            onClick={() => {
-                              setDisplayCart(displayCart.filter(i => i !== item))
-                            }}
+                            // onClick={() => {
+                            //   setDisplayCart(displayCart.filter(i => i !== item))
+                            // }}
                               ><img
                                 src="images/close_ic.png"
                                 alt="x"

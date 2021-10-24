@@ -2,6 +2,8 @@ import React from "react";
 import Footer from "../../components/Footer";
 import MobileNavbar from "../../components/MobileNavbar";
 import Navbar from "../../components/Navbar";
+import { server } from "../../env";
+import axios from "axios";
 
 const EMI = (props) => {
   {/*
@@ -16,6 +18,32 @@ const EMI = (props) => {
     </script>
     FIX LATER
   */}
+
+  const sendEMI = async (e) => {
+
+    //UPDATE
+
+    e.preventDefault();
+
+    var params = Array.from(e.target.elements)
+      .filter((el) => el.name)
+      .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
+
+    params.isDealer = params.isDealer === "true" ? true : false;
+
+    axios
+    .post(server + "/api/partner/create", params)
+    .then((rsp) => {
+      console.log(rsp);
+    })
+    .catch((err) => {
+      console.log(err.response);
+      if (err.response) {
+      }
+    });
+
+  }
+
   return(
     <>
     <Navbar/>

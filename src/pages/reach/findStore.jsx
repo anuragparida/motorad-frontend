@@ -2,10 +2,42 @@ import React, {useState} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
+import { server } from "../../env";
+import axios from "axios";
 
 const FindStore = (props) => {
 
   const [findSuccess, setFindSuccess] = useState(false);
+  const [stores, setStores] = useState([]);
+  const [city, setCity] = useState("");
+
+  const loadStores = async (e) => {
+
+    setStores([]);
+
+    e.preventDefault();
+
+    var params = Array.from(e.target.elements)
+      .filter((el) => el.name)
+      .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
+
+    axios
+    .post(server + `/api/store/filter/${params.state}/${params.city}`, params)
+    .then((rsp) => {
+      console.log(rsp);
+      setStores(rsp.data.payload);
+      
+    })
+    .catch((err) => {
+      console.log(err.response);
+      if (err.response) {
+      }
+    });
+
+    setCity(params.city);
+    setFindSuccess(true);
+
+  }
 
   return(
     <>
@@ -37,98 +69,44 @@ const FindStore = (props) => {
                   Back
                 </h5>
               </a>
-              <p>Selected City <span>Mumbai</span></p>
+              <p>Selected City <span>{city}</span></p>
             </div>
             <div class="faq_txt_wrap find_store_collapses">
               <div class="bs-example">
                 <div class="accordion" id="accordionExample">
-                  <div class="card">
-                    <div class="card-header" id="headingOne">
-                      <h2 class="mb-0">
-                        <button
-                          type="button"
-                          class="btn btn-link"
-                          data-toggle="collapse"
-                          data-target="#collapseOne"
+
+                  {
+                    stores.map((x, i) => 
+                      <div class="card">
+                        <div class="card-header" id="headingOne">
+                          <h2 class="mb-0">
+                            <button
+                              type="button"
+                              class="btn btn-link"
+                              data-toggle="collapse"
+                              data-target={`#collapse${i}`}
+                            >
+                              <span>{x.name}</span>
+                              <i class="fa fa-angle-down"></i>
+                            </button>
+                          </h2>
+                        </div>
+                        <div
+                          id={`collapse${i}`}
+                          class={i===0?"collapsed show active":"collapse"}
+                          aria-labelledby="headingOne"
+                          data-parent="#accordionExample"
                         >
-                          <span>Emotorad Cycles Limited etc</span>
-                          <i class="fa fa-angle-down"></i>
-                        </button>
-                      </h2>
-                    </div>
-                    <div
-                      id="collapseOne"
-                      class="collapsed show active"
-                      aria-labelledby="headingOne"
-                      data-parent="#accordionExample"
-                    >
-                      <div class="card-body">
-                        <p>
-                          <span>Add:</span> At post Jambe, taluka Mulshi, 169/2
-                          Sangawade Road, Pune - 411033, Maharashtra
-                        </p>
-                        <p><span>Mob:</span> 9876543210</p>
+                          <div class="card-body">
+                            <p>
+                              <span>Add:</span> {x.address}
+                            </p>
+                            <p><span>Mob:</span> {"ADD CONTACT TO API"}</p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-header" id="headingTwo">
-                      <h2 class="mb-0">
-                        <button
-                          type="button"
-                          class="btn btn-link"
-                          data-toggle="collapse"
-                          data-target="#collapseTwo"
-                        >
-                          <span>Emotorad Cycles Limited etc</span>
-                          <i class="fa fa-angle-down"></i>
-                        </button>
-                      </h2>
-                    </div>
-                    <div
-                      id="collapseTwo"
-                      class="collapse"
-                      aria-labelledby="headingTwo"
-                      data-parent="#accordionExample"
-                    >
-                      <div class="card-body">
-                        <p>
-                          <span>Add:</span> At post Jambe, taluka Mulshi, 169/2
-                          Sangawade Road, Pune - 411033, Maharashtra
-                        </p>
-                        <p><span>Mob:</span> 9876543210</p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div class="card-header" id="headingThree">
-                      <h2 class="mb-0">
-                        <button
-                          type="button"
-                          class="btn btn-link collapsed"
-                          data-toggle="collapse"
-                          data-target="#collapseThree"
-                        >
-                          <span>Emotorad Cycles Limited etc</span>
-                          <i class="fa fa-angle-down"></i>
-                        </button>
-                      </h2>
-                    </div>
-                    <div
-                      id="collapseThree"
-                      class="collapse"
-                      aria-labelledby="headingThree"
-                      data-parent="#accordionExample"
-                    >
-                      <div class="card-body">
-                        <p>
-                          <span>Add:</span> At post Jambe, taluka Mulshi, 169/2
-                          Sangawade Road, Pune - 411033, Maharashtra
-                        </p>
-                        <p><span>Mob:</span> 9876543210</p>
-                      </div>
-                    </div>
-                  </div>
+                    )
+                  }
                 </div>
               </div>
             </div>
@@ -141,17 +119,18 @@ const FindStore = (props) => {
                 EMotorad Store near you.
               </p>
 
-              <form>
+              <form onSubmit={loadStores}>
                 <div class="form-group">
-                  <label for="">Select State</label>
-                  <input type="text" class="form-control" />
+                  <label for="">Enter State</label>
+                  <input type="text" class="form-control" name="state" required/>
                 </div>
                 <div class="form-group">
-                  <label for="">Select City</label>
-                  <input type="text" class="form-control" />
+                  <label for="">Enter City</label>
+                  <input type="text" class="form-control" name="city" required/>
                 </div>
                 <div class="form-group">
-                  <a href="javascript:void(0)" onClick={()=>{setFindSuccess(true)}} class="btn_submit">Get Started</a>
+                  {/* <a href="javascript:void(0)" onClick={()=>{setFindSuccess(true)}} class="btn_submit">Get Started</a> */}
+                  <button type="submit" class="btn_submit">Show Stores</button>
                 </div>
               </form>
             </div>

@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
+import axios from 'axios';
+import { server } from "../../env";
 
 const Warranty = (props) => {
   // <script>
@@ -15,6 +17,32 @@ const Warranty = (props) => {
   //   </script>
 
   const [sendSuccess, setSendSuccess] = useState(false);
+
+  const sendWarranty = async (e) => {
+
+    e.preventDefault();
+
+    var params = Array.from(e.target.elements)
+      .filter((el) => el.name)
+      .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
+
+      params.dealerType = "online";
+      params.bike = 3;
+
+      console.log(params);
+
+    axios
+    .post(server + "/api/warranty/create", params)
+    .then((rsp) => {
+      console.log(rsp);
+    })
+    .catch((err) => {
+      console.log(err.response);
+      if (err.response) {
+      }
+    });
+
+  }
 
   return(
     <>
@@ -86,7 +114,7 @@ const Warranty = (props) => {
                          <h6>Please Select A Bike For Warranty</h6>
                      </div>
                      <div class="emi_plan_frm">
-                         <form>
+                         <form onSubmit={sendWarranty}>
                              <div class="row">
                                 <div class="col-lg-6">
                                      <div class="form-group">
@@ -101,31 +129,31 @@ const Warranty = (props) => {
                                 <div class="col-lg-6">
                                      <div class="form-group">
                                          <label for="">Your Name</label>
-                                         <input type="text" class="form-control" placeholder="Enter your  Name"/>
+                                         <input type="text" class="form-control" name="name" placeholder="Enter your  Name" required/>
                                      </div>
                                 </div>
                                 <div class="col-lg-6">
                                      <div class="form-group">
                                          <label for="">Your Email</label>
-                                         <input type="text" class="form-control" placeholder="Enter Email Address"/>
+                                         <input type="email" class="form-control" name="email" placeholder="Enter Email Address" required/>
                                      </div>
                                 </div>
                                 <div class="col-lg-6">
                                      <div class="form-group">
                                          <label for="">Your Contact</label>
-                                         <input type="text" class="form-control" placeholder="Enter Contact Number"/>
+                                         <input type="number" class="form-control" name="contact" placeholder="Enter Contact Number" required/>
                                      </div>
                                 </div>
                                 <div class="col-lg-6">
                                      <div class="form-group">
                                          <label for="">Frame Number</label>
-                                         <input type="text" class="form-control" placeholder="Enter Frame Number"/>
+                                         <input type="text" class="form-control" name="frameNumber" placeholder="Enter Frame Number" required/>
                                      </div>
                                 </div>
                                 <div class="col-lg-6">
                                      <div class="form-group">
                                          <label for="">Date of Purchase</label>
-                                         <input type="text" class="form-control" placeholder="24-09-2021"/>
+                                         <input type="date" class="form-control" name="dateOfPurchase" placeholder="24-09-2021" required/>
                                      </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -138,8 +166,8 @@ const Warranty = (props) => {
                                 <div class="col-lg-6">
                                      <div class="form-group">
                                          <label for="">Select Store</label>
-                                         <select name="" id="" class="form-control">
-                                             <option value="">Balaji Cycle Store</option>
+                                         <select name="dealerName" id="" class="form-control" defaultValue="Balaji">
+                                             <option value="Balaji">Balaji Cycle Store</option>
                                              <option value="">Balaji Cycle House</option>
                                              <option value="">Balaji Cycle Store</option>
                                          </select>
@@ -148,7 +176,7 @@ const Warranty = (props) => {
                                 <div class="col-lg-6">
                                     <div class="warrent_invoice_upload">
                                       <label class="upload-area">
-                                        <input type="file"/>
+                                        <input type="file" name="invoice"/>
                                         <span class="upload-button">
                                           <img src="images/plus_circle.svg" alt="a" class="img-fluid"/>
                                         </span>
@@ -158,7 +186,8 @@ const Warranty = (props) => {
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="plan_submit_btn text-right">
-                                        <a href="javascript:void(0)" onClick={()=>{setSendSuccess(true)}}>Submit</a>
+                                        {/* <a href="javascript:void(0)" onClick={()=>{setSendSuccess(true)}}>Submit</a> */}
+                                        <button type="submit">Submit</button>
                                     </div>
                                 </div>
                              </div>

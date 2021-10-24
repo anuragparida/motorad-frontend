@@ -1,8 +1,11 @@
-import React, {useEffect} from "react";
+import React, {useState, useEffect} from "react";
 import Navbar from '../../components/Navbar';
 import MobileNavbar from '../../components/MobileNavbar';
 import Footer from '../../components/Footer';
 import AOS from 'aos';
+import axios from "axios";
+import { server, config, checkAccess } from "../../env";
+import isLoggedIn from './../../utils/checkLogin';
 
 const ProductTREX = (props) => {
   // <script>
@@ -38,24 +41,66 @@ const ProductTREX = (props) => {
   //     window.requestAnimationFrame(scrollPlay);
   //   </script>
 
+  const [cart, setCart] = useState([]);
+  const [products, setProducts] = useState([]);
+  const [productID, setProductID] = useState("");
+
   useEffect(() => {
     AOS.init();
+    loadProducts();
   }, []);
 
+  const loadProducts = async() => {
+    await axios
+      .get(server + "/api/product/read", config)
+      .then((rsp) => {
+        console.log(rsp);
+        setProducts(rsp.data.payload.filter(prod => prod.name === "EMX"));
+        setProductID(rsp.data.payload.filter(prod => prod.name === "EMX")[0].id || 1); //CHANGE THIS
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
+    await axios
+      .get(server + "/api/product/read", config)
+      .then((rsp) => {
+        console.log(rsp);
+        setCart(rsp.data.payload);
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
+  }
+
   const addToCart = async () => {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    // cart = []; //REMOVE THIS
-    let currentItem = false;
-    for (const item of cart) {
-      if (item[0]==="trex") {
-        currentItem = true;
+    if(!isLoggedIn()){
+      window.location.href = "/login";
+    }
+    else{
+      
+      const params = {
+        "product": [
+          ...cart.product.filter(element => element.id !== productID), 
+          {
+            "id": productID,
+            "amount": 1
+          }
+        ],
+        "accessories": cart.accessories
       }
+      await axios
+      .put(server + "/api/cart/update", params, config)
+      .then((rsp) => {
+        console.log(rsp); //CHANGE THIS
+        window.location.href = "/cart";
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
     }
-    if (!currentItem) {
-      cart.push(["trex", "red"]);
-    }
-    localStorage.setItem("cart", JSON.stringify(cart));
-    console.log(cart);
   }
 
   return(

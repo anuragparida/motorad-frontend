@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
+import { server } from "../../env";
+import axios from "axios";
 
 const Contact = (props) => {
   // <script>
@@ -13,6 +15,28 @@ const Contact = (props) => {
   //         })
   //       });
   //   </script>
+
+  const createContact = async (e) => {
+
+    e.preventDefault();
+
+    var params = Array.from(e.target.elements)
+      .filter((el) => el.name)
+      .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
+
+    axios
+    .post(server + "/api/contact/create", params)
+    .then((rsp) => {
+      console.log(rsp);
+    })
+    .catch((err) => {
+      console.log(err.response);
+      if (err.response) {
+      }
+    });
+
+  }
+
   return(
     <>
     <Navbar/>
@@ -92,14 +116,14 @@ const Contact = (props) => {
               </h6>
             </div>
             <div class="emi_plan_frm">
-              <form>
+              <form onSubmit={createContact}>
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label for="">
                         Your Name
                       </label>
-                      <input class="form-control" type="text" placeholder="Enter your Name" />
+                      <input class="form-control" type="text" placeholder="Enter your Name" name="name" required/>
                     </div>
                   </div>
                   <div class="col-lg-6">
@@ -107,7 +131,7 @@ const Contact = (props) => {
                       <label for="">
                         Your Email Address
                       </label>
-                      <input class="form-control" type="text" placeholder="Enter Email Address" />
+                      <input class="form-control" type="email" placeholder="Enter Email Address" name="email" required/>
                     </div>
                   </div>
                   <div class="col-lg-12">
@@ -115,7 +139,7 @@ const Contact = (props) => {
                       <label for="">
                         Your Contact Number
                       </label>
-                      <input class="form-control" type="text" placeholder="Enter Contact Number" />
+                      <input class="form-control" type="number" placeholder="Enter Contact Number" name="contact" required/>
                     </div>
                   </div>
                   <div class="col-lg-12">
@@ -123,14 +147,14 @@ const Contact = (props) => {
                       <label for="">
                         Message
                       </label>
-                      <input class="form-control" type="text" placeholder="Your Message" />
+                      <input class="form-control" type="text" placeholder="Your Message" name="message" required/>
                     </div>
                   </div>
                   <div class="col-lg-12">
                     <div class="plan_submit_btn text-center">
-                      <a href="#">
+                      <button type="submit">
                         Submit
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>

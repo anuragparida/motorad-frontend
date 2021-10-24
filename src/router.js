@@ -23,6 +23,9 @@ import Signup from "./pages/auth/signup";
 import ProductEMX from "./pages/products/productEmx";
 import ProductTREX from "./pages/products/productTrex";
 import ProductDOODLE from "./pages/products/productDoodle";
+import ResetPassword from "./pages/auth/resetPassword";
+import ForgotPassword from "./pages/auth/forgotPassword";
+import VerifyOTP from "./pages/auth/verifyOTP";
 
 export default function Router() {
   return (
@@ -32,6 +35,9 @@ export default function Router() {
             <Route path="/orders" component={Order} /> */}
         <Route path="/login" component={Login} />
         <Route path="/signup" component={Signup} />
+        <Route path="/verify" component={VerifyOTP} />
+        <Route path="/resetpass" component={ResetPassword} />
+        <Route path="/forgotpass" component={ForgotPassword} />
         <Route path="/emx" component={ProductEMX} />
         <Route path="/trex" component={ProductTREX} />
         <Route path="/doodle" component={ProductDOODLE} />

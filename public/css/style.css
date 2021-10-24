@@ -1091,7 +1091,7 @@ img {
   text-align: center;
   margin-top: 60px;
 }
-.plan_submit_btn a {
+.plan_submit_btn button {
   font-style: normal;
   font-weight: 600;
   font-size: 15px;
@@ -1104,7 +1104,7 @@ img {
   border-radius: 0px;
   border: 2px solid #10b068;
 }
-.plan_submit_btn a:hover {
+.plan_submit_btn button:hover {
   background: transparent;
   color: #10b068;
 }

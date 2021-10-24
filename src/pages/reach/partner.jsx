@@ -2,6 +2,8 @@ import React from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
+import { server } from "../../env";
+import axios from "axios";
 
 const Partner = (props) => {
   // <script>
@@ -13,6 +15,30 @@ const Partner = (props) => {
   //         })
   //       });
   //   </script>
+
+  const createPartner = async (e) => {
+
+    e.preventDefault();
+
+    var params = Array.from(e.target.elements)
+      .filter((el) => el.name)
+      .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
+
+    params.isDealer = params.isDealer === "true" ? true : false;
+
+    axios
+    .post(server + "/api/partner/create", params)
+    .then((rsp) => {
+      console.log(rsp);
+    })
+    .catch((err) => {
+      console.log(err.response);
+      if (err.response) {
+      }
+    });
+
+  }
+
   return(
     <>
     <Navbar/>
@@ -107,14 +133,14 @@ const Partner = (props) => {
               </h6>
             </div>
             <div class="emi_plan_frm">
-              <form>
+              <form onSubmit={createPartner}>
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label for="">
                         Your Name
                       </label>
-                      <input class="form-control" type="text" placeholder="Enter your Name" />
+                      <input class="form-control" type="text" placeholder="Enter your Name" name="name" required/>
                     </div>
                   </div>
                   <div class="col-lg-6">
@@ -122,7 +148,7 @@ const Partner = (props) => {
                       <label for="">
                         Your Email Address
                       </label>
-                      <input class="form-control" type="text" placeholder="Enter your email" />
+                      <input class="form-control" type="text" placeholder="Enter your email" name="email" required/>
                     </div>
                   </div>
                   <div class="col-lg-6">
@@ -130,15 +156,19 @@ const Partner = (props) => {
                       <label for="">
                         Contact Number
                       </label>
-                      <input class="form-control" type="text" placeholder="Enter your Contact" />
+                      <input class="form-control" type="text" placeholder="Enter your Contact" name="contact" required/>
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label for="">
-                        Are you already a dealer
+                        Are you already a dealer?
                       </label>
-                      <input class="form-control" type="text" placeholder="Yes/No" />
+                      <select name="isDealer" class="form-control" defaultValue={true}>
+                        <option value={true}>Yes</option>
+                        <option value={false}>No</option>
+                      </select>
+                      {/* <input class="form-control" type="checkbox" placeholder="Yes/No" name="name" required/> */}
                     </div>
                   </div>
                   <div class="col-lg-6">
@@ -146,30 +176,22 @@ const Partner = (props) => {
                       <label for="">
                         Your City
                       </label>
-                      <input class="form-control" type="text" placeholder="Enter City Name" />
+                      <input class="form-control" type="text" placeholder="Enter City Name" name="city" required/>
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label for="">
-                        Are you already a dealer
+                        Your Address
                       </label>
-                      <input class="form-control" type="text" placeholder="Yes/No" />
-                    </div>
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="form-group">
-                      <label for="">
-                        Your Adress
-                      </label>
-                      <input class="form-control" type="text" placeholder="Enter Adress" />
+                      <input class="form-control" type="text" placeholder="Enter your Address" name="address" required/>
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="plan_submit_btn">
-                      <a href="#">
+                      <button type="submit">
                         Submit
-                      </a>
+                      </button>
                     </div>
                   </div>
                 </div>
