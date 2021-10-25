@@ -1,7 +1,28 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { server, config, checkAccess } from "../env";
 
 const Navbar = (props) => {
+  const [links, setLinks] = useState({});
+
+  const loadLinks = async() => {
+    await axios
+      .get(server + "/api/social/read", config)
+      .then((rsp) => {
+        console.log(rsp);
+        setLinks(rsp.data.payload.reduce((t, e) => ({ ...t, [e.name]: e.link }), {}));
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
+  }
+
+  useEffect(() => {
+    loadLinks();
+  }, []);
+
   return(
     <div class="navbar_static">
      <header class="header_social_sec">
@@ -9,13 +30,15 @@ const Navbar = (props) => {
              <div class="row">
                  <div class="col-lg-6">
                      <div class="header_social_icons">
+                       { links.linkedin &&
                          <ul>
                              <li>Follow Us</li>
-                             <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
-                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                             <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                             <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                             <li><a href={links.facebook}><i class="fa fa-facebook-square"></i></a></li>
+                             <li><a href={links.twitter}><i class="fa fa-twitter"></i></a></li>
+                             <li><a href={links.instagram}><i class="fa fa-instagram"></i></a></li>
+                             <li><a href={links.linkedin}><i class="fa fa-linkedin-square"></i></a></li>
                          </ul>
+                        }
                      </div>
                  </div>
                  <div class="col-lg-6">
@@ -42,9 +65,9 @@ const Navbar = (props) => {
     <section class="nav_section">
             <div class="container">
             <nav class="navbar px-0 navbar-expand-lg navbar-light">
-              <Link class="navbar-brand" to="/">
+              <a class="navbar-brand" href="/">
                   <img src="images/logo-main.svg" alt="logo" class="img-fluid"/>
-              </Link>
+              </a>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">
                 <span class="fa fa-bars"></span>
               </button>
