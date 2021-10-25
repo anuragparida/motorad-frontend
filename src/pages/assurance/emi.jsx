@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import Footer from "../../components/Footer";
 import MobileNavbar from "../../components/MobileNavbar";
 import Navbar from "../../components/Navbar";
@@ -18,6 +18,12 @@ const EMI = (props) => {
     </script>
     FIX LATER
   */}
+
+  const formRef = useRef(null);
+
+  const scrollToForm = () => {
+    formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+  }
 
   const sendEMI = async (e) => {
 
@@ -67,7 +73,7 @@ const EMI = (props) => {
                 about commiting to a cleaner envisonment.
               </p>
               <div class="hero_btn">
-                <a href="#">
+                <a href="javascript:void(0)" onClick={scrollToForm}>
                   Get Started
                 </a>
                 <a href="#">
@@ -169,7 +175,7 @@ const EMI = (props) => {
     <p>
        
     </p>
-    <section class="emi_plan_select_sec">
+    <section class="emi_plan_select_sec" ref={formRef}>
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-10">
@@ -179,7 +185,7 @@ const EMI = (props) => {
               </h6>
             </div>
             <div class="emi_plan_frm">
-              <form>
+              <form >
                 <div class="row">
                   <div class="col-lg-6">
                     <div class="form-group">

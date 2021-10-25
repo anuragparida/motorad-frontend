@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useState, useRef} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
 import { server } from "../../env";
 import axios from "axios";
+import { Link } from 'react-router-dom';
 
 const Partner = (props) => {
   // <script>
@@ -15,6 +16,13 @@ const Partner = (props) => {
   //         })
   //       });
   //   </script>
+
+  const formRef = useRef(null);
+  const [sendSuccess, setSendSuccess] = useState(false);
+
+  const scrollToForm = () => {
+    formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+  }
 
   const createPartner = async (e) => {
 
@@ -30,6 +38,7 @@ const Partner = (props) => {
     .post(server + "/api/partner/create", params)
     .then((rsp) => {
       console.log(rsp);
+      setSendSuccess(true);
     })
     .catch((err) => {
       console.log(err.response);
@@ -64,12 +73,10 @@ const Partner = (props) => {
                 about commiting to a cleaner envisonment.
               </p>
               <div class="hero_btn">
-                <a href="#">
-                  Get Started
-                </a>
-                <a href="#">
+                <a href="javascript:void(0)" onClick={scrollToForm}>Get Started</a>
+                <Link to="/about">
                   Learn About Us
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -123,84 +130,112 @@ const Partner = (props) => {
     <p>
        
     </p>
-    <section class="emi_plan_select_sec warrenty_section">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="emi_plan_head">
-              <h6>
-                Please Select A Bike For EMI Plans
-              </h6>
-            </div>
-            <div class="emi_plan_frm">
-              <form onSubmit={createPartner}>
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <label for="">
-                        Your Name
-                      </label>
-                      <input class="form-control" type="text" placeholder="Enter your Name" name="name" required/>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <label for="">
-                        Your Email Address
-                      </label>
-                      <input class="form-control" type="text" placeholder="Enter your email" name="email" required/>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <label for="">
-                        Contact Number
-                      </label>
-                      <input class="form-control" type="text" placeholder="Enter your Contact" name="contact" required/>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <label for="">
-                        Are you already a dealer?
-                      </label>
-                      <select name="isDealer" class="form-control" defaultValue={true}>
-                        <option value={true}>Yes</option>
-                        <option value={false}>No</option>
-                      </select>
-                      {/* <input class="form-control" type="checkbox" placeholder="Yes/No" name="name" required/> */}
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <label for="">
-                        Your City
-                      </label>
-                      <input class="form-control" type="text" placeholder="Enter City Name" name="city" required/>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <label for="">
-                        Your Address
-                      </label>
-                      <input class="form-control" type="text" placeholder="Enter your Address" name="address" required/>
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <div class="plan_submit_btn">
-                      <button type="submit">
-                        Submit
-                      </button>
-                    </div>
-                  </div>
+    {
+      sendSuccess ?
+      <section class="order_success_sec">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-7">
+              <div class="order_placed_wrap">
+                <img src="images/big_check.svg" alt="a" class="img-fluid" />
+                <h3>
+                  Your response has<br />
+                  been sent successfully.
+                </h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                  id ullamcorper sem. Phasellus vitae dui erat. Donec ligula erat,
+                  venenatis vitae molestie vel, dapibus nec libero.
+                </p>
+                <div class="ordr_placed_btnns">
+                  <a href="/">Go to HomePage</a>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      :
+      <section class="emi_plan_select_sec warrenty_section" ref={formRef}>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-10">
+              <div class="emi_plan_head">
+                <h6>
+                  Please Select A Bike For EMI Plans
+                </h6>
+              </div>
+              <div class="emi_plan_frm">
+                <form onSubmit={createPartner}>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="">
+                          Your Name
+                        </label>
+                        <input class="form-control" type="text" placeholder="Enter your Name" name="name" required/>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="">
+                          Your Email Address
+                        </label>
+                        <input class="form-control" type="text" placeholder="Enter your email" name="email" required/>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="">
+                          Contact Number
+                        </label>
+                        <input class="form-control" type="text" placeholder="Enter your Contact" name="contact" required/>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="">
+                          Are you already a dealer?
+                        </label>
+                        <select name="isDealer" class="form-control" defaultValue={true}>
+                          <option value={true}>Yes</option>
+                          <option value={false}>No</option>
+                        </select>
+                        {/* <input class="form-control" type="checkbox" placeholder="Yes/No" name="name" required/> */}
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="">
+                          Your City
+                        </label>
+                        <input class="form-control" type="text" placeholder="Enter City Name" name="city" required/>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="">
+                          Your Address
+                        </label>
+                        <input class="form-control" type="text" placeholder="Enter your Address" name="address" required/>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="plan_submit_btn">
+                        <button type="submit">
+                          Submit
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    }
+    
 
     <Footer/>
     </>

@@ -1,17 +1,24 @@
-import React from "react";
+import React, {useState} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
 import { server } from "../../env";
 import Cookies from "js-cookie";
 import axios from "axios";
+import Alert from './../../components/Alert';
+import Loader from './../../components/Loader';
 import { Link } from 'react-router-dom';
 
 const Signup = (props) => {
 
+  const [message, setMessage] = useState("");
+  const [loader, setLoader] = useState("");
+
   const signup = async (e) => {
 
     e.preventDefault();
+
+    setLoader(<Loader/>);
 
     var params = Array.from(e.target.elements)
       .filter((el) => el.name)
@@ -34,7 +41,9 @@ const Signup = (props) => {
       .post(server + "/api/user/signup", params)
       .then((rsp) => {
         console.log(rsp);
-        this.props.history.push("/verifyEmail");
+        setMessage(<Alert className="success" message={rsp.data.message} />);
+        setLoader("");
+        window.location.href = "/login"; //CHANGE THIS
       })
       .catch((error) => {
       });
@@ -63,6 +72,7 @@ const Signup = (props) => {
                 <img src="images/or.svg" alt="or" class="img-fluid" /> */}
               </div>
               <form onSubmit={signup}>
+                {message}
                 <div class="form-group">
                   <label for="">Your Name</label>
                   <input
@@ -96,7 +106,7 @@ const Signup = (props) => {
                 </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn_submit">
-                    Create Account
+                    Create Account {loader}
                   </button>
                 </div>
               </form>

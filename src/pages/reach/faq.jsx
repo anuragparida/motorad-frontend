@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
+import { server } from "../../env";
+import axios from "axios";
 
 const FAQ = (props) => {
   // <script>
@@ -13,6 +15,27 @@ const FAQ = (props) => {
   //         })
   //       });
   //   </script>
+
+  const [faq, setFaq] = useState([]);
+
+  const loadFAQ = async () => {
+    await axios
+    .get(server + "/api/faq/read")
+    .then((rsp) => {
+      console.log(rsp);
+      setFaq(rsp.data.payload.filter(el => el.type==="General"));
+    })
+    .catch((err) => {
+      console.log(err.response);
+      if (err.response) {
+      }
+    });
+  }
+
+  useEffect(()=>{
+    loadFAQ();
+  }, []);
+
   return(
     <>
     <Navbar/>
@@ -38,198 +61,29 @@ const FAQ = (props) => {
             <div class="faq_txt_wrap">
               <div class="bs-example">
                 <div id="accordionExample" class="accordion">
-                  <div class="card">
-                    <div id="headingOne" class="card-header">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne">
-                          What is the life of the battery?
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseOne" class="collapse" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula, arcu a dictum dignissim, diam nulla porta mi, vitae sollicitudin mi lacus eu mi. Vestibulum in urna vel sapien semper egestas. Morbi ut pharetra urna. Aliquam fringilla vel neque bibendum molestie.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div id="headingTwo" class="card-header">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo">
-                          Is EMI available?
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula, arcu a dictum dignissim, diam nulla porta mi, vitae sollicitudin mi lacus eu mi. Vestibulum in urna vel sapien semper egestas. Morbi ut pharetra urna. Aliquam fringilla vel neque bibendum molestie.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div id="headingThree" class="card-header">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree">
-                          Where can I buy the bike?
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseThree" class="collapse" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula, arcu a dictum dignissim, diam nulla porta mi, vitae sollicitudin mi lacus eu mi. Vestibulum in urna vel sapien semper egestas. Morbi ut pharetra urna. Aliquam fringilla vel neque bibendum molestie.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div id="headingThreea" class="card-header">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThreea">
-                          What servicing is required?
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseThreea" class="collapse" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula, arcu a dictum dignissim, diam nulla porta mi, vitae sollicitudin mi lacus eu mi. Vestibulum in urna vel sapien semper egestas. Morbi ut pharetra urna. Aliquam fringilla vel neque bibendum molestie.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div id="headingThreeas" class="card-header">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThreeas">
-                          What is the warranty policy?
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseThreeas" class="collapse" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula, arcu a dictum dignissim, diam nulla porta mi, vitae sollicitudin mi lacus eu mi. Vestibulum in urna vel sapien semper egestas. Morbi ut pharetra urna. Aliquam fringilla vel neque bibendum molestie.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div id="headingThreeasv" class="card-header">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThreeasv">
-                          Is the bike waterproof?
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseThreeasv" class="collapse" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula, arcu a dictum dignissim, diam nulla porta mi, vitae sollicitudin mi lacus eu mi. Vestibulum in urna vel sapien semper egestas. Morbi ut pharetra urna. Aliquam fringilla vel neque bibendum molestie.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div id="headingThreeasx" class="card-header">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThreeasx">
-                          Is the battery removable?
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseThreeasx" class="collapse" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula, arcu a dictum dignissim, diam nulla porta mi, vitae sollicitudin mi lacus eu mi. Vestibulum in urna vel sapien semper egestas. Morbi ut pharetra urna. Aliquam fringilla vel neque bibendum molestie.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div id="headingThreeasb" class="card-header">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThreeasb">
-                          What is the range of the bike?
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseThreeasb" class="collapse" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula, arcu a dictum dignissim, diam nulla porta mi, vitae sollicitudin mi lacus eu mi. Vestibulum in urna vel sapien semper egestas. Morbi ut pharetra urna. Aliquam fringilla vel neque bibendum molestie.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div id="headingThreeasbf" class="card-header">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThreeasbf">
-                          How much do the bikes weight?
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseThreeasbf" class="collapse" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula, arcu a dictum dignissim, diam nulla porta mi, vitae sollicitudin mi lacus eu mi. Vestibulum in urna vel sapien semper egestas. Morbi ut pharetra urna. Aliquam fringilla vel neque bibendum molestie.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div id="headingThreeasbfg" class="card-header">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThreeasbfg">
-                          What all riding modes are there?
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseThreeasbfg" class="collapse" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula, arcu a dictum dignissim, diam nulla porta mi, vitae sollicitudin mi lacus eu mi. Vestibulum in urna vel sapien semper egestas. Morbi ut pharetra urna. Aliquam fringilla vel neque bibendum molestie.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div id="headingThreeasbfgk" class="card-header">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThreeasbfgk">
-                          Cost to charge the complete battery?
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseThreeasbfgk" class="collapse" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula, arcu a dictum dignissim, diam nulla porta mi, vitae sollicitudin mi lacus eu mi. Vestibulum in urna vel sapien semper egestas. Morbi ut pharetra urna. Aliquam fringilla vel neque bibendum molestie.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div id="headingThreeasbfgkr" class="card-header">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThreeasbfgkr">
-                          How long does it take to charge the battery?
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseThreeasbfgkr" class="collapse" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula, arcu a dictum dignissim, diam nulla porta mi, vitae sollicitudin mi lacus eu mi. Vestibulum in urna vel sapien semper egestas. Morbi ut pharetra urna. Aliquam fringilla vel neque bibendum molestie.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                  {
+                    faq.map(f => {
+                      return(
+                        <div class="card">
+                          <div id={"heading" + f.id} class="card-header">
+                            <h2 class="mb-0">
+                              <button class="btn btn-link" type="button" data-toggle="collapse" data-target={"#collapse" + f.id}>
+                                {f.question}
+                              </button>
+                            </h2>
+                          </div>
+                          <div id={"collapse" + f.id} class="collapse" data-parent="#accordionExample">
+                            <div class="card-body">
+                              <p>
+                                {f.answer}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })
+                  }
+                  
                 </div>
               </div>
             </div>

@@ -2,9 +2,13 @@ import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { server, config, checkAccess } from "../env";
+import isLoggedIn from './../utils/checkLogin';
+import Cookies from 'js-cookie';
 
 const Navbar = (props) => {
+
   const [links, setLinks] = useState({});
+  const [logged, setLogged] = useState(false);
 
   const loadLinks = async() => {
     await axios
@@ -18,10 +22,16 @@ const Navbar = (props) => {
         console.error(err);
       });
   }
+  const logout = () => {
+    Cookies.remove("token");
+    window.location.reload();
+  }
 
   useEffect(() => {
     loadLinks();
+    setLogged(isLoggedIn());
   }, []);
+  
 
   return(
     <div class="navbar_static">
@@ -138,17 +148,44 @@ const Navbar = (props) => {
                        <ul>
                            {/* <li><a href="javascript:void(0)"><img src="images/search_icon.svg" alt="logo" class="img-fluid"/></a></li> */}
                            <li>
-                               <a href="javascript:void(0)" class="drp_dwn_clk_4"><img src="images/user_icon.svg" alt="logo" class="img-fluid"/></a>
+                               <a href="javascript:void(0)" class="drp_dwn_clk_4">
+                                   {
+                                       logged ?
+                                       <img src="images/user_2_icon.svg" alt="logo" class="img-fluid"/>
+                                       :
+                                       <img src="images/user_icon.svg" alt="logo" class="img-fluid"/>
+                                   }
+                                </a>
                                <ul class="assurance_drop_dwn_4">
-                                 <li>
-                                     <Link to="/signup">Sign Up</Link>
-                                 </li>
-                                 <li>
-                                     <Link to="/login">Log In</Link>
-                                 </li>
+                                   {
+                                       logged ?
+                                       <li>
+                                            <a href="javascript:void(0)" onClick={logout}>Logout</a>
+                                        </li>
+                                        :
+                                        <>
+                                            <li>
+                                                <Link to="/signup">Sign Up</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/login">Log In</Link>
+                                            </li>
+                                        </>
+                                   }
+                                 
                              </ul>
                            </li>
-                           <li><Link to="/cart"><img src="images/troli_icon.svg" alt="logo" class="img-fluid"/></Link></li>
+                           <li>
+                               <Link to="/cart">
+                               {
+                                    logged ?
+                                    <img src="images/trolly_green.svg" alt="logo" class="img-fluid"/>
+                                    :
+                                    <img src="images/troli_icon.svg" alt="logo" class="img-fluid"/>
+                                }
+                                
+                               </Link>
+                            </li>
                        </ul>
                  </form>
               </div>

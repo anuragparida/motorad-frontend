@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
@@ -6,6 +6,8 @@ import { server } from "../../env";
 import axios from "axios";
 
 const Community = (props) => {
+
+  const [sendSuccess, setSendSuccess] = useState(false);
 
   const createCommunity = async (e) => {
 
@@ -19,6 +21,7 @@ const Community = (props) => {
     .post(server + "/api/community/create", params)
     .then((rsp) => {
       console.log(rsp);
+      setSendSuccess(true);
     })
     .catch((err) => {
       console.log(err.response);
@@ -68,6 +71,32 @@ const Community = (props) => {
     <p>
        
     </p>
+    {
+      sendSuccess ? 
+      <section class="order_success_sec">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-7">
+              <div class="order_placed_wrap">
+                <img src="images/big_check.svg" alt="a" class="img-fluid" />
+                <h3>
+                  Your response has<br />
+                  been sent successfully.
+                </h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                  id ullamcorper sem. Phasellus vitae dui erat. Donec ligula erat,
+                  venenatis vitae molestie vel, dapibus nec libero.
+                </p>
+                <div class="ordr_placed_btnns">
+                  <a href="/">Go to HomePage</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    :
     <section class="emi_plan_select_sec warrenty_section">
       <div class="container">
         <div class="row justify-content-center">
@@ -135,6 +164,8 @@ const Community = (props) => {
         </div>
       </div>
     </section>
+    }
+    
 
     <Footer/>
     </>

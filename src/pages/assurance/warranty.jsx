@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useRef} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
@@ -17,6 +17,11 @@ const Warranty = (props) => {
   //   </script>
 
   const [sendSuccess, setSendSuccess] = useState(false);
+  const formRef = useRef(null);
+
+  const scrollToForm = () => {
+    formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+  }
 
   const sendWarranty = async (e) => {
 
@@ -56,9 +61,12 @@ const Warranty = (props) => {
                       <h6>WARRANTY</h6>
                        <h2>Activate your <br/> <span>Warranty</span></h2>
                        <p>Activate your warranty for peace of mind and ride <br/> assured that your vehicle is covered and protected.</p>
-                       <div class="hero_btn">
-                           <a href="#">Activate</a>
-                           <a href="#">Explore RSA</a>
+                       <div class="hero_btn rsa_hero_btn">
+                           <a href="javascript:void(0)" onClick={scrollToForm}>Activate</a>
+                           <a href="#">
+                           <img class="img-fluid" src="images/download_w_icon.svg" alt="a" />
+                                Download
+                           </a>
                        </div>
                    </div>
                  </div>
@@ -106,7 +114,7 @@ const Warranty = (props) => {
      </section>
      {
        ! sendSuccess ?
-       <section class="emi_plan_select_sec warrenty_section">
+       <section class="emi_plan_select_sec warrenty_section" ref={formRef}>
          <div class="container">
              <div class="row justify-content-center">
                  <div class="col-lg-10">

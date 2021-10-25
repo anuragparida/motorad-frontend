@@ -254,6 +254,13 @@ img {
   background: transparent;
   color: #10b068;
 }
+.loaderSpinner {
+  color: #f3f9fd;
+}
+.filtr_job_frm form .form-group .btn_submit:hover .loaderSpinner,
+.signup_frm_wrap form .form-group .btn_submit:hover .loaderSpinner {
+  color: #10b068;
+}
 .login_links p {
   font-style: normal;
   font-weight: 600;

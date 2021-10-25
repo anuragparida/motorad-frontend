@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
@@ -16,6 +16,8 @@ const Contact = (props) => {
   //       });
   //   </script>
 
+  const [sendSuccess, setSendSuccess] = useState(false);
+
   const createContact = async (e) => {
 
     e.preventDefault();
@@ -28,6 +30,7 @@ const Contact = (props) => {
     .post(server + "/api/contact/create", params)
     .then((rsp) => {
       console.log(rsp);
+      setSendSuccess(true);
     })
     .catch((err) => {
       console.log(err.response);
@@ -106,64 +109,92 @@ const Contact = (props) => {
     <p>
        
     </p>
-    <section class="emi_plan_select_sec warrenty_section">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="emi_plan_head">
-              <h6>
-                Ask any Query
-              </h6>
-            </div>
-            <div class="emi_plan_frm">
-              <form onSubmit={createContact}>
-                <div class="row">
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <label for="">
-                        Your Name
-                      </label>
-                      <input class="form-control" type="text" placeholder="Enter your Name" name="name" required/>
-                    </div>
-                  </div>
-                  <div class="col-lg-6">
-                    <div class="form-group">
-                      <label for="">
-                        Your Email Address
-                      </label>
-                      <input class="form-control" type="email" placeholder="Enter Email Address" name="email" required/>
-                    </div>
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="form-group">
-                      <label for="">
-                        Your Contact Number
-                      </label>
-                      <input class="form-control" type="number" placeholder="Enter Contact Number" name="contact" required/>
-                    </div>
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="form-group">
-                      <label for="">
-                        Message
-                      </label>
-                      <input class="form-control" type="text" placeholder="Your Message" name="message" required/>
-                    </div>
-                  </div>
-                  <div class="col-lg-12">
-                    <div class="plan_submit_btn text-center">
-                      <button type="submit">
-                        Submit
-                      </button>
-                    </div>
-                  </div>
+    {
+      sendSuccess ?
+      <section class="order_success_sec">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-7">
+              <div class="order_placed_wrap">
+                <img src="images/big_check.svg" alt="a" class="img-fluid" />
+                <h3>
+                  Your response has<br />
+                  been sent successfully.
+                </h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                  id ullamcorper sem. Phasellus vitae dui erat. Donec ligula erat,
+                  venenatis vitae molestie vel, dapibus nec libero.
+                </p>
+                <div class="ordr_placed_btnns">
+                  <a href="/">Go to HomePage</a>
                 </div>
-              </form>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+      :
+      <section class="emi_plan_select_sec warrenty_section">
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-10">
+              <div class="emi_plan_head">
+                <h6>
+                  Ask any Query
+                </h6>
+              </div>
+              <div class="emi_plan_frm">
+                <form onSubmit={createContact}>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="">
+                          Your Name
+                        </label>
+                        <input class="form-control" type="text" placeholder="Enter your Name" name="name" required/>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="">
+                          Your Email Address
+                        </label>
+                        <input class="form-control" type="email" placeholder="Enter Email Address" name="email" required/>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label for="">
+                          Your Contact Number
+                        </label>
+                        <input class="form-control" type="number" placeholder="Enter Contact Number" name="contact" required/>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="form-group">
+                        <label for="">
+                          Message
+                        </label>
+                        <input class="form-control" type="text" placeholder="Your Message" name="message" required/>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="plan_submit_btn text-center">
+                        <button type="submit">
+                          Submit
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    }
+    
 
     <Footer/>
     </>
