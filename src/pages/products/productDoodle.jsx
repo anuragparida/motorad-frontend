@@ -10,13 +10,29 @@ import isLoggedIn from './../../utils/checkLogin';
 
 const ProductDOODLE = (props) => {
 
-  const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
   const [productID, setProductID] = useState("");
 
   useEffect(() => {
     AOS.init();
     loadProducts();
+    window.enterView({
+      selector: "section",
+      enter: function (el) {
+        el.classList.add("entered");
+      },
+    });
+
+    var frameNumber = 0,
+      playbackConst = 1000,
+      vid = document.getElementById("v0");
+    function scrollPlay() {
+      var frameNumber = window.pageYOffset / playbackConst;
+      vid.currentTime = frameNumber;
+      window.requestAnimationFrame(scrollPlay);
+    }
+
+    window.requestAnimationFrame(scrollPlay);
   }, []);
 
   const loadProducts = async() => {
@@ -24,18 +40,16 @@ const ProductDOODLE = (props) => {
       .get(server + "/api/product/read", config)
       .then((rsp) => {
         console.log(rsp);
-        setProducts(rsp.data.payload.filter(prod => prod.name === "DOODLE"));
-        setProductID(rsp.data.payload.filter(prod => prod.name === "DOODLE")[0].id || 1); //CHANGE THIS
-      })
-      .catch((err) => {
-        checkAccess(err);
-        console.error(err);
-      });
-    await axios
-      .get(server + "/api/product/read", config)
-      .then((rsp) => {
-        console.log(rsp);
-        setCart(rsp.data.payload);
+        const filteredRsp = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"));
+        if (filteredRsp.length > 0) {
+          console.log(filteredRsp);
+          setProducts(filteredRsp);
+          setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].id);
+        }
+        else {
+          setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
+          setProductID(1);
+        }
       })
       .catch((err) => {
         checkAccess(err);
@@ -48,28 +62,41 @@ const ProductDOODLE = (props) => {
       window.location.href = "/login";
     }
     else{
-      
-      const params = {
-        "product": [
-          ...cart.product.filter(element => element.id !== productID), 
-          {
-            "id": productID,
-            "amount": 1
-          }
-        ],
-        "accessories": cart.accessories
-      }
       await axios
+        .get(server + "/api/cart/read", config)
+        .then((rsp) => {
+          console.log(rsp);
+          updateCart(rsp.data.payload[0]);
+        })
+        .catch((err) => {
+          checkAccess(err);
+          console.error(err);
+        });
+    }
+  }
+
+  const updateCart = async (payload) => {
+    const params = {
+      "product": [
+        ...payload.product.filter(element => element.id !== productID),
+        {
+          "id": productID,
+          "amount": 1
+        }
+      ],
+      "accessories": payload.accessories
+    };
+    console.log("param", params)
+    await axios
       .put(server + "/api/cart/update", params, config)
       .then((rsp) => {
-        console.log(rsp); //CHANGE THIS
+        console.log(rsp.data); //CHANGE THIS
         window.location.href = "/cart";
       })
       .catch((err) => {
         checkAccess(err);
         console.error(err);
       });
-    }
   }
 
   return(

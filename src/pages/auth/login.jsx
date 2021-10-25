@@ -8,6 +8,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 import Alert from './../../components/Alert';
 import Loader from './../../components/Loader';
+import GoogleLogin from 'react-google-login';
 
 const Login = (props) => {
 
@@ -57,6 +58,48 @@ const Login = (props) => {
 
   }
 
+  const googleLogin = (rsp) => {
+    console.log(rsp);
+    // const gapi = window.gapi;
+
+    // gapi.load("auth2", function () {
+    //   let auth2 = gapi.auth2.init({
+    //     client_id: GOOGLE_CLIENT_ID,
+    //   });
+    //   auth2.grantOfflineAccess().then((token) => {
+    //     const params = {
+    //       token: token.code,
+    //     };
+
+    //     self.setState({
+    //       loader: <Loader />,
+    //       message: "",
+    //     });
+
+    //     axios
+    //       .post(server + "/v1/auth/google", params)
+    //       .then((rsp) => {
+    //         Cookies.set("token", rsp.data.payload.token);
+    //         self.setState({
+    //           loader: "",
+    //           message: <Alert className="success" message={rsp.data.detail} />,
+    //         });
+    //         window.location.href = "/";
+    //       })
+    //       .catch((err) => {
+    //         self.setState({
+    //           message: (
+    //             <Alert className="warning" message={err.response.data.detail} />
+    //           ),
+    //           loader: "",
+    //         });
+    //       });
+    //   });
+    // });
+
+
+  };
+
   return(
     <>
     <Navbar/>
@@ -74,6 +117,13 @@ const Login = (props) => {
                   consectetur adipiscing elit ut aliquam.
                 </p>
                 <a href="#"><i class="fa fa-google"></i>Sign Up with Google</a>
+                {/* <GoogleLogin
+                  clientId="http://170043377049-kct15ngvlq8dvk14d5fas47fc1ugpq4r.apps.googleusercontent.com"
+                  buttonText="Login"
+                  onSuccess={googleLogin}
+                  onFailure={googleLogin}
+                  cookiePolicy={'single_host_origin'}
+                /> */}
                 <a href="#" class="blue_bg"
                   ><i class="fa fa-facebook"></i>Sign Up with Facebook</a
                 >

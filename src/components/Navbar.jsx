@@ -143,13 +143,13 @@ const Navbar = (props) => {
                 </div>
                 <div class="col-lg-3">
                     <div class="bog_drop_wraps">
-                        <img src="images/bicycle_2.png" alt="a" class="img-fluid"/>
+                        <img src="images/bicycle_3.png" alt="a" class="img-fluid"/>
                         <Link to="/emx">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
                     </div>
                 </div>
                 <div class="col-lg-3">
                     <div class="bog_drop_wraps">
-                        <img src="images/bicycle_3.png" alt="a" class="img-fluid"/>
+                        <img src="images/bicycle_2.png" alt="a" class="img-fluid"/>
                         <Link to="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
                     </div>
                 </div>

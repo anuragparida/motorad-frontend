@@ -8,6 +8,7 @@ import isLoggedIn from './../utils/checkLogin';
 
 const Cart = (props) => {
 
+  const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
   const [displayData, setDisplayData] = useState([]);
@@ -25,10 +26,8 @@ const Cart = (props) => {
       await axios
       .get(server + "/api/cart/read", config)
       .then((rsp) => {
-        console.log(rsp); //CHANGE THIS
-        const localCart = rsp.data.payload;
-        setCart(rsp.data.payload);
-        localCart.product.forEach()
+        console.log(rsp);
+        setCart(rsp.data.payload[0]);
       })
       .catch((err) => {
         checkAccess(err);
@@ -37,16 +36,81 @@ const Cart = (props) => {
     }
   }
 
+  const loadProducts = async() => {
+    await axios
+      .get(server + "/api/product/read", config)
+      .then((rsp) => {
+        console.log(rsp);
+        setProducts(rsp.data.payload);
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
+  }
+
   const calculateAmount = (netAmount) => {
     setTotalAmount(Math.ceil(netAmount * 1.05));
   }
 
   useEffect(() => {
     loadCart();
+    loadProducts();
   }, []);
+
+  useEffect(() => {
+    let localCart = [], localAmount = 0;
+    if("id" in cart && products.length > 0) {
+      console.log(cart, products);
+
+      let localProduct = {}
+      cart.product.forEach((element) => {
+
+        localProduct = products.filter(elem => elem.id === element.id)[0];
+        localProduct.quantity = element.amount;
+        localCart.push(localProduct);
+
+        localAmount += localProduct.price2;
+
+      });
+      setNetAmount(localAmount)
+      console.log("local", localCart)
+      setDisplayData(localCart);
+    }
+  }, [cart, products]);
+
+  useEffect(() => {
+    console.log(displayData)
+    calculateAmount(netAmount);
+  }, [netAmount]);
 
   const createOrder = async () => {
     //setOrderSuccess(true);
+  }
+
+  const updateCart = async (params) => {
+    await axios
+      .put(server + "/api/cart/update", params, config)
+      .then((rsp) => {
+        console.log(rsp.data); //CHANGE THIS
+        // window.location.href = "/cart";
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
+  }
+
+  const deleteItem = async (id) => {
+    const params = {
+      "product": [
+        ...cart.product.filter(element => element.id !== id),
+      ],
+      "accessories": []
+    };
+    console.log("params", params);
+    updateCart(params);
+    window.location.reload();
   }
 
   return(
@@ -105,21 +169,21 @@ const Cart = (props) => {
                   </thead>
                   <tbody>
                     {
-                      cart.map((item) =>
+                      displayData.map((item) =>
                         <tr>
                           <td>
                             <img
-                              src={item[4]}
+                              src="images/cycle_warenty.png"
                               alt="a"
                               class="img-fluid"
                             />
                           </td>
                           <td>
-                            <h5>{item[0]}</h5>
-                            <p>Color : <i class="fa fa-circle" style={{"color": item[1]}}></i></p>
+                            <h5>{item.name}</h5>
+                            <p>Color : <i class="fa fa-circle" style={{"color": item.color}}></i></p>
                           </td>
                           <td>
-                            <h5>₹ {item[2]}</h5>
+                            <h5>₹ {item.price2}</h5>
                           </td>
                           <td>
                             <div class="incre">
@@ -131,7 +195,7 @@ const Cart = (props) => {
                                 name="qty"
                                 class="qty"
                                 maxlength="12"
-                                value={item[3]}
+                                value={item.quantity}
                                 class="input-text qty"
                               />
 
@@ -141,13 +205,13 @@ const Cart = (props) => {
                             </div>
                           </td>
                           <td>
-                            <h5>₹ {item[2] * item[3]}</h5>
+                            <h5>₹ {item.price2 * item.quantity}</h5>
                           </td>
                           <td>
                             <a href="javascript:void(0)"
-                            // onClick={() => {
-                            //   setDisplayCart(displayCart.filter(i => i !== item))
-                            // }}
+                            onClick={() => {
+                              deleteItem(item.id)
+                            }}
                               ><img
                                 src="images/close_ic.png"
                                 alt="x"

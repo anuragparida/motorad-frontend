@@ -25,8 +25,8 @@ const Landing = (props) => {
                      </div>
                      <div class="home_hero_bike_title">
                          <Link to="/doodle"><h3 class="text-outline text-outline-hover" data-text="DOODLE">DOODLE</h3></Link>
-                         <Link to="/doodle"><h3 class="text-outline text-outline-hover" data-text="EMX">EMX</h3></Link>
-                         <Link to="/doodle"><h3 class="text-outline text-outline-hover" data-text="T-REX">T-REX</h3></Link>
+                         <Link to="/emx"><h3 class="text-outline text-outline-hover" data-text="EMX">EMX</h3></Link>
+                         <Link to="/trex"><h3 class="text-outline text-outline-hover" data-text="T-REX">T-REX</h3></Link>
                      </div>
                  </div>
              </div>
@@ -74,9 +74,9 @@ const Landing = (props) => {
                              <div class="row">
                                  <div class="col-lg-6">
                                      <div class="dual_suspension_txt">
-                                         <h3>India’s First <span>Dual Suspension</span> E-Bike</h3>
+                                         <h3>The <span>SUV</span> of EBikes <span>Doodle</span></h3>
 
-                                         <p>City riding is now a breeze as you traverse across town without any fuss or effort. The EMX is designed for the city; traffic, uneven roads and slopes included. India’s first dual suspension e-cycle.</p>
+                                         <p>Best in Class Foldable Electric Bike Its small size might make you think this is a fun little ride, but the Doodle has power to spare when you are in the mood for adventure. And when you don’t, you can fold it away. From sandy beaches to city roads, this bike has the oomph and the portability that will tempt you to take it with you wherever you may go. </p>
                                      </div>
                                      <div class="row">
                                          <div class="col-lg-10">
@@ -106,7 +106,7 @@ const Landing = (props) => {
                                                      <div class="suspension_wrap">
                                                         <img src="images/battrey_icon.svg" alt="a" class="img-fluid"/>
                                                          <h6>BATTERY</h6>
-                                                         <p>36 Volts <br/> (10.4 Ah Powerful Battery)</p>
+                                                         <p>36 Volts <br/> (10 Ah Powerful Battery)</p>
                                                      </div>
                                                  </div>
                                                  <div class="col-lg-12">
@@ -121,7 +121,7 @@ const Landing = (props) => {
                                  </div>
                                  <div class="col-lg-6">
                                      <div class="suspension_img" data-aos="zoom-in-up" data-aos-duration="2000">
-                                         <a href="#"><img src="images/DOODLE.gif" alt="a" class="img-fluid"/></a>
+                                         <a href="/doodle"><img src="images/DOODLE.gif" alt="a" class="img-fluid"/></a>
                                      </div>
                                  </div>
                              </div>
@@ -131,9 +131,9 @@ const Landing = (props) => {
                              <div class="row">
                                  <div class="col-lg-6">
                                      <div class="dual_suspension_txt">
-                                         <h3>India’s First <span>Dual Suspension</span> E-Bike</h3>
+                                        <h3>Designed for <span>all Terrains</span></h3>
 
-                                         <p>City riding is now a breeze as you traverse across town without any fuss or effort. The EMX is designed for the city; traffic, uneven roads and slopes included. India’s first dual suspension e-cycle.</p>
+                                         <p>The TREX lets you make the most of the mountain bike. Now, you can go further and climb higher with our powerful motor, intuitive controls and lightweight, yet rigid frames. Every part has been designed to seamlessly integrate into a truly magnificent experience as you explore the trails.  </p>
                                      </div>
                                      <div class="row">
                                          <div class="col-lg-10">
@@ -300,7 +300,7 @@ const Landing = (props) => {
                                  <img src="images/video_play_img.png" alt="a" class="img-fluid"/>
                              </div>
                              <div class="vdo_play_icon">
-                                <a class="venobox" data-vbtype="video" href="https://youtu.be/GL0rbxB9Lqg">
+                                <a class="venobox" data-vbtype="video" href="https://www.youtube.com/watch?v=wIYEWSz5wpg">
                                     <img src="images/vdo_play_icon.svg" alt="a" class="img-fluid"/>
                                 </a>
                              </div>
@@ -521,7 +521,7 @@ const Landing = (props) => {
                                  <td>Colors</td>
                              </tr>
                              <tr>
-                                 <td>Rs 36,999</td>
+                                 <td>Rs 37,142</td>
                                  <td><i class="fa fa-circle"></i> <i class="fa fa-circle"></i></td>
                              </tr>
                          </table>
@@ -562,7 +562,7 @@ const Landing = (props) => {
                                  <td>Colors</td>
                              </tr>
                              <tr>
-                                 <td>Rs 36,999</td>
+                                 <td>Rs 52,380</td>
                                  <td><i class="fa fa-circle" style={{"color": "#DBFF00"}}></i></td>
                              </tr>
                          </table>
@@ -603,7 +603,7 @@ const Landing = (props) => {
                                  <td>Colors</td>
                              </tr>
                              <tr>
-                                 <td>Rs 36,999</td>
+                                 <td>Rs 76,190</td>
                                  <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{"color": "#10B068"}}></i></td>
                              </tr>
                          </table>

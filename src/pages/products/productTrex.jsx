@@ -8,46 +8,30 @@ import { server, config, checkAccess } from "../../env";
 import isLoggedIn from './../../utils/checkLogin';
 
 const ProductTREX = (props) => {
-  // <script>
-  //     enterView({
-  //       selector: "section",
-  //       enter: function (el) {
-  //         el.classList.add("entered");
-  //       },
-  //     });
 
-  //     var frameNumber = 0, // start video at frame 0
-  //       // lower numbers = faster playback
-  //       playbackConst = 1000,
-  //       // get page height from video duration
-  //       setHeight = document.getElementById("set-height"),
-  //       // select video element
-  //       vid = document.getElementById("v0");
-  //     // var vid = $('#v0')[0]; // jquery option
-
-  //     // dynamically set the page height according to video length
-  //     vid.addEventListener("loadedmetadata", function () {
-  //       setHeight.style.height =
-  //         Math.floor(vid.duration) * playbackConst + "px";
-  //     });
-
-  //     // Use requestAnimationFrame for smooth playback
-  //     function scrollPlay() {
-  //       var frameNumber = window.pageYOffset / playbackConst;
-  //       vid.currentTime = frameNumber;
-  //       window.requestAnimationFrame(scrollPlay);
-  //     }
-
-  //     window.requestAnimationFrame(scrollPlay);
-  //   </script>
-
-  const [cart, setCart] = useState([]);
   const [products, setProducts] = useState([]);
   const [productID, setProductID] = useState("");
 
   useEffect(() => {
     AOS.init();
     loadProducts();
+    window.enterView({
+      selector: "section",
+      enter: function (el) {
+        el.classList.add("entered");
+      },
+    });
+
+    var frameNumber = 0,
+      playbackConst = 1000,
+      vid = document.getElementById("v0");
+    function scrollPlay() {
+      var frameNumber = window.pageYOffset / playbackConst;
+      vid.currentTime = frameNumber;
+      window.requestAnimationFrame(scrollPlay);
+    }
+
+    window.requestAnimationFrame(scrollPlay);
   }, []);
 
   const loadProducts = async() => {
@@ -55,18 +39,16 @@ const ProductTREX = (props) => {
       .get(server + "/api/product/read", config)
       .then((rsp) => {
         console.log(rsp);
-        setProducts(rsp.data.payload.filter(prod => prod.name === "EMX"));
-        setProductID(rsp.data.payload.filter(prod => prod.name === "EMX")[0].id || 1); //CHANGE THIS
-      })
-      .catch((err) => {
-        checkAccess(err);
-        console.error(err);
-      });
-    await axios
-      .get(server + "/api/product/read", config)
-      .then((rsp) => {
-        console.log(rsp);
-        setCart(rsp.data.payload);
+        const filteredRsp = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"));
+        if (filteredRsp.length > 0) {
+          console.log(filteredRsp);
+          setProducts(filteredRsp);
+          setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].id);
+        }
+        else {
+          setProducts([{color: "yellow", id: 1}])
+          setProductID(3);
+        }
       })
       .catch((err) => {
         checkAccess(err);
@@ -79,28 +61,41 @@ const ProductTREX = (props) => {
       window.location.href = "/login";
     }
     else{
-      
-      const params = {
-        "product": [
-          ...cart.product.filter(element => element.id !== productID), 
-          {
-            "id": productID,
-            "amount": 1
-          }
-        ],
-        "accessories": cart.accessories
-      }
       await axios
+        .get(server + "/api/cart/read", config)
+        .then((rsp) => {
+          console.log(rsp);
+          updateCart(rsp.data.payload[0]);
+        })
+        .catch((err) => {
+          checkAccess(err);
+          console.error(err);
+        });
+    }
+  }
+
+  const updateCart = async (payload) => {
+    const params = {
+      "product": [
+        ...payload.product.filter(element => element.id !== productID),
+        {
+          "id": productID,
+          "amount": 1
+        }
+      ],
+      "accessories": payload.accessories
+    };
+    console.log("param", params)
+    await axios
       .put(server + "/api/cart/update", params, config)
       .then((rsp) => {
-        console.log(rsp); //CHANGE THIS
+        console.log(rsp.data); //CHANGE THIS
         window.location.href = "/cart";
       })
       .catch((err) => {
         checkAccess(err);
         console.error(err);
       });
-    }
   }
 
   return(
@@ -240,10 +235,7 @@ const ProductTREX = (props) => {
               <div id="bound-two" class="scroll-bound">
                 <div class="content">
                   <video id="v0" tabindex="0" autobuffer muted preload>
-                    <source
-                      src="images/3D-Renders/T-Rex-Full-FFMpeg.mp4"
-                      type="video/mp4"
-                    />
+                    
                     <source
                       src="images/3D-Renders/T-Rex-Mobile-FFMpeg.mp4"
                       type="video/mp4"

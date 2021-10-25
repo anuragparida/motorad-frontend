@@ -56,11 +56,11 @@ const Signup = (props) => {
                   Lorem ipsum dolor sit amet, <br />
                   consectetur adipiscing elit ut aliquam.
                 </p>
-                <a href="#"><i class="fa fa-google"></i>Sign Up with Google</a>
+                {/* <a href="#"><i class="fa fa-google"></i>Sign Up with Google</a>
                 <a href="#" class="blue_bg"
                   ><i class="fa fa-facebook"></i>Sign Up with Facebook</a
                 >
-                <img src="images/or.svg" alt="or" class="img-fluid" />
+                <img src="images/or.svg" alt="or" class="img-fluid" /> */}
               </div>
               <form onSubmit={signup}>
                 <div class="form-group">

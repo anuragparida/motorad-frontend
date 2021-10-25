@@ -1,11 +1,53 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Navbar from './../components/Navbar';
 import MobileNavbar from './../components/MobileNavbar';
 import Footer from './../components/Footer';
+import axios from "axios";
+import { server, checkAccess } from "../env";
 
 const BookRide = (props) => {
 
   const [bookSuccess, setBookSuccess] = useState(false);
+  const [city, setCity] = useState("");
+  const [stores, setStores] = useState([]);
+
+  useEffect(() => {
+    loadStores(city);
+  }, [city]);
+
+  const loadStores = async(city) => {
+    await axios
+      .post(server + "/api/store/read", {"search": city})
+      .then((rsp) => {
+        console.log(rsp);
+        setStores(rsp.data.payload);
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
+  }
+
+  const bookRide = async(e) => {
+
+    e.preventDefault();
+
+    var params = Array.from(e.target.elements)
+      .filter((el) => el.name)
+      .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
+
+    axios
+    .post(server + "/api/ride/book", params)
+    .then((rsp) => {
+      console.log(rsp);
+    })
+    .catch((err) => {
+      console.log(err.response);
+      if (err.response) {
+      }
+    });
+
+  }
 
   return(
     <>
@@ -57,7 +99,7 @@ const BookRide = (props) => {
               <a href="#" class="d-none d-lg-block">or Contact Us</a>
             </div>
             <div class="emi_plan_frm">
-              <form>
+              <form onSubmit={bookRide}>
                 <div class="row">
                   <div class="col-lg-6 d-lg-none">
                     <div class="form-group">
@@ -71,11 +113,11 @@ const BookRide = (props) => {
                   <div class="col-lg-6">
                     <div class="form-group d-none d-lg-block">
                       <label for="">Select Bike</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Select a Bike"
-                      />
+                      <select name="bike" class="form-control" defaultValue="TREX" required>
+                        <option value="TREX">TREX</option>
+                        <option value="EMX">EMX</option>
+                        <option value="DOODLE">DOODLE</option>
+                      </select>
                     </div>
                   </div>
                   <div class="col-lg-6">
@@ -85,6 +127,8 @@ const BookRide = (props) => {
                         type="text"
                         class="form-control"
                         placeholder="Enter your name"
+                        name="name"
+                        required
                       />
                     </div>
                   </div>
@@ -92,9 +136,11 @@ const BookRide = (props) => {
                     <div class="form-group">
                       <label for="">Your Email</label>
                       <input
-                        type="text"
+                        type="email"
                         class="form-control"
                         placeholder="Enter your email"
+                        name="email"
+                        required
                       />
                     </div>
                   </div>
@@ -102,19 +148,25 @@ const BookRide = (props) => {
                     <div class="form-group">
                       <label for="">Your Contact</label>
                       <input
-                        type="text"
+                        type="number"
                         class="form-control"
-                        placeholder="Enter your contact"
+                        placeholder="Enter your number"
+                        name="contact"
+                        required
                       />
                     </div>
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label for="">Select City</label>
+                      <label for="">Enter City</label>
                       <input
                         type="text"
                         class="form-control"
-                        placeholder="Select a city"
+                        placeholder="Enter your city"
+                        name="city"
+                        value={city}
+                        onChange={e => setCity(e.target.value)}
+                        required
                       />
                     </div>
                   </div>
@@ -122,20 +174,21 @@ const BookRide = (props) => {
                     <div class="form-group">
                       <label for="">Choose Date</label>
                       <input
-                        type="text"
+                        type="date"
                         class="form-control"
-                        placeholder="07-10-2021"
+                        name="rideDate"
+                        required
                       />
                     </div>
                   </div>
                   <div class="col-lg-12">
                     <div class="form-group">
                       <label for="">Select Dealer</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Select a dealer"
-                      />
+                      <select name="dealer" class="form-control" required>
+                        {
+                          stores.map(x=><option value={x.id}>{x.name}</option>)
+                        }
+                      </select>
                     </div>
                   </div>
                   <div class="col-lg-12">
