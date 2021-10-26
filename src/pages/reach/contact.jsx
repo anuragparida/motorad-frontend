@@ -90,7 +90,7 @@ const Contact = (props) => {
             <div class="rsa_hero_btm_wrapp">
               <img class="img-fluid" src="images/light_icon.svg" alt="a" />
               <h6>
-                Em International Office
+                EM International Office
               </h6>
               <p>
                 The Business Center, Al Shmookh
@@ -100,6 +100,34 @@ const Contact = (props) => {
                 UMM Al Quwain,
                 <br />
                 UAE
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-4">
+            <div class="rsa_hero_btm_wrapp">
+              <img class="img-fluid" src="images/chair_icon.svg" alt="a" />
+              <h6>
+                EMotorad Nepal Office
+              </h6>
+              <p>
+                Gwarko-17, Lalitpur,
+                <br />
+                Nepal 44700
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="rsa_hero_btm_wrapp">
+              <img class="img-fluid" src="images/light_icon.svg" alt="a" />
+              <h6>
+                EM Japan Office
+              </h6>
+              <p>
+                The Business Center, Al Shmookh
+                <br />
+                Building, UMM Al Quwain FTZ
               </p>
             </div>
           </div>

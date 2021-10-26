@@ -58,46 +58,38 @@ const Login = (props) => {
 
   }
 
-  const googleLogin = (rsp) => {
-    console.log(rsp);
-    // const gapi = window.gapi;
+  const onSuccess = (res) => {
+    console.log('Login Success: currentUser:', res.profileObj);
+    alert(
+      `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
+    );
+    refreshTokenSetup(res);
+  };
 
-    // gapi.load("auth2", function () {
-    //   let auth2 = gapi.auth2.init({
-    //     client_id: GOOGLE_CLIENT_ID,
-    //   });
-    //   auth2.grantOfflineAccess().then((token) => {
-    //     const params = {
-    //       token: token.code,
-    //     };
+  const onFailure = (res) => {
+    console.log('Login failed: res:', res);
+    alert(
+      `Failed to login. 😢 Please ping this to repo owner twitter.com/sivanesh_fiz`
+    );
+  };
 
-    //     self.setState({
-    //       loader: <Loader />,
-    //       message: "",
-    //     });
-
-    //     axios
-    //       .post(server + "/v1/auth/google", params)
-    //       .then((rsp) => {
-    //         Cookies.set("token", rsp.data.payload.token);
-    //         self.setState({
-    //           loader: "",
-    //           message: <Alert className="success" message={rsp.data.detail} />,
-    //         });
-    //         window.location.href = "/";
-    //       })
-    //       .catch((err) => {
-    //         self.setState({
-    //           message: (
-    //             <Alert className="warning" message={err.response.data.detail} />
-    //           ),
-    //           loader: "",
-    //         });
-    //       });
-    //   });
-    // });
-
-
+  const refreshTokenSetup = (res) => {
+    // Timing to renew access token
+    let refreshTiming = (res.tokenObj.expires_in || 3600 - 5 * 60) * 1000;
+  
+    const refreshToken = async () => {
+      const newAuthRes = await res.reloadAuthResponse();
+      refreshTiming = (newAuthRes.expires_in || 3600 - 5 * 60) * 1000;
+      console.log('newAuthRes:', newAuthRes);
+      // saveUserToken(newAuthRes.access_token);  <-- save new token
+      localStorage.setItem('authToken', newAuthRes.id_token);
+  
+      // Setup the other timer after the first one
+      setTimeout(refreshToken, refreshTiming);
+    };
+  
+    // Setup first refresh timer
+    setTimeout(refreshToken, refreshTiming);
   };
 
   return(
@@ -124,6 +116,21 @@ const Login = (props) => {
                   onFailure={googleLogin}
                   cookiePolicy={'single_host_origin'}
                 /> */}
+
+                {/* <GoogleLogin
+                    clientId="170043377049-kct15ngvlq8dvk14d5fas47fc1ugpq4r.apps.googleusercontent.com"
+                    // render={
+                    //   renderProps => {
+                    //     <a href="javascript:void(0)" onClick={renderProps.onClick}><i class="fa fa-google"></i>Sign Up with Google</a>
+                    //   }
+                    // }
+                    buttonText="Login"
+                    onSuccess={onSuccess}
+                    onFailure={onFailure}
+                    cookiePolicy={'single_host_origin'}
+                    style={{ marginTop: '100px' }}
+                  /> */}
+
                 <a href="#" class="blue_bg"
                   ><i class="fa fa-facebook"></i>Sign Up with Facebook</a
                 >

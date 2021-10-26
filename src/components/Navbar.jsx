@@ -78,7 +78,7 @@ const Navbar = (props) => {
               <a class="navbar-brand" href="/">
                   <img src="images/logo-main.svg" alt="logo" class="img-fluid"/>
               </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onclick="openNav()">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onClick={window.openNav}>
                 <span class="fa fa-bars"></span>
               </button>
               <div class="collapse navbar-collapse d-none d-lg-block" id="navbarNav">

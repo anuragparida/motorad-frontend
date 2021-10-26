@@ -5,7 +5,7 @@ const MobileNavbar = (props) => {
   return(
     <div class="mobile_menu_wrap d-lg-none" id="mySidebar">
        <div class="nav_close">
-           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="fa fa-close"></i></a>
+           <a href="javascript:void(0)" class="closebtn" onClick={window.closeNav}><i class="fa fa-close"></i></a>
        </div>
         <div class="mobile_main_mnu">
             <ul>

@@ -297,7 +297,7 @@ const Landing = (props) => {
                      <div class="video_view_slider">
                          <div class="video_play_wrap">
                              <div class="main_vdo_thumb">
-                                 <img src="images/video_play_img.png" alt="a" class="img-fluid"/>
+                                 <img src="images/slide_1.png" alt="a" class="img-fluid"/>
                              </div>
                              <div class="vdo_play_icon">
                                 <a class="venobox" data-vbtype="video" href="https://www.youtube.com/watch?v=wIYEWSz5wpg">
@@ -307,76 +307,101 @@ const Landing = (props) => {
                          </div>
                          <div class="video_play_wrap">
                              <div class="main_vdo_thumb">
-                                 <img src="images/video_play_img.png" alt="a" class="img-fluid"/>
+                                 <img src="images/slide_2.png" alt="a" class="img-fluid"/>
                              </div>
                              <div class="vdo_play_icon">
-                                 <a href="#"><img src="images/vdo_play_icon.svg" alt="a" class="img-fluid"/></a>
+                                <a class="venobox" data-vbtype="video" href="https://www.youtube.com/watch?v=irBxHBnJbIg">
+                                    <img src="images/vdo_play_icon.svg" alt="a" class="img-fluid"/>
+                                </a>
                              </div>
                          </div>
                          <div class="video_play_wrap">
                              <div class="main_vdo_thumb">
-                                 <img src="images/video_play_img.png" alt="a" class="img-fluid"/>
+                                 <img src="images/slide_3.png" alt="a" class="img-fluid"/>
                              </div>
                              <div class="vdo_play_icon">
-                                 <a href="#"><img src="images/vdo_play_icon.svg" alt="a" class="img-fluid"/></a>
+                                <a class="venobox" data-vbtype="video" href="https://www.youtube.com/watch?v=dsNDkCaAMDI">
+                                    <img src="images/vdo_play_icon.svg" alt="a" class="img-fluid"/>
+                                </a>
                              </div>
                          </div>
                          <div class="video_play_wrap">
                              <div class="main_vdo_thumb">
-                                 <img src="images/video_play_img.png" alt="a" class="img-fluid"/>
+                                 <img src="images/slide_4.png" alt="a" class="img-fluid"/>
                              </div>
                              <div class="vdo_play_icon">
-                                 <a href="#"><img src="images/vdo_play_icon.svg" alt="a" class="img-fluid"/></a>
+                                <a class="venobox" data-vbtype="video" href="https://www.youtube.com/watch?v=a0c_HzIQxwM">
+                                    <img src="images/vdo_play_icon.svg" alt="a" class="img-fluid"/>
+                                </a>
                              </div>
                          </div>
                          <div class="video_play_wrap">
                              <div class="main_vdo_thumb">
-                                 <img src="images/video_play_img.png" alt="a" class="img-fluid"/>
+                                 <img src="images/slide_5.png" alt="a" class="img-fluid"/>
                              </div>
                              <div class="vdo_play_icon">
-                                 <a href="#"><img src="images/vdo_play_icon.svg" alt="a" class="img-fluid"/></a>
+                                <a class="venobox" data-vbtype="video" href="https://www.youtube.com/watch?v=EFVPj4BWTjw">
+                                    <img src="images/vdo_play_icon.svg" alt="a" class="img-fluid"/>
+                                </a>
                              </div>
                          </div>
                          <div class="video_play_wrap">
                              <div class="main_vdo_thumb">
-                                 <img src="images/video_play_img.png" alt="a" class="img-fluid"/>
+                                 <img src="images/slide_6.png" alt="a" class="img-fluid"/>
                              </div>
                              <div class="vdo_play_icon">
-                                 <a href="#"><img src="images/vdo_play_icon.svg" alt="a" class="img-fluid"/></a>
+                                <a class="venobox" data-vbtype="video" href="https://www.youtube.com/watch?v=TNnDY5LoTmE">
+                                    <img src="images/vdo_play_icon.svg" alt="a" class="img-fluid"/>
+                                </a>
                              </div>
                          </div>
                          <div class="video_play_wrap">
                              <div class="main_vdo_thumb">
-                                 <img src="images/video_play_img.png" alt="a" class="img-fluid"/>
+                                 <img src="images/slide_7.png" alt="a" class="img-fluid"/>
                              </div>
                              <div class="vdo_play_icon">
-                                 <a href="#"><img src="images/vdo_play_icon.svg" alt="a" class="img-fluid"/></a>
+                                <a class="venobox" data-vbtype="video" href="https://www.youtube.com/watch?v=-NMJFHCz3DY">
+                                    <img src="images/vdo_play_icon.svg" alt="a" class="img-fluid"/>
+                                </a>
+                             </div>
+                         </div>
+                         <div class="video_play_wrap">
+                             <div class="main_vdo_thumb">
+                                 <img src="images/slide_8.png" alt="a" class="img-fluid"/>
+                             </div>
+                             <div class="vdo_play_icon">
+                                <a class="venobox" data-vbtype="video" href="https://www.youtube.com/watch?v=jGdYCJZoJMQ">
+                                    <img src="images/vdo_play_icon.svg" alt="a" class="img-fluid"/>
+                                </a>
                              </div>
                          </div>
                      </div>
                      
                      <div class="slider_btm_allss">
-                         <a href="#">
+                         <div>
                              <img src="images/slide_1.png" alt="a" class="img-fluid"/>
-                         </a>
-                         <a href="#">
+                         </div>
+                         <div>
                              <img src="images/slide_2.png" alt="a" class="img-fluid"/>
-                         </a>
-                         <a href="#">
+                         </div>
+                         <div>
                              <img src="images/slide_3.png" alt="a" class="img-fluid"/>
-                         </a>
-                         <a href="#">
+                         </div>
+                         <div>
                              <img src="images/slide_4.png" alt="a" class="img-fluid"/>
-                         </a>
-                         <a href="#">
+                         </div>
+                         <div>
                              <img src="images/slide_5.png" alt="a" class="img-fluid"/>
-                         </a>
-                         <a href="#">
-                             <img src="images/slide_1.png" alt="a" class="img-fluid"/>
-                         </a>
-                         <a href="#">
-                             <img src="images/slide_4.png" alt="a" class="img-fluid"/>
-                         </a>
+                         </div>
+                         <div>
+                             <img src="images/slide_6.png" alt="a" class="img-fluid"/>
+                         </div>
+                         <div>
+                             <img src="images/slide_7.png" alt="a" class="img-fluid"/>
+                         </div>
+                         <div>
+                             <img src="images/slide_8.png" alt="a" class="img-fluid"/>
+                         </div>
                      </div>
                  </div>
              </div>
@@ -555,7 +580,7 @@ const Landing = (props) => {
                              </tr>
                              <tr>
                                  <td>CAPACITY</td>
-                                 <td>7.5 Ah</td>
+                                 <td>10.4 Ah</td>
                              </tr>
                              <tr>
                                  <td>Starting From</td>
@@ -596,7 +621,7 @@ const Landing = (props) => {
                              </tr>
                              <tr>
                                  <td>CAPACITY</td>
-                                 <td>7.5 Ah</td>
+                                 <td>10 Ah</td>
                              </tr>
                              <tr>
                                  <td>Starting From</td>
