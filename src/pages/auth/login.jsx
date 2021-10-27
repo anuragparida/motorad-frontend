@@ -3,17 +3,30 @@ import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
 import { Link } from 'react-router-dom';
-import { server } from "../../env";
+import env, { server } from "../../env";
 import Cookies from "js-cookie";
 import axios from "axios";
 import Alert from './../../components/Alert';
 import Loader from './../../components/Loader';
 import GoogleLogin from 'react-google-login';
+import * as queryString from 'query-string';
 
 const Login = (props) => {
 
   const [message, setMessage] = useState("");
   const [loader, setLoader] = useState("");
+
+  const stringifiedParams = queryString.stringify({
+    client_id: env.FACEBOOK_APP_ID,
+    // redirect_uri: 'https://www.emotorad.in/authenticate/facebook/',
+    redirect_uri: 'http://localhost:3000/facebook/auth',
+    scope: ['email', 'public_profile'].join(','), // comma seperated string
+    response_type: 'code',
+    auth_type: 'rerequest',
+    display: 'popup',
+  });
+  
+  const facebookLoginUrl = `https://www.facebook.com/v4.0/dialog/oauth?${stringifiedParams}`;
 
   const login = async (e) => {
 
@@ -59,10 +72,24 @@ const Login = (props) => {
   }
 
   const onSuccess = (res) => {
+    console.log(res);
     console.log('Login Success: currentUser:', res.profileObj);
     alert(
       `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
     );
+        axios
+          .post(server + "/api/user/google-login", {code: res.accessToken})
+          .then((rsp) => {
+            Cookies.set("token", rsp.data.payload.token);
+            setLoader("");
+            setMessage(<Alert className="success" message={rsp.data.message} />);
+            window.location.href = "/";
+          })
+          .catch((err) => {
+            console.log(err.response);
+            setLoader("");
+            setMessage(<Alert className="warning" message={err.response.data.message} />);
+          });
     refreshTokenSetup(res);
   };
 
@@ -82,7 +109,7 @@ const Login = (props) => {
       refreshTiming = (newAuthRes.expires_in || 3600 - 5 * 60) * 1000;
       console.log('newAuthRes:', newAuthRes);
       // saveUserToken(newAuthRes.access_token);  <-- save new token
-      localStorage.setItem('authToken', newAuthRes.id_token);
+      localStorage.setItem('token', newAuthRes.id_token); //COOKIES
   
       // Setup the other timer after the first one
       setTimeout(refreshToken, refreshTiming);
@@ -90,6 +117,38 @@ const Login = (props) => {
   
     // Setup first refresh timer
     setTimeout(refreshToken, refreshTiming);
+  };
+
+  const googleLogin = () => {
+    const gapi = window.gapi;
+
+    gapi.load("auth2", function () {
+      let auth2 = gapi.auth2.init({
+        client_id: "170043377049-kct15ngvlq8dvk14d5fas47fc1ugpq4r.apps.googleusercontent.com",
+      });
+      auth2.grantOfflineAccess().then((token) => {
+        const params = {
+          code: token.code,
+        };
+
+        console.log(params);
+
+        axios
+          .post(server + "/api/user/google-login", params)
+          .then((rsp) => {
+            Cookies.set("token", rsp.data.payload.token);
+            setLoader("");
+            setMessage(<Alert className="success" message={rsp.data.message} />);
+            window.location.href = "/";
+          })
+          .catch((err) => {
+            console.log(err.response);
+            setLoader("");
+            setMessage(<Alert className="warning" message={err.response.data.message} />);
+          });
+
+      });
+    });
   };
 
   return(
@@ -108,16 +167,15 @@ const Login = (props) => {
                   Lorem ipsum dolor sit amet, <br />
                   consectetur adipiscing elit ut aliquam.
                 </p>
-                <a href="#"><i class="fa fa-google"></i>Sign Up with Google</a>
                 {/* <GoogleLogin
                   clientId="http://170043377049-kct15ngvlq8dvk14d5fas47fc1ugpq4r.apps.googleusercontent.com"
                   buttonText="Login"
-                  onSuccess={googleLogin}
-                  onFailure={googleLogin}
+                  onSuccess={onSuccess}
+                  onFailure={onFailure}
                   cookiePolicy={'single_host_origin'}
                 /> */}
 
-                {/* <GoogleLogin
+                <GoogleLogin
                     clientId="170043377049-kct15ngvlq8dvk14d5fas47fc1ugpq4r.apps.googleusercontent.com"
                     // render={
                     //   renderProps => {
@@ -129,9 +187,9 @@ const Login = (props) => {
                     onFailure={onFailure}
                     cookiePolicy={'single_host_origin'}
                     style={{ marginTop: '100px' }}
-                  /> */}
-
-                <a href="#" class="blue_bg"
+                  />
+                <a href="javascript:void(0)" onClick={googleLogin}><i class="fa fa-google"></i>Sign Up with Google</a>
+                <a href={facebookLoginUrl} class="blue_bg"
                   ><i class="fa fa-facebook"></i>Sign Up with Facebook</a
                 >
                 <img src="images/or.svg" alt="or" class="img-fluid" />

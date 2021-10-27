@@ -899,6 +899,29 @@ img {
   border: 1px solid #10b068;
   margin-right: 10px;
 }
+.explore_bttn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+.explore_bttn a {
+  background: #10b068;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #ffffff;
+  padding: 13px 30px;
+  text-align: center;
+  transition: all linear 0.2s;
+  border: 1px solid #10b068;
+}
+.explore_bttn a:hover {
+  background: transparent;
+  color: #10b068;
+}
 .suspension_bttns a:first-child:hover,
 .ordr_placed_btnns a:first-child:hover {
   background: transparent;

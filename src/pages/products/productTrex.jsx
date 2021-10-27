@@ -6,6 +6,7 @@ import AOS from 'aos';
 import axios from "axios";
 import { server, config, checkAccess } from "../../env";
 import isLoggedIn from './../../utils/checkLogin';
+import { Link } from 'react-router-dom';
 
 const ProductTREX = (props) => {
 
@@ -46,8 +47,9 @@ const ProductTREX = (props) => {
           setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].id);
         }
         else {
-          setProducts([{color: "yellow", id: 1}])
-          setProductID(3);
+          //   setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
+        //   setProductID(1);
+        alert("Products not set correctly. Please Contact Admin.");
         }
       })
       .catch((err) => {
@@ -1058,7 +1060,7 @@ const ProductTREX = (props) => {
                   />No Cost EMI Available,
                   <span style={{"color": "#10b068"}}>Starts From Rs. 6189/Month</span>
                 </h6>
-                <a href="#"
+                <a href="/emi"
                   >EXPLORE EMI OPTIONS
                   <img src="images/arw_rgt.svg" alt="a" class="img-fluid"
                 /></a>
@@ -1080,8 +1082,8 @@ const ProductTREX = (props) => {
                 </p>
               </div>
               <div class="ordr_nw_rgt">
-                <a href="#">TEST RIDE</a>
-                <a href="#">ORDER NOW</a>
+                <a href="/book">TEST RIDE</a>
+                <a href="javascript:void(0)" onClick={addToCart}>ORDER NOW</a>
               </div>
             </div>
           </div>
@@ -1089,176 +1091,151 @@ const ProductTREX = (props) => {
       </div>
     </section>
     <section class="explore_ebike_sec">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="expo_ebike_headin text-left">
-              <h5>Explore E-Bikes</h5>
+         <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="expo_ebike_headin">
+                        <h5>Explore E-Bikes</h5>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="row expo_bike_slider">
-          <div class="col-lg-4">
-            <div
-              class="bike_explore_wrap"
-              data-aos="fade-up"
-              data-aos-duration="2000"
-            >
-              <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
-
-              <h3>
-                T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" />
-              </h3>
-              <p
-                style={{"font-size": "15px", "line-height": "21px", "margin-bottom": "15px"}}
-              >
-                The TREX lets you make the most of the mountain bike. Go further
-                and climb higher with our powerful motor, intuitive controls.
-              </p>
-              <h5>FEATURES</h5>
-              <table>
-                <tr>
-                  <td>RANGE</td>
-                  <td>50+ Kms</td>
-                </tr>
-                <tr>
-                  <td>SPEED (MAX)</td>
-                  <td>25Km/hr</td>
-                </tr>
-                <tr>
-                  <td>BRAKES</td>
-                  <td>Dual Disc</td>
-                </tr>
-                <tr>
-                  <td>BATTERY</td>
-                  <td>36 Volts</td>
-                </tr>
-                <tr>
-                  <td>CAPACITY</td>
-                  <td>7.5 Ah</td>
-                </tr>
-                <tr>
-                  <td>Starting From</td>
-                  <td>Colors</td>
-                </tr>
-                <tr>
-                  <td>Rs 36,999</td>
-                  <td>
-                    <i class="fa fa-circle"></i> <i class="fa fa-circle"></i>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div
-              class="bike_explore_wrap"
-              data-aos="fade-up"
-              data-aos-duration="2000"
-            >
-              <img src="images/bicycle_3.png" alt="a" class="img-fluid" />
-
-              <h3>
-                EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" />
-              </h3>
-              <p
-                style={{"font-size": "15px", "line-height": "21px", "margin-bottom": "15px"}}
-              >
-                City riding is now a breeze as you traverse across town without
-                any fuss or effort. The EMX is designed for the city; traffic,
-                uneven roads and slopes included.
-              </p>
-              <h5>FEATURES</h5>
-              <table>
-                <tr>
-                  <td>RANGE</td>
-                  <td>65+ Kms</td>
-                </tr>
-                <tr>
-                  <td>SPEED (MAX)</td>
-                  <td>25Km/hr</td>
-                </tr>
-                <tr>
-                  <td>BRAKES</td>
-                  <td>Dual Disc</td>
-                </tr>
-                <tr>
-                  <td>BATTERY</td>
-                  <td>36 Volts</td>
-                </tr>
-                <tr>
-                  <td>CAPACITY</td>
-                  <td>7.5 Ah</td>
-                </tr>
-                <tr>
-                  <td>Starting From</td>
-                  <td>Colors</td>
-                </tr>
-                <tr>
-                  <td>Rs 36,999</td>
-                  <td><i class="fa fa-circle" style={{"color": "#dbff00"}}></i></td>
-                </tr>
-              </table>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div
-              class="bike_explore_wrap"
-              data-aos="fade-up"
-              data-aos-duration="2000"
-            >
-              <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
-
-              <h3>
-                DOODLE
-                <img src="images/arw_rgt.svg" alt="a" class="img-fluid" />
-              </h3>
-              <p
-                style={{"font-size": "15px", "line-height": "21px", "margin-bottom": "15px"}}
-              >
-                Best in Class Foldable Electric Bike Its small size might make
-                you think this is a fun little ride, but the Doodle has power to
-                spare when you are in the mood for adventure.
-              </p>
-              <h5>FEATURES</h5>
-              <table>
-                <tr>
-                  <td>RANGE</td>
-                  <td>55+ Kms</td>
-                </tr>
-                <tr>
-                  <td>SPEED (MAX)</td>
-                  <td>25Km/hr</td>
-                </tr>
-                <tr>
-                  <td>BRAKES</td>
-                  <td>Dual Disc</td>
-                </tr>
-                <tr>
-                  <td>BATTERY</td>
-                  <td>36 Volts</td>
-                </tr>
-                <tr>
-                  <td>CAPACITY</td>
-                  <td>7.5 Ah</td>
-                </tr>
-                <tr>
-                  <td>Starting From</td>
-                  <td>Colors</td>
-                </tr>
-                <tr>
-                  <td>Rs 36,999</td>
-                  <td>
-                    <i class="fa fa-circle text-dark"></i>
-                    <i class="fa fa-circle" style={{"color": "#10b068"}}></i>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+             <div class="row expo_bike_slider">
+                 
+                 <div class="col-lg-4">
+                    <Link to="/trex">
+                     <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                         <img src="images/cycle_warenty.png" alt="a" class="img-fluid"/>
+                         
+                         <h3>T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></h3>
+                         
+                         <h5>FEATURES</h5>
+                         <table>
+                             <tr>
+                                 <td>RANGE</td>
+                                 <td>50+ Kms</td>
+                             </tr>
+                             <tr>
+                                 <td>SPEED (MAX)</td>
+                                 <td>25Km/hr</td>
+                             </tr>
+                             <tr>
+                                 <td>BRAKES</td>
+                                 <td>Dual Disc</td>
+                             </tr>
+                             <tr>
+                                 <td>BATTERY</td>
+                                 <td>36 Volts</td>
+                             </tr>
+                             <tr>
+                                 <td>CAPACITY</td>
+                                 <td>7.5 Ah</td>
+                             </tr>
+                             <tr>
+                                 <td>Starting From</td>
+                                 <td>Colors</td>
+                             </tr>
+                             <tr>
+                                 <td>Rs 37,142</td>
+                                 <td><i class="fa fa-circle"></i> <i class="fa fa-circle"></i></td>
+                             </tr>
+                         </table>
+                         <div class="explore_bttn row mx-auto">
+                            <Link to="/trex">Buy Now</Link>
+                        </div>
+                     </div>
+                    </Link>
+                 </div>
+                 <div class="col-lg-4">
+                    <Link to="/emx">
+                     <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                         <img src="images/bicycle_3.png" alt="a" class="img-fluid"/>
+                         
+                         <h3>EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></h3>
+                         
+                         <h5>FEATURES</h5>
+                         <table>
+                             <tr>
+                                 <td>RANGE</td>
+                                 <td>65+ Kms</td>
+                             </tr>
+                             <tr>
+                                 <td>SPEED (MAX)</td>
+                                 <td>25Km/hr</td>
+                             </tr>
+                             <tr>
+                                 <td>BRAKES</td>
+                                 <td>Dual Disc</td>
+                             </tr>
+                             <tr>
+                                 <td>BATTERY</td>
+                                 <td>36 Volts</td>
+                             </tr>
+                             <tr>
+                                 <td>CAPACITY</td>
+                                 <td>10.4 Ah</td>
+                             </tr>
+                             <tr>
+                                 <td>Starting From</td>
+                                 <td>Colors</td>
+                             </tr>
+                             <tr>
+                                 <td>Rs 52,380</td>
+                                 <td><i class="fa fa-circle" style={{"color": "#DBFF00"}}></i></td>
+                             </tr>
+                         </table>
+                         <div class="explore_bttn row mx-auto">
+                            <Link to="/emx">Buy Now</Link>
+                        </div>
+                     </div>
+                     </Link>
+                 </div>
+                 <div class="col-lg-4">
+                    <Link to="/trex">
+                     <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                         <img src="images/bicycle_2.png" alt="a" class="img-fluid"/>
+                         
+                         <h3>DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></h3>
+                         
+                         <h5>FEATURES</h5>
+                         <table>
+                             <tr>
+                                 <td>RANGE</td>
+                                 <td>55+ Kms</td>
+                             </tr>
+                             <tr>
+                                 <td>SPEED (MAX)</td>
+                                 <td>25Km/hr</td>
+                             </tr>
+                             <tr>
+                                 <td>BRAKES</td>
+                                 <td>Dual Disc</td>
+                             </tr>
+                             <tr>
+                                 <td>BATTERY</td>
+                                 <td>36 Volts</td>
+                             </tr>
+                             <tr>
+                                 <td>CAPACITY</td>
+                                 <td>10 Ah</td>
+                             </tr>
+                             <tr>
+                                 <td>Starting From</td>
+                                 <td>Colors</td>
+                             </tr>
+                             <tr>
+                                 <td>Rs 76,190</td>
+                                 <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{"color": "#10B068"}}></i></td>
+                             </tr>
+                         </table>
+                         <div class="explore_bttn row mx-auto">
+                            <Link to="/doodle">Buy Now</Link>
+                        </div>
+                     </div>
+                     </Link>
+                 </div>
+             </div>
+         </div>
+     </section>
     <Footer/>
     <div class="book_ride_sticky d-lg-none">
       <div class="d-flex">

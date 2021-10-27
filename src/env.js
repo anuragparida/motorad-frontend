@@ -6,9 +6,20 @@ module.exports = {
 
   // SITE_KEY: "6LdaGssUAAAAAFMBwO3VPUNlV6pZE_uIY04zK8dh", ASK?
 
+  // FACEBOOK_APP_ID: 296252462110494,
+  FACEBOOK_APP_ID: 889533278598326,
+
   config: {
     headers: {
       "Content-Type": "application/json",
+      Authorization: `Bearer ${Cookies.get("token")}`,
+      responseType: "json",
+    },
+  },
+
+  formDataConfig: {
+    headers: {
+      "Content-Type": "multipart/form-data",
       Authorization: `Bearer ${Cookies.get("token")}`,
       responseType: "json",
     },

@@ -47,8 +47,9 @@ const ProductDOODLE = (props) => {
           setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].id);
         }
         else {
-          setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
-          setProductID(1);
+          //   setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
+        //   setProductID(1);
+        alert("Products not set correctly. Please Contact Admin.");
         }
       })
       .catch((err) => {
