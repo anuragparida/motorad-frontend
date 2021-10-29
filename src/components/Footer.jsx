@@ -35,7 +35,7 @@ const [links, setLinks] = useState({});
                          <p>EMotorad (EM) is an electric vehicles company that strives to bring futuristic e-bikes at an affordable price for adventure seekers, daily commuters, or casual riders.</p>
                          
                          <h6>Support</h6>
-                         <Link to="#"> <img src="images/ques_icon.svg" alt="a" class="img-fluid"/>Contact Support</Link>
+                         <Link to="/contact"> <img src="images/ques_icon.svg" alt="a" class="img-fluid"/>Contact Support</Link>
                      </div>
                  </div>
                  <div class="col-lg-7">

@@ -1081,7 +1081,7 @@ const ProductTREX = (props) => {
         </div>
       </div>
     </section>
-    <section class="order_now_sec">
+    <section class="order_now_sec" style={{"background-image": "url(images/trex/trexL.jpg)"}}>
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
