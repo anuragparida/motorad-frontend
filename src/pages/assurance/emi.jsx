@@ -31,8 +31,6 @@ const EMI = (props) => {
 
   const sendEMI = async (e) => {
 
-    //UPDATE
-
     e.preventDefault();
 
     var params = Array.from(e.target.elements)

@@ -114,16 +114,16 @@ const Warranty = (props) => {
                        <p>Activate your warranty for peace of mind and ride <br/> assured that your vehicle is covered and protected.</p>
                        <div class="hero_btn rsa_hero_btn">
                            <a href="javascript:void(0)" onClick={scrollToForm}>Activate</a>
-                           <a href="#">
+                           <a href="files/warranty.pdf" download>
                            <img class="img-fluid" src="images/download_w_icon.svg" alt="a" />
                                 Download
-                           </a>
+                            </a>
                        </div>
                    </div>
                  </div>
                  <div class="col-lg-6">
                      <div class="emi_hero_img">
-                         <img src="images/warrenty_hero.gif" alt="a" class="img-fluid"/>
+                         <img src="images/warrenty_hero.png" alt="a" class="img-fluid"/>
                      </div>
                  </div>
              </div>

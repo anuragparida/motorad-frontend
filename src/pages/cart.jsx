@@ -20,6 +20,8 @@ const Cart = (props) => {
 
   const [orderSuccess, setOrderSuccess] = useState(false);
 
+  const [coupon, setCoupon] = useState({});
+
   const [message, setMessage] = useState("");
   const [loader, setLoader] = useState("");
 
@@ -50,8 +52,8 @@ const Cart = (props) => {
                       console.log('success')
                       setMessage(<Alert className="success" message={rsp.data.message} />);
                       setLoader("");
+                      setOrderSuccess(true);
                   }
-                  window.location.href = "/";
                 })
                 .catch((err) => {
                   setMessage(<Alert className="warning" message={rsp.data.message} />);
@@ -145,8 +147,36 @@ const Cart = (props) => {
     calculateAmount(netAmount);
   }, [netAmount]);
 
-  const createOrder = async () => {
-    //setOrderSuccess(true);
+  const checkCoupon = (e) => {
+    e.preventDefault();
+
+    var params = Array.from(e.target.elements)
+      .filter((el) => el.name)
+      .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
+      
+    setLoader(<Loader/>);
+
+    axios
+    .get(server + `/api/coupon/read/${params.code}`)
+    .then((rsp) => {
+      console.log(rsp);
+      if(rsp.data.payload){
+        setCoupon(rsp.data.payload);
+        setMessage(<Alert className="success" message={"Coupon Applied"} />);
+        setLoader("");
+      }
+      else {
+        setMessage(<Alert className="danger" message={"Invalid Coupon"} />);
+        setLoader("");
+      }
+    })
+    .catch((err) => {
+      console.log(err.response);
+      if (err.response) {
+        setMessage(<Alert className="danger" message={err.response.data.message} />);
+        setLoader("");
+      }
+    });
   }
 
   const updateCart = async (params) => {
@@ -196,7 +226,6 @@ const Cart = (props) => {
               </p>
               <div class="ordr_placed_btnns">
                 <a href="index.html">Go to HomePage</a>
-                <a href="#">View Your Orders</a>
               </div>
             </div>
           </div>
@@ -287,12 +316,15 @@ const Cart = (props) => {
               </div>
             </div>
             <div class="col-lg-4">
+              {message}
               <div class="cart_invo_wrap">
                 <h4>Have a coupon?</h4>
-                <div class="copun_enter_input">
-                  <input type="text" placeholder="Enter Coupon Code" />
-                  <a href="#">Apply</a>
-                </div>
+                <form onSubmit={checkCoupon}>
+                  <div class="copun_enter_input">
+                      <input type="text" placeholder="Enter Coupon Code" name="code" required/>
+                      <button type="submit">Apply</button>
+                  </div>
+                </form>
                 <div class="subtotal_tab">
                   <table>
                     <tr>
@@ -313,7 +345,6 @@ const Cart = (props) => {
                     </tr>
                   </table>
                 </div>
-                {message}
                 <div class="total_invo_btn">
                   <button type="submit" class="btn btn_submit" onClick={()=>{
                     // createOrder()
