@@ -114,10 +114,10 @@ const [links, setLinks] = useState({});
                        { links.linkedin &&
                          <ul>
                              <li>Follow Us</li>
-                             <li><a href={links.facebook}><i class="fa fa-facebook-square"></i></a></li>
-                             <li><a href={links.twitter}><i class="fa fa-twitter"></i></a></li>
-                             <li><a href={links.instagram}><i class="fa fa-instagram"></i></a></li>
-                             <li><a href={links.linkedin}><i class="fa fa-linkedin-square"></i></a></li>
+                             <li><a target="_blank" href={links.facebook}><i class="fa fa-facebook-square"></i></a></li>
+                             <li><a target="_blank" href={links.twitter}><i class="fa fa-twitter"></i></a></li>
+                             <li><a target="_blank" href={links.instagram}><i class="fa fa-instagram"></i></a></li>
+                             <li><a target="_blank" href={links.linkedin}><i class="fa fa-linkedin-square"></i></a></li>
                          </ul>
                         }
                      </div>

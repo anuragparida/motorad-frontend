@@ -1251,7 +1251,7 @@ const ProductTREX = (props) => {
     <div class="book_ride_sticky d-lg-none">
       <div class="d-flex">
         <p>Rs 37,133</p>
-        <a href="/cart" onClick={addToCart}>BUY NOW</a>
+        <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>
       </div>
     </div>
     <div class="wapp_sticky">

@@ -1253,7 +1253,7 @@ const ProductDOODLE = (props) => {
     <div class="book_ride_sticky d-lg-none">
       <div class="d-flex">
         <p>Rs 76,000</p>
-        <a href="#">BUY NOW</a>
+        <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>
       </div>
     </div>
     <div class="wapp_sticky">

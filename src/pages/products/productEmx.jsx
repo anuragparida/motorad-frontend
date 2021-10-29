@@ -1156,7 +1156,7 @@ const ProductEMX = (props) => {
     <div class="book_ride_sticky d-lg-none">
       <div class="d-flex">
         <p>Rs 52,371</p>
-        <a href="#">BUY NOW</a>
+        <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>
       </div>
     </div>
     <div class="wapp_sticky">
