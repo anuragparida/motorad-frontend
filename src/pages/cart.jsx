@@ -133,7 +133,7 @@ const Cart = (props) => {
         localProduct.quantity = element.amount;
         localCart.push(localProduct);
 
-        localAmount += localProduct.price2;
+        localAmount += localProduct.price2 * localProduct.quantity;
 
       });
       setNetAmount(localAmount)
@@ -183,13 +183,37 @@ const Cart = (props) => {
     await axios
       .put(server + "/api/cart/update", params, config)
       .then((rsp) => {
-        console.log(rsp.data); //CHANGE THIS
+        console.log(rsp.data);
         // window.location.href = "/cart";
+        window.location.reload();
       })
       .catch((err) => {
         checkAccess(err);
         console.error(err);
       });
+  }
+
+  const changeQuantity = async (id, type, amount) => {
+    let params = {}
+    if (type==="plus") {
+      params = {
+        "product": [
+          ...cart.product.filter(element => element.id !== id),
+          {id: id, amount: amount + 1}
+        ],
+        "accessories": []
+      };
+    }
+    else {
+      params = {
+        "product": [
+          ...cart.product.filter(element => element.id !== id),
+          {"id": id, "amount": amount > 0 ? amount - 1 : 0}
+        ],
+        "accessories": []
+      };
+    }
+    updateCart(params);
   }
 
   const deleteItem = async (id) => {
@@ -201,7 +225,6 @@ const Cart = (props) => {
     };
     console.log("params", params);
     updateCart(params);
-    window.location.reload();
   }
 
   return(
@@ -277,7 +300,10 @@ const Cart = (props) => {
                           </td>
                           <td>
                             <div class="incre">
-                              <a href="javascript:void(0)" class="button-container">
+                              <a href="javascript:void(0)" class="button-container"
+                              onClick={() => {
+                                changeQuantity(item.id, "minus", item.quantity)
+                              }}>
                                 <i class="fa fa-minus cart-qty-minus"></i>
                               </a>
                               <input
@@ -289,7 +315,10 @@ const Cart = (props) => {
                                 class="input-text qty"
                               />
 
-                              <a href="javascript:void(0)" class="button-container">
+                              <a href="javascript:void(0)" class="button-container"
+                              onClick={() => {
+                                changeQuantity(item.id, "plus", item.quantity)
+                              }}>
                                 <i class="fa fa-plus cart-qty-plus"></i>
                               </a>
                             </div>
