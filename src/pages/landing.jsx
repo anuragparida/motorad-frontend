@@ -25,8 +25,8 @@ const Landing = (props) => {
                      </div>
                      <div class="home_hero_bike_title">
                          <Link to="/doodle"><h3 class="text-outline text-outline-hover" data-text="DOODLE">DOODLE</h3></Link>
-                         <Link to="/emx"><h3 class="text-outline text-outline-hover" data-text="EMX">EMX</h3></Link>
                          <Link to="/trex"><h3 class="text-outline text-outline-hover" data-text="T-REX">T-REX</h3></Link>
+                         <Link to="/emx"><h3 class="text-outline text-outline-hover" data-text="EMX">EMX</h3></Link>
                      </div>
                  </div>
              </div>

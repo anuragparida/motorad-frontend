@@ -18,6 +18,54 @@ const Cart = (props) => {
 
   const [orderSuccess, setOrderSuccess] = useState(false);
 
+  const razorPayPaymentHandler = async () => {
+
+    await axios
+        .post(server + '/api/order/create', {}, config)
+        .then((rsp) => {
+          console.log(rsp);
+          const orderPayload = rsp.data.payload;
+          const options = {
+            key: '',
+            name: "EMotorad",
+            description: orderPayload.id,
+            order_id: orderPayload.id,
+            handler: async (response) => {
+              try {
+                const paymentId = response.razorpay_payment_id;
+               axios
+                .post(server + `/api/payment/razorpay/capture/${paymentId}?orderId=${orderPayload.localId}`, {}, config)
+                .then((rsp) => {
+                  const successObj = JSON.parse(rsp.data)
+                  const captured = successObj.captured;
+                  console.log("App -> razorPayPaymentHandler -> captured", successObj)
+                  if(captured){
+                      console.log('success')
+                  }
+                  window.location.href = "/";
+                })
+                .catch((err) => {
+                  console.log(err.response);
+                });
+               
+              } catch (err) {
+                console.log(err);
+              }
+            },
+            theme: {
+              color: "#10B068",
+            },
+          };
+          const rzp1 = new window.Razorpay(options);
+          rzp1.open();
+        })
+        .catch((err) => {
+          checkAccess(err);
+          console.error(err.response);
+        });
+    
+  }
+
   const loadCart = async() => {
     if(!isLoggedIn()){
       window.location.href = "/login";
@@ -60,7 +108,7 @@ const Cart = (props) => {
 
   useEffect(() => {
     let localCart = [], localAmount = 0;
-    if("id" in cart && products.length > 0) {
+    if(cart && "id" in cart && products.length > 0) {
       console.log(cart, products);
 
       let localProduct = {}
@@ -255,7 +303,8 @@ const Cart = (props) => {
                 <div class="total_invo_btn">
                   <button type="submit" class="btn btn_submit" onClick={()=>{
                     // createOrder()
-                    setOrderSuccess(true)
+                    // setOrderSuccess(true)
+                    razorPayPaymentHandler();
                     }}>
                     <span>₹ {totalAmount} </span>
                     <span

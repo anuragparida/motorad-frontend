@@ -134,24 +134,18 @@ const ProductDOODLE = (props) => {
               <div class="product_menu_setclr">
                 <ul>
                   <li><p>Select Color</p></li>
-                  <li>
-                    <label class="chck">
-                      <input type="radio" name="a" id="communitymode" checked />
-                      <span
-                        class="checkmark"
-                        style={{"background-color": "#343a40"}}
-                      ></span>
-                    </label>
-                  </li>
-                  <li>
-                    <label class="chck">
-                      <input type="radio" name="a" id="communitsymode" />
-                      <span
-                        class="checkmark"
-                        style={{"background-color": "#88cf93"}}
-                      ></span>
-                    </label>
-                  </li>
+                  
+                  {products.map(prod => (
+                    <li>
+                      <label class="chck">
+                        <input type="radio" checked={prod.id === productID} onChange={()=>{
+                          setProductID(prod.id);
+                        }}/>
+                        <span class="checkmark" style={{"background": prod.color}}></span>
+                      </label>
+                    </li>
+                  ))}
+
                   <li class="d-none d-lg-block">
                     <h6>Rs 76,000</h6>
                   </li>
@@ -289,7 +283,7 @@ const ProductDOODLE = (props) => {
                   data-aos-duration="2000"
                 >
                   <img
-                    src="images/glory_img_sqr.png"
+                    src="images/doodle/11zon_resized.jpg"
                     alt="a"
                     class="img-fluid"
                   />
@@ -300,7 +294,7 @@ const ProductDOODLE = (props) => {
                   data-aos-duration="2000"
                 >
                   <img
-                    src="images/glory_img_sqr.png"
+                    src="images/doodle/11zon_resized_7.jpg"
                     alt="a"
                     class="img-fluid"
                   />
@@ -313,7 +307,7 @@ const ProductDOODLE = (props) => {
                   data-aos-duration="2000"
                 >
                   <img
-                    src="images/glory_img_long.png"
+                    src="images/doodle/11zon_resized_2.jpg"
                     alt="a"
                     class="img-fluid"
                   />
@@ -324,7 +318,7 @@ const ProductDOODLE = (props) => {
                   data-aos-duration="2000"
                 >
                   <img
-                    src="images/glory_img_sqr.png"
+                    src="images/doodle/11zon_resized_5.jpg"
                     alt="a"
                     class="img-fluid"
                   />
@@ -335,7 +329,7 @@ const ProductDOODLE = (props) => {
                   data-aos-duration="2000"
                 >
                   <img
-                    src="images/glory_img_sqr.png"
+                    src="images/doodle/11zon_resized_6.jpg"
                     alt="a"
                     class="img-fluid"
                   />
@@ -348,7 +342,7 @@ const ProductDOODLE = (props) => {
                   data-aos-duration="2000"
                 >
                   <img
-                    src="images/glory_img_sqr.png"
+                    src="images/doodle/11zon_resized_7.jpg"
                     alt="a"
                     class="img-fluid"
                   />
@@ -359,7 +353,7 @@ const ProductDOODLE = (props) => {
                   data-aos-duration="2000"
                 >
                   <img
-                    src="images/glory_img_sqr.png"
+                    src="images/doodle/11zon_resized.jpg"
                     alt="a"
                     class="img-fluid"
                   />
@@ -372,7 +366,7 @@ const ProductDOODLE = (props) => {
                   data-aos-duration="2000"
                 >
                   <img
-                    src="images/glory_img_long.png"
+                    src="images/doodle/11zon_resized_3.jpg"
                     alt="a"
                     class="img-fluid"
                   />
@@ -382,7 +376,7 @@ const ProductDOODLE = (props) => {
                   data-aos="fade-up"
                   data-aos-duration="2000"
                 >
-                  <img src="images/long_img_2.png" alt="a" class="img-fluid" />
+                  <img src="images/doodle/11zon_resized_4.jpg" alt="a" class="img-fluid" />
                 </div>
                 <div
                   class="glory_lng_ttx"

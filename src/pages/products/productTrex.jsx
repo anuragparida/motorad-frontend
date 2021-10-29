@@ -134,18 +134,18 @@ const ProductTREX = (props) => {
               <div class="product_menu_setclr">
                 <ul>
                   <li><p>Select Color</p></li>
-                  <li>
-                    <label class="chck">
-                      <input type="radio" name="a" id="communitymode" checked />
-                      <span class="checkmark"></span>
-                    </label>
-                  </li>
-                  <li>
-                    <label class="chck">
-                      <input type="radio" name="a" id="communitymode" />
-                      <span class="checkmark"></span>
-                    </label>
-                  </li>
+
+                  {products.map(prod => (
+                    <li>
+                      <label class="chck">
+                        <input type="radio" checked={prod.id === productID} onChange={()=>{
+                          setProductID(prod.id);
+                        }}/>
+                        <span class="checkmark" style={{"background": prod.color}}></span>
+                      </label>
+                    </li>
+                  ))}
+
                   <li class="d-none d-lg-block">
                     <h6>Rs 37,133</h6>
                   </li>
@@ -236,12 +236,23 @@ const ProductTREX = (props) => {
             <div class="app">
               <div id="bound-two" class="scroll-bound">
                 <div class="content">
-                  <video id="v0" tabindex="0" autobuffer muted preload>
-                    
+                <video id="v0" tabindex="0" autobuffer muted preload>
+                    <source
+                      src="images/3D-Renders/T-Rex-Full-FFMpeg.mp4"
+                      type="video/mp4"
+                    />
+                  </video>
+                  <video
+                    class="d-lg-none"
+                    id="v0"
+                    tabindex="0"
+                    autobuffer
+                    muted
+                    preload
+                  >
                     <source
                       src="images/3D-Renders/T-Rex-Mobile-FFMpeg.mp4"
                       type="video/mp4"
-                      class="d-lg-none"
                     />
                   </video>
                 </div>
@@ -278,7 +289,7 @@ const ProductTREX = (props) => {
                   data-aos-duration="2000"
                 >
                   <img
-                    src="images/glory_img_sqr.png"
+                    src="images/trex/11zon_resized.jpg"
                     alt="a"
                     class="img-fluid"
                   />
@@ -289,7 +300,7 @@ const ProductTREX = (props) => {
                   data-aos-duration="2000"
                 >
                   <img
-                    src="images/glory_img_sqr.png"
+                    src="images/trex/11zon_resized_2.jpg"
                     alt="a"
                     class="img-fluid"
                   />
@@ -302,7 +313,7 @@ const ProductTREX = (props) => {
                   data-aos-duration="2000"
                 >
                   <img
-                    src="images/glory_img_long.png"
+                    src="images/trex/11zon_resized_5.jpg"
                     alt="a"
                     class="img-fluid"
                   />
@@ -313,7 +324,7 @@ const ProductTREX = (props) => {
                   data-aos-duration="2000"
                 >
                   <img
-                    src="images/glory_img_sqr.png"
+                    src="images/trex/11zon_resized_3.jpg"
                     alt="a"
                     class="img-fluid"
                   />
@@ -324,7 +335,7 @@ const ProductTREX = (props) => {
                   data-aos-duration="2000"
                 >
                   <img
-                    src="images/glory_img_sqr.png"
+                    src="images/trex/11zon_resized_4.jpg"
                     alt="a"
                     class="img-fluid"
                   />
@@ -337,7 +348,7 @@ const ProductTREX = (props) => {
                   data-aos-duration="2000"
                 >
                   <img
-                    src="images/glory_img_sqr.png"
+                    src="images/trex/11zon_resized.jpg"
                     alt="a"
                     class="img-fluid"
                   />
@@ -348,7 +359,7 @@ const ProductTREX = (props) => {
                   data-aos-duration="2000"
                 >
                   <img
-                    src="images/glory_img_sqr.png"
+                    src="images/trex/11zon_resized_2.jpg"
                     alt="a"
                     class="img-fluid"
                   />
@@ -361,7 +372,7 @@ const ProductTREX = (props) => {
                   data-aos-duration="2000"
                 >
                   <img
-                    src="images/glory_img_long.png"
+                    src="images/trex/11zon_resized_6.jpg"
                     alt="a"
                     class="img-fluid"
                   />
@@ -371,7 +382,7 @@ const ProductTREX = (props) => {
                   data-aos="fade-up"
                   data-aos-duration="2000"
                 >
-                  <img src="images/long_img_2.png" alt="a" class="img-fluid" />
+                  <img src="images/trex/11zon_resized_7.jpg" alt="a" class="img-fluid" />
                 </div>
                 <div
                   class="glory_lng_ttx"

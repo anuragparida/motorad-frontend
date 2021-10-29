@@ -71,53 +71,53 @@ const Login = (props) => {
 
   }
 
-  const onSuccess = (res) => {
-    console.log(res);
-    console.log('Login Success: currentUser:', res.profileObj);
-    alert(
-      `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
-    );
-        axios
-          .post(server + "/api/user/google-login", {code: res.accessToken})
-          .then((rsp) => {
-            Cookies.set("token", rsp.data.payload.token);
-            setLoader("");
-            setMessage(<Alert className="success" message={rsp.data.message} />);
-            window.location.href = "/";
-          })
-          .catch((err) => {
-            console.log(err.response);
-            setLoader("");
-            setMessage(<Alert className="warning" message={err.response.data.message} />);
-          });
-    refreshTokenSetup(res);
-  };
+  // const onSuccess = (res) => {
+  //   console.log(res);
+  //   console.log('Login Success: currentUser:', res.profileObj);
+  //   alert(
+  //     `Logged in successfully welcome ${res.profileObj.name} 😍. \n See console for full profile object.`
+  //   );
+  //       axios
+  //         .post(server + "/api/user/google-login", {code: res.accessToken})
+  //         .then((rsp) => {
+  //           Cookies.set("token", rsp.data.payload.token);
+  //           setLoader("");
+  //           setMessage(<Alert className="success" message={rsp.data.message} />);
+  //           window.location.href = "/";
+  //         })
+  //         .catch((err) => {
+  //           console.log(err.response);
+  //           setLoader("");
+  //           setMessage(<Alert className="warning" message={err.response.data.message} />);
+  //         });
+  //   refreshTokenSetup(res);
+  // };
 
-  const onFailure = (res) => {
-    console.log('Login failed: res:', res);
-    alert(
-      `Failed to login. 😢 Please ping this to repo owner twitter.com/sivanesh_fiz`
-    );
-  };
+  // const onFailure = (res) => {
+  //   console.log('Login failed: res:', res);
+  //   alert(
+  //     `Failed to login. 😢 Please ping this to repo owner twitter.com/sivanesh_fiz`
+  //   );
+  // };
 
-  const refreshTokenSetup = (res) => {
-    // Timing to renew access token
-    let refreshTiming = (res.tokenObj.expires_in || 3600 - 5 * 60) * 1000;
+  // const refreshTokenSetup = (res) => {
+  //   // Timing to renew access token
+  //   let refreshTiming = (res.tokenObj.expires_in || 3600 - 5 * 60) * 1000;
   
-    const refreshToken = async () => {
-      const newAuthRes = await res.reloadAuthResponse();
-      refreshTiming = (newAuthRes.expires_in || 3600 - 5 * 60) * 1000;
-      console.log('newAuthRes:', newAuthRes);
-      // saveUserToken(newAuthRes.access_token);  <-- save new token
-      localStorage.setItem('token', newAuthRes.id_token); //COOKIES
+  //   const refreshToken = async () => {
+  //     const newAuthRes = await res.reloadAuthResponse();
+  //     refreshTiming = (newAuthRes.expires_in || 3600 - 5 * 60) * 1000;
+  //     console.log('newAuthRes:', newAuthRes);
+  //     // saveUserToken(newAuthRes.access_token);  <-- save new token
+  //     localStorage.setItem('token', newAuthRes.id_token); //COOKIES
   
-      // Setup the other timer after the first one
-      setTimeout(refreshToken, refreshTiming);
-    };
+  //     // Setup the other timer after the first one
+  //     setTimeout(refreshToken, refreshTiming);
+  //   };
   
-    // Setup first refresh timer
-    setTimeout(refreshToken, refreshTiming);
-  };
+  //   // Setup first refresh timer
+  //   setTimeout(refreshToken, refreshTiming);
+  // };
 
   const googleLogin = () => {
     const gapi = window.gapi;
@@ -137,6 +137,7 @@ const Login = (props) => {
           .post(server + "/api/user/google-login", params)
           .then((rsp) => {
             Cookies.set("token", rsp.data.payload.token);
+            Cookies.set("tokenDate", new Date());
             setLoader("");
             setMessage(<Alert className="success" message={rsp.data.message} />);
             window.location.href = "/";
@@ -175,7 +176,7 @@ const Login = (props) => {
                   cookiePolicy={'single_host_origin'}
                 /> */}
 
-                <GoogleLogin
+                {/* <GoogleLogin
                     clientId="170043377049-kct15ngvlq8dvk14d5fas47fc1ugpq4r.apps.googleusercontent.com"
                     // render={
                     //   renderProps => {
@@ -187,7 +188,7 @@ const Login = (props) => {
                     onFailure={onFailure}
                     cookiePolicy={'single_host_origin'}
                     style={{ marginTop: '100px' }}
-                  />
+                  /> */}
                 <a href="javascript:void(0)" onClick={googleLogin}><i class="fa fa-google"></i>Sign Up with Google</a>
                 <a href={facebookLoginUrl} class="blue_bg"
                   ><i class="fa fa-facebook"></i>Sign Up with Facebook</a

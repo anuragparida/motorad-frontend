@@ -27,10 +27,13 @@ import ResetPassword from "./pages/auth/resetPassword";
 import ForgotPassword from "./pages/auth/forgotPassword";
 import VerifyOTP from "./pages/auth/verifyOTP";
 import facebookAuth from "./pages/auth/facebookAuth";
+import ScrollToTop from "./utils/scrollToTop";
 
 export default function Router() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
+
       <Switch>
         {/* <Route path="/settings" component={Settings} />
             <Route path="/orders" component={Order} /> */}
