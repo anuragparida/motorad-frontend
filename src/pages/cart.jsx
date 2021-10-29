@@ -5,6 +5,8 @@ import Footer from './../components/Footer';
 import axios from "axios";
 import { server, config, checkAccess } from "../env";
 import isLoggedIn from './../utils/checkLogin';
+import Alert from './../components/Alert';
+import Loader from './../components/Loader';
 
 const Cart = (props) => {
 
@@ -18,7 +20,12 @@ const Cart = (props) => {
 
   const [orderSuccess, setOrderSuccess] = useState(false);
 
+  const [message, setMessage] = useState("");
+  const [loader, setLoader] = useState("");
+
   const razorPayPaymentHandler = async () => {
+
+    setLoader(<Loader/>);
 
     await axios
         .post(server + '/api/order/create', {}, config)
@@ -41,10 +48,14 @@ const Cart = (props) => {
                   console.log("App -> razorPayPaymentHandler -> captured", successObj)
                   if(captured){
                       console.log('success')
+                      setMessage(<Alert className="success" message={rsp.data.message} />);
+                      setLoader("");
                   }
                   window.location.href = "/";
                 })
                 .catch((err) => {
+                  setMessage(<Alert className="warning" message={rsp.data.message} />);
+                  setLoader("");
                   console.log(err.response);
                 });
                
@@ -60,6 +71,8 @@ const Cart = (props) => {
           rzp1.open();
         })
         .catch((err) => {
+          setMessage(<Alert className="warning" message={"Please Contact Admin"} />);
+          setLoader("");
           checkAccess(err);
           console.error(err.response);
         });
@@ -300,6 +313,7 @@ const Cart = (props) => {
                     </tr>
                   </table>
                 </div>
+                {message}
                 <div class="total_invo_btn">
                   <button type="submit" class="btn btn_submit" onClick={()=>{
                     // createOrder()
@@ -311,6 +325,7 @@ const Cart = (props) => {
                       >Checkout
                       <img src="images/arrw_w_rgt.svg" alt="a" class="img-fluid"
                     /></span>
+                    {loader}
                   </button>
                 </div>
                 <div class="continue_shoping_btn">
