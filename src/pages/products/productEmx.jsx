@@ -416,7 +416,7 @@ const ProductEMX = (props) => {
                     <br />The EMX is designed for the city; traffic,
                     <br />uneven roads and slopes included.
                   </p>
-                  <a href="#">TEST RIDE</a>
+                  <a href="/book">TEST RIDE</a>
                 </div>
               </div>
             </div>
@@ -1155,8 +1155,8 @@ const ProductEMX = (props) => {
     <Footer/>
     <div class="book_ride_sticky d-lg-none">
       <div class="d-flex">
-        <p>Rs 52,371</p>
-        <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>
+        
+        <a href="javascript:void(0)" onClick={addToCart}><p>Rs 52,371</p> BUY NOW</a>
       </div>
     </div>
     <div class="wapp_sticky">

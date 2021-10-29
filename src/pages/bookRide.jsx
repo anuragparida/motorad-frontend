@@ -11,9 +11,23 @@ const BookRide = (props) => {
   const [city, setCity] = useState("");
   const [stores, setStores] = useState([]);
 
+  const [bike, setBike] = useState('trex');
+
   useEffect(() => {
     loadStores(city);
   }, [city]);
+
+  const changeBike = (event) => {
+    if (event.target.value === "TREX") {
+      setBike('trex');
+    }
+    else if (event.target.value === "EMX") {
+      setBike('emx');
+    }
+    else {
+      setBike('doodle');
+    }
+  }
 
   const loadStores = async(city) => {
     await axios
@@ -73,8 +87,15 @@ const BookRide = (props) => {
                 your details below and book a test ride. <br />
                 Welcome to the electric revolution.
               </p>
-              <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
-              <h5>SELECTED BIKE: <span> T - REX</span></h5>
+              {
+                bike==="trex" ? 
+                <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
+                : bike === "emx" ?
+                <img src="images/bicycle_3.png" alt="a" class="img-fluid" />
+                :
+                <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
+              }
+              <h5>SELECTED BIKE: <span> {bike==="trex" ? "T - REX" : bike === "emx" ? "EMX" : "DOODLE"}</span></h5>
             </div>
           </div>
           <div class="col-lg-6">
@@ -113,7 +134,7 @@ const BookRide = (props) => {
                   <div class="col-lg-6">
                     <div class="form-group d-none d-lg-block">
                       <label for="">Select Bike</label>
-                      <select name="bike" class="form-control" defaultValue="TREX" required>
+                      <select name="bike" class="form-control" defaultValue="TREX" required onChange={changeBike}>
                         <option value="TREX">TREX</option>
                         <option value="EMX">EMX</option>
                         <option value="DOODLE">DOODLE</option>
