@@ -8,6 +8,7 @@ import Cookies from 'js-cookie';
 const Navbar = (props) => {
 
   const [links, setLinks] = useState({});
+  const [cartHasItem, setCartHasItem] = useState(false);
   const [logged, setLogged] = useState(false);
 
   const loadLinks = async() => {
@@ -22,6 +23,20 @@ const Navbar = (props) => {
         console.error(err);
       });
   }
+
+  const checkCart = async() => {
+    await axios
+      .get(server + "/api/cart/read", config)
+      .then((rsp) => {
+        console.log(rsp);
+        setCartHasItem(rsp.data.payload[0].product.length > 0);
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
+  }
+
   const logout = () => {
     Cookies.remove("token");
     window.location.reload();
@@ -30,6 +45,9 @@ const Navbar = (props) => {
   useEffect(() => {
     loadLinks();
     setLogged(isLoggedIn());
+    if(isLoggedIn()) {
+        checkCart();
+    }
   }, []);
   
 
@@ -186,7 +204,7 @@ const Navbar = (props) => {
                            <li>
                                <Link to="/cart">
                                {
-                                    logged ?
+                                    logged && cartHasItem ?
                                     <img src="images/trolly_green.svg" alt="logo" class="img-fluid"/>
                                     :
                                     <img src="images/troli_icon.svg" alt="logo" class="img-fluid"/>

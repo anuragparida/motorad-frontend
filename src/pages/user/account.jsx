@@ -5,10 +5,14 @@ import Footer from './../../components/Footer';
 import axios from "axios";
 import { server, config, checkAccess } from "../../env";
 import isLoggedIn from './../../utils/checkLogin';
+import Alert from './../../components/Alert';
+import Loader from './../../components/Loader';
 
 const Account = (props) => {
 
   const [add, setAdd] = useState([]);
+  const [message, setMessage] = useState("");
+  const [loader, setLoader] = useState("");
 
   const loadAddresses = async () => {
     if(!isLoggedIn()){
@@ -30,17 +34,54 @@ const Account = (props) => {
   }
 
   const setDefaultAdd = async (id) => {
-    console.log("y")
     await axios
-      .post(server + `/api/address/default/${id}`, config)
+      .post(server + `/api/address/default/${id}`, {}, config)
       .then((rsp) => {
         console.log(rsp);
         window.location.reload();
       })
       .catch((err) => {
         checkAccess(err);
-        console.error(err);
+        console.error(err.response);
       });
+  }
+
+  const addAddress = async (e) => {
+    e.preventDefault();
+
+    setLoader(<Loader/>);
+
+    var params = Array.from(e.target.elements)
+      .filter((el) => el.name)
+      .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
+
+    params.landmark = "jk";
+
+    axios
+    .post(server + "/api/address/create", params, config)
+    .then((rsp) => {
+      console.log(rsp);
+      setMessage(<Alert className="success" message={rsp.data.message} />);
+      setLoader("");
+      window.location.reload();
+    })
+    .catch((err) => {
+      console.log(err.response);
+      setMessage(<Alert className="danger" message={err.response.data.message} />);
+      setLoader("");
+    });
+  }
+
+  const deleteAddress = async (id) => {
+    axios
+    .delete(server + `/api/address/delete/${id}`, config)
+    .then((rsp) => {
+      console.log(rsp);
+      window.location.reload();
+    })
+    .catch((err) => {
+      console.log(err.response);
+    });
   }
 
   useEffect(()=>{
@@ -86,17 +127,19 @@ const Account = (props) => {
                         <span class="checkmark"></span>
                       </label>
                       </a>
-                      <a
-                        href="#"
-                        data-toggle="modal"
-                        data-target="#exampleModalLong"
+                      {
+                        address.default !== 1 &&
+                        <a
+                        href="javascript:void(0)"
+                        onClick={()=>deleteAddress(address.id)}
                         ><img
                           src="images/edit_icon.svg"
                           alt="a"
                           class="img-fluid"
                         />
-                        Edit Address</a
+                        Delete Address</a
                       >
+                      }
                     </div>
                     <form action="">
                       <div class="row">
@@ -107,7 +150,7 @@ const Account = (props) => {
                               type="text"
                               class="form-control"
                               placeholder="Your Name"
-                              value="Ekansh Sharma"
+                              value={address.name || "Needs db conf"}
                             />
                           </div>
                         </div>
@@ -118,7 +161,7 @@ const Account = (props) => {
                               type="text"
                               class="form-control"
                               placeholder="Your State"
-                              value="Maharashtra"
+                              value={address.state}
                             />
                           </div>
                         </div>
@@ -129,7 +172,7 @@ const Account = (props) => {
                               type="text"
                               class="form-control"
                               placeholder="Your City"
-                              value="Pune"
+                              value={address.city}
                             />
                           </div>
                         </div>
@@ -140,7 +183,7 @@ const Account = (props) => {
                               type="text"
                               class="form-control"
                               placeholder="Your Address"
-                              value="At post Jambe, taluka Mulshi, 169/2 Sangawade Road,"
+                              value={address.address}
                             />
                           </div>
                         </div>
@@ -151,7 +194,7 @@ const Account = (props) => {
                               type="text"
                               class="form-control"
                               placeholder="Your Pincode"
-                              value="123456"
+                              value={address.pin}
                             />
                           </div>
                         </div>
@@ -270,7 +313,8 @@ const Account = (props) => {
                   </label>
                 </div>
                 <div class="emi_plan_frm accnt_modal_plan">
-                  <form>
+                  <form onSubmit={addAddress}>
+                    {message}
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="form-group">
@@ -279,6 +323,8 @@ const Account = (props) => {
                             type="text"
                             class="form-control"
                             placeholder="Enter your Name"
+                            name="name"
+                            required
                           />
                         </div>
                       </div>
@@ -289,6 +335,8 @@ const Account = (props) => {
                             type="text"
                             class="form-control"
                             placeholder="Select your state"
+                            name="state"
+                            required
                           />
                         </div>
                       </div>
@@ -299,6 +347,8 @@ const Account = (props) => {
                             type="text"
                             class="form-control"
                             placeholder="Select your city"
+                            name="city"
+                            required
                           />
                         </div>
                       </div>
@@ -306,9 +356,11 @@ const Account = (props) => {
                         <div class="form-group">
                           <label for="">Pincode</label>
                           <input
-                            type="text"
+                            type="number"
                             class="form-control"
                             placeholder="Enter your pincode"
+                            name="pin"
+                            required
                           />
                         </div>
                       </div>
@@ -316,13 +368,13 @@ const Account = (props) => {
                         <div class="form-group">
                           <label for="">Your Address</label>
                           <textarea
-                            name=""
-                            id=""
                             cols="30"
                             rows="10"
                             class="form-control"
                             placeholder="Enter your address"
                             style={{"min-height": "80px"}}
+                            name="address"
+                            required
                           ></textarea>
                         </div>
                       </div>
@@ -330,6 +382,7 @@ const Account = (props) => {
                         <div class="accnt_submit_modal">
                           <button type="submit" class="btn btn_submit">
                             Add Address
+                            {loader}
                           </button>
                         </div>
                       </div>
