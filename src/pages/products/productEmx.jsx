@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useLayoutEffect} from "react";
 import Navbar from '../../components/Navbar';
 import MobileNavbar from '../../components/MobileNavbar';
 import Footer from '../../components/Footer';
@@ -6,6 +6,10 @@ import AOS from 'aos';
 import axios from "axios";
 import { server, config, checkAccess } from "../../env";
 import isLoggedIn from './../../utils/checkLogin';
+import { render } from "react-dom";
+import classnames from "classnames";
+
+let images = [0, 1, 2, 3, 4];
 
 const ProductEMX = (props) => {
   // <script>
@@ -43,6 +47,33 @@ const ProductEMX = (props) => {
 
   const [products, setProducts] = useState([]);
   const [productID, setProductID] = useState("");
+
+  const [visibleImagesMap, setVisibleImagesMap] = useState(
+    images.reduce((map, image) => {
+      map[image] = false;
+      return map;
+    }, {})
+  );
+
+  useLayoutEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const viewportHeight = window.innerHeight;
+
+      const newVisibleImagesMap = images.reduce((map, image) => {
+        map[image] = scrollTop >= image * viewportHeight;
+        return map;
+      }, {});
+      
+      console.log(newVisibleImagesMap);
+      setVisibleImagesMap(newVisibleImagesMap);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     AOS.init();
@@ -238,7 +269,32 @@ const ProductEMX = (props) => {
         </div>
       </div>
     </div>
-    <section class="product_vdo_sec" id="feat_sec">
+
+    <section class="product_vdo_sec">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div className="app">
+                <div className="sticky">
+                  <div className="frame">
+                    {images.map((image) => (
+                      <div className={classnames("image imageRotate", `image_emx_${image}`, {
+                        image_visible: visibleImagesMap[image]
+                      })} 
+                        key={image}
+                        id={"image_"+image}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section> 
+
+
+    <section class="product_vdo_sec" id="feat_sec" style={{ display: 'none' }}>
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -246,10 +302,10 @@ const ProductEMX = (props) => {
               <div id="bound-two" class="scroll-bound">
                 <div class="content">
                   <video id="v0" tabindex="0" autobuffer muted preload>
-                    <source
+                    {/* <source
                       src="images/3D-Renders/EMX-full-FFMpeg.mp4"
                       type="video/mp4"
-                    />
+                    /> */}
                   </video>
                   <video
                     class="d-lg-none"
@@ -259,10 +315,10 @@ const ProductEMX = (props) => {
                     muted
                     preload
                   >
-                    <source
+                    {/* <source
                       src="images/3D-Renders/EMX-Mobile-FFMpeg.mp4"
                       type="video/mp4"
-                    />
+                    /> */}
                   </video>
                 </div>
               </div>
@@ -430,7 +486,7 @@ const ProductEMX = (props) => {
                 data-aos-duration="2000"
               >
                 <img src="images/EMX-Pulse.png" alt="a" class="img-fluid" />
-                <div class="spe_dot_1 d-none d-lg-block">
+                {/* <div class="spe_dot_1 d-none d-lg-block">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
@@ -438,14 +494,15 @@ const ProductEMX = (props) => {
                     <h6>Battery</h6>
                     <p>10.4 36V Lithium-Ion</p>
                   </div>
-                </div>
+                </div> */}
+
                 <div class="spe_dot_2 d-none d-lg-block">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
                   <div class="spe_dot_ol">
-                    <h6>Battery</h6>
-                    <p>10.4 36V Lithium-Ion</p>
+                    <h6>Motor</h6>
+                    <p>250W 36V Rear Hub BLDC</p>
                   </div>
                 </div>
                 <div class="spe_dot_3 d-none d-lg-block">
@@ -454,11 +511,21 @@ const ProductEMX = (props) => {
                   </div>
 
                   <div class="spe_dot_ol">
-                    <h6>Battery</h6>
-                    <p>10.4 36V Lithium-Ion</p>
+                    <h6>Pedal Asist Sensor</h6>
+                    <p>5-Level Pedal Asist Sensor</p>
                   </div>
                 </div>
-                <div class="spe_dot_4 d-none d-lg-block">
+                {/* <div class="spe_dot_4 d-none d-lg-block">
+                  <div class="dot">
+                    <div class="dot-pulse"></div>
+                  </div>
+
+                  <div class="spe_dot_ol">
+                    <h6>Batterydfdfdfd</h6>
+                    <p>10.4 36V Lithium-Ion</p>
+                  </div>
+                </div> */}
+                {/* <div class="spe_dot_5 d-none d-lg-block">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
@@ -467,17 +534,7 @@ const ProductEMX = (props) => {
                     <h6>Battery</h6>
                     <p>10.4 36V Lithium-Ion</p>
                   </div>
-                </div>
-                <div class="spe_dot_5 d-none d-lg-block">
-                  <div class="dot">
-                    <div class="dot-pulse"></div>
-                  </div>
-
-                  <div class="spe_dot_ol">
-                    <h6>Battery</h6>
-                    <p>10.4 36V Lithium-Ion</p>
-                  </div>
-                </div>
+                </div> */}
                 <div class="spe_dot_6 d-none d-lg-block">
                   <div class="dot">
                     <div class="dot-pulse"></div>
@@ -485,30 +542,32 @@ const ProductEMX = (props) => {
 
                   <div class="spe_dot_ol">
                     <h6>Battery</h6>
-                    <p>10.4 36V Lithium-Ion</p>
+                    <p>10.4 Ah 36 Volt</p>
+                    <p>Lithium-ion</p>
+                    <p>Detachable Battery</p>
                   </div>
                 </div>
-                <div class="spe_dot_7 d-none d-lg-block">
+                {/* <div class="spe_dot_7 d-none d-lg-block">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
-
                   <div class="spe_dot_ol">
                     <h6>Battery</h6>
                     <p>10.4 36V Lithium-Ion</p>
                   </div>
-                </div>
+                </div> */}
                 <div class="spe_dot_8 d-none d-lg-block">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
-
                   <div class="spe_dot_ol">
-                    <h6>Battery</h6>
-                    <p>10.4 36V Lithium-Ion</p>
+                    <h6>Lights</h6>
+                    <p>High Luminosity Front</p>
+                    <p>Rear LED Lights</p>
+                    <p>With Integrated Horn</p>
                   </div>
                 </div>
-                <div class="spe_dot_9 d-none d-lg-block">
+                {/* <div class="spe_dot_9 d-none d-lg-block">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
@@ -517,15 +576,16 @@ const ProductEMX = (props) => {
                     <h6>Battery</h6>
                     <p>10.4 36V Lithium-Ion</p>
                   </div>
-                </div>
+                </div> */}
                 <div class="spe_dot_10 d-none d-lg-block">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
 
                   <div class="spe_dot_ol">
-                    <h6>Battery</h6>
-                    <p>10.4 36V Lithium-Ion</p>
+                    <h6>LCD Display</h6>
+                    <p>5-Inch Multifunctional</p>
+                    <p>LCD Display</p>
                   </div>
                 </div>
                 <div class="spe_dot_11 d-none d-lg-block">
@@ -534,10 +594,13 @@ const ProductEMX = (props) => {
                   </div>
 
                   <div class="spe_dot_ol">
-                    <h6>Battery</h6>
-                    <p>10.4 36V Lithium-Ion</p>
+                    <h6>E-Breaks</h6>
+                    <p>Front And Rear</p>
+                    <p>E-breaks For Power</p>
+                    <p>Cutoff While Breaking</p>
                   </div>
                 </div>
+                
               </div>
             </div>
           </div>
