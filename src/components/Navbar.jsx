@@ -159,9 +159,17 @@ const Navbar = (props) => {
                                <ul class="assurance_drop_dwn_4">
                                    {
                                        logged ?
+                                       <>
+                                       <li>
+                                            <a href="/overview">Overview</a>
+                                        </li>
+                                        <li>
+                                            <a href="/account">Settings</a>
+                                        </li>
                                        <li>
                                             <a href="javascript:void(0)" onClick={logout}>Logout</a>
                                         </li>
+                                        </>
                                         :
                                         <>
                                             <li>

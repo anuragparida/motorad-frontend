@@ -457,6 +457,7 @@ img {
   border: 1.92529px solid rgba(16, 176, 104, 0.25);
   box-sizing: border-box;
   padding: 30px;
+  padding-top: 0;
 }
 .profile_default_adrs_wrap .d-flex {
   margin-bottom: 15px;
@@ -485,6 +486,7 @@ img {
 .profile_default_adrs_wrap {
   border: 2px solid #10b068;
   padding: 20px;
+  margin-top: 30px;
 }
 .profile_default_adrs_wrap .d-flex a img {
   margin-right: 4px;
@@ -515,7 +517,7 @@ img {
 .profile_presnt_adrs_wrap {
   background: rgba(179, 179, 179, 0.1);
   border-color: rgba(179, 179, 179, 0.1);
-  margin-top: 40px;
+  margin-top: 30px;
 }
 .more_adds_add_bttn {
   margin-top: 50px;
@@ -2758,7 +2760,7 @@ img {
 }
 
 /* Hide the browser's default radio button */
-.radiooo input {
+.radiooo button {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -2780,7 +2782,7 @@ img {
 }
 
 /* When the radio button is checked, add a blue background */
-.radiooo input:checked ~ .checkmark {
+.radiooo button.checked ~ .checkmark {
   background: rgba(16, 176, 104, 0.15);
   border: 3px solid #10b068;
 }
@@ -2793,7 +2795,7 @@ img {
 }
 
 /* Show the indicator (dot/circle) when checked */
-.radiooo input:checked ~ .checkmark:after {
+.radiooo button.checked ~ .checkmark:after {
   display: block;
 }
 
@@ -3172,15 +3174,6 @@ img {
   background: #fff !important;
 }
 
-
-
-
-
-
-
-
-
-
 .app {
   height: 500vh;
 }
@@ -3209,9 +3202,9 @@ img {
   background-size: cover;
 }
 
- .image_0 {
+.image_0 {
   z-index: 0;
-  background-image: url("../images/Web-A.png"); 
+  background-image: url("../images/Web-A.png");
 }
 
 .image_1 {
@@ -3229,15 +3222,14 @@ img {
   background-image: url("../images/Web-D.png");
 }
 
-.image_4 {  
+.image_4 {
   z-index: 4;
   background-image: url("../images/Web_emx-E.png");
-} 
-
+}
 
 .image_emx_0 {
   z-index: 0;
-  background-image: url("../images/EMX/Web-A.png"); 
+  background-image: url("../images/EMX/Web-A.png");
 }
 
 .image_emx_1 {
@@ -3255,15 +3247,14 @@ img {
   background-image: url("../images/EMX/Web-D.png");
 }
 
-.image_emx_4 {  
+.image_emx_4 {
   z-index: 4;
   background-image: url("../images/EMX/Web-E.png");
-} 
-
+}
 
 .image_doodle_0 {
   z-index: 0;
-  background-image: url("../images/Doodle/Web-A.png"); 
+  background-image: url("../images/Doodle/Web-A.png");
 }
 
 .image_doodle_1 {
@@ -3281,23 +3272,22 @@ img {
   background-image: url("../images/Doodle/Web-D.png");
 }
 
-.image_doodle_4 {  
+.image_doodle_4 {
   z-index: 4;
   background-image: url("../images/Doodle/Web-E.png");
 }
-
 
 .imageRotate {
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
-   transform: rotate(0deg);
- -webkit-transition-duration: 1s;
- -moz-transition-duration: 1s;
- -o-transition-duration: 1s;
+  transform: rotate(0deg);
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
   transition-duration: 1s;
-  background-repeat:no-repeat;
-  background-size:contain;
+  background-repeat: no-repeat;
+  background-size: contain;
   background-position: center center;
   /* background-color:rgba(180, 180, 180, .4);  */
 }
@@ -3306,98 +3296,93 @@ img {
   opacity: 1;
 }
 
-
-
 @media only screen and (max-width: 600px) {
   .image_0 {
     z-index: 0;
-    background-image: url("../images/Mobile-A.png"); 
+    background-image: url("../images/Mobile-A.png");
   }
-  
+
   .image_1 {
     z-index: 1;
     background-image: url("../images/Mobile-B.png");
   }
-  
+
   .image_2 {
     z-index: 2;
     background-image: url("../images/Mobile-C.png");
   }
-  
+
   .image_3 {
     z-index: 3;
     background-image: url("../images/Mobile-D.png");
   }
-  
-  .image_4 {  
+
+  .image_4 {
     z-index: 4;
     background-image: url("../images/Mobile-E.png");
-  } 
-
+  }
 
   .image_emx_0 {
     z-index: 0;
-    background-image: url("../images/EMX/Mobile-A.png"); 
+    background-image: url("../images/EMX/Mobile-A.png");
   }
-  
+
   .image_emx_1 {
     z-index: 1;
     background-image: url("../images/EMX/Mobile-B.png");
   }
-  
+
   .image_emx_2 {
     z-index: 2;
     background-image: url("../images/EMX/Mobile-C.png");
   }
-  
+
   .image_emx_3 {
     z-index: 3;
     background-image: url("../images/EMX/Mobile-D.png");
   }
-  
-  .image_emx_4 {  
+
+  .image_emx_4 {
     z-index: 4;
     background-image: url("../images/EMX/Mobile-E.png");
-  } 
-
+  }
 
   .image_doodle_0 {
     z-index: 0;
-    background-image: url("../images/Doodle/Mobile-A.png"); 
+    background-image: url("../images/Doodle/Mobile-A.png");
   }
-  
+
   .image_doodle_1 {
     z-index: 1;
     background-image: url("../images/Doodle/Mobile-B.png");
   }
-  
+
   .image_doodle_2 {
     z-index: 2;
     background-image: url("../images/Doodle/Mobile-C.png");
   }
-  
+
   .image_doodle_3 {
     z-index: 3;
     background-image: url("../images/Doodle/Mobile-D.png");
   }
-  
-  .image_doodle_4 {  
+
+  .image_doodle_4 {
     z-index: 4;
     background-image: url("../images/Doodle/Mobile-E.png");
   }
-   
 
   .imageRotate {
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -o-transform: rotate(0deg);
-     transform: rotate(0deg);
-   -webkit-transition-duration: 1s;
-   -moz-transition-duration: 1s;
-   -o-transition-duration: 1s;
+    transform: rotate(0deg);
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    -o-transition-duration: 1s;
     transition-duration: 1s;
-    background-repeat:no-repeat;
-    background-size:contain;
+    background-repeat: no-repeat;
+    background-size: contain;
     background-position: center center;
     /* background-color:rgba(180, 180, 180, .4);   */
   }
@@ -3406,7 +3391,6 @@ img {
     width: 100% !important;
     border-right: 1px solid black !important;
   }
-  
 }
 
 @media (min-width: 600px) and (max-width: 1024px) {

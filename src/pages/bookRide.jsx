@@ -54,6 +54,7 @@ const BookRide = (props) => {
     .post(server + "/api/ride/book", params)
     .then((rsp) => {
       console.log(rsp);
+      setBookSuccess(true)
     })
     .catch((err) => {
       console.log(err.response);
@@ -214,7 +215,7 @@ const BookRide = (props) => {
                   </div>
                   <div class="col-lg-12">
                     <div class="test_ride_submit_btn text-center">
-                      <a href="javascript:void(0)" onClick={()=>{setBookSuccess(true)}}>Book Now</a>
+                      <a href="javascript:void(0)" onClick={()=>bookRide()}>Book Now</a>
                     </div>
                   </div>
                 </div>

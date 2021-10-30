@@ -75,14 +75,20 @@ const Warranty = (props) => {
         formData.append(key, value);
       }
 
-      formData.append("invoice", e.target.elements.invoice.files[0]);
-      console.log(e.target.elements.invoice.files[0]);
+    formData.append("invoice", e.target.elements.invoice.files[0]);
+    console.log(e.target.elements.invoice.files[0]);
+
       for (var value of formData.values()) {
         // console.log(value);
      }
 
     axios
-    .post(server + "/api/warranty/create", params, formDataConfig)
+    .post(server + "/api/warranty/create", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          responseType: "json",
+        },
+      })
     .then((rsp) => {
       console.log(rsp);
       setSendSuccess(true);

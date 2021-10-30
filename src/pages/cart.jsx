@@ -45,18 +45,18 @@ const Cart = (props) => {
                axios
                 .post(server + `/api/payment/razorpay/capture/${paymentId}?orderId=${orderPayload.localId}`, {}, config)
                 .then((rsp) => {
-                  const successObj = JSON.parse(rsp.data)
-                  const captured = successObj.captured;
-                  console.log("App -> razorPayPaymentHandler -> captured", successObj)
-                  if(captured){
+                  // const successObj = JSON.parse(rsp.data)
+                  // const captured = successObj.captured;
+                  // console.log("App -> razorPayPaymentHandler -> captured", successObj)
+                  // if(captured){
                       console.log('success')
                       setMessage(<Alert className="success" message={rsp.data.message} />);
                       setLoader("");
                       setOrderSuccess(true);
-                  }
+                  // }
                 })
                 .catch((err) => {
-                  setMessage(<Alert className="warning" message={rsp.data.message} />);
+                  setMessage(<Alert className="danger" message={rsp.data.message} />);
                   setLoader("");
                   console.log(err.response);
                 });

@@ -28,6 +28,8 @@ import ForgotPassword from "./pages/auth/forgotPassword";
 import VerifyOTP from "./pages/auth/verifyOTP";
 import facebookAuth from "./pages/auth/facebookAuth";
 import ScrollToTop from "./utils/scrollToTop";
+import Overview from "./pages/user/overview";
+import Account from "./pages/user/account";
 
 export default function Router() {
   return (
@@ -43,6 +45,8 @@ export default function Router() {
         <Route path="/verify" component={VerifyOTP} />
         <Route path="/resetpass" component={ResetPassword} />
         <Route path="/forgotpass" component={ForgotPassword} />
+        <Route path="/account" component={Account} />
+        <Route path="/overview" component={Overview} />
         <Route path="/emx" component={ProductEMX} />
         <Route path="/trex" component={ProductTREX} />
         <Route path="/doodle" component={ProductDOODLE} />
