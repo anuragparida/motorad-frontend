@@ -169,7 +169,7 @@ const ProductTREX = (props) => {
                   </ul>
                 </div>
               </div>
-            </div>
+            
             <div class="col-lg-4 col-8">
               <div class="product_menu_setclr">
                 <ul>
@@ -194,6 +194,7 @@ const ProductTREX = (props) => {
                   </li>
                 </ul>
               </div>
+            </div>
             </div>
           </div>
         </section>
@@ -350,7 +351,7 @@ const ProductTREX = (props) => {
                     data-aos-duration="2000"
                   >
                     <img
-                      src="images/glory_img_sqr.png"
+                      src="images/trex/11zon_resized.jpg"
                       alt="a"
                       class="img-fluid"
                     />
@@ -361,7 +362,7 @@ const ProductTREX = (props) => {
                     data-aos-duration="2000"
                   >
                     <img
-                      src="images/glory_img_sqr.png"
+                      src="images/trex/11zon_resized_2.jpg"
                       alt="a"
                       class="img-fluid"
                     />
@@ -374,7 +375,7 @@ const ProductTREX = (props) => {
                     data-aos-duration="2000"
                   >
                     <img
-                      src="images/glory_img_long.png"
+                      src="images/trex/11zon_resized_5.jpg"
                       alt="a"
                       class="img-fluid"
                     />
@@ -385,7 +386,7 @@ const ProductTREX = (props) => {
                     data-aos-duration="2000"
                   >
                     <img
-                      src="images/glory_img_sqr.png"
+                      src="images/trex/11zon_resized_3.jpg"
                       alt="a"
                       class="img-fluid"
                     />
@@ -396,7 +397,7 @@ const ProductTREX = (props) => {
                     data-aos-duration="2000"
                   >
                     <img
-                      src="images/glory_img_sqr.png"
+                      src="images/trex/11zon_resized_4.jpg"
                       alt="a"
                       class="img-fluid"
                     />
@@ -409,7 +410,7 @@ const ProductTREX = (props) => {
                     data-aos-duration="2000"
                   >
                     <img
-                      src="images/glory_img_sqr.png"
+                      src="images/trex/11zon_resized.jpg"
                       alt="a"
                       class="img-fluid"
                     />
@@ -420,7 +421,7 @@ const ProductTREX = (props) => {
                     data-aos-duration="2000"
                   >
                     <img
-                      src="images/glory_img_sqr.png"
+                      src="images/trex/11zon_resized_2.jpg"
                       alt="a"
                       class="img-fluid"
                     />
@@ -433,7 +434,7 @@ const ProductTREX = (props) => {
                     data-aos-duration="2000"
                   >
                     <img
-                      src="images/glory_img_long.png"
+                      src="images/trex/11zon_resized_6.jpg"
                       alt="a"
                       class="img-fluid"
                     />
@@ -443,7 +444,7 @@ const ProductTREX = (props) => {
                     data-aos="fade-up"
                     data-aos-duration="2000"
                   >
-                    <img src="images/long_img_2.png" alt="a" class="img-fluid" />
+                    <img src="images/trex/11zon_resized_7.jpg" alt="a" class="img-fluid" />
                   </div>
                   <div
                     class="glory_lng_ttx"
