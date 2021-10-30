@@ -71,7 +71,7 @@ const Contact = (props) => {
         <div class="row justify-content-center">
           <div class="col-lg-4">
             <div class="rsa_hero_btm_wrapp">
-              <img class="img-fluid" src="images/chair_icon.svg" alt="a" />
+              {/* <img class="img-fluid" src="images/chair_icon.svg" alt="a" /> */}
               <h6>
                 EMotorad Head Office
               </h6>
@@ -88,7 +88,7 @@ const Contact = (props) => {
           </div>
           <div class="col-lg-4">
             <div class="rsa_hero_btm_wrapp">
-              <img class="img-fluid" src="images/light_icon.svg" alt="a" />
+              {/* <img class="img-fluid" src="images/light_icon.svg" alt="a" /> */}
               <h6>
                 EM International Office
               </h6>
@@ -107,12 +107,13 @@ const Contact = (props) => {
         <div class="row justify-content-center">
           <div class="col-lg-4">
             <div class="rsa_hero_btm_wrapp">
-              <img class="img-fluid" src="images/chair_icon.svg" alt="a" />
+              {/* <img class="img-fluid" src="images/chair_icon.svg" alt="a" /> */}
               <h6>
                 EMotorad Nepal Office
               </h6>
               <p>
-                Gwarko-17, Lalitpur,
+                Gwarko-17,<br/>
+                Lalitpur,
                 <br />
                 Nepal 44700
               </p>
@@ -120,14 +121,14 @@ const Contact = (props) => {
           </div>
           <div class="col-lg-4">
             <div class="rsa_hero_btm_wrapp">
-              <img class="img-fluid" src="images/light_icon.svg" alt="a" />
+              {/* <img class="img-fluid" src="images/light_icon.svg" alt="a" /> */}
               <h6>
                 EM Japan Office
               </h6>
               <p>
-                The Business Center, Al Shmookh
-                <br />
-                Building, UMM Al Quwain FTZ
+              170-0013<br/>
+              東京都豊島区東池袋1-17-11-1105<br/>
+              フェニックス合同会社
               </p>
             </div>
           </div>

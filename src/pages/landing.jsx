@@ -25,8 +25,8 @@ const Landing = (props) => {
                      </div>
                      <div class="home_hero_bike_title">
                          <Link to="/doodle"><h3 class="text-outline text-outline-hover" data-text="DOODLE">DOODLE</h3></Link>
-                         <Link to="/emx"><h3 class="text-outline text-outline-hover" data-text="EMX">EMX</h3></Link>
                          <Link to="/trex"><h3 class="text-outline text-outline-hover" data-text="T-REX">T-REX</h3></Link>
+                         <Link to="/emx"><h3 class="text-outline text-outline-hover" data-text="EMX">EMX</h3></Link>
                      </div>
                  </div>
              </div>
@@ -85,7 +85,7 @@ const Landing = (props) => {
                                                      <div class="suspension_wrap">
                                                         <img src="images/small_bike.svg" alt="a" class="img-fluid"/>
                                                          <h6>RANGE</h6>
-                                                         <p>65+ kms <br/> (50+ Km with throttle)</p>
+                                                         <p>55+ kms <br/> (40+ Km with throttle)</p>
                                                      </div>
                                                  </div>
                                                  <div class="col-lg-6 col-6">
@@ -111,8 +111,8 @@ const Landing = (props) => {
                                                  </div>
                                                  <div class="col-lg-12">
                                                      <div class="suspension_bttns">
-                                                         <a href="#">Buy Now</a>
-                                                         <a href="#">View More</a>
+                                                         <Link to="/doodle">Buy Now</Link>
+                                                         <Link to="/doodle">View More</Link>
                                                      </div>
                                                  </div>
                                              </div>
@@ -142,7 +142,7 @@ const Landing = (props) => {
                                                      <div class="suspension_wrap">
                                                         <img src="images/small_bike.svg" alt="a" class="img-fluid"/>
                                                          <h6>RANGE</h6>
-                                                         <p>65+ kms <br/> (50+ Km with throttle)</p>
+                                                         <p>50+ kms <br/> (35+ Km with throttle)</p>
                                                      </div>
                                                  </div>
                                                  <div class="col-lg-6 col-6">
@@ -163,13 +163,13 @@ const Landing = (props) => {
                                                      <div class="suspension_wrap">
                                                         <img src="images/battrey_icon.svg" alt="a" class="img-fluid"/>
                                                          <h6>BATTERY</h6>
-                                                         <p>36 Volts <br/> (10.4 Ah Powerful Battery)</p>
+                                                         <p>36 Volts <br/> (7.5 Ah Powerful Battery)</p>
                                                      </div>
                                                  </div>
                                                  <div class="col-lg-12">
                                                      <div class="suspension_bttns">
-                                                         <a href="#">Buy Now</a>
-                                                         <a href="#">View More</a>
+                                                     <Link to="/trex">Buy Now</Link>
+                                                         <Link to="/trex">View More</Link>
                                                      </div>
                                                  </div>
                                              </div>
@@ -225,8 +225,8 @@ const Landing = (props) => {
                                                  </div>
                                                  <div class="col-lg-12">
                                                      <div class="suspension_bttns">
-                                                         <a href="#">Buy Now</a>
-                                                         <a href="#">View More</a>
+                                                     <Link to="/emx">Buy Now</Link>
+                                                         <Link to="/emx">View More</Link>
                                                      </div>
                                                  </div>
                                              </div>
@@ -429,7 +429,7 @@ const Landing = (props) => {
              <div class="row">
                  <div class="col-lg-6">
                      <div class="feat_img">
-                         <img src="" alt="691 x 691" class="img-fluid"/>
+                         <img src="images/landing-news.png" alt="691 x 691" class="img-fluid"/>
                      </div>
                  </div>
                  <div class="col-lg-6">
@@ -550,6 +550,9 @@ const Landing = (props) => {
                                  <td><i class="fa fa-circle"></i> <i class="fa fa-circle"></i></td>
                              </tr>
                          </table>
+                         <div class="explore_bttn row mx-auto">
+                            <Link to="/trex">Buy Now</Link>
+                        </div>
                      </div>
                     </Link>
                  </div>
@@ -591,6 +594,9 @@ const Landing = (props) => {
                                  <td><i class="fa fa-circle" style={{"color": "#DBFF00"}}></i></td>
                              </tr>
                          </table>
+                         <div class="explore_bttn row mx-auto">
+                            <Link to="/emx">Buy Now</Link>
+                        </div>
                      </div>
                      </Link>
                  </div>
@@ -632,6 +638,9 @@ const Landing = (props) => {
                                  <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{"color": "#10B068"}}></i></td>
                              </tr>
                          </table>
+                         <div class="explore_bttn row mx-auto">
+                            <Link to="/doodle">Buy Now</Link>
+                        </div>
                      </div>
                      </Link>
                  </div>

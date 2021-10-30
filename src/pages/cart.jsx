@@ -5,6 +5,8 @@ import Footer from './../components/Footer';
 import axios from "axios";
 import { server, config, checkAccess } from "../env";
 import isLoggedIn from './../utils/checkLogin';
+import Alert from './../components/Alert';
+import Loader from './../components/Loader';
 
 const Cart = (props) => {
 
@@ -17,6 +19,67 @@ const Cart = (props) => {
   const [totalAmount, setTotalAmount] = useState(0);
 
   const [orderSuccess, setOrderSuccess] = useState(false);
+
+  const [coupon, setCoupon] = useState({});
+
+  const [message, setMessage] = useState("");
+  const [loader, setLoader] = useState("");
+
+  const razorPayPaymentHandler = async () => {
+
+    setLoader(<Loader/>);
+
+    await axios
+        .post(server + '/api/order/create', {}, config)
+        .then((rsp) => {
+          console.log(rsp);
+          const orderPayload = rsp.data.payload;
+          const options = {
+            key: '',
+            name: "EMotorad",
+            description: orderPayload.id,
+            order_id: orderPayload.id,
+            handler: async (response) => {
+              try {
+                const paymentId = response.razorpay_payment_id;
+               axios
+                .post(server + `/api/payment/razorpay/capture/${paymentId}?orderId=${orderPayload.localId}`, {}, config)
+                .then((rsp) => {
+                  const successObj = JSON.parse(rsp.data)
+                  const captured = successObj.captured;
+                  console.log("App -> razorPayPaymentHandler -> captured", successObj)
+                  if(captured){
+                      console.log('success')
+                      setMessage(<Alert className="success" message={rsp.data.message} />);
+                      setLoader("");
+                      setOrderSuccess(true);
+                  }
+                })
+                .catch((err) => {
+                  setMessage(<Alert className="warning" message={rsp.data.message} />);
+                  setLoader("");
+                  console.log(err.response);
+                });
+               
+              } catch (err) {
+                console.log(err);
+              }
+            },
+            theme: {
+              color: "#10B068",
+            },
+          };
+          const rzp1 = new window.Razorpay(options);
+          rzp1.open();
+        })
+        .catch((err) => {
+          setMessage(<Alert className="warning" message={"Please Contact Admin"} />);
+          setLoader("");
+          checkAccess(err);
+          console.error(err.response);
+        });
+    
+  }
 
   const loadCart = async() => {
     if(!isLoggedIn()){
@@ -60,7 +123,7 @@ const Cart = (props) => {
 
   useEffect(() => {
     let localCart = [], localAmount = 0;
-    if("id" in cart && products.length > 0) {
+    if(cart && "id" in cart && products.length > 0) {
       console.log(cart, products);
 
       let localProduct = {}
@@ -70,7 +133,7 @@ const Cart = (props) => {
         localProduct.quantity = element.amount;
         localCart.push(localProduct);
 
-        localAmount += localProduct.price2;
+        localAmount += localProduct.price2 * localProduct.quantity;
 
       });
       setNetAmount(localAmount)
@@ -84,21 +147,73 @@ const Cart = (props) => {
     calculateAmount(netAmount);
   }, [netAmount]);
 
-  const createOrder = async () => {
-    //setOrderSuccess(true);
+  const checkCoupon = (e) => {
+    e.preventDefault();
+
+    var params = Array.from(e.target.elements)
+      .filter((el) => el.name)
+      .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
+      
+    setLoader(<Loader/>);
+
+    axios
+    .get(server + `/api/coupon/read/${params.code}`)
+    .then((rsp) => {
+      console.log(rsp);
+      if(rsp.data.payload){
+        setCoupon(rsp.data.payload);
+        setMessage(<Alert className="success" message={"Coupon Applied"} />);
+        setLoader("");
+      }
+      else {
+        setMessage(<Alert className="danger" message={"Invalid Coupon"} />);
+        setLoader("");
+      }
+    })
+    .catch((err) => {
+      console.log(err.response);
+      if (err.response) {
+        setMessage(<Alert className="danger" message={err.response.data.message} />);
+        setLoader("");
+      }
+    });
   }
 
   const updateCart = async (params) => {
     await axios
       .put(server + "/api/cart/update", params, config)
       .then((rsp) => {
-        console.log(rsp.data); //CHANGE THIS
+        console.log(rsp.data);
         // window.location.href = "/cart";
+        window.location.reload();
       })
       .catch((err) => {
         checkAccess(err);
         console.error(err);
       });
+  }
+
+  const changeQuantity = async (id, type, amount) => {
+    let params = {}
+    if (type==="plus") {
+      params = {
+        "product": [
+          ...cart.product.filter(element => element.id !== id),
+          {id: id, amount: amount + 1}
+        ],
+        "accessories": []
+      };
+    }
+    else {
+      params = {
+        "product": [
+          ...cart.product.filter(element => element.id !== id),
+          {"id": id, "amount": amount > 0 ? amount - 1 : 0}
+        ],
+        "accessories": []
+      };
+    }
+    updateCart(params);
   }
 
   const deleteItem = async (id) => {
@@ -110,7 +225,6 @@ const Cart = (props) => {
     };
     console.log("params", params);
     updateCart(params);
-    window.location.reload();
   }
 
   return(
@@ -135,7 +249,6 @@ const Cart = (props) => {
               </p>
               <div class="ordr_placed_btnns">
                 <a href="index.html">Go to HomePage</a>
-                <a href="#">View Your Orders</a>
               </div>
             </div>
           </div>
@@ -187,7 +300,10 @@ const Cart = (props) => {
                           </td>
                           <td>
                             <div class="incre">
-                              <a href="javascript:void(0)" class="button-container">
+                              <a href="javascript:void(0)" class="button-container"
+                              onClick={() => {
+                                changeQuantity(item.id, "minus", item.quantity)
+                              }}>
                                 <i class="fa fa-minus cart-qty-minus"></i>
                               </a>
                               <input
@@ -199,7 +315,10 @@ const Cart = (props) => {
                                 class="input-text qty"
                               />
 
-                              <a href="javascript:void(0)" class="button-container">
+                              <a href="javascript:void(0)" class="button-container"
+                              onClick={() => {
+                                changeQuantity(item.id, "plus", item.quantity)
+                              }}>
                                 <i class="fa fa-plus cart-qty-plus"></i>
                               </a>
                             </div>
@@ -226,12 +345,15 @@ const Cart = (props) => {
               </div>
             </div>
             <div class="col-lg-4">
+              {message}
               <div class="cart_invo_wrap">
                 <h4>Have a coupon?</h4>
-                <div class="copun_enter_input">
-                  <input type="text" placeholder="Enter Coupon Code" />
-                  <a href="#">Apply</a>
-                </div>
+                <form onSubmit={checkCoupon}>
+                  <div class="copun_enter_input">
+                      <input type="text" placeholder="Enter Coupon Code" name="code" required/>
+                      <button type="submit">Apply</button>
+                  </div>
+                </form>
                 <div class="subtotal_tab">
                   <table>
                     <tr>
@@ -255,13 +377,15 @@ const Cart = (props) => {
                 <div class="total_invo_btn">
                   <button type="submit" class="btn btn_submit" onClick={()=>{
                     // createOrder()
-                    setOrderSuccess(true)
+                    // setOrderSuccess(true)
+                    razorPayPaymentHandler();
                     }}>
                     <span>₹ {totalAmount} </span>
                     <span
                       >Checkout
                       <img src="images/arrw_w_rgt.svg" alt="a" class="img-fluid"
                     /></span>
+                    {loader}
                   </button>
                 </div>
                 <div class="continue_shoping_btn">

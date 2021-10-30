@@ -1,7 +1,28 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
+import axios from "axios";
+import { server, config, checkAccess } from "../env";
 
 const Footer = (props) => {
+const [links, setLinks] = useState({});
+
+  const loadLinks = async() => {
+    await axios
+      .get(server + "/api/social/read", config)
+      .then((rsp) => {
+        console.log(rsp);
+        setLinks(rsp.data.payload.reduce((t, e) => ({ ...t, [e.name]: e.link }), {}));
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
+  }
+
+  useEffect(() => {
+    loadLinks();
+  }, []);
+
   return(
     <>
      <footer class="footer_section">
@@ -14,7 +35,7 @@ const Footer = (props) => {
                          <p>EMotorad (EM) is an electric vehicles company that strives to bring futuristic e-bikes at an affordable price for adventure seekers, daily commuters, or casual riders.</p>
                          
                          <h6>Support</h6>
-                         <Link to="#"> <img src="images/ques_icon.svg" alt="a" class="img-fluid"/>Contact Support</Link>
+                         <Link to="/contact"> <img src="images/ques_icon.svg" alt="a" class="img-fluid"/>Contact Support</Link>
                      </div>
                  </div>
                  <div class="col-lg-7">
@@ -89,14 +110,16 @@ const Footer = (props) => {
                      </div>
                  </div>
                  <div class="col-lg-4 ordr_1">
-                      <div class="header_social_icons">
+                    <div class="header_social_icons">
+                       { links.linkedin &&
                          <ul>
                              <li>Follow Us</li>
-                             <li><Link to="#"><i class="fa fa-facebook-square"></i></Link></li>
-                             <li><Link to="#"><i class="fa fa-twitter"></i></Link></li>
-                             <li><Link to="#"><i class="fa fa-instagram"></i></Link></li>
-                             <li><Link to="#"><i class="fa fa-linkedin-square"></i></Link></li>
+                             <li><a target="_blank" href={links.facebook}><i class="fa fa-facebook-square"></i></a></li>
+                             <li><a target="_blank" href={links.twitter}><i class="fa fa-twitter"></i></a></li>
+                             <li><a target="_blank" href={links.instagram}><i class="fa fa-instagram"></i></a></li>
+                             <li><a target="_blank" href={links.linkedin}><i class="fa fa-linkedin-square"></i></a></li>
                          </ul>
+                        }
                      </div>
                  </div>
              </div>

@@ -278,7 +278,7 @@ img {
   border: 2px solid #1a1a1a;
   box-sizing: border-box;
   padding: 30px;
-  min-height: 650px;
+  min-height: 700px;
   transition: all linear 0.2s;
 }
 .bike_explore_wrap:hover {
@@ -998,7 +998,6 @@ img {
   margin-left: 8px;
 }
 .order_now_sec {
-  background: url(../images/cover_cycle.png);
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center center;
@@ -1331,9 +1330,7 @@ img {
   font-size: 13px;
   line-height: 27px;
   font-feature-settings: "liga" off;
-  color: #10b068;
   transition: all linear 0.2s;
-  background: #fff;
   border-radius: 0px;
   display: block;
   border: 2px solid #10b068;

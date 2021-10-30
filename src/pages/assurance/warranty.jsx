@@ -1,26 +1,56 @@
-import React, {useState, useRef} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
 import axios from 'axios';
-import { server } from "../../env";
+import { server, checkAccess, formDataConfig } from "../../env";
 
 const Warranty = (props) => {
-  // <script>
-  //       $(document).ready(function(){
-  //         $('.warenty_purchased span').click(function(){
-  //           $('.warenty_purchased span').removeClass("actv");
-  //           $(this).addClass("actv");
-  //        });
-            
-  //       });
-  //   </script>
 
   const [sendSuccess, setSendSuccess] = useState(false);
+  const [dealerType, setDealerType] = useState("dealer");
+
+  const [products, setProducts] = useState([]);
+  const [stores, setStores] = useState([]);
+
   const formRef = useRef(null);
 
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+  }
+
+  const loadProducts = async() => {
+    await axios
+      .get(server + "/api/product/read")
+      .then((rsp) => {
+        console.log(rsp);
+        const filteredDoodle = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"));
+        const filteredEmx = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"));
+        const filteredTrex = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"));
+        if (filteredTrex.length > 0 && filteredEmx.length > 0 && filteredDoodle.length > 0) {
+          console.log("filter", filteredDoodle, filteredEmx, filteredTrex);
+          setProducts([filteredTrex[0].id, filteredEmx[0].id, filteredDoodle[0].id]);
+        }
+        else {
+          alert("Products not set correctly. Please Contact Admin.");
+        }
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
+  }
+
+  const loadStores = async() => {
+    await axios
+      .post(server + "/api/store/read")
+      .then((rsp) => {
+        console.log(rsp);
+        setStores(rsp.data.payload)
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 
   const sendWarranty = async (e) => {
@@ -31,15 +61,31 @@ const Warranty = (props) => {
       .filter((el) => el.name)
       .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
 
-      params.dealerType = "online";
-      params.bike = 3;
+      params.dealerType = dealerType;
+      params.bike = params.bike === "trex" ? products[0] : params.bike === "emx" ? products[1] : products[2];
+
+      params.dealerName = dealerType === "online" ? "amazon" : params.dealerName;
+      delete params.invoice;
 
       console.log(params);
 
+      let formData = new FormData();
+    
+      for (const [key, value] of Object.entries(params)) {
+        formData.append(key, value);
+      }
+
+      formData.append("invoice", e.target.elements.invoice.files[0]);
+      console.log(e.target.elements.invoice.files[0]);
+      for (var value of formData.values()) {
+        // console.log(value);
+     }
+
     axios
-    .post(server + "/api/warranty/create", params)
+    .post(server + "/api/warranty/create", params, formDataConfig)
     .then((rsp) => {
       console.log(rsp);
+      setSendSuccess(true);
     })
     .catch((err) => {
       console.log(err.response);
@@ -48,6 +94,11 @@ const Warranty = (props) => {
     });
 
   }
+
+  useEffect(()=>{
+    loadProducts();
+    loadStores();
+  }, [])
 
   return(
     <>
@@ -63,10 +114,10 @@ const Warranty = (props) => {
                        <p>Activate your warranty for peace of mind and ride <br/> assured that your vehicle is covered and protected.</p>
                        <div class="hero_btn rsa_hero_btn">
                            <a href="javascript:void(0)" onClick={scrollToForm}>Activate</a>
-                           <a href="#">
+                           <a href="files/warranty.pdf" download>
                            <img class="img-fluid" src="images/download_w_icon.svg" alt="a" />
                                 Download
-                           </a>
+                            </a>
                        </div>
                    </div>
                  </div>
@@ -78,7 +129,7 @@ const Warranty = (props) => {
              </div>
          </div>
      </section>
-     <section class="emi_hero_btm_sec">
+     <section class="emi_hero_btm_sec" ref={formRef}>
          <div class="container">
              <div class="row justify-content-center">
                  <div class="col-lg-11">
@@ -114,7 +165,7 @@ const Warranty = (props) => {
      </section>
      {
        ! sendSuccess ?
-       <section class="emi_plan_select_sec warrenty_section" ref={formRef}>
+       <section class="emi_plan_select_sec warrenty_section" >
          <div class="container">
              <div class="row justify-content-center">
                  <div class="col-lg-10">
@@ -127,17 +178,17 @@ const Warranty = (props) => {
                                 <div class="col-lg-6">
                                      <div class="form-group">
                                          <label for="">Select A Bike</label>
-                                         <select name="" id="" class="form-control">
-                                             <option value="">T-REX</option>
-                                             <option value="">EMX</option>
-                                             <option value="">DOODLE</option>
+                                         <select name="bike" class="form-control">
+                                             <option value="trex">T-REX</option>
+                                             <option value="emx">EMX</option>
+                                             <option value="doodle">DOODLE</option>
                                          </select>
                                      </div>
                                 </div>
                                 <div class="col-lg-6">
                                      <div class="form-group">
                                          <label for="">Your Name</label>
-                                         <input type="text" class="form-control" name="name" placeholder="Enter your  Name" required/>
+                                         <input type="text" class="form-control" name="name" placeholder="Enter your Name" required/>
                                      </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -167,20 +218,27 @@ const Warranty = (props) => {
                                 <div class="col-lg-6">
                                      <div class="warenty_purchased">
                                          <label for="">Purchased from</label>
-                                         <span class="actv">Dealer</span>
-                                         <span href="#">Online</span>
+                                         <span class={dealerType==="dealer" ? "actv" : ""} onClick={()=>{setDealerType("dealer")}}>Dealer</span>
+                                         <span class={dealerType==="online" ? "actv" : ""} onClick={()=>{setDealerType("online")}}>Online</span>
                                      </div>
                                 </div>
-                                <div class="col-lg-6">
-                                     <div class="form-group">
-                                         <label for="">Select Store</label>
-                                         <select name="dealerName" id="" class="form-control" defaultValue="Balaji">
-                                             <option value="Balaji">Balaji Cycle Store</option>
-                                             <option value="">Balaji Cycle House</option>
-                                             <option value="">Balaji Cycle Store</option>
-                                         </select>
-                                     </div>
-                                </div>
+                                {
+                                    dealerType === "dealer" ?
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="">Select Store</label>
+                                            <select name="dealerName" id="" class="form-control" defaultValue="Balaji">
+                                                {
+                                                stores.map(x=><option value={x.id}>{x.name}</option>)
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                    :
+                                    <div class="col-lg-6">
+                                    </div>
+                                }
+                                
                                 <div class="col-lg-6">
                                     <div class="warrent_invoice_upload">
                                       <label class="upload-area">

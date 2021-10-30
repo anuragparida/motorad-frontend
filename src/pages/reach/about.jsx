@@ -72,7 +72,7 @@ const About = (props) => {
                   EMotorad (EM) is an electric vehicles company that strives to bring futuristic e-bikes at an affordable price for adventure seekers, daily commuters, or casual riders. EM has been courageously and compassionately riding the e-bikes market to new heights, with the launch of their first dual suspension bike EMX, followed by a fat-tyre foldable ebike, Doodle, and a mountain bike, TREX. They provide customized parts with the latest technology.
                 </p>
               </div>
-              <img class="img-fluid" src="images/team_2.png" alt="a" />
+              <img class="img-fluid" src="images/founders.jpg" alt="a" />
             </div>
           </div>
           <div class="col-lg-6">
@@ -108,12 +108,12 @@ const About = (props) => {
         <div class="row">
           <div class="col-lg-3">
             <div class="expert_team_wrap">
-              <img class="img-fluid" src="images/team_img.png" alt="a" />
+              <img class="img-fluid" src="images/rajib.jpg" alt="a" />
               <div class="d-flex justify-content-between mt-3">
                 <h5>
                   Rajib Gangopadhyay
                 </h5>
-                <a href="#">
+                <a href="https://www.linkedin.com/in/rajib-gangopadhyay-5135281b">
                   <img class="img-fluid" src="images/linkedin_icon.svg" alt="in" />
                 </a>
               </div>
@@ -135,12 +135,12 @@ const About = (props) => {
           </div>
           <div class="col-lg-3">
             <div class="expert_team_wrap">
-              <img class="img-fluid" src="images/team_img.png" alt="a" />
+              <img class="img-fluid" src="images/kunal.jpg" alt="a" />
               <div class="d-flex justify-content-between mt-3">
                 <h5>
                   Kunal Gupta
                 </h5>
-                <a href="#">
+                <a href="https://www.linkedin.com/in/kunal-gupta-300784b1">
                   <img class="img-fluid" src="images/linkedin_icon.svg" alt="in" />
                 </a>
               </div>
@@ -162,12 +162,12 @@ const About = (props) => {
           </div>
           <div class="col-lg-3">
             <div class="expert_team_wrap">
-              <img class="img-fluid" src="images/team_img.png" alt="a" />
+              <img class="img-fluid" src="images/aditya.jpg" alt="a" />
               <div class="d-flex justify-content-between mt-3">
                 <h5>
-                  Adita Oza
+                  Aditya Oza
                 </h5>
-                <a href="#">
+                <a href="https://www.linkedin.com/in/aditya-oza-30356090">
                   <img class="img-fluid" src="images/linkedin_icon.svg" alt="in" />
                 </a>
               </div>
@@ -189,12 +189,12 @@ const About = (props) => {
           </div>
           <div class="col-lg-3">
             <div class="expert_team_wrap">
-              <img class="img-fluid" src="images/team_img.png" alt="a" />
+              <img class="img-fluid" src="images/sumedh.jpg" alt="a" />
               <div class="d-flex justify-content-between mt-3">
                 <h5>
                   Sumedh Battewar
                 </h5>
-                <a href="#">
+                <a href="https://www.linkedin.com/in/sumedh-battewar-39a647147">
                   <img class="img-fluid" src="images/linkedin_icon.svg" alt="in" />
                 </a>
               </div>

@@ -82,7 +82,7 @@ const Partner = (props) => {
           </div>
           <div class="col-lg-6">
             <div class="emi_hero_img">
-              <img class="img-fluid" src="images/insuarence_hero.png" alt="a" />
+              <img class="img-fluid" src="images/anim2.gif" alt="a" />
             </div>
           </div>
         </div>
