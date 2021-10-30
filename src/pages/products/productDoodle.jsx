@@ -600,6 +600,123 @@ const ProductDOODLE = (props) => {
                   alt="a"
                   class="img-fluid"
                 />
+
+                {/* <div class="spe_dot_1 d-none d-lg-block">
+                  <div class="dot">
+                    <div class="dot-pulse"></div>
+                  </div>
+                  <div class="spe_dot_ol">
+                    <h6>Battery</h6>
+                    <p>10 36V Lithium-Ion</p>
+                  </div>
+                </div> */}
+                <div class="spe_dot_2 d-none d-lg-block">
+                  <div class="dot">
+                    <div class="dot-pulse"></div>
+                  </div>
+                  <div class="spe_dot_ol">
+                    <h6>Motor</h6>
+                    <p>250W 36V Rear Hub BLDC</p>
+                  </div>
+                </div>
+                <div class="spe_dot_3 d-none d-lg-block">
+                  <div class="dot">
+                    <div class="dot-pulse"></div>
+                  </div>
+
+                  <div class="spe_dot_ol">
+                    <h6>Pedal Asist Sensor</h6>
+                    <p>5-Level Pedal Asist Sensor</p>
+                  </div>
+                </div>
+                {/* <div class="spe_dot_4 d-none d-lg-block">
+                  <div class="dot">
+                    <div class="dot-pulse"></div>
+                  </div>
+
+                  <div class="spe_dot_ol">
+                    <h6>Battery</h6>
+                    <p>10 36V Lithium-Ion</p>
+                  </div>
+                </div>
+                <div class="spe_dot_5 d-none d-lg-block">
+                  <div class="dot">
+                    <div class="dot-pulse"></div>
+                  </div>
+
+                  <div class="spe_dot_ol">
+                    <h6>Battery</h6>
+                    <p>10 36V Lithium-Ion</p>
+                  </div>
+                </div> */}
+                <div class="spe_dot_6 d-none d-lg-block">
+                  <div class="dot">
+                    <div class="dot-pulse"></div>
+                  </div>
+
+                  <div class="spe_dot_ol">
+                    <h6>Battery</h6>
+                    <p>10.4 Ah 36 Volt</p>
+                    <p>Lithium-ion</p>
+                    <p>Detachable Battery</p>
+                  </div>
+                </div>
+                {/* <div class="spe_dot_7 d-none d-lg-block">
+                  <div class="dot">
+                    <div class="dot-pulse"></div>
+                  </div>
+
+                  <div class="spe_dot_ol">
+                    <h6>Battery</h6>
+                    <p>10 36V Lithium-Ion</p>
+                  </div>
+                </div> */}
+                <div class="spe_dot_8 d-none d-lg-block">
+                  <div class="dot">
+                    <div class="dot-pulse"></div>
+                  </div>
+
+                  <div class="spe_dot_ol">
+                    <h6>Lights</h6>
+                    <p>High Luminosity Front</p>
+                    <p>Rear LED Lights</p>
+                    <p>With Integrated Horn</p>
+                  </div>
+                </div>
+                {/* <div class="spe_dot_9 d-none d-lg-block">
+                  <div class="dot">
+                    <div class="dot-pulse"></div>
+                  </div>
+
+                  <div class="spe_dot_ol">
+                    <h6>Battery</h6>
+                    <p>10 36V Lithium-Ion</p>
+                  </div>
+                </div> */}
+                <div class="spe_dot_10 d-none d-lg-block">
+                  <div class="dot">
+                    <div class="dot-pulse"></div>
+                  </div>
+
+                  <div class="spe_dot_ol">
+                    <h6>LCD Display</h6>
+                    <p>3-Inch Multifunctional</p>
+                    <p>LCD Display</p>
+                  </div>
+                </div>
+                <div class="spe_dot_11 d-none d-lg-block">
+                  <div class="dot">
+                    <div class="dot-pulse"></div>
+                  </div>    
+
+                  <div class="spe_dot_ol">
+                    <h6>E-Breaks</h6>
+                    <p>Front And Rear</p>
+                    <p>E-breaks For Power</p>
+                    <p>Cutoff While Breaking</p>
+                  </div>
+                </div>
+
                 {/* <div class="spe_dot_1 d-none d-lg-block">
                   <div class="dot">
                     <div class="dot-pulse"></div>
@@ -708,6 +825,9 @@ const ProductDOODLE = (props) => {
                     <p>10 36V Lithium-Ion</p>
                   </div>
                 </div> */}
+
+
+
               </div>
             </div>
           </div>
