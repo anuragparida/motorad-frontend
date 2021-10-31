@@ -2,10 +2,6 @@ import React, {useState, useEffect} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
-import $ from 'jquery';
-window.jQuery = $;
-window.$ = $;
-global.jQuery = $;
 
 const RSA = (props) => {
   // <script>
