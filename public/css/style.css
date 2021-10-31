@@ -604,6 +604,7 @@ img {
 }
 .warenty_actv_box_wrap {
   border: 2px solid #10b068;
+  margin-bottom: 20px;
   padding: 25px;
   display: -webkit-flex;
   display: -moz-flex;

@@ -2,8 +2,80 @@ import React, {useState, useEffect} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
+import axios from "axios";
+import { server, config, checkAccess } from "../../env";
+import isLoggedIn from './../../utils/checkLogin';
+import Alert from './../../components/Alert';
+import Loader from './../../components/Loader';
 
 const Overview = (props) => {
+
+  const [orders, setOrders] = useState([]);
+  const [reviews, setReviews] = useState([]);
+  const [user, setUser] = useState({});
+  const [message, setMessage] = useState("");
+  const [loader, setLoader] = useState("");
+
+  const loadOrders = async () => {
+    if(!isLoggedIn()){
+      window.location.href = "/login";
+    }
+    else {
+      await axios
+      .post(server + "/api/order/my-orders", {}, config)
+      .then((rsp) => {
+        console.log(rsp);
+        setOrders(rsp.data.payload);
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
+    }
+  }
+
+  const loadReviews = async () => {
+    if(!isLoggedIn()){
+      window.location.href = "/login";
+    }
+    else {
+      await axios
+      .post(server + "/api/order/my-orders", {}, config)
+      .then((rsp) => {
+        console.log(rsp);
+        setOrders(rsp.data.payload);
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
+    }
+  }
+
+  const loadUser = async () => {
+    if(!isLoggedIn()){
+      window.location.href = "/login";
+    }
+    else {
+      await axios
+      .get(server + "/api/user/profile", config)
+      .then((rsp) => {
+        console.log(rsp);
+        setUser(rsp.data.payload);
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
+    }
+  }
+
+  useEffect(()=>{
+    loadOrders();
+    loadUser();
+  }, []);
+
+
   return(
     <>
     <Navbar/>
@@ -13,7 +85,7 @@ const Overview = (props) => {
         <div class="row">
           <div class="col-lg-12">
             <div class="accnt_pro_head">
-              <h2>Welcome <span>Ekansh</span></h2>
+              <h2>Welcome <span>{user.name ? user.name : "User"}</span></h2>
             </div>
           </div>
         </div>
@@ -25,7 +97,11 @@ const Overview = (props) => {
                 Any Issues? <a href="#"><u>Contact Us</u></a>
               </p>
             </div>
-            <div class="warenty_actv_box_wrap">
+
+            {
+              orders.length > 0 ?
+              orders.map(order=>(
+                <div class="warenty_actv_box_wrap">
               <div class="bicycle_img">
                 <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
               </div>
@@ -35,39 +111,39 @@ const Overview = (props) => {
                     <div class="cycle_details_top">
                       <div class="d-flex justify-content-between">
                         <span>
-                          <h6>T - REX</h6>
-                          <p>Color : <i class="fa fa-circle"></i></p>
+                          <h6>{order.products[0].name}</h6>
+                          <p>Color : <i class="fa fa-circle" style={{"color": order.products[0].color}}></i></p>
                         </span>
                         <span>
                           <p>QTY</p>
-                          <h6>1</h6>
+                          <h6>{order.products[0].amount}</h6>
                         </span>
                       </div>
                     </div>
                     <div class="cycle_details_btm">
                       <p>Frame Number</p>
-                      <h6 class="text-dark">EMM04200105</h6>
+                      <h6 class="text-dark">API</h6>
                     </div>
                   </div>
                   <div class="col-lg-3">
                     <div class="cycle_details_top text-right">
                       <p>Date of Purchase</p>
-                      <h6>27-09-2021</h6>
+                      <h6>{order.created_at.split("T")[0]}</h6>
                     </div>
                     <div class="cycle_details_btm">
                       <p>Tracking Number</p>
-                      <h6>100004847989</h6>
+                      <h6>API</h6>
                     </div>
                   </div>
                   <div class="col-lg-3">
                     <div class="cycle_details_top text-center">
                       <p>Warranty Valid Upto</p>
-                      <h6>01-10-2021</h6>
+                      <h6>API</h6>
                     </div>
                     <div class="cycle_details_btm text-left">
                       <p>Carrier</p>
                       <h6>
-                        <u>DTDC</u>
+                        <u>API</u>
                         <img
                           src="images/arw_rgt.svg"
                           alt="->"
@@ -79,11 +155,11 @@ const Overview = (props) => {
                   <div class="col-lg-3">
                     <div class="cycle_details_top text-center">
                       <p>TOTAL</p>
-                      <h6>₹ 37,133</h6>
+                      <h6>₹ {order.price}</h6>
                     </div>
                     <div class="cycle_details_btm text-center">
                       <p>Date of Delivery</p>
-                      <h6 class="text-dark">01-10-2021</h6>
+                      <h6 class="text-dark">API</h6>
                     </div>
                   </div>
                 </div>
@@ -112,6 +188,21 @@ const Overview = (props) => {
                 >
               </div>
             </div>
+              ))
+              :
+              <div class="state_boxs_wrap">
+                <p>
+                  You have not placed any orders
+                  <a href="#"
+                    >Explore Products
+                    <img src="images/arw_rgt.svg" alt="->" class="img-fluid"
+                  /></a>
+                </p>
+              </div>
+            }
+
+            
+
             <div class="profile_set_head mt-5">
               <h6>Your Reviews</h6>
             </div>

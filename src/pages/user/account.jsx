@@ -11,6 +11,7 @@ import Loader from './../../components/Loader';
 const Account = (props) => {
 
   const [add, setAdd] = useState([]);
+  const [user, setUser] = useState({});
   const [message, setMessage] = useState("");
   const [loader, setLoader] = useState("");
 
@@ -25,6 +26,24 @@ const Account = (props) => {
         console.log(rsp);
         const localAdd = [...rsp.data.payload.filter(el => el.default === 1), ...rsp.data.payload.filter(el => el.default !== 1)]
         setAdd(localAdd);
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
+    }
+  }
+
+  const loadUser = async () => {
+    if(!isLoggedIn()){
+      window.location.href = "/login";
+    }
+    else {
+      await axios
+      .get(server + "/api/user/profile", config)
+      .then((rsp) => {
+        console.log(rsp);
+        setUser(rsp.data.payload);
       })
       .catch((err) => {
         checkAccess(err);
@@ -84,8 +103,33 @@ const Account = (props) => {
     });
   }
 
+  const updateUser = async (e) => {
+    e.preventDefault();
+
+    setLoader(<Loader/>);
+
+    var params = Array.from(e.target.elements)
+      .filter((el) => el.name)
+      .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
+
+    // axios UNCOMMENT THIS WHEN API DONE
+    // .post(server + "/api/user/update-profile", params, config)
+    // .then((rsp) => {
+    //   console.log(rsp);
+    //   setMessage(<Alert className="success" message={rsp.data.message} />);
+    //   setLoader("");
+    //   window.location.reload();
+    // })
+    // .catch((err) => {
+    //   console.log(err.response);
+    //   setMessage(<Alert className="danger" message={err.response.data.message} />);
+    //   setLoader("");
+    // });
+  }
+
   useEffect(()=>{
     loadAddresses();
+    loadUser();
   }, []);
 
   return(
@@ -225,10 +269,10 @@ const Account = (props) => {
                           type="text"
                           class="form-control"
                           placeholder="Your Name"
-                          value="Ekansh Sharma"
+                          value={user.name ? user.name : "...Loading"}
                           disabled
                         />
-                        <a href="#">
+                        <a href="#" data-toggle="modal" data-target="#exampleModal">
                           <img
                             src="images/edit_w_icon.svg"
                             alt="a"
@@ -249,7 +293,7 @@ const Account = (props) => {
                           value="●●●●●●●●●●"
                           disabled
                         />
-                        <a href="#">
+                        <a href="/resetpass">
                           <img
                             src="images/edit_w_icon.svg"
                             alt="a"
@@ -267,10 +311,10 @@ const Account = (props) => {
                           type="pasword"
                           class="form-control"
                           placeholder="Your Contact"
-                          value="9876543210"
+                          value={user.contact ? user.contact : "...Loading"}
                           disabled
                         />
-                        <a href="#">
+                        <a href="#" data-toggle="modal" data-target="#exampleModal">
                           <img
                             src="images/edit_w_icon.svg"
                             alt="a"
@@ -394,6 +438,76 @@ const Account = (props) => {
           </div>
         </div>
       </div>
+    </section>
+
+    <section class="modal_section">
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="accnt_setting_modal">
+              <a href="#" data-dismiss="modal" aria-label="Close">
+                <img src="images/close_icon.svg" alt="x" class="img-fluid" />
+              </a>
+              <div class="accnt_modal_head">
+                <h5>Add Address</h5>
+                <label class="radiooo"
+                  >Set as Default Address
+                  <input type="radio" name="radio" />
+                  <span class="checkmark"></span>
+                </label>
+              </div>
+              <div class="emi_plan_frm accnt_modal_plan">
+                <form onSubmit={updateUser}>
+                  {message}
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="">Your Name</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          placeholder="Enter your Name"
+                          name="name"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label for="">Your Contact</label>
+                        <input
+                          type="number"
+                          class="form-control"
+                          placeholder="Enter contact number"
+                          name="contact"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="accnt_submit_modal">
+                        <button type="submit" class="btn btn_submit">
+                          Update Details
+                          {loader}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     </section>
     </>
   );

@@ -1,7 +1,11 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
+import $ from 'jquery';
+window.jQuery = $;
+window.$ = $;
+global.jQuery = $;
 
 const RSA = (props) => {
   // <script>
@@ -13,6 +17,8 @@ const RSA = (props) => {
   //         })
   //       });
   //   </script>
+
+
   return(
     <>
     <Navbar/>
@@ -287,7 +293,7 @@ const RSA = (props) => {
                           <label for="">
                             Your Name
                           </label>
-                          <input class="form-control" type="text" placeholder="Enter your Name" />
+                          <input class="form-control" type="text" placeholder="Enter your Name" name="name" required/>
                         </div>
                       </div>
                       <div class="col-lg-6">
@@ -341,7 +347,7 @@ const RSA = (props) => {
                       </div>
                       <div class="col-lg-12">
                         <div class="accnt_submit_modal">
-                          <button class="btn btn_submit" type="button" data-toggle="modal" data-target="#exampleModal" data-dismiss="modal">
+                          <button class="btn btn_submit" type="submit" data-toggle="modal" data-target="#exampleModal" data-dismiss="modal">
                             Next
                             <img class="img-fluid" src="images/arrw_w_rgt.svg" alt="a" />
                           </button>
