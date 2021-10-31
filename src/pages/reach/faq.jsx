@@ -48,11 +48,11 @@ const FAQ = (props) => {
               <h3>
                 Frequently Asked Questions
               </h3>
-              <p>
+              {/* <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
                 <br />
                 vestibulum ullamcorper sapien eget fringilla.
-              </p>
+              </p> */}
             </div>
           </div>
         </div>

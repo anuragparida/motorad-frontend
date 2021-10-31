@@ -165,8 +165,8 @@ const Login = (props) => {
                 <img src="images/em-img.png" alt="EM" class="img-fluid" />
                 <h5>Welcome to EMotorad</h5>
                 <p>
-                  Lorem ipsum dolor sit amet, <br />
-                  consectetur adipiscing elit ut aliquam.
+                  {/* Lorem ipsum dolor sit amet, <br />
+                  consectetur adipiscing elit ut aliquam. */}
                 </p>
                 {/* <GoogleLogin
                   clientId="http://170043377049-kct15ngvlq8dvk14d5fas47fc1ugpq4r.apps.googleusercontent.com"
@@ -190,9 +190,9 @@ const Login = (props) => {
                     style={{ marginTop: '100px' }}
                   /> */}
                 <a href="javascript:void(0)" onClick={googleLogin}><i class="fa fa-google"></i>Sign Up with Google</a>
-                <a href={facebookLoginUrl} class="blue_bg"
+                {/* <a href={facebookLoginUrl} class="blue_bg"
                   ><i class="fa fa-facebook"></i>Sign Up with Facebook</a
-                >
+                > */}
                 <img src="images/or.svg" alt="or" class="img-fluid" />
               </div>
               <form onSubmit={login}>

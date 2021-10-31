@@ -49,11 +49,11 @@ const FindStore = (props) => {
           <div class="col-lg-12">
             <div class="contact_map_txt mb-5">
               <h3>Find a Store</h3>
-              <p>
+              {/* <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 Praesent <br />
                 vestibulum ullamcorper sapien eget fringilla.
-              </p>
+              </p> */}
             </div>
           </div>
         </div>

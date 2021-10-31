@@ -61,10 +61,10 @@ const Signup = (props) => {
               <div class="signup_frm_head">
                 <img src="images/em-img.png" alt="EM" class="img-fluid" />
                 <h5>Welcome to EMotorad</h5>
-                <p>
+                {/* <p>
                   Lorem ipsum dolor sit amet, <br />
                   consectetur adipiscing elit ut aliquam.
-                </p>
+                </p> */}
                 {/* <a href="#"><i class="fa fa-google"></i>Sign Up with Google</a>
                 <a href="#" class="blue_bg"
                   ><i class="fa fa-facebook"></i>Sign Up with Facebook</a

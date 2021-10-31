@@ -83,11 +83,11 @@ const Community = (props) => {
                   Your response has<br />
                   been sent successfully.
                 </h3>
-                <p>
+                {/* <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
                   id ullamcorper sem. Phasellus vitae dui erat. Donec ligula erat,
                   venenatis vitae molestie vel, dapibus nec libero.
-                </p>
+                </p> */}
                 <div class="ordr_placed_btnns">
                   <a href="/">Go to HomePage</a>
                 </div>

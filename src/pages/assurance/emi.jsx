@@ -329,8 +329,8 @@ const EMI = (props) => {
                     <thead class="thead-light">
                       <tr>
                         <th scope="col">Partner Bank</th>
-                        <th scope="col">Rate</th>
-                        <th scope="col">Duration</th>
+                        <th scope="col">Rate (%)</th>
+                        <th scope="col">Duration (Months)</th>
                       </tr>
                     </thead>
                     <tbody>

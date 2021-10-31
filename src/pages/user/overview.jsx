@@ -40,10 +40,10 @@ const Overview = (props) => {
     }
     else {
       await axios
-      .post(server + "/api/order/my-orders", {}, config)
+      .post(server + "/api/order/review/my-reviews", {}, config)
       .then((rsp) => {
         console.log(rsp);
-        setOrders(rsp.data.payload);
+        setReviews(rsp.data.payload);
       })
       .catch((err) => {
         checkAccess(err);
@@ -207,113 +207,52 @@ const Overview = (props) => {
               <h6>Your Reviews</h6>
             </div>
             <div class="reviews_boxs_wrap">
-              <div class="media">
-                <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
-                <div class="media-body">
-                  <div class="d-flex mt-0 justify-content-between">
-                    <ul>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <span>28 - 09 - 2021</span>
-                  </div>
 
-                  <p>
-                    I am so happy with this product, It's a very good electric
-                    bicycle in every aspect, excellent looks, colour, digital
-                    display, light provision. It is very easy in operation,
-                    friendly use, quality is excellent, battery power is also
-                    good &amp; most important it is removable, so we can charge
-                    wherever we want, no need to carry the whole bicycle. I got
-                    exactly what I was looking for daily office commute of 25km
-                    distance. It is worth for money, will surely suggest others
-                    to buy the same.
-                  </p>
-                </div>
-              </div>
-              <div
-                class="
-                  d-flex
-                  justify-content-between
-                  align-items-center
-                  brdr_bttm
-                "
-              >
-                <h6>T - REX</h6>
-                <a href="#">Edit</a>
-              </div>
-              <div class="media">
-                <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
-                <div class="media-body">
-                  <div class="d-flex mt-0 justify-content-between">
-                    <ul>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <span>28 - 09 - 2021</span>
-                  </div>
+              {
+                reviews.map(review => (
+                  <>
+                  <div class="media">
+                    <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
+                    <div class="media-body">
+                      <div class="d-flex mt-0 justify-content-between">
+                        <ul>
+                          <li><i class="fa fa-star"></i></li>
+                          <li><i class="fa fa-star"></i></li>
+                          <li><i class="fa fa-star"></i></li>
+                          <li><i class="fa fa-star"></i></li>
+                          <li><i class="fa fa-star"></i></li>
+                        </ul>
+                        <span>28 - 09 - 2021</span>
+                      </div>
 
-                  <p>
-                    I am so happy with this product, It's a very good electric
-                    bicycle in every aspect, excellent looks, colour, digital
-                    display, light provision. It is very easy in operation,
-                    friendly use, quality is excellent, battery power is also
-                    good &amp; most important it is removable, so we can charge
-                    wherever we want, no need to carry the whole bicycle. I got
-                    exactly what I was looking for daily office commute of 25km
-                    distance. It is worth for money, will surely suggest others
-                    to buy the same.
-                  </p>
-                </div>
-              </div>
-              <div
-                class="
-                  d-flex
-                  justify-content-between
-                  align-items-center
-                  brdr_bttm
-                "
-              >
-                <h6>DOODLE</h6>
-                <a href="#">Edit</a>
-              </div>
-              <div class="media">
-                <img src="images/bicycle_3.png" alt="a" class="img-fluid" />
-                <div class="media-body">
-                  <div class="d-flex mt-0 justify-content-between">
-                    <ul>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                      <li><i class="fa fa-star"></i></li>
-                    </ul>
-                    <span>28 - 09 - 2021</span>
+                      <p>
+                        I am so happy with this product, It's a very good electric
+                        bicycle in every aspect, excellent looks, colour, digital
+                        display, light provision. It is very easy in operation,
+                        friendly use, quality is excellent, battery power is also
+                        good &amp; most important it is removable, so we can charge
+                        wherever we want, no need to carry the whole bicycle. I got
+                        exactly what I was looking for daily office commute of 25km
+                        distance. It is worth for money, will surely suggest others
+                        to buy the same.
+                      </p>
+                    </div>
                   </div>
-
-                  <p>
-                    I am so happy with this product, It's a very good electric
-                    bicycle in every aspect, excellent looks, colour, digital
-                    display, light provision. It is very easy in operation,
-                    friendly use, quality is excellent, battery power is also
-                    good &amp; most important it is removable, so we can charge
-                    wherever we want, no need to carry the whole bicycle. I got
-                    exactly what I was looking for daily office commute of 25km
-                    distance. It is worth for money, will surely suggest others
-                    to buy the same.
-                  </p>
-                </div>
-              </div>
-              <div class="d-flex justify-content-between align-items-center">
-                <h6>EMX</h6>
-                <a href="#">Edit</a>
-              </div>
+                  <div
+                    class="
+                      d-flex
+                      justify-content-between
+                      align-items-center
+                      brdr_bttm
+                    "
+                  >
+                    <h6>T - REX</h6>
+                    <a href="#">Edit</a>
+                  </div>
+                  </>
+                ))
+              }
+              
             </div>
           </div>
         </div>

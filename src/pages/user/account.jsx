@@ -311,7 +311,7 @@ const Account = (props) => {
                           type="pasword"
                           class="form-control"
                           placeholder="Your Contact"
-                          value={user.contact ? user.contact : "...Loading"}
+                          value={user.phone ? user.phone : "...Loading"}
                           disabled
                         />
                         <a href="#" data-toggle="modal" data-target="#exampleModal">
@@ -487,7 +487,7 @@ const Account = (props) => {
                           type="number"
                           class="form-control"
                           placeholder="Enter contact number"
-                          name="contact"
+                          name="phone"
                           required
                         />
                       </div>

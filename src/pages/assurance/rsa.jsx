@@ -2,6 +2,8 @@ import React, {useState, useEffect} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
+import { server } from "../../env";
+import axios from "axios";
 
 const RSA = (props) => {
   // <script>
@@ -14,6 +16,25 @@ const RSA = (props) => {
   //       });
   //   </script>
 
+  const [rsaFaq, setRsaFaq] = useState([]);
+
+  const loadFAQ = async () => {
+    await axios
+    .get(server + "/api/faq/read")
+    .then((rsp) => {
+      console.log(rsp);
+      setRsaFaq(rsp.data.payload.filter(el => el.type==="rsa"));
+    })
+    .catch((err) => {
+      console.log(err.response);
+      if (err.response) {
+      }
+    });
+  }
+
+  useEffect(()=>{
+    loadFAQ();
+  }, []);
 
   return(
     <>
@@ -207,54 +228,28 @@ const RSA = (props) => {
             <div class="faq_txt_wrap">
               <div class="bs-example">
                 <div id="accordionExample" class="accordion">
-                  <div class="card">
-                    <div id="headingOne" class="card-header">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne">
-                          What is Emergency Contact?
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseOne" class="collapse" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula, arcu a dictum dignissim, diam nulla porta mi, vitae sollicitudin mi lacus eu mi. Vestibulum in urna vel sapien semper egestas. Morbi ut pharetra urna. Aliquam fringilla vel neque bibendum molestie.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div id="headingTwo" class="card-header">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo">
-                          Why Global Assure?
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseTwo" class="collapse" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula, arcu a dictum dignissim, diam nulla porta mi, vitae sollicitudin mi lacus eu mi. Vestibulum in urna vel sapien semper egestas. Morbi ut pharetra urna. Aliquam fringilla vel neque bibendum molestie.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="card">
-                    <div id="headingThree" class="card-header">
-                      <h2 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree">
-                          What is Roadside Assistance?
-                        </button>
-                      </h2>
-                    </div>
-                    <div id="collapseThree" class="collapse" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vehicula, arcu a dictum dignissim, diam nulla porta mi, vitae sollicitudin mi lacus eu mi. Vestibulum in urna vel sapien semper egestas. Morbi ut pharetra urna. Aliquam fringilla vel neque bibendum molestie.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
+                  {
+                    rsaFaq.map(f => {
+                      return(
+                        <div class="card">
+                          <div id={"heading" + f.id} class="card-header">
+                            <h2 class="mb-0">
+                              <button class="btn btn-link" type="button" data-toggle="collapse" data-target={"#collapse" + f.id}>
+                                {f.question}
+                              </button>
+                            </h2>
+                          </div>
+                          <div id={"collapse" + f.id} class="collapse" data-parent="#accordionExample">
+                            <div class="card-body">
+                              <p>
+                                {f.answer}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })
+                  }
                 </div>
               </div>
             </div>

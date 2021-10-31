@@ -105,6 +105,31 @@ const Cart = (props) => {
       .then((rsp) => {
         console.log(rsp);
         setProducts(rsp.data.payload);
+        window.cartSliderInit(Math.min(4, rsp.data.payload.filter(prod=>prod.type==="accessory").length));
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
+  }
+
+  const addToCart = async (id) => {
+    const params = {
+      "product": [
+        ...cart.product.filter(element => element.id !== id),
+        {
+          "id": id,
+          "amount": 1
+        }
+      ],
+      "accessories": cart.accessories
+    };
+    console.log("param", params)
+    await axios
+      .put(server + "/api/cart/update", params, config)
+      .then((rsp) => {
+        console.log(rsp.data); //CHANGE THIS
+        window.location.href = "/cart";
       })
       .catch((err) => {
         checkAccess(err);
@@ -242,11 +267,11 @@ const Cart = (props) => {
                 Your Order is <br />
                 placed Successfully.
               </h3>
-              <p>
+              {/* <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
                 id ullamcorper sem. Phasellus vitae dui erat. Donec ligula erat,
                 venenatis vitae molestie vel, dapibus nec libero.
-              </p>
+              </p> */}
               <div class="ordr_placed_btnns">
                 <a href="index.html">Go to HomePage</a>
               </div>
@@ -404,60 +429,46 @@ const Cart = (props) => {
                 <h5>You Might Be Interested In</h5>
               </div>
             </div>
+            <div class="col-lg-12">
+            <div class="pro_arw_icons">
+              <img
+                src="images/angl_lft.png"
+                alt="a"
+                class="img-fluid slidPrv_2"
+              />
+              <img
+                src="images/angl_rgt.png"
+                alt="a"
+                class="img-fluid slidNext_2"
+              />
+            </div>
           </div>
-          <div class="row">
-            <div class="col-lg-3">
-              <div class="products_wrap">
-                <img src="images/healmate_icon.svg" alt="a" class="img-fluid" />
-                <div class="d-flex justify-content-between">
-                  <h6>EM Bike Helmet</h6>
-                  <h6>₹ 1,790</h6>
+          </div>
+          
+          <div class="row product_slidess">
+            
+
+            {
+              products.filter(prod=>prod.type==="accessory").map(prod=>(
+                <div class="col-lg-3">
+                  <div class="products_wrap">
+                    <img src="images/healmate_icon.svg" alt="a" class="img-fluid" />
+                    <div class="d-flex justify-content-between">
+                      <h6>{prod.name}</h6>
+                      <h6>₹ {prod.price2}</h6>
+                    </div>
+                    <a href="javascript:void(0)" onClick={()=>{
+                      addToCart(prod.id)
+                    }}
+                      ><img src="images/cart_icon.svg" alt="a" class="img-fluid" />
+                      Add to Cart</a
+                    >
+                  </div>
                 </div>
-                <a href="#"
-                  ><img src="images/cart_icon.svg" alt="a" class="img-fluid" />
-                  Add to Cart</a
-                >
-              </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="products_wrap">
-                <img src="images/gloves.png" alt="a" class="img-fluid" />
-                <div class="d-flex justify-content-between">
-                  <h6>EM Bike Helmet</h6>
-                  <h6>₹ 1,790</h6>
-                </div>
-                <a href="#"
-                  ><img src="images/cart_icon.svg" alt="a" class="img-fluid" />
-                  Add to Cart</a
-                >
-              </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="products_wrap">
-                <img src="images/jacket.png" alt="a" class="img-fluid" />
-                <div class="d-flex justify-content-between">
-                  <h6>EM Bike Helmet</h6>
-                  <h6>₹ 1,790</h6>
-                </div>
-                <a href="#"
-                  ><img src="images/cart_icon.svg" alt="a" class="img-fluid" />
-                  Add to Cart</a
-                >
-              </div>
-            </div>
-            <div class="col-lg-3">
-              <div class="products_wrap">
-                <img src="images/pump.png" alt="a" class="img-fluid" />
-                <div class="d-flex justify-content-between">
-                  <h6>EM Bike Helmet</h6>
-                  <h6>₹ 1,790</h6>
-                </div>
-                <a href="#"
-                  ><img src="images/cart_icon.svg" alt="a" class="img-fluid" />
-                  Add to Cart</a
-                >
-              </div>
-            </div>
+              ))
+            }
+            
+
           </div>
         </div>
       </section>

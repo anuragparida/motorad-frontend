@@ -130,7 +130,7 @@ const AllProducts = (props) => {
         <div class="row">
           <div class="col-12">
             <div class="product_list_head">
-              <h5>You Might Be Intrested In</h5>
+              <h5>You Might Be Interested In</h5>
             </div>
           </div>
           <div class="col-lg-12">
@@ -156,7 +156,7 @@ const AllProducts = (props) => {
                 <h6>EM Bike Helmet</h6>
                 <h6>₹ 1,790</h6>
               </div>
-              <a href="#"
+              <a href="/cart"
                 ><img src="images/cart_icon.svg" alt="a" class="img-fluid" />
                 Add to Cart</a
               >
@@ -169,7 +169,7 @@ const AllProducts = (props) => {
                 <h6>EM Bike Helmet</h6>
                 <h6>₹ 1,790</h6>
               </div>
-              <a href="#"
+              <a href="/cart"
                 ><img src="images/cart_icon.svg" alt="a" class="img-fluid" />
                 Add to Cart</a
               >
@@ -182,7 +182,7 @@ const AllProducts = (props) => {
                 <h6>EM Bike Helmet</h6>
                 <h6>₹ 1,790</h6>
               </div>
-              <a href="#"
+              <a href="/cart"
                 ><img src="images/cart_icon.svg" alt="a" class="img-fluid" />
                 Add to Cart</a
               >
@@ -195,7 +195,7 @@ const AllProducts = (props) => {
                 <h6>EM Bike Helmet</h6>
                 <h6>₹ 1,790</h6>
               </div>
-              <a href="#"
+              <a href="/cart"
                 ><img src="images/cart_icon.svg" alt="a" class="img-fluid" />
                 Add to Cart</a
               >
@@ -209,7 +209,7 @@ const AllProducts = (props) => {
                 <h6>EM Bike Helmet</h6>
                 <h6>₹ 1,790</h6>
               </div>
-              <a href="#"
+              <a href="/cart"
                 ><img src="images/cart_icon.svg" alt="a" class="img-fluid" />
                 Add to Cart</a
               >

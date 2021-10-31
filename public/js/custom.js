@@ -131,3 +131,43 @@ $(function () {
 
   $(".venobox").venobox();
 });
+
+function cartSliderInit(n) {
+  $(".product_slidess").slick({
+    infinite: true,
+    slidesToShow: n,
+    slidesToScroll: 1,
+    nextArrow: ".slidNext_2",
+    prevArrow: ".slidPrv_2",
+    arrows: true,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          arrows: false,
+          centerMode: false,
+          centerPadding: "15px",
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+          centerMode: false,
+          centerPadding: "0px",
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: "10px",
+          slidesToShow: 1,
+        },
+      },
+    ],
+  });
+}
