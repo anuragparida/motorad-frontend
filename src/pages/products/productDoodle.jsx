@@ -181,7 +181,7 @@ const ProductDOODLE = (props) => {
                     <h6>Rs 76,000</h6>
                   </li>
                   <li class="d-none d-lg-block">
-                    <h6><a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a></h6>
+                    <h6>{products.length>0 && <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>}</h6>
                   </li>
                 </ul>
               </div>

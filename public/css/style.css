@@ -523,6 +523,9 @@ img {
   margin-top: 50px;
   text-align: center;
 }
+.cart_adds_add {
+  margin-top: 0;
+}
 .more_adds_add_bttn a {
   font-style: normal;
   font-weight: 600;
@@ -530,6 +533,9 @@ img {
   line-height: 149.75%;
   color: #10b068;
   transition: all linear 0.2s;
+}
+.cart_adds_add a {
+  font-size: 12px;
 }
 .more_adds_add_bttn a i {
   margin-right: 10px;

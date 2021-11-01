@@ -338,7 +338,8 @@ const RSA = (props) => {
                       </div>
                       <div class="col-lg-12">
                         <div class="accnt_submit_modal">
-                          <button class="btn btn_submit" type="submit" data-toggle="modal" data-target="#exampleModal" data-dismiss="modal">
+                          {/* <button class="btn btn_submit" type="submit" data-toggle="modal" data-target="#exampleModal" data-dismiss="modal"> */}
+                          <button class="btn btn_submit" onClick={()=>window.showSecondForm()} type="submit" data-dismiss="modal">
                             Next
                             <img class="img-fluid" src="images/arrw_w_rgt.svg" alt="a" />
                           </button>

@@ -13,6 +13,8 @@ const Cart = (props) => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
+  const [add, setAdd] = useState([]);
+
   const [displayData, setDisplayData] = useState([]);
 
   const [netAmount, setNetAmount] = useState(0);
@@ -25,12 +27,12 @@ const Cart = (props) => {
   const [message, setMessage] = useState("");
   const [loader, setLoader] = useState("");
 
-  const razorPayPaymentHandler = async () => {
+  const razorPayPaymentHandler = async (params) => {
 
     setLoader(<Loader/>);
 
     await axios
-        .post(server + '/api/order/create', {}, config)
+        .post(server + '/api/order/create', params, config)
         .then((rsp) => {
           console.log(rsp);
           const orderPayload = rsp.data.payload;
@@ -113,6 +115,25 @@ const Cart = (props) => {
       });
   }
 
+  const loadAddresses = async () => {
+    if(!isLoggedIn()){
+      window.location.href = "/login";
+    }
+    else {
+      await axios
+      .get(server + "/api/address/read", config)
+      .then((rsp) => {
+        console.log(rsp);
+        const localAdd = [...rsp.data.payload.filter(el => el.default === 1), ...rsp.data.payload.filter(el => el.default !== 1)]
+        setAdd(localAdd);
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
+    }
+  }
+
   const addToCart = async (id) => {
     const params = {
       "product": [
@@ -144,6 +165,7 @@ const Cart = (props) => {
   useEffect(() => {
     loadCart();
     loadProducts();
+    loadAddresses();
   }, []);
 
   useEffect(() => {
@@ -250,6 +272,18 @@ const Cart = (props) => {
     };
     console.log("params", params);
     updateCart(params);
+  }
+
+  const handleSelectAddress = async(e) => {
+    e.preventDefault();
+
+    var params = Array.from(e.target.elements)
+      .filter((el) => el.name)
+      .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
+
+    if (cart.product.length > 0) {
+      razorPayPaymentHandler(params);
+    }
   }
 
   return(
@@ -400,10 +434,10 @@ const Cart = (props) => {
                   </table>
                 </div>
                 <div class="total_invo_btn">
-                  <button type="submit" class="btn btn_submit" onClick={()=>{
+                  <button class="btn btn_submit" data-toggle="modal" data-target="#exampleModalLong" onClick={()=>{
                     // createOrder()
                     // setOrderSuccess(true)
-                    razorPayPaymentHandler();
+                    // razorPayPaymentHandler();
                     }}>
                     <span>₹ {totalAmount} </span>
                     <span
@@ -414,7 +448,7 @@ const Cart = (props) => {
                   </button>
                 </div>
                 <div class="continue_shoping_btn">
-                  <a href="#">Continue Shopping</a>
+                  <a href="/">Continue Shopping</a>
                 </div>
               </div>
             </div>
@@ -476,6 +510,63 @@ const Cart = (props) => {
   }
     
     <Footer/>
+    <section class="modal_section_2">
+      <div
+        class="modal fade"
+        id="exampleModalLong"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="accnt_setting_modal">
+                <a href="#" data-dismiss="modal" aria-label="Close">
+                  <img src="images/close_icon.svg" alt="x" class="img-fluid" />
+                </a>
+                <div class="accnt_modal_head">
+                  <h5>Select Address</h5>
+                  {/* <ul>
+                    <li><a href="javascript:void(0)"><i class="fa fa-star"></i></a></li>
+                  </ul> */}
+                  <div class="more_adds_add_bttn cart_adds_add">
+                        <a href="#" data-toggle="modal" data-target="#exampleModalLong">
+                          <i class="fa fa-plus"></i> Add a New Address
+                        </a>
+                      </div>
+                </div>
+                <div class="emi_plan_frm accnt_modal_plan">
+                  <form onSubmit={handleSelectAddress}>
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="form-group">
+                          <label for="">Select Your Address</label>
+                          <select name="address" class="form-control" required>
+                            {
+                              add.map(x=><option value={x.id} title={x.address}>{x.address.substring(0, 60) + "..."}</option>)
+                            }
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-12">
+                        <div class="accnt_submit_modal">
+                          <button type="submit" class="btn btn_submit" data-dismiss="modal">
+                            Place Order
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     </>
   );
 }

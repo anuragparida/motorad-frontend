@@ -171,3 +171,43 @@ function cartSliderInit(n) {
     ],
   });
 }
+
+function showSecondForm() {
+  $("#exampleModal").modal("show");
+}
+
+function aboutUsReadMore() {
+  $(".moreless-button").click(function () {
+    $(".moretext").slideToggle();
+    if ($(".moreless-button").text() == "Read more") {
+      $(this).text("Read less");
+    } else {
+      $(this).text("Read more");
+    }
+  });
+
+  $(".moreless-button1").click(function () {
+    $(".moretext1").slideToggle();
+    if ($(".moreless-button1").text() == "Read more") {
+      $(this).text("Read less");
+    } else {
+      $(this).text("Read more");
+    }
+  });
+  $(".moreless-button2").click(function () {
+    $(".moretext2").slideToggle();
+    if ($(".moreless-button2").text() == "Read more") {
+      $(this).text("Read less");
+    } else {
+      $(this).text("Read more");
+    }
+  });
+  $(".moreless-button3").click(function () {
+    $(".moretext3").slideToggle();
+    if ($(".moreless-button3").text() == "Read more") {
+      $(this).text("Read less");
+    } else {
+      $(this).text("Read more");
+    }
+  });
+}

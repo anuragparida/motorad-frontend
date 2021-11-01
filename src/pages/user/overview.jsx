@@ -13,8 +13,10 @@ const Overview = (props) => {
   const [orders, setOrders] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [user, setUser] = useState({});
+  const [reviewId, setReviewId] = useState([]);
   const [message, setMessage] = useState("");
   const [loader, setLoader] = useState("");
+  const [stars, setStars] = useState(5);
 
   const loadOrders = async () => {
     if(!isLoggedIn()){
@@ -73,8 +75,31 @@ const Overview = (props) => {
   useEffect(()=>{
     loadOrders();
     loadUser();
+    loadReviews();
   }, []);
 
+  const sendReview = async (e) => {
+    e.preventDefault();
+
+    var params = Array.from(e.target.elements)
+      .filter((el) => el.name)
+      .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
+
+    params.order = reviewId[0];
+    params.product = reviewId[1];
+    params.rating = stars;
+
+    axios
+    .post(server + "/api/order/review/create", params, config)
+    .then((rsp) => {
+      console.log(rsp);
+    })
+    .catch((err) => {
+      console.log(err.response);
+      if (err.response) {
+      }
+    });
+  }
 
   return(
     <>
@@ -101,7 +126,8 @@ const Overview = (props) => {
             {
               orders.length > 0 ?
               orders.map(order=>(
-                <div class="warenty_actv_box_wrap">
+                order.products.map(product => (
+                  <div class="warenty_actv_box_wrap">
               <div class="bicycle_img">
                 <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
               </div>
@@ -111,12 +137,12 @@ const Overview = (props) => {
                     <div class="cycle_details_top">
                       <div class="d-flex justify-content-between">
                         <span>
-                          <h6>{order.products[0].name}</h6>
-                          <p>Color : <i class="fa fa-circle" style={{"color": order.products[0].color}}></i></p>
+                          <h6>{product.name}</h6>
+                          <p>Color : <i class="fa fa-circle" style={{"color": product.color}}></i></p>
                         </span>
                         <span>
                           <p>QTY</p>
-                          <h6>{order.products[0].amount}</h6>
+                          <h6>{product.amount}</h6>
                         </span>
                       </div>
                     </div>
@@ -166,6 +192,7 @@ const Overview = (props) => {
               </div>
               <div class="warentty_bttns">
                 <a href="#" data-toggle="modal" data-target="#exampleModalLong"
+                onClick={()=>setReviewId([order.id, product.id])}
                   ><img
                     src="images/plus_icon.svg"
                     alt="->"
@@ -188,6 +215,8 @@ const Overview = (props) => {
                 >
               </div>
             </div>
+                ))
+                
               ))
               :
               <div class="state_boxs_wrap">
@@ -216,25 +245,17 @@ const Overview = (props) => {
                     <div class="media-body">
                       <div class="d-flex mt-0 justify-content-between">
                         <ul>
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
-                          <li><i class="fa fa-star"></i></li>
+                          <li><i class="fa fa-star" style={{"color": review.rating >= 1 ? "#10b068" : "grey"}}></i></li>
+                          <li><i class="fa fa-star" style={{"color": review.rating >= 2 ? "#10b068" : "grey"}}></i></li>
+                          <li><i class="fa fa-star" style={{"color": review.rating >= 3 ? "#10b068" : "grey"}}></i></li>
+                          <li><i class="fa fa-star" style={{"color": review.rating >= 4 ? "#10b068" : "grey"}}></i></li>
+                          <li><i class="fa fa-star" style={{"color": review.rating >= 5 ? "#10b068" : "grey"}}></i></li>
                         </ul>
-                        <span>28 - 09 - 2021</span>
+                        <span>{review.created_at.split("T")[0]}</span>
                       </div>
 
                       <p>
-                        I am so happy with this product, It's a very good electric
-                        bicycle in every aspect, excellent looks, colour, digital
-                        display, light provision. It is very easy in operation,
-                        friendly use, quality is excellent, battery power is also
-                        good &amp; most important it is removable, so we can charge
-                        wherever we want, no need to carry the whole bicycle. I got
-                        exactly what I was looking for daily office commute of 25km
-                        distance. It is worth for money, will surely suggest others
-                        to buy the same.
+                        {review.message}
                       </p>
                     </div>
                   </div>
@@ -247,7 +268,7 @@ const Overview = (props) => {
                     "
                   >
                     <h6>T - REX</h6>
-                    <a href="#">Edit</a>
+                    {/* <a href="#">Edit</a> */}
                   </div>
                   </>
                 ))
@@ -267,6 +288,7 @@ const Overview = (props) => {
         role="dialog"
         aria-labelledby="exampleModalLongTitle"
         aria-hidden="true"
+        style={{"z-index": "99"}}
       >
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -276,29 +298,30 @@ const Overview = (props) => {
                   <img src="images/close_icon.svg" alt="x" class="img-fluid" />
                 </a>
                 <div class="accnt_modal_head">
-                  <h5>Add Review for T - REX</h5>
+                  <h5>Add Review</h5>
+                  {reviewId}
                   <ul>
-                    <li><i class="fa fa-star"></i></li>
-                    <li><i class="fa fa-star"></i></li>
-                    <li><i class="fa fa-star"></i></li>
-                    <li><i class="fa fa-star"></i></li>
-                    <li><i class="fa fa-star"></i></li>
+                    <li><a href="javascript:void(0)" onClick={()=>setStars(1)}><i class="fa fa-star" style={{"color": stars >= 1 ? "#10b068" : "grey"}}></i></a></li>
+                    <li><a href="javascript:void(0)" onClick={()=>setStars(2)}><i class="fa fa-star" style={{"color": stars >= 2 ? "#10b068" : "grey"}}></i></a></li>
+                    <li><a href="javascript:void(0)" onClick={()=>setStars(3)}><i class="fa fa-star" style={{"color": stars >= 3 ? "#10b068" : "grey"}}></i></a></li>
+                    <li><a href="javascript:void(0)" onClick={()=>setStars(4)}><i class="fa fa-star" style={{"color": stars >= 4 ? "#10b068" : "grey"}}></i></a></li>
+                    <li><a href="javascript:void(0)" onClick={()=>setStars(5)}><i class="fa fa-star" style={{"color": stars >= 5 ? "#10b068" : "grey"}}></i></a></li>
                   </ul>
                 </div>
                 <div class="emi_plan_frm accnt_modal_plan">
-                  <form>
+                  <form onSubmit={sendReview}>
                     <div class="row">
                       <div class="col-lg-12">
                         <div class="form-group">
                           <label for="">Your Review</label>
                           <textarea
-                            name=""
-                            id=""
+                            name="message"
                             cols="30"
                             rows="10"
                             class="form-control"
                             placeholder="Enter your review"
                             style={{"min-height": "180px"}}
+                            required
                           ></textarea>
                         </div>
                       </div>

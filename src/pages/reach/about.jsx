@@ -1,48 +1,13 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
 
 const About = (props) => {
-  // <script>
-  //        $(document).ready(function () {
-             
-  //          $('.moreless-button').click(function() {
-  //             $('.moretext').slideToggle();
-  //             if ($('.moreless-button').text() == "Read more") {
-  //               $(this).text("Read less")
-  //             } else {
-  //               $(this).text("Read more")
-  //             }
-  //           });
-             
-  //          $('.moreless-button1').click(function() {
-  //             $('.moretext1').slideToggle();
-  //             if ($('.moreless-button1').text() == "Read more") {
-  //               $(this).text("Read less")
-  //             } else {
-  //               $(this).text("Read more")
-  //             }
-  //           });
-  //          $('.moreless-button2').click(function() {
-  //             $('.moretext2').slideToggle();
-  //             if ($('.moreless-button2').text() == "Read more") {
-  //               $(this).text("Read less")
-  //             } else {
-  //               $(this).text("Read more")
-  //             }
-  //           });
-  //          $('.moreless-button3').click(function() {
-  //             $('.moretext3').slideToggle();
-  //             if ($('.moreless-button3').text() == "Read more") {
-  //               $(this).text("Read less")
-  //             } else {
-  //               $(this).text("Read more")
-  //             }
-  //           });
-             
-  //       });
-  //   </script>
+
+  useEffect(()=>{
+    window.aboutUsReadMore();
+  }, [])
   return(
     <>
     <Navbar/>
@@ -122,13 +87,13 @@ const About = (props) => {
               </h6>
               <div class="article">
                 <p class="mb-0">
-                  EM is founded by Rajib Gangopadhyay, who has been involved in the Electric
+                EM is founded by Mr. Rajib Gangopadhyay, who has a rich experience of international 
                 </p>
                 <p class="moretext">
-                  Cycles industry and its transhipment to 72 countries over the past couple of years. Rajib is a manufacturing enthusiast with an in-depth knowledge of Mobility and Electric Vehicles. Rajib's International exposure and Leadership are two major boosters to the organization.
+                business and sales of EBikes for 7+ years. He has placed EBike as a product in 72+ countries in the B2B space successfully. Rajib is a manufacturing enthusiast with an in-depth knowledge of Mobility and Electric Vehicles. Rajib's International exposure and Leadership are two major boosters to the organization.
                 </p>
               </div>
-              <a class="moreless-button">
+              <a href="javascript:void(0)" class="moreless-button">
                 Read more
               </a>
             </div>
@@ -149,13 +114,13 @@ const About = (props) => {
               </h6>
               <div class="article1">
                 <p class="mb-0">
-                  EM is founded by Rajib Gangopadhyay, who has been involved in the Electric
+                EM is led by Kunal Gupta, CEO and Key Decision-Maker who has been the COO 
                 </p>
                 <p class="moretext1">
-                  Cycles industry and its transhipment to 72 countries over the past couple of years. Rajib is a manufacturing enthusiast with an in-depth knowledge of Mobility and Electric Vehicles. Rajib's International exposure and Leadership are two major boosters to the organization.
+                of a leading start-up in the mobility industry in the past. Kunal, an expert in building brands has been a mentor and leader at various organizations in the past. His management and business intelligence are the key to setting up this organization from ground zero.
                 </p>
               </div>
-              <a class="moreless-button1">
+              <a href="javascript:void(0)" class="moreless-button1">
                 Read more
               </a>
             </div>
@@ -176,13 +141,13 @@ const About = (props) => {
               </h6>
               <div class="article2">
                 <p class="mb-0">
-                  EM is founded by Rajib Gangopadhyay, who has been involved in the Electric
+                Aditya holds the post of CMO. Aditya excelled in execution working for top players 
                 </p>
                 <p class="moretext2">
-                  Cycles industry and its transhipment to 72 countries over the past couple of years. Rajib is a manufacturing enthusiast with an in-depth knowledge of Mobility and Electric Vehicles. Rajib's International exposure and Leadership are two major boosters to the organization.
+                in various industries during his time in Dubai and Abu Dhabi. He brings in his expertise in product marketing to send out the right message to the right audience. His passion and speed make him a marketing powerhouse.
                 </p>
               </div>
-              <a class="moreless-button2">
+              <a href="javascript:void(0)" class="moreless-button2">
                 Read more
               </a>
             </div>
@@ -203,13 +168,13 @@ const About = (props) => {
               </h6>
               <div class="article3">
                 <p class="mb-0">
-                  EM is founded by Rajib Gangopadhyay, who has been involved in the Electric
+                Sumedh heads the business development wing at EM. An engineering mind with marketing 
                 </p>
                 <p class="moretext3">
-                  Cycles industry and its transhipment to 72 countries over the past couple of years. Rajib is a manufacturing enthusiast with an in-depth knowledge of Mobility and Electric Vehicles. Rajib's International exposure and Leadership are two major boosters to the organization.
+                and sales experience leading IoT products and EV products for the past 5+ years. His relentless passion perfectly complements his drive for practicality in any situation.
                 </p>
               </div>
-              <a class="moreless-button3">
+              <a href="javascript:void(0)" class="moreless-button3">
                 Read more
               </a>
             </div>

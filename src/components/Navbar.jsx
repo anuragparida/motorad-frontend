@@ -174,7 +174,7 @@ const Navbar = (props) => {
                                        <img src="images/user_icon.svg" alt="logo" class="img-fluid"/>
                                    }
                                 </a>
-                               <ul class="assurance_drop_dwn_4">
+                               <ul class="assurance_drop_dwn_4" style={{"right": logged ? "55px" : "70px"}}>
                                    {
                                        logged ?
                                        <>
