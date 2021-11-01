@@ -18,6 +18,7 @@ const ProductTREX = (props) => {
 
   const [products, setProducts] = useState([]);
   const [productID, setProductID] = useState("");
+  const [deviceType, setDeviceType] = useState("");
 
   const [visibleImagesMap, setVisibleImagesMap] = useState(
     images.reduce((map, image) => {
@@ -72,6 +73,16 @@ const ProductTREX = (props) => {
     }
 
     window.requestAnimationFrame(scrollPlay);
+
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Phone/i.test(
+        navigator.userAgent
+      )
+    ) {
+      setDeviceType("Mobile");
+    } else {     
+      setDeviceType("Desktop");
+    }
   }, []);
 
   const loadProducts = async () => {
@@ -270,7 +281,8 @@ const ProductTREX = (props) => {
         </div>
       </div>
 
-
+    {
+      (deviceType == 'Desktop') ?                    
       <section class="product_vdo_sec">
         <div class="container">
           <div class="row">
@@ -302,6 +314,30 @@ const ProductTREX = (props) => {
           </div>
         </div>
       </section> 
+      :
+      <section class="product_vdo_sec">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+                {/* {images.map((image) => (
+                    <div className={`image_${image}`} 
+                      key={image}
+                      id={"image_"+image}
+                      // style={{backgroundPosition: 'calc(100% + 30px) calc(100% + 30px);' }}
+                    />
+                ))}           */}
+                <img src="../images/Mobile-A.png" width="100%" className="img-fluid"/>
+                <img src="../images/Mobile-B.png" width="100%" className="img-fluid"/>
+                <img src="../images/Mobile-C.png" width="100%" className="img-fluid"/>
+                <img src="../images/Mobile-D.png" width="100%" className="img-fluid"/>
+                <img src="../images/Mobile-E.png" width="100%" className="img-fluid"/>
+            </div>                
+          </div>
+        </div>    
+      </section>  
+    }
+
+
       <section class="product_vdo_sec" id="feat_sec" style={{ display: 'none' }}>
         {/* style={{ display :'none' }} */}
         <div class="container">
