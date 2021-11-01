@@ -222,7 +222,7 @@ const Overview = (props) => {
               <div class="state_boxs_wrap">
                 <p>
                   You have not placed any orders
-                  <a href="#"
+                  <a href="/"
                     >Explore Products
                     <img src="images/arw_rgt.svg" alt="->" class="img-fluid"
                   /></a>
@@ -238,6 +238,7 @@ const Overview = (props) => {
             <div class="reviews_boxs_wrap">
 
               {
+                reviews.length > 0 ?
                 reviews.map(review => (
                   <>
                   <div class="media">
@@ -272,6 +273,12 @@ const Overview = (props) => {
                   </div>
                   </>
                 ))
+                :
+                <div class="state_boxs_wrap">
+                <p>
+                  Place an order to add reviews!
+                </p>
+              </div>
               }
               
             </div>

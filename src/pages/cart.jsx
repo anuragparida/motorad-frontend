@@ -341,11 +341,13 @@ const Cart = (props) => {
                   </thead>
                   <tbody>
                     {
+                      displayData.length > 0 ?
                       displayData.map((item) =>
                         <tr>
                           <td>
                             <img
-                              src="images/cycle_warenty.png"
+                              // src="images/cycle_warenty.png"
+                              src={`${server}${item.banner}`}
                               alt="a"
                               class="img-fluid"
                             />
@@ -398,6 +400,18 @@ const Cart = (props) => {
                           </td>
                         </tr>
                       )
+                      :
+                      <tr>
+                        <td colspan="5">
+                          <div class="state_boxs_wrap">
+                          <p>
+                            No items in your cart!
+                            <a href="/"
+                              >Explore Products</a>
+                          </p>
+                          </div>
+                        </td>
+                      </tr>
                     }
                   </tbody>
                 </table>

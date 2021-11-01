@@ -215,19 +215,28 @@ const ProductDOODLE = (props) => {
 
               <div class="hero_pro_img">
                 <div class="product_hero_txts">
+                {
+                  products.length > 0 ?
                   <img
-                    src="images/Doodle-Black.png"
+                    src={products.filter(prod=>prod.id===productID).banner === "/uploads/product_image/doodle-pulse-black.png" ? "images/Doodle-Black.png" : "images/Doodle-Green.png"}
                     alt="a"
                     class="img-fluid"
                   />
+                  :
+                    <img
+                      src="images/Doodle-Green.png"
+                      alt="a"
+                      class="img-fluid"
+                    />
+                }
                 </div>
-                <div class="product_hero_txt" style={{"display": "none"}}>
+                {/* <div class="product_hero_txt" style={{"display": "none"}}>
                   <img
                     src="images/Doodle-Green.png"
                     alt="a"
                     class="img-fluid"
                   />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

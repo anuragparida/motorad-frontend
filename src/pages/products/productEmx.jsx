@@ -249,6 +249,7 @@ const ProductEMX = (props) => {
                   <img src="images/EMX-Hero.png" alt="a" class="img-fluid" />
                 </div>
               </div>
+              
             </div>
           </div>
           <div class="col-12">
