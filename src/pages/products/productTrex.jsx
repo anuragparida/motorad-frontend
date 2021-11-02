@@ -235,9 +235,10 @@ const ProductTREX = (props) => {
                 <div class="hero_pro_img">
                   <div class="product_hero_txts">
                     {
-                      products.length > 0 ?
+                      products.length > 0 &&
+                      products.find(prod=>prod.id===productID) ?
                       <img
-                      src={products.filter(prod=>prod.id===productID).banner === "/uploads/product_image/t-rex-red.png" ? "images/t-rex-hero-red.png" : "images/t-rex-hero-yellow.png"}
+                      src={products.find(prod=>prod.id===productID).banner === "/uploads/product_banner/t-rex-red.png" ? "images/t-rex-hero-red.png" : "images/t-rex-hero-yellow.png"}
                       alt="a"
                       class="img-fluid"
                     />

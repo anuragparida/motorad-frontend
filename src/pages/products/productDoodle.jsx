@@ -73,7 +73,7 @@ const ProductDOODLE = (props) => {
         console.log(rsp);
         const filteredRsp = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"));
         if (filteredRsp.length > 0) {
-          console.log(filteredRsp);
+          console.log("filter", filteredRsp);
           setProducts(filteredRsp);
           setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].id);
         }
@@ -215,10 +215,12 @@ const ProductDOODLE = (props) => {
 
               <div class="hero_pro_img">
                 <div class="product_hero_txts">
+                  
                 {
-                  products.length > 0 ?
+                  products.length > 0 &&
+                  products.find(prod=>prod.id===productID) ?
                   <img
-                    src={products.filter(prod=>prod.id===productID).banner === "/uploads/product_image/doodle-pulse-black.png" ? "images/Doodle-Black.png" : "images/Doodle-Green.png"}
+                    src={products.find(prod=>prod.id===productID).banner === "/uploads/product_banner/doodle-pulse-black.png" ? "images/Doodle-Black.png" : "images/Doodle-Green.png"}
                     alt="a"
                     class="img-fluid"
                   />
