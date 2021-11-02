@@ -134,6 +134,26 @@ const Cart = (props) => {
     }
   }
 
+  const addAddress = async (e) => {
+    e.preventDefault();
+
+    var params = Array.from(e.target.elements)
+      .filter((el) => el.name)
+      .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
+
+    params.landmark = "jk";
+
+    axios
+    .post(server + "/api/address/create", params, config)
+    .then((rsp) => {
+      console.log(rsp);
+      window.location.reload();
+    })
+    .catch((err) => {
+      console.log(err.response);
+    });
+  }
+
   const addToCart = async (id) => {
     const params = {
       "product": [
@@ -546,13 +566,15 @@ const Cart = (props) => {
                     <li><a href="javascript:void(0)"><i class="fa fa-star"></i></a></li>
                   </ul> */}
                   <div class="more_adds_add_bttn cart_adds_add">
-                        <a href="#" data-toggle="modal" data-target="#exampleModalLong">
+                        <a href="/account">
                           <i class="fa fa-plus"></i> Add a New Address
                         </a>
                       </div>
                 </div>
                 <div class="emi_plan_frm accnt_modal_plan">
-                  <form onSubmit={handleSelectAddress}>
+                  {
+                    add.length > 0 ?
+                    <form onSubmit={handleSelectAddress}>
                     <div class="row">
                       <div class="col-lg-12">
                         <div class="form-group">
@@ -574,6 +596,82 @@ const Cart = (props) => {
                       </div>
                     </div>
                   </form>
+                    :
+                    <form onSubmit={addAddress}>
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label for="">Your Name</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Enter your Name"
+                            name="name"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label for="">Select State</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Select your state"
+                            name="state"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label for="">Your City</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            placeholder="Select your city"
+                            name="city"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label for="">Pincode</label>
+                          <input
+                            type="number"
+                            class="form-control"
+                            placeholder="Enter your pincode"
+                            name="pin"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="form-group">
+                          <label for="">Your Address</label>
+                          <textarea
+                            cols="30"
+                            rows="10"
+                            class="form-control"
+                            placeholder="Enter your address"
+                            style={{"min-height": "80px"}}
+                            name="address"
+                            required
+                          ></textarea>
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="accnt_submit_modal">
+                          <button type="submit" class="btn btn_submit">
+                            Add Address
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                  }
+                  
                 </div>
               </div>
             </div>

@@ -46,6 +46,8 @@ const Signup = (props) => {
         window.location.href = "/login"; //CHANGE THIS
       })
       .catch((error) => {
+        setMessage(<Alert className="danger" message={error.response.data.message} />);
+        setLoader("");
       });
   };
 
