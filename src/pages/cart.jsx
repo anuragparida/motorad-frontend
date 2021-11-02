@@ -500,7 +500,7 @@ const Cart = (props) => {
               products.filter(prod=>prod.type==="accessory").map(prod=>(
                 <div class="col-lg-3">
                   <div class="products_wrap">
-                    <img src="images/healmate_icon.svg" alt="a" class="img-fluid" />
+                    <img src={`${server}${prod.banner}`} alt="a" class="img-fluid" />
                     <div class="d-flex justify-content-between">
                       <h6>{prod.name}</h6>
                       <h6>₹ {prod.price2}</h6>
