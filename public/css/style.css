@@ -3406,3 +3406,76 @@ img {
     border-right: 1px solid black !important;
   }
 }
+
+
+
+.front_light {
+  right: 341px !important;   
+}
+
+.saddle {
+  top: 90px !important;   
+}
+
+.motor {
+  top: 429px !important;   
+}
+
+.display {
+  right: 391px !important;
+  top: 49px !important;
+}
+
+.ebreak {
+  right: 355px !important;
+  top: 15px !important;  
+}
+
+.front_light_emx {
+  right: 360px !important;   
+}
+
+.emx_motor {
+  top: 335px !important;   
+}
+
+.doodle_motor {
+  top: 405px !important;    
+}
+
+.doodle_display {
+  right: 423px !important; 
+  top: 52px !important; 
+}
+
+.doodle_breaks {
+  right: 405px !important; 
+}
+
+.doodle_lights {
+  right: 341px !important;
+  top: 223px !important;
+}
+
+.doodle_battery {
+  top: 255px !important;
+}
+
+.doodle_spe_motor {
+  top: 394px !important;
+}
+
+.doodle_spe_display {
+  right: 422px !important;
+  top: 49px !important;
+}
+
+.doodle_spe_break {
+  right: 396px !important;
+  top: 14px !important;
+}
+
+.doodle_spe_light {
+  right: 331px !important;
+  top: 210px !important;
+}

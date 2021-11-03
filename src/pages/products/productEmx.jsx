@@ -509,7 +509,7 @@ const ProductEMX = (props) => {
                   </div>
                 </div> */}
 
-                <div class="spe_dot_2 d-none d-lg-block">
+                <div class="spe_dot_2 d-none d-lg-block emx_motor">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
@@ -569,7 +569,7 @@ const ProductEMX = (props) => {
                     <p>10.4 36V Lithium-Ion</p>
                   </div>
                 </div> */}
-                <div class="spe_dot_8 d-none d-lg-block">
+                <div class="spe_dot_8 d-none d-lg-block front_light_emx">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
@@ -590,7 +590,7 @@ const ProductEMX = (props) => {
                     <p>10.4 36V Lithium-Ion</p>
                   </div>
                 </div> */}
-                <div class="spe_dot_10 d-none d-lg-block">
+                <div class="spe_dot_10 d-none d-lg-block display">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
@@ -601,7 +601,7 @@ const ProductEMX = (props) => {
                     <p>LCD Display</p>
                   </div>
                 </div>
-                <div class="spe_dot_11 d-none d-lg-block">
+                <div class="spe_dot_11 d-none d-lg-block ebreak">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>

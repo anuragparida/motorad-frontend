@@ -493,7 +493,7 @@ const ProductDOODLE = (props) => {
                     <p>10 36V Lithium-Ion</p>
                   </div>
                 </div> */}
-                <div class="spe_dot_2 d-none d-lg-block">
+                <div class="spe_dot_2 d-none d-lg-block doodle_motor">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
@@ -532,7 +532,7 @@ const ProductDOODLE = (props) => {
                     <p>10 36V Lithium-Ion</p>
                   </div>
                 </div> */}
-                <div class="spe_dot_6 d-none d-lg-block">
+                <div class="spe_dot_6 d-none d-lg-block doodle_battery">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
@@ -554,7 +554,7 @@ const ProductDOODLE = (props) => {
                     <p>10 36V Lithium-Ion</p>
                   </div>
                 </div> */}
-                <div class="spe_dot_8 d-none d-lg-block">
+                <div class="spe_dot_8 d-none d-lg-block doodle_lights">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
@@ -576,7 +576,7 @@ const ProductDOODLE = (props) => {
                     <p>10 36V Lithium-Ion</p>
                   </div>
                 </div> */}
-                <div class="spe_dot_10 d-none d-lg-block">
+                <div class="spe_dot_10 d-none d-lg-block doodle_display">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
@@ -587,7 +587,7 @@ const ProductDOODLE = (props) => {
                     <p>LCD Display</p>
                   </div>
                 </div>
-                <div class="spe_dot_11 d-none d-lg-block">
+                <div class="spe_dot_11 d-none d-lg-block doodle_breaks">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
@@ -621,7 +621,7 @@ const ProductDOODLE = (props) => {
                     <p>10 36V Lithium-Ion</p>
                   </div>
                 </div> */}
-                <div class="spe_dot_2 d-none d-lg-block">
+                <div class="spe_dot_2 d-none d-lg-block doodle_spe_motor">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
@@ -682,7 +682,7 @@ const ProductDOODLE = (props) => {
                     <p>10 36V Lithium-Ion</p>
                   </div>
                 </div> */}
-                <div class="spe_dot_8 d-none d-lg-block">
+                <div class="spe_dot_8 d-none d-lg-block doodle_spe_light">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
@@ -704,7 +704,7 @@ const ProductDOODLE = (props) => {
                     <p>10 36V Lithium-Ion</p>
                   </div>
                 </div> */}
-                <div class="spe_dot_10 d-none d-lg-block">
+                <div class="spe_dot_10 d-none d-lg-block doodle_spe_display">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
@@ -715,7 +715,7 @@ const ProductDOODLE = (props) => {
                     <p>LCD Display</p>
                   </div>
                 </div>
-                <div class="spe_dot_11 d-none d-lg-block">
+                <div class="spe_dot_11 d-none d-lg-block doodle_spe_break">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>    
