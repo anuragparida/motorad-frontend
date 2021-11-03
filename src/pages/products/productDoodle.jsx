@@ -1031,6 +1031,89 @@ const ProductDOODLE = (props) => {
                     <p>Adjustable</p>
                   </div>
                 </div>
+
+
+
+                <div class="technical_d_flex">
+                    <div class="technical_specific_box">
+                      <h6>Mudguards</h6>
+                      <p>Yes</p>
+                    </div>
+                    <div class="technical_specific_box">
+                      <h6>Bike weight</h6>
+                      <p>30kg</p>
+                    </div>
+                    <div class="technical_specific_box">
+                      <h6>Front Hub</h6>
+                      <p>Quick-release</p>
+                    </div>
+                    <div class="technical_specific_box">
+                      <h6>Battery</h6>
+                      <p>10 Ah 36V <br/> Lithium-Ion </p>
+                    </div>
+                    <div class="technical_specific_box mr-0">
+                      <h6>Top speed</h6>
+                      <p>25 km/hr</p>
+                    </div>
+                  </div>
+
+                  <div class="technical_d_flex">
+                    <div class="technical_specific_box">
+                      <h6>Range</h6>
+                      <p>35+ Km on Throttle<br />50+ Km on PAS</p>
+                    </div>
+                    <div class="technical_specific_box">
+                      <h6>Motor</h6>
+                      <p>36V, 250W, <br /> BLDC <br /> Rear Hub Motor</p>
+                    </div>
+                    <div class="technical_specific_box">
+                      <h6>Charger</h6>
+                      <p>2A charger, <br />3-4 hrs to fully <br /> charge the battery</p>
+                    </div>
+                    <div class="technical_specific_box">
+                      <h6>IP certification</h6>
+                      <p>IP 65 protected</p>
+                    </div>
+                    <div class="technical_specific_box mr-0">
+                      <h6>Display</h6>
+                      <p>3" LCD 866 <br /> display</p>
+                    </div>
+                  </div>
+
+
+                  <div class="technical_d_flex">
+                    <div class="technical_specific_box">
+                      <h6>Operation <br /> Modes</h6>
+                      <p>a. Mechanical <br/>
+                        b. 5 levels of <br/>
+                        pedal assist <br/>
+                        c. Throttle mode <br/>
+                        d. Cruise mode <br/>
+                        e. Walk mode</p>
+                    </div>
+                    <div class="technical_specific_box">
+                      <h6>Lights</h6>
+                      <p>LED head and <br /> rear lamps <br /> withintegrated horn
+                      </p>
+                    </div>
+                    <div class="technical_specific_box">
+                      <h6>Rider weight</h6>
+                      <p>Up to 120Kg</p>
+                    </div>
+                    <div class="technical_specific_box">
+                      <h6>Rider height</h6>
+                      <p>4'10" to 6'4"</p>
+                    </div>
+                    <div class="technical_specific_box mr-0">
+                      <div style={{ display:'none'}}>
+                        <h6>Display</h6>
+                        <p>3" LCD 866 <br /> display</p>
+                      </div>
+                    </div> 
+                  </div>
+
+
+
               </div>
               <div class="col-12">
                 <div class="tech_bttns">
