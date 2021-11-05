@@ -290,7 +290,7 @@ const ProductEMX = (props) => {
             /></a>
           </div>
         </div>
-      </div>
+      </div>    
     </div>
 
     {
@@ -533,7 +533,7 @@ const ProductEMX = (props) => {
                 data-aos-duration="2000"
               >
                 <img src="images/EMX-Pulse.png" alt="a" class="img-fluid" />
-                {/* <div class="spe_dot_1 d-none d-lg-block">
+                <div class="spe_dot_1 d-none d-lg-block emx_derailluers">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
@@ -541,7 +541,7 @@ const ProductEMX = (props) => {
                     <h6>Battery</h6>
                     <p>10.4 36V Lithium-Ion</p>
                   </div>
-                </div> */}
+                </div>
 
                 <div class="spe_dot_2 d-none d-lg-block emx_motor">
                   <div class="dot">
@@ -562,26 +562,29 @@ const ProductEMX = (props) => {
                     <p>5-Level Pedal Asist Sensor</p>
                   </div>
                 </div>
-                {/* <div class="spe_dot_4 d-none d-lg-block">
+                 <div class="spe_dot_4 d-none d-lg-block emx_saddle">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
 
                   <div class="spe_dot_ol">
-                    <h6>Batterydfdfdfd</h6>
-                    <p>10.4 36V Lithium-Ion</p>
+                    <h6>Saddle</h6>
+                    <p>Double Stitched PU</p>
+                    <p>hydrodyme Soft</p>
+                    <p>cusion saddle</p>
                   </div>
-                </div> */}
-                {/* <div class="spe_dot_5 d-none d-lg-block">
+                </div> 
+                 <div class="spe_dot_5 d-none d-lg-block">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
 
                   <div class="spe_dot_ol">
-                    <h6>Battery</h6>
-                    <p>10.4 36V Lithium-Ion</p>
+                    <h6>Frame</h6>
+                    <p>18" Alueminium Alloy</p>
+                    <p>6061 Softail frame</p>
                   </div>
-                </div> */}
+                </div> 
                 <div class="spe_dot_6 d-none d-lg-block">
                   <div class="dot">
                     <div class="dot-pulse"></div>
@@ -594,15 +597,28 @@ const ProductEMX = (props) => {
                     <p>Detachable Battery</p>
                   </div>
                 </div>
-                {/* <div class="spe_dot_7 d-none d-lg-block">
+                <div class="spe_dot_6 d-none d-lg-block emx_susspension">
+                  <div class="dot">
+                    <div class="dot-pulse"></div>
+                  </div>
+
+                  <div class="spe_dot_ol">
+                    <h6>Battery</h6>
+                    <p>10.4 Ah 36 Volt</p>
+                    <p>Lithium-ion</p>
+                    <p>Detachable Battery</p>
+                  </div>
+                </div>
+                <div class="spe_dot_7 d-none d-lg-block">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
                   <div class="spe_dot_ol">
-                    <h6>Battery</h6>
-                    <p>10.4 36V Lithium-Ion</p>
+                    <h6>Tyres</h6>
+                    <p>27.5" x 2.0" CST Jack</p>
+                    <p>Rabbit Tyres</p>
                   </div>
-                </div> */}
+                </div> 
                 <div class="spe_dot_8 d-none d-lg-block front_light_emx">
                   <div class="dot">
                     <div class="dot-pulse"></div>
@@ -614,16 +630,18 @@ const ProductEMX = (props) => {
                     <p>With Integrated Horn</p>
                   </div>
                 </div>
-                {/* <div class="spe_dot_9 d-none d-lg-block">
+                 <div class="spe_dot_9 d-none d-lg-block">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
 
                   <div class="spe_dot_ol">
-                    <h6>Battery</h6>
-                    <p>10.4 36V Lithium-Ion</p>
+                    <h6>Brakes</h6>
+                    <p>Front and rear disk</p>
+                    <p>breakes for greater</p>
+                    <p>stopping power</p>
                   </div>
-                </div> */}
+                </div> 
                 <div class="spe_dot_10 d-none d-lg-block display">
                   <div class="dot">
                     <div class="dot-pulse"></div>

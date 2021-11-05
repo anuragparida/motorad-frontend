@@ -16,6 +16,7 @@ const ProductDOODLE = (props) => {
 
   const [products, setProducts] = useState([]);
   const [productID, setProductID] = useState("");
+  const [deviceType, setDeviceType] = useState("");    
 
   const [visibleImagesMap, setVisibleImagesMap] = useState(
     images.reduce((map, image) => {
@@ -64,6 +65,15 @@ const ProductDOODLE = (props) => {
     }
 
     window.requestAnimationFrame(scrollPlay);
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Phone/i.test(
+        navigator.userAgent
+      )
+    ) {
+      setDeviceType("Mobile");
+    } else {     
+      setDeviceType("Desktop");
+    }
   }, []);
 
   const loadProducts = async() => {
@@ -274,6 +284,8 @@ const ProductDOODLE = (props) => {
       </div>
     </div>
 
+    {
+      (deviceType == 'Desktop') ?               
     <section class="product_vdo_sec">
         <div class="container">
           <div class="row">
@@ -296,6 +308,28 @@ const ProductDOODLE = (props) => {
           </div>
         </div>
       </section> 
+    :
+    <section class="product_vdo_sec">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+              {/* {images.map((image) => (
+                  <div className={`image_${image}`} 
+                    key={image}
+                    id={"image_"+image}
+                    // style={{backgroundPosition: 'calc(100% + 30px) calc(100% + 30px);' }}
+                  />
+              ))}           */}
+              <img src="../images/Doodle/Mobile-A.png" width="100%" className="img-fluid"/>
+              <img src="../images/Doodle/Mobile-B.png" width="100%" className="img-fluid"/>
+              <img src="../images/Doodle/Mobile-C.png" width="100%" className="img-fluid"/>
+              <img src="../images/Doodle/Mobile-D.png" width="100%" className="img-fluid"/>
+              <img src="../images/Doodle/Mobile-E.png" width="100%" className="img-fluid"/>
+          </div>                
+        </div>
+      </div>    
+    </section>  
+  }  
 
     <section class="product_vdo_sec" id="feat_sec" style={{ display: 'none' }}>
       <div class="container">
@@ -333,7 +367,7 @@ const ProductDOODLE = (props) => {
                   data-aos="fade-up"
                   data-aos-duration="2000"
                 >
-                  <h6>GALLERY</h6>
+                  <h6 className="galleryTitle">GALLERY</h6>
                   <h3>
                     IN ALL <br />
                     ITS GLORY
@@ -593,10 +627,10 @@ const ProductDOODLE = (props) => {
                   </div>
 
                   <div class="spe_dot_ol">
-                    <h6>E-Breaks</h6>
+                    <h6>E-Braks</h6>
                     <p>Front And Rear</p>
-                    <p>E-breaks For Power</p>
-                    <p>Cutoff While Breaking</p>
+                    <p>E-braks For Power</p>
+                    <p>Cutoff While Braking</p>
                   </div>
                 </div>
               </div>
@@ -621,7 +655,7 @@ const ProductDOODLE = (props) => {
                     <p>10 36V Lithium-Ion</p>
                   </div>
                 </div> */}
-                <div class="spe_dot_2 d-none d-lg-block doodle_spe_motor">
+                <div class="spe_dot_2 d-none d-lg-block doodle_derailliurs">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
@@ -640,17 +674,19 @@ const ProductDOODLE = (props) => {
                     <p>5-Level Pedal Asist Sensor</p>
                   </div>
                 </div>
-                {/* <div class="spe_dot_4 d-none d-lg-block">
+                 <div class="spe_dot_4 d-none d-lg-block">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
 
                   <div class="spe_dot_ol">
-                    <h6>Battery</h6>
-                    <p>10 36V Lithium-Ion</p>
+                    <h6>Saddle</h6>
+                    <p>Double-stitched PU</p>
+                    <p>hydrodyne soft</p>
+                    <p>cushion saddle</p>
                   </div>
                 </div>
-                <div class="spe_dot_5 d-none d-lg-block">
+                {/*<div class="spe_dot_5 d-none d-lg-block">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
@@ -672,7 +708,7 @@ const ProductDOODLE = (props) => {
                     <p>Detachable Battery</p>
                   </div>
                 </div>
-                {/* <div class="spe_dot_7 d-none d-lg-block">
+                <div class="spe_dot_7 d-none d-lg-block doodle_tyre">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
@@ -681,7 +717,7 @@ const ProductDOODLE = (props) => {
                     <h6>Battery</h6>
                     <p>10 36V Lithium-Ion</p>
                   </div>
-                </div> */}
+                </div> 
                 <div class="spe_dot_8 d-none d-lg-block doodle_spe_light">
                   <div class="dot">
                     <div class="dot-pulse"></div>
@@ -694,16 +730,18 @@ const ProductDOODLE = (props) => {
                     <p>With Integrated Horn</p>
                   </div>
                 </div>
-                {/* <div class="spe_dot_9 d-none d-lg-block">
+                <div class="spe_dot_9 d-none d-lg-block">
                   <div class="dot">
                     <div class="dot-pulse"></div>
                   </div>
 
                   <div class="spe_dot_ol">
-                    <h6>Battery</h6>
-                    <p>10 36V Lithium-Ion</p>
+                    <h6>Disk Brakes</h6>
+                    <p>Front and rear disk</p>
+                    <p>brakes for greater</p>
+                    <p>stopping power</p>
                   </div>
-                </div> */}
+                </div> 
                 <div class="spe_dot_10 d-none d-lg-block doodle_spe_display">
                   <div class="dot">
                     <div class="dot-pulse"></div>
@@ -721,10 +759,10 @@ const ProductDOODLE = (props) => {
                   </div>    
 
                   <div class="spe_dot_ol">
-                    <h6>E-Breaks</h6>
+                    <h6>E-Braks</h6>
                     <p>Front And Rear</p>
-                    <p>E-breaks For Power</p>
-                    <p>Cutoff While Breaking</p>
+                    <p>E-braks For Power</p>
+                    <p>Cutoff While Braking</p>
                   </div>
                 </div>
 
@@ -936,8 +974,8 @@ const ProductDOODLE = (props) => {
                 class="col-lg-12"
                 data-aos="fade-up"
                 data-aos-duration="2000"
+                style={{ display : 'flex', flexWrap : 'wrap' }}
               >
-                <div class="technical_d_flex">
                   <div class="technical_specific_box">
                     <h6>Frame</h6>
                     <p>
@@ -973,8 +1011,6 @@ const ProductDOODLE = (props) => {
                       Tourney
                     </p>
                   </div>
-                </div>
-                <div class="technical_d_flex">
                   <div class="technical_specific_box">
                     <h6>Shifters</h6>
                     <p>
@@ -1002,8 +1038,6 @@ const ProductDOODLE = (props) => {
                     <h6>Crank Set</h6>
                     <p>Aluminium Alloy</p>
                   </div>
-                </div>
-                <div class="technical_d_flex">
                   <div class="technical_specific_box">
                     <h6>BB Set</h6>
                     <p>Squared tapered</p>
@@ -1030,11 +1064,6 @@ const ProductDOODLE = (props) => {
                     <h6>Seat Post</h6>
                     <p>Adjustable</p>
                   </div>
-                </div>
-
-
-
-                <div class="technical_d_flex">
                     <div class="technical_specific_box">
                       <h6>Mudguards</h6>
                       <p>Yes</p>
@@ -1055,9 +1084,6 @@ const ProductDOODLE = (props) => {
                       <h6>Top speed</h6>
                       <p>25 km/hr</p>
                     </div>
-                  </div>
-
-                  <div class="technical_d_flex">
                     <div class="technical_specific_box">
                       <h6>Range</h6>
                       <p>35+ Km on Throttle<br />50+ Km on PAS</p>
@@ -1078,10 +1104,6 @@ const ProductDOODLE = (props) => {
                       <h6>Display</h6>
                       <p>3" LCD 866 <br /> display</p>
                     </div>
-                  </div>
-
-
-                  <div class="technical_d_flex">
                     <div class="technical_specific_box">
                       <h6>Operation <br /> Modes</h6>
                       <p>a. Mechanical <br/>
@@ -1109,17 +1131,16 @@ const ProductDOODLE = (props) => {
                         <h6>Display</h6>
                         <p>3" LCD 866 <br /> display</p>
                       </div>
-                    </div> 
-                  </div>
+                    </div>
 
 
 
               </div>
-              <div class="col-12">
+              {/* <div class="col-12">
                 <div class="tech_bttns">
                   <a href="#">VIEW ALL FEATURES</a>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -1208,12 +1229,12 @@ const ProductDOODLE = (props) => {
                 </ul>
               </div>
             </div>
-            <div class="flex_rev_boxs">
+            {/* <div class="flex_rev_boxs">
               <a href="#"
                 >Read all reviews
                 <img src="images/arrw_rgt.svg" alt="a" class="img-fluid"
               /></a>
-            </div>
+            </div> */}
           </div>
           <div class="col-12 d-lg-none">
             <div class="rev_sliders">

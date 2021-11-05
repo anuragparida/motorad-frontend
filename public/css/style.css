@@ -3453,6 +3453,18 @@ img {
   top: 335px !important;   
 }
 
+.emx_saddle {
+  top: 99px !important;   
+}
+
+.emx_susspension {
+  left: 511px !important;
+}
+
+.emx_derailluers {
+  left: 316px !important;
+}
+
 .doodle_motor {
   top: 405px !important;    
 }
@@ -3492,4 +3504,13 @@ img {
 .doodle_spe_light {
   right: 331px !important;
   top: 210px !important;
+}
+
+.doodle_tyre {
+  top : 305px !important;
+}
+
+.doodle_derailliurs {
+  left: 330px !important;
+  top: 438px !important;
 }
