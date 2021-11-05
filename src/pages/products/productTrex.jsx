@@ -382,7 +382,7 @@ const ProductTREX = (props) => {
                     data-aos="fade-up"
                     data-aos-duration="2000"
                   >
-                    <h6>GALLERY</h6>
+                    <h6 className="galleryTitle">GALLERY</h6>
                     <h3>
                       IN ALL <br />
                       ITS GLORY
@@ -637,7 +637,7 @@ const ProductTREX = (props) => {
                     </div>
 
                     <div class="spe_dot_ol">
-                      <h6>E-breaks</h6>
+                      <h6>E-braks</h6>
                       <p>Front and rear</p>
                       <p>E-breaks for power</p>
                       <p>Cutoff while braking</p>
@@ -978,8 +978,8 @@ const ProductTREX = (props) => {
                   class="col-lg-12"
                   data-aos="fade-up"
                   data-aos-duration="2000"
+                  style={{ display : 'flex', flexWrap : 'wrap' }}
                 >
-                  <div class="technical_d_flex">
                     <div class="technical_specific_box">
                       <h6>Frame</h6>
                       <p>
@@ -1015,8 +1015,6 @@ const ProductTREX = (props) => {
                         Tourney
                       </p>
                     </div>
-                  </div>
-                  <div class="technical_d_flex">
                     <div class="technical_specific_box">
                       <h6>Shifters</h6>
                       <p>
@@ -1044,8 +1042,6 @@ const ProductTREX = (props) => {
                       <h6>Crank Set</h6>
                       <p>Aluminium Alloy</p>
                     </div>
-                  </div>
-                  <div class="technical_d_flex">
                     <div class="technical_specific_box">
                       <h6>BB Set</h6>
                       <p>Squared tapered</p>
@@ -1072,9 +1068,7 @@ const ProductTREX = (props) => {
                       <h6>Seat Post</h6>
                       <p>Adjustable</p>
                     </div>
-                  </div>
 
-                  <div class="technical_d_flex">
                     <div class="technical_specific_box">
                       <h6>Mudguards</h6>
                       <p>Yes</p>
@@ -1095,9 +1089,7 @@ const ProductTREX = (props) => {
                       <h6>Top speed</h6>
                       <p>25 km/hr</p>
                     </div>
-                  </div>
 
-                  <div class="technical_d_flex">
                     <div class="technical_specific_box">
                       <h6>Range</h6>
                       <p>35+ Km on Throttle<br />50+ Km on PAS</p>
@@ -1118,10 +1110,8 @@ const ProductTREX = (props) => {
                       <h6>Display</h6>
                       <p>3" LCD 866 <br /> display</p>
                     </div>
-                  </div>
 
 
-                  <div class="technical_d_flex">
                     <div class="technical_specific_box">
                       <h6>Operation <br /> Modes</h6>
                       <p>a. Mechanical <br/>
@@ -1151,14 +1141,14 @@ const ProductTREX = (props) => {
                         <p>3" LCD 866 <br /> display</p>
                       </div>
                     </div> 
-                  </div>
+                  
 
                 </div>
-                <div class="col-12">
+                {/* <div class="col-12">
                   <div class="tech_bttns">
                     <a href="#">VIEW ALL FEATURES</a>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -1247,12 +1237,12 @@ const ProductTREX = (props) => {
                   </ul>
                 </div>
               </div>
-              <div class="flex_rev_boxs">
+              {/* <div class="flex_rev_boxs">
                 <a href="#"
                 >Read all reviews
                   <img src="images/arrw_rgt.svg" alt="a" class="img-fluid"
                   /></a>
-              </div>
+              </div> */}
             </div>
             <div class="col-12 d-lg-none">
               <div class="rev_sliders">

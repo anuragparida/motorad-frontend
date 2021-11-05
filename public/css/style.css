@@ -3407,6 +3407,20 @@ img {
   }
 }
 
+@media only screen and (max-width: 600px) {
+  .product_specification {
+    display: none;
+  }
+  .technical_d_flex {
+    justify-content: flex-start !important;
+  }
+  .galleryTitle {
+    padding-top: 20px;
+  }
+  .explore_bttn a {
+    padding : 15px 86px !important;
+  }
+}
 
 
 .front_light {

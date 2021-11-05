@@ -48,6 +48,7 @@ const ProductEMX = (props) => {
 
   const [products, setProducts] = useState([]);
   const [productID, setProductID] = useState("");
+  const [deviceType, setDeviceType] = useState("");
 
   const [visibleImagesMap, setVisibleImagesMap] = useState(
     images.reduce((map, image) => {
@@ -96,6 +97,15 @@ const ProductEMX = (props) => {
     }
 
     window.requestAnimationFrame(scrollPlay);
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Phone/i.test(
+        navigator.userAgent
+      )
+    ) {
+      setDeviceType("Mobile");
+    } else {     
+      setDeviceType("Desktop");
+    }
   }, []);
 
   const loadProducts = async() => {
@@ -283,6 +293,8 @@ const ProductEMX = (props) => {
       </div>
     </div>
 
+    {
+      (deviceType == 'Desktop') ?                    
     <section class="product_vdo_sec">
         <div class="container">
           <div class="row">
@@ -305,6 +317,28 @@ const ProductEMX = (props) => {
           </div>
         </div>
       </section> 
+      :
+      <section class="product_vdo_sec">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+                {/* {images.map((image) => (
+                    <div className={`image_${image}`} 
+                      key={image}
+                      id={"image_"+image}
+                      // style={{backgroundPosition: 'calc(100% + 30px) calc(100% + 30px);' }}
+                    />
+                ))}           */}
+                <img src="../images/EMX/Mobile-A.png" width="100%" className="img-fluid"/>
+                <img src="../images/EMX/Mobile-B.png" width="100%" className="img-fluid"/>
+                <img src="../images/EMX/Mobile-C.png" width="100%" className="img-fluid"/>
+                <img src="../images/EMX/Mobile-D.png" width="100%" className="img-fluid"/>
+                <img src="../images/EMX/Mobile-E.png" width="100%" className="img-fluid"/>
+            </div>                
+          </div>
+        </div>    
+      </section>  
+    }
 
 
     <section class="product_vdo_sec" id="feat_sec" style={{ display: 'none' }}>
@@ -351,7 +385,7 @@ const ProductEMX = (props) => {
                   data-aos="fade-up"
                   data-aos-duration="2000"
                 >
-                  <h6>GALLERY</h6>
+                  <h6 className="galleryTitle">GALLERY</h6>
                   <h3>
                     IN ALL <br />
                     ITS GLORY
@@ -607,7 +641,7 @@ const ProductEMX = (props) => {
                   </div>
 
                   <div class="spe_dot_ol">
-                    <h6>E-Breaks</h6>
+                    <h6>E-Braks</h6>
                     <p>Front And Rear</p>
                     <p>E-breaks For Power</p>
                     <p>Cutoff While Breaking</p>
@@ -711,8 +745,8 @@ const ProductEMX = (props) => {
                 class="col-lg-12"
                 data-aos="fade-up"
                 data-aos-duration="2000"
+                style={{ display : 'flex', flexWrap : 'wrap' }}
               >
-                <div class="technical_d_flex">
                   <div class="technical_specific_box">
                     <h6>Frame</h6>
                     <p>
@@ -748,8 +782,6 @@ const ProductEMX = (props) => {
                       Tourney
                     </p>
                   </div>
-                </div>
-                <div class="technical_d_flex">
                   <div class="technical_specific_box">
                     <h6>Shifters</h6>
                     <p>
@@ -777,8 +809,6 @@ const ProductEMX = (props) => {
                     <h6>Crank Set</h6>
                     <p>Aluminium Alloy</p>
                   </div>
-                </div>
-                <div class="technical_d_flex">
                   <div class="technical_specific_box">
                     <h6>BB Set</h6>
                     <p>Squared tapered</p>
@@ -805,11 +835,6 @@ const ProductEMX = (props) => {
                     <h6>Seat Post</h6>
                     <p>Adjustable</p>
                   </div>
-                </div>
-
-
-
-                <div class="technical_d_flex">
                     <div class="technical_specific_box">
                       <h6>Mudguards</h6>
                       <p>Yes</p>
@@ -830,9 +855,6 @@ const ProductEMX = (props) => {
                       <h6>Top speed</h6>
                       <p>25 km/hr</p>
                     </div>
-                  </div>
-
-                  <div class="technical_d_flex">
                     <div class="technical_specific_box">
                       <h6>Range</h6>
                       <p>35+ Km on Throttle<br />50+ Km on PAS</p>
@@ -853,10 +875,6 @@ const ProductEMX = (props) => {
                       <h6>Display</h6>
                       <p>5" multifunctional display</p>
                     </div>
-                  </div>
-
-
-                  <div class="technical_d_flex">
                     <div class="technical_specific_box">
                       <h6>Operation <br /> Modes</h6>
                       <p>a. Mechanical <br/>
@@ -884,16 +902,15 @@ const ProductEMX = (props) => {
                         <h6>Display</h6>
                         <p>3" LCD 866 <br /> display</p>
                       </div>
-                    </div> 
-                  </div>
+                    </div>
 
 
               </div>
-              <div class="col-12">
+              {/* <div class="col-12">
                 <div class="tech_bttns">
                   <a href="#">VIEW ALL FEATURES</a>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -982,12 +999,12 @@ const ProductEMX = (props) => {
                 </ul>
               </div>
             </div>
-            <div class="flex_rev_boxs">
+            {/* <div class="flex_rev_boxs">
               <a href="#"
                 >Read all reviews
                 <img src="images/arrw_rgt.svg" alt="a" class="img-fluid"
               /></a>
-            </div>
+            </div> */}
           </div>
           <div class="col-12 d-lg-none">
             <div class="rev_sliders">

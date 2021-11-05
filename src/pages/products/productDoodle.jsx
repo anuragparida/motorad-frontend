@@ -178,7 +178,7 @@ const ProductDOODLE = (props) => {
                   ))}
 
                   <li class="d-none d-lg-block">
-                    <h6>Rs 76,000</h6>
+                    <h6>Rs 76,190</h6>
                   </li>
                   <li class="d-none d-lg-block">
                     <h6>{products.length>0 && <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>}</h6>
@@ -1528,7 +1528,7 @@ const ProductDOODLE = (props) => {
     <div class="book_ride_sticky d-lg-none">
       <div class="d-flex">
         
-        <a href="javascript:void(0)" onClick={addToCart}><p>Rs 76,000</p> BUY NOW</a>
+        <a href="javascript:void(0)" onClick={addToCart}><p>Rs 76,190</p> BUY NOW</a>
       </div>
     </div>
     <div class="wapp_sticky">
