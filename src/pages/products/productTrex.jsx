@@ -10,6 +10,9 @@ import { render } from "react-dom";
 import classnames from "classnames";
 import { Link } from 'react-router-dom';
 
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+
 
 let images = [0, 1, 2, 3, 4];
 
@@ -36,13 +39,13 @@ const ProductTREX = (props) => {
         map[image] = scrollTop >= image * viewportHeight;
         return map;
       }, {});
-      
+
       // document.getElementById("image_0").setAttribute("style","background-image:url('../images/Web-A.png?"+new Date().getTime()+"');z-index:0;");
       // document.getElementById("image_1").setAttribute("style","background-image:url('../images/Web-B.png?"+new Date().getTime()+"');z-index:1;");
       // document.getElementById("image_2").setAttribute("style","background-image:url('../images/Web-C.png?"+new Date().getTime()+"');z-index:2;");
       // document.getElementById("image_3").setAttribute("style","background-image:url('../images/Web-D.png?"+new Date().getTime()+"');z-index:3;");
       // document.getElementById("image_4").setAttribute("style","background-image:url('../images/Web-E.png?"+new Date().getTime()+"');z-index:4;");
-      
+
       console.log(newVisibleImagesMap);
       setVisibleImagesMap(newVisibleImagesMap);
     };
@@ -80,7 +83,7 @@ const ProductTREX = (props) => {
       )
     ) {
       setDeviceType("Mobile");
-    } else {     
+    } else {
       setDeviceType("Desktop");
     }
   }, []);
@@ -98,8 +101,8 @@ const ProductTREX = (props) => {
         }
         else {
           //   setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
-        //   setProductID(1);
-        alert("Products not set correctly. Please Contact Admin.");
+          //   setProductID(1);
+          alert("Products not set correctly. Please Contact Admin.");
         }
       })
       .catch((err) => {
@@ -180,32 +183,32 @@ const ProductTREX = (props) => {
                   </ul>
                 </div>
               </div>
-            
-            <div class="col-lg-4 col-8">
-              <div class="product_menu_setclr">
-                <ul>
-                  <li><p>Select Color</p></li>
 
-                  {products.map(prod => (
-                    <li>
-                      <label class="chck">
-                        <input type="radio" checked={prod.id === productID} onChange={()=>{
-                          setProductID(prod.id);
-                        }}/>
-                        <span class="checkmark" style={{"background": prod.color}}></span>
-                      </label>
+              <div class="col-lg-4 col-8">
+                <div class="product_menu_setclr">
+                  <ul>
+                    <li><p>Select Color</p></li>
+
+                    {products.map(prod => (
+                      <li>
+                        <label class="chck">
+                          <input type="radio" checked={prod.id === productID} onChange={() => {
+                            setProductID(prod.id);
+                          }} />
+                          <span class="checkmark" style={{ "background": prod.color }}></span>
+                        </label>
+                      </li>
+                    ))}
+
+                    <li class="d-none d-lg-block">
+                      <h6>Rs 37,133</h6>
                     </li>
-                  ))}
-
-                  <li class="d-none d-lg-block">
-                    <h6>Rs 37,133</h6>
-                  </li>
-                  <li class="d-none d-lg-block">
-                  <h6>{products.length>0 && <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>}</h6>
-                  </li>
-                </ul>
+                    <li class="d-none d-lg-block">
+                      <h6>{products.length > 0 && <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>}</h6>
+                    </li>
+                  </ul>
+                </div>
               </div>
-            </div>
             </div>
           </div>
         </section>
@@ -236,20 +239,20 @@ const ProductTREX = (props) => {
                   <div class="product_hero_txts">
                     {
                       products.length > 0 &&
-                      products.find(prod=>prod.id===productID) ?
-                      <img
-                      src={products.find(prod=>prod.id===productID).banner === "/uploads/product_banner/t-rex-red.png" ? "images/t-rex-hero-red.png" : "images/t-rex-hero-yellow.png"}
-                      alt="a"
-                      class="img-fluid"
-                    />
-                    :
-                    <img
-                      src="images/t-rex-hero-yellow.png"
-                      alt="a"
-                      class="img-fluid"
-                    />
+                        products.find(prod => prod.id === productID) ?
+                        <img
+                          src={products.find(prod => prod.id === productID).banner === "/uploads/product_banner/t-rex-red.png" ? "images/t-rex-hero-red.png" : "images/t-rex-hero-yellow.png"}
+                          alt="a"
+                          class="img-fluid"
+                        />
+                        :
+                        <img
+                          src="images/t-rex-hero-yellow.png"
+                          alt="a"
+                          class="img-fluid"
+                        />
                     }
-                    
+
                   </div>
                   {/* <div class="product_hero_txt" style={{ "display": "none" }}>
                     <img
@@ -292,16 +295,16 @@ const ProductTREX = (props) => {
         </div>
       </div>
 
-    {
-      (deviceType == 'Desktop') ?                    
-      <section class="product_vdo_sec">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <div className="app">
-                <div className="sticky">
-                  <div className="frame">
-                    {/* {images.map((image) => (
+      {
+        (deviceType == 'Desktop') ?
+          <section class="product_vdo_sec">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div className="app">
+                    <div className="sticky">
+                      <div className="frame">
+                        {/* {images.map((image) => (
                       <div  
                         className={classnames("image", `image_${image}`, {
                           image_visible: visibleImagesMap[image]
@@ -309,44 +312,44 @@ const ProductTREX = (props) => {
                         key={image}
                       />
                     ))} */}
-                    {images.map((image) => (
-                      <div className={classnames("image imageRotate", `image_${image}`, {
-                        image_visible: visibleImagesMap[image]
-                      })} 
-                        key={image}
-                        id={"image_"+image}
-                        // style={{backgroundPosition: 'calc(100% + 30px) calc(100% + 30px);' }}
-                      />
-                    ))}
+                        {images.map((image) => (
+                          <div className={classnames("image imageRotate", `image_${image}`, {
+                            image_visible: visibleImagesMap[image]
+                          })}
+                            key={image}
+                            id={"image_" + image}
+                          // style={{backgroundPosition: 'calc(100% + 30px) calc(100% + 30px);' }}
+                          />
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section> 
-      :
-      <section class="product_vdo_sec">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-                {/* {images.map((image) => (
+          </section>
+          :
+          <section class="product_vdo_sec">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12">
+                  {/* {images.map((image) => (
                     <div className={`image_${image}`} 
                       key={image}
                       id={"image_"+image}
                       // style={{backgroundPosition: 'calc(100% + 30px) calc(100% + 30px);' }}
                     />
                 ))}           */}
-                <img src="../images/Mobile-A.png" width="100%" className="img-fluid"/>
-                <img src="../images/Mobile-B.png" width="100%" className="img-fluid"/>
-                <img src="../images/Mobile-C.png" width="100%" className="img-fluid"/>
-                <img src="../images/Mobile-D.png" width="100%" className="img-fluid"/>
-                <img src="../images/Mobile-E.png" width="100%" className="img-fluid"/>
-            </div>                
-          </div>
-        </div>    
-      </section>  
-    }
+                  <img src="../images/Mobile-A.png" width="100%" className="img-fluid" />
+                  <img src="../images/Mobile-B.png" width="100%" className="img-fluid" />
+                  <img src="../images/Mobile-C.png" width="100%" className="img-fluid" />
+                  <img src="../images/Mobile-D.png" width="100%" className="img-fluid" />
+                  <img src="../images/Mobile-E.png" width="100%" className="img-fluid" />
+                </div>
+              </div>
+            </div>
+          </section>
+      }
 
 
       <section class="product_vdo_sec" id="feat_sec" style={{ display: 'none' }}>
@@ -643,7 +646,7 @@ const ProductTREX = (props) => {
                       <p>Cutoff while braking</p>
                     </div>
                   </div>
-                  
+
                 </div>
 
                 <div
@@ -692,7 +695,7 @@ const ProductTREX = (props) => {
                       <p>hydrodyme soft</p>
                       <p>cushion saddle</p>
                     </div>
-                  </div> 
+                  </div>
                   <div class="spe_dot_5 d-none d-lg-block">
                     <div class="dot">
                       <div class="dot-pulse"></div>
@@ -703,7 +706,7 @@ const ProductTREX = (props) => {
                       <p>17" Aluminium Alloy</p>
                       <p>6061 Hardtail</p>
                     </div>
-                  </div> 
+                  </div>
                   {/* <div class="spe_dot_6 d-none d-lg-block">
                     <div class="dot">
                       <div class="dot-pulse"></div>
@@ -714,7 +717,7 @@ const ProductTREX = (props) => {
                       <p>7.5Ah 36V Lithium-Ion</p>
                     </div>
                   </div> */}
-                   <div class="spe_dot_7 d-none d-lg-block">
+                  <div class="spe_dot_7 d-none d-lg-block">
                     <div class="dot">
                       <div class="dot-pulse"></div>
                     </div>
@@ -723,7 +726,7 @@ const ProductTREX = (props) => {
                       <h6>Tyres</h6>
                       <p>26" x 2" Chanyoung tyres</p>
                     </div>
-                  </div> 
+                  </div>
                   <div class="spe_dot_8 d-none d-lg-block">
                     <div class="dot">
                       <div class="dot-pulse"></div>
@@ -746,7 +749,7 @@ const ProductTREX = (props) => {
                       <p>Dual Disk Brakes for</p>
                       <p>greater stopping power</p>
                     </div>
-                  </div> 
+                  </div>
                   {/* <div class="spe_dot_10 d-none d-lg-block">
                     <div class="dot">
                       <div class="dot-pulse"></div>
@@ -770,7 +773,7 @@ const ProductTREX = (props) => {
                       <p>Cutoff while braking</p>
                     </div>
                   </div>   */}
-                   {/* <div class="spe_dot_1 d-none d-lg-block">
+                  {/* <div class="spe_dot_1 d-none d-lg-block">
                     <div class="dot">
                       <div class="dot-pulse"></div>
                     </div>
@@ -881,7 +884,7 @@ const ProductTREX = (props) => {
                 </div>
 
 
-                
+
               </div>
             </div>
           </div>
@@ -978,170 +981,170 @@ const ProductTREX = (props) => {
                   class="col-lg-12"
                   data-aos="fade-up"
                   data-aos-duration="2000"
-                  style={{ display : 'flex', flexWrap : 'wrap' }}
+                  style={{ display: 'flex', flexWrap: 'wrap' }}
                 >
-                    <div class="technical_specific_box">
-                      <h6>Frame</h6>
-                      <p>
-                        17" Unisex Aluminium <br />
-                        Alloy 6061
-                      </p>
-                    </div>
-                    <div class="technical_specific_box">
-                      <h6>Suspension</h6>
-                      <p>
-                        Front with 100 mm <br />
-                        travel and lock-out
-                      </p>
-                    </div>
-                    <div class="technical_specific_box">
-                      <h6>Rim</h6>
-                      <p>
-                        Aluminium Alloy double <br />
-                        wall 36-Hole
-                      </p>
-                    </div>
-                    <div class="technical_specific_box">
-                      <h6>Tyres</h6>
-                      <p>
-                        26" x 2.0" <br />
-                        Chanyoung*
-                      </p>
-                    </div>
-                    <div class="technical_specific_box mr-0">
-                      <h6>Derailleurs</h6>
-                      <p>
-                        7-Speed Shimano <br />
-                        Tourney
-                      </p>
-                    </div>
-                    <div class="technical_specific_box">
-                      <h6>Shifters</h6>
-                      <p>
-                        Shimano thumb <br />
-                        shifter
-                      </p>
-                    </div>
-                    <div class="technical_specific_box">
-                      <h6>Saddle</h6>
-                      <p>
-                        Double-stitched <br />
-                        PU hydrodyme <br />
-                        soft cushion saddle
-                      </p>
-                    </div>
-                    <div class="technical_specific_box">
-                      <h6>Pedals</h6>
-                      <p>Aluminium Alloy</p>
-                    </div>
-                    <div class="technical_specific_box">
-                      <h6>Brakes</h6>
-                      <p>Dual Disc</p>
-                    </div>
-                    <div class="technical_specific_box mr-0">
-                      <h6>Crank Set</h6>
-                      <p>Aluminium Alloy</p>
-                    </div>
-                    <div class="technical_specific_box">
-                      <h6>BB Set</h6>
-                      <p>Squared tapered</p>
-                    </div>
-                    <div class="technical_specific_box">
-                      <h6>Stand</h6>
-                      <p>
-                        Chainstay mounted <br />
-                        boot type
-                      </p>
-                    </div>
-                    <div class="technical_specific_box">
-                      <h6>Handlebar</h6>
-                      <p>
-                        630 mm Aluminium <br />
-                        Alloy
-                      </p>
-                    </div>
-                    <div class="technical_specific_box">
-                      <h6>Stem</h6>
-                      <p>110 mm</p>
-                    </div>
-                    <div class="technical_specific_box mr-0">
-                      <h6>Seat Post</h6>
-                      <p>Adjustable</p>
-                    </div>
+                  <div class="technical_specific_box">
+                    <h6>Frame</h6>
+                    <p>
+                      17" Unisex Aluminium <br />
+                      Alloy 6061
+                    </p>
+                  </div>
+                  <div class="technical_specific_box">
+                    <h6>Suspension</h6>
+                    <p>
+                      Front with 100 mm <br />
+                      travel and lock-out
+                    </p>
+                  </div>
+                  <div class="technical_specific_box">
+                    <h6>Rim</h6>
+                    <p>
+                      Aluminium Alloy double <br />
+                      wall 36-Hole
+                    </p>
+                  </div>
+                  <div class="technical_specific_box">
+                    <h6>Tyres</h6>
+                    <p>
+                      26" x 2.0" <br />
+                      Chanyoung*
+                    </p>
+                  </div>
+                  <div class="technical_specific_box mr-0">
+                    <h6>Derailleurs</h6>
+                    <p>
+                      7-Speed Shimano <br />
+                      Tourney
+                    </p>
+                  </div>
+                  <div class="technical_specific_box">
+                    <h6>Shifters</h6>
+                    <p>
+                      Shimano thumb <br />
+                      shifter
+                    </p>
+                  </div>
+                  <div class="technical_specific_box">
+                    <h6>Saddle</h6>
+                    <p>
+                      Double-stitched <br />
+                      PU hydrodyme <br />
+                      soft cushion saddle
+                    </p>
+                  </div>
+                  <div class="technical_specific_box">
+                    <h6>Pedals</h6>
+                    <p>Aluminium Alloy</p>
+                  </div>
+                  <div class="technical_specific_box">
+                    <h6>Brakes</h6>
+                    <p>Dual Disc</p>
+                  </div>
+                  <div class="technical_specific_box mr-0">
+                    <h6>Crank Set</h6>
+                    <p>Aluminium Alloy</p>
+                  </div>
+                  <div class="technical_specific_box">
+                    <h6>BB Set</h6>
+                    <p>Squared tapered</p>
+                  </div>
+                  <div class="technical_specific_box">
+                    <h6>Stand</h6>
+                    <p>
+                      Chainstay mounted <br />
+                      boot type
+                    </p>
+                  </div>
+                  <div class="technical_specific_box">
+                    <h6>Handlebar</h6>
+                    <p>
+                      630 mm Aluminium <br />
+                      Alloy
+                    </p>
+                  </div>
+                  <div class="technical_specific_box">
+                    <h6>Stem</h6>
+                    <p>110 mm</p>
+                  </div>
+                  <div class="technical_specific_box mr-0">
+                    <h6>Seat Post</h6>
+                    <p>Adjustable</p>
+                  </div>
 
-                    <div class="technical_specific_box">
-                      <h6>Mudguards</h6>
-                      <p>Yes</p>
-                    </div>
-                    <div class="technical_specific_box">
-                      <h6>Bike weight</h6>
-                      <p>22.3kg</p>
-                    </div>
-                    <div class="technical_specific_box">
-                      <h6>Bike weight</h6>
-                      <p>Quick-release</p>
-                    </div>
-                    <div class="technical_specific_box">
-                      <h6>Battery</h6>
-                      <p>7.5 Ah 36V <br/> Lithium-Ion </p>
-                    </div>
-                    <div class="technical_specific_box mr-0">
-                      <h6>Top speed</h6>
-                      <p>25 km/hr</p>
-                    </div>
+                  <div class="technical_specific_box">
+                    <h6>Mudguards</h6>
+                    <p>Yes</p>
+                  </div>
+                  <div class="technical_specific_box">
+                    <h6>Bike weight</h6>
+                    <p>22.3kg</p>
+                  </div>
+                  <div class="technical_specific_box">
+                    <h6>Bike weight</h6>
+                    <p>Quick-release</p>
+                  </div>
+                  <div class="technical_specific_box">
+                    <h6>Battery</h6>
+                    <p>7.5 Ah 36V <br /> Lithium-Ion </p>
+                  </div>
+                  <div class="technical_specific_box mr-0">
+                    <h6>Top speed</h6>
+                    <p>25 km/hr</p>
+                  </div>
 
-                    <div class="technical_specific_box">
-                      <h6>Range</h6>
-                      <p>35+ Km on Throttle<br />50+ Km on PAS</p>
-                    </div>
-                    <div class="technical_specific_box">
-                      <h6>Motor</h6>
-                      <p>35+ Km on Throttle <br/>50+ Km on PAS</p>
-                    </div>
-                    <div class="technical_specific_box">
-                      <h6>Charger</h6>
-                      <p>2A charger, <br />3-4 hrs to fully <br /> charge the battery</p>
-                    </div>
-                    <div class="technical_specific_box">
-                      <h6>IP certification</h6>
-                      <p>IP 65 protected</p>
-                    </div>
-                    <div class="technical_specific_box mr-0">
+                  <div class="technical_specific_box">
+                    <h6>Range</h6>
+                    <p>35+ Km on Throttle<br />50+ Km on PAS</p>
+                  </div>
+                  <div class="technical_specific_box">
+                    <h6>Motor</h6>
+                    <p>35+ Km on Throttle <br />50+ Km on PAS</p>
+                  </div>
+                  <div class="technical_specific_box">
+                    <h6>Charger</h6>
+                    <p>2A charger, <br />3-4 hrs to fully <br /> charge the battery</p>
+                  </div>
+                  <div class="technical_specific_box">
+                    <h6>IP certification</h6>
+                    <p>IP 65 protected</p>
+                  </div>
+                  <div class="technical_specific_box mr-0">
+                    <h6>Display</h6>
+                    <p>3" LCD 866 <br /> display</p>
+                  </div>
+
+
+                  <div class="technical_specific_box">
+                    <h6>Operation <br /> Modes</h6>
+                    <p>a. Mechanical <br />
+                      b. 5 levels of <br />
+                      pedal assist <br />
+                      c. Throttle mode <br />
+                      d. Cruise mode <br />
+                      e. Walk mode</p>
+                  </div>
+                  <div class="technical_specific_box">
+                    <h6>Lights</h6>
+                    <p>LED headlamps <br />
+                      with integrated <br /> horn
+                    </p>
+                  </div>
+                  <div class="technical_specific_box">
+                    <h6>Rider weight</h6>
+                    <p>Up to 120Kg</p>
+                  </div>
+                  <div class="technical_specific_box">
+                    <h6>Rider height</h6>
+                    <p>5' to 5'9"</p>
+                  </div>
+                  <div class="technical_specific_box mr-0">
+                    <div style={{ display: 'none' }}>
                       <h6>Display</h6>
                       <p>3" LCD 866 <br /> display</p>
                     </div>
+                  </div>
 
-
-                    <div class="technical_specific_box">
-                      <h6>Operation <br /> Modes</h6>
-                      <p>a. Mechanical <br/>
-                        b. 5 levels of <br/>
-                        pedal assist <br/>
-                        c. Throttle mode <br/>
-                        d. Cruise mode <br/>
-                        e. Walk mode</p>
-                    </div>
-                    <div class="technical_specific_box">
-                      <h6>Lights</h6>
-                      <p>LED headlamps <br /> 
-                        with integrated <br /> horn
-                      </p>
-                    </div>
-                    <div class="technical_specific_box">
-                      <h6>Rider weight</h6>
-                      <p>Up to 120Kg</p>
-                    </div>
-                    <div class="technical_specific_box">
-                      <h6>Rider height</h6>
-                      <p>5' to 5'9"</p>
-                    </div>
-                    <div class="technical_specific_box mr-0">
-                      <div style={{ display:'none'}}>
-                        <h6>Display</h6>
-                        <p>3" LCD 866 <br /> display</p>
-                      </div>
-                    </div> 
-                  
 
                 </div>
                 {/* <div class="col-12">
@@ -1164,7 +1167,81 @@ const ProductTREX = (props) => {
               </div>
             </div>
           </div>
-          <div class="row justify-content-center">
+
+          <Carousel>
+            <div>
+              <div class="customer_rev_wapp">
+                <div class="d-flex justify-content-between">
+                  <h6>Ajay Khatri</h6>
+                  <span>Apr 03, 2021</span>
+                </div>
+                <p>
+                  I had never drove the E cycle in my life, The E-motorad Trex
+                  is the first which I bought. And I am very happy with the
+                  model. Really it's very cost saving and alternative to
+                  vehicle.I am very much satisfied with Trex and suggest
+                  everyone switch to electric
+                </p>
+
+                <ul>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <div class="customer_rev_wapp">
+                <div class="d-flex justify-content-between">
+                  <h6>Sandeep Bhardwaj</h6>
+                  <span>Apr 03, 2021</span>
+                </div>
+
+                <p>
+                  Product is good and delivered on time. But they send me rear
+                  mudguard without attachment. And there is no marking for
+                  height adjustment on saddle/seat rod which is shown in there
+                  individual emotorad site.
+                </p>
+
+                <ul class="mt-5">
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                </ul>
+              </div>
+            </div>
+            <div>
+              <div class="customer_rev_wapp">
+                <div class="d-flex justify-content-between">
+                  <h6>Kamal K</h6>
+                  <span>Apr 03, 2021</span>
+                </div>
+
+                <p>
+                  The best in its class. Really amazed with the product..It
+                  exceeds all my expectations. I'm getting a good range without
+                  any flaws. Acceleration is very linear and comfortable.
+                  Peddling is effortless and smooth. Overall a very good
+                  product.
+                </p>
+
+                <ul>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                </ul>
+              </div>
+            </div>
+          </Carousel>
+
+          <div class="row justify-content-center" style={{ display : 'none' }}>
             <div class="col-lg-11 d-none d-lg-block">
               <div
                 class="customer_rev_flexs"
@@ -1369,15 +1446,15 @@ const ProductTREX = (props) => {
                 <h5>BUY ON EMI</h5>
 
                 <div class="shiping_day">
-                <h6>
-                  <img
-                    src="images/ticket_icon.svg"
-                    alt="a"
-                    class="img-fluid"
-                  />No Cost EMI Available,
-                  <span style={{"color": "#10b068"}}>Starts From Rs. 6189/Month</span>
-                </h6>
-                <a href="/emi"
+                  <h6>
+                    <img
+                      src="images/ticket_icon.svg"
+                      alt="a"
+                      class="img-fluid"
+                    />No Cost EMI Available,
+                    <span style={{ "color": "#10b068" }}>Starts From Rs. 6189/Month</span>
+                  </h6>
+                  <a href="/emi"
                   >EXPLORE EMI OPTIONS
                     <img src="images/arw_rgt.svg" alt="a" class="img-fluid"
                     /></a>
@@ -1386,183 +1463,183 @@ const ProductTREX = (props) => {
             </div>
           </div>
         </div>
-    </section>
-    <section class="order_now_sec" style={{"background-image": "url(images/trex/trexL.jpg)"}}>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="order_now_txt_wrap">
-              <div class="ordr_nw_lft">
-                <h6>Order your T-Rex Now</h6>
-                <p class="d-none d-lg-block">
-                  Take a Test Drive to see how powerful it is
-                </p>
-              </div>
-              <div class="ordr_nw_rgt">
-                <a href="/book">TEST RIDE</a>
-                <a href="javascript:void(0)" onClick={addToCart}>ORDER NOW</a>
+      </section>
+      <section class="order_now_sec" style={{ "background-image": "url(images/trex/trexL.jpg)" }}>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="order_now_txt_wrap">
+                <div class="ordr_nw_lft">
+                  <h6>Order your T-Rex Now</h6>
+                  <p class="d-none d-lg-block">
+                    Take a Test Drive to see how powerful it is
+                  </p>
+                </div>
+                <div class="ordr_nw_rgt">
+                  <a href="/book">TEST RIDE</a>
+                  <a href="javascript:void(0)" onClick={addToCart}>ORDER NOW</a>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-    <section class="explore_ebike_sec">
-         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="expo_ebike_headin">
-                        <h5>Explore E-Bikes</h5>
-                    </div>
-                </div>
+      </section>
+      <section class="explore_ebike_sec">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="expo_ebike_headin">
+                <h5>Explore E-Bikes</h5>
+              </div>
             </div>
-             <div class="row expo_bike_slider">
-                 
-                 <div class="col-lg-4">
-                    <Link to="/trex">
-                     <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                         <img src="images/cycle_warenty.png" alt="a" class="img-fluid"/>
-                         
-                         <h3>T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></h3>
-                         
-                         <h5>FEATURES</h5>
-                         <table>
-                             <tr>
-                                 <td>RANGE</td>
-                                 <td>50+ Kms</td>
-                             </tr>
-                             <tr>
-                                 <td>SPEED (MAX)</td>
-                                 <td>25Km/hr</td>
-                             </tr>
-                             <tr>
-                                 <td>BRAKES</td>
-                                 <td>Dual Disc</td>
-                             </tr>
-                             <tr>
-                                 <td>BATTERY</td>
-                                 <td>36 Volts</td>
-                             </tr>
-                             <tr>
-                                 <td>CAPACITY</td>
-                                 <td>7.5 Ah</td>
-                             </tr>
-                             <tr>
-                                 <td>Starting From</td>
-                                 <td>Colors</td>
-                             </tr>
-                             <tr>
-                                 <td>Rs 37,142</td>
-                                 <td><i class="fa fa-circle"></i> <i class="fa fa-circle"></i></td>
-                             </tr>
-                         </table>
-                         <div class="explore_bttn row mx-auto">
-                            <Link to="/trex">Buy Now</Link>
-                        </div>
-                     </div>
-                    </Link>
-                 </div>
-                 <div class="col-lg-4">
-                    <Link to="/emx">
-                     <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                         <img src="images/bicycle_3.png" alt="a" class="img-fluid"/>
-                         
-                         <h3>EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></h3>
-                         
-                         <h5>FEATURES</h5>
-                         <table>
-                             <tr>
-                                 <td>RANGE</td>
-                                 <td>65+ Kms</td>
-                             </tr>
-                             <tr>
-                                 <td>SPEED (MAX)</td>
-                                 <td>25Km/hr</td>
-                             </tr>
-                             <tr>
-                                 <td>BRAKES</td>
-                                 <td>Dual Disc</td>
-                             </tr>
-                             <tr>
-                                 <td>BATTERY</td>
-                                 <td>36 Volts</td>
-                             </tr>
-                             <tr>
-                                 <td>CAPACITY</td>
-                                 <td>10.4 Ah</td>
-                             </tr>
-                             <tr>
-                                 <td>Starting From</td>
-                                 <td>Colors</td>
-                             </tr>
-                             <tr>
-                                 <td>Rs 52,380</td>
-                                 <td><i class="fa fa-circle" style={{"color": "#DBFF00"}}></i></td>
-                             </tr>
-                         </table>
-                         <div class="explore_bttn row mx-auto">
-                            <Link to="/emx">Buy Now</Link>
-                        </div>
-                     </div>
-                     </Link>
-                 </div>
-                 <div class="col-lg-4">
-                    <Link to="/trex">
-                     <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                         <img src="images/bicycle_2.png" alt="a" class="img-fluid"/>
-                         
-                         <h3>DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></h3>
-                         
-                         <h5>FEATURES</h5>
-                         <table>
-                             <tr>
-                                 <td>RANGE</td>
-                                 <td>55+ Kms</td>
-                             </tr>
-                             <tr>
-                                 <td>SPEED (MAX)</td>
-                                 <td>25Km/hr</td>
-                             </tr>
-                             <tr>
-                                 <td>BRAKES</td>
-                                 <td>Dual Disc</td>
-                             </tr>
-                             <tr>
-                                 <td>BATTERY</td>
-                                 <td>36 Volts</td>
-                             </tr>
-                             <tr>
-                                 <td>CAPACITY</td>
-                                 <td>10 Ah</td>
-                             </tr>
-                             <tr>
-                                 <td>Starting From</td>
-                                 <td>Colors</td>
-                             </tr>
-                             <tr>
-                                 <td>Rs 76,190</td>
-                                 <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{"color": "#10B068"}}></i></td>
-                             </tr>
-                         </table>
-                         <div class="explore_bttn row mx-auto">
-                            <Link to="/doodle">Buy Now</Link>
-                        </div>
-                     </div>
-                     </Link>
-                 </div>
-             </div>
-         </div>
-     </section>
-    <Footer/>
-    <div class="book_ride_sticky d-lg-none">
-      <div class="d-flex">
-        
-        <a href="javascript:void(0)" onClick={addToCart}><p>Rs 37,133</p> BUY NOW</a>
+          </div>
+          <div class="row expo_bike_slider">
+
+            <div class="col-lg-4">
+              <Link to="/trex">
+                <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                  <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
+
+                  <h3>T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+
+                  <h5>FEATURES</h5>
+                  <table>
+                    <tr>
+                      <td>RANGE</td>
+                      <td>50+ Kms</td>
+                    </tr>
+                    <tr>
+                      <td>SPEED (MAX)</td>
+                      <td>25Km/hr</td>
+                    </tr>
+                    <tr>
+                      <td>BRAKES</td>
+                      <td>Dual Disc</td>
+                    </tr>
+                    <tr>
+                      <td>BATTERY</td>
+                      <td>36 Volts</td>
+                    </tr>
+                    <tr>
+                      <td>CAPACITY</td>
+                      <td>7.5 Ah</td>
+                    </tr>
+                    <tr>
+                      <td>Starting From</td>
+                      <td>Colors</td>
+                    </tr>
+                    <tr>
+                      <td>Rs 37,142</td>
+                      <td><i class="fa fa-circle"></i> <i class="fa fa-circle"></i></td>
+                    </tr>
+                  </table>
+                  <div class="explore_bttn row mx-auto">
+                    <Link to="/trex">Buy Now</Link>
+                  </div>
+                </div>
+              </Link>
+            </div>
+            <div class="col-lg-4">
+              <Link to="/emx">
+                <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                  <img src="images/bicycle_3.png" alt="a" class="img-fluid" />
+
+                  <h3>EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+
+                  <h5>FEATURES</h5>
+                  <table>
+                    <tr>
+                      <td>RANGE</td>
+                      <td>65+ Kms</td>
+                    </tr>
+                    <tr>
+                      <td>SPEED (MAX)</td>
+                      <td>25Km/hr</td>
+                    </tr>
+                    <tr>
+                      <td>BRAKES</td>
+                      <td>Dual Disc</td>
+                    </tr>
+                    <tr>
+                      <td>BATTERY</td>
+                      <td>36 Volts</td>
+                    </tr>
+                    <tr>
+                      <td>CAPACITY</td>
+                      <td>10.4 Ah</td>
+                    </tr>
+                    <tr>
+                      <td>Starting From</td>
+                      <td>Colors</td>
+                    </tr>
+                    <tr>
+                      <td>Rs 52,380</td>
+                      <td><i class="fa fa-circle" style={{ "color": "#DBFF00" }}></i></td>
+                    </tr>
+                  </table>
+                  <div class="explore_bttn row mx-auto">
+                    <Link to="/emx">Buy Now</Link>
+                  </div>
+                </div>
+              </Link>
+            </div>
+            <div class="col-lg-4">
+              <Link to="/trex">
+                <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                  <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
+
+                  <h3>DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+
+                  <h5>FEATURES</h5>
+                  <table>
+                    <tr>
+                      <td>RANGE</td>
+                      <td>55+ Kms</td>
+                    </tr>
+                    <tr>
+                      <td>SPEED (MAX)</td>
+                      <td>25Km/hr</td>
+                    </tr>
+                    <tr>
+                      <td>BRAKES</td>
+                      <td>Dual Disc</td>
+                    </tr>
+                    <tr>
+                      <td>BATTERY</td>
+                      <td>36 Volts</td>
+                    </tr>
+                    <tr>
+                      <td>CAPACITY</td>
+                      <td>10 Ah</td>
+                    </tr>
+                    <tr>
+                      <td>Starting From</td>
+                      <td>Colors</td>
+                    </tr>
+                    <tr>
+                      <td>Rs 76,190</td>
+                      <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{ "color": "#10B068" }}></i></td>
+                    </tr>
+                  </table>
+                  <div class="explore_bttn row mx-auto">
+                    <Link to="/doodle">Buy Now</Link>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+      <Footer />
+      <div class="book_ride_sticky d-lg-none">
+        <div class="d-flex">
+
+          <a href="javascript:void(0)" onClick={addToCart}><p>Rs 37,133</p> BUY NOW</a>
+        </div>
+        <a href="#" class="back-top-btn d-none d-lg-block">
+          <i class="fa fa-angle-up"></i>
+        </a>
       </div>
-      <a href="#" class="back-top-btn d-none d-lg-block">
-        <i class="fa fa-angle-up"></i>
-      </a>
-    </div>
     </>
   );
 }

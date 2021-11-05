@@ -3514,3 +3514,9 @@ img {
   left: 330px !important;
   top: 438px !important;
 }
+
+.customer_rev_wapp {
+  width: 100% !important;
+  border-right: 1px solid black !important;
+  height: 200px !important;
+}
