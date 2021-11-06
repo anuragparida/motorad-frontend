@@ -176,6 +176,10 @@ function showSecondForm() {
   $("#exampleModal").modal("show");
 }
 
+function hideCartModal() {
+  $("#exampleModalLong").modal("hide");
+}
+
 function aboutUsReadMore() {
   $(".moreless-button").click(function () {
     $(".moretext").slideToggle();

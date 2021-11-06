@@ -29,7 +29,7 @@ const Navbar = (props) => {
       .get(server + "/api/cart/read", config)
       .then((rsp) => {
         console.log(rsp);
-        setCartHasItem(rsp.data.payload[0].product.length > 0);
+        setCartHasItem(rsp.data.payload.product.length > 0);
       })
       .catch((err) => {
         checkAccess(err);

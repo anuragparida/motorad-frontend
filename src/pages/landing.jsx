@@ -651,7 +651,7 @@ const Landing = (props) => {
       <Footer/>
 
       <div class="book_ride_sticky d-lg-none">
-         <a href="#">BOOK A TEST RIDE</a>
+         <a href="/book">BOOK A TEST RIDE</a>
       </div>
     </>
   );

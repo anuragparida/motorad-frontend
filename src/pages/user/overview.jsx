@@ -93,6 +93,7 @@ const Overview = (props) => {
     .post(server + "/api/order/review/create", params, config)
     .then((rsp) => {
       console.log(rsp);
+      window.location.reload();
     })
     .catch((err) => {
       console.log(err.response);
@@ -295,7 +296,7 @@ const Overview = (props) => {
         role="dialog"
         aria-labelledby="exampleModalLongTitle"
         aria-hidden="true"
-        style={{"z-index": "99"}}
+        style={{"z-index": "9999"}}
       >
         <div class="modal-dialog" role="document">
           <div class="modal-content">

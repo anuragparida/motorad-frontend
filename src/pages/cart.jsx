@@ -279,6 +279,9 @@ const Cart = (props) => {
       .filter((el) => el.name)
       .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
 
+    console.log(cart.product);
+    window.hideCartModal();
+
     if (cart.product.length > 0) {
       razorPayPaymentHandler(params);
     }
@@ -585,7 +588,7 @@ const Cart = (props) => {
                           <label for="">Select Your Address</label>
                           <select name="address" class="form-control" required>
                             {
-                              add.map(x=><option value={x.id} title={x.address}>{x.address.substring(0, 60) + "..."}</option>)
+                              add.map((x,i)=><option value={x.id} title={x.address} selected={i===0}>{x.address.substring(0, 60) + "..."}</option>)
                             }
                           </select>
                         </div>
@@ -593,7 +596,7 @@ const Cart = (props) => {
 
                       <div class="col-lg-12">
                         <div class="accnt_submit_modal">
-                          <button type="submit" class="btn btn_submit" data-dismiss="modal">
+                          <button type="submit" class="btn btn_submit">
                             Place Order
                           </button>
                         </div>

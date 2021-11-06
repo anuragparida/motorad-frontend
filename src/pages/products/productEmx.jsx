@@ -50,6 +50,7 @@ const ProductEMX = (props) => {
   //   </script>
 
   const [pincodes, setPincodes] = useState([]);
+  const [reviews, setReviews] = useState([]);
   const [products, setProducts] = useState([]);
   const [productID, setProductID] = useState("");
   const [deviceType, setDeviceType] = useState("");   
@@ -61,6 +62,19 @@ const ProductEMX = (props) => {
       return map;
     }, {})
   );
+
+  const loadReviews = async () => {
+    await axios
+    .post(server + "/api/order/review/read")
+    .then((rsp) => {
+      console.log(rsp);
+      setReviews(rsp.data.payload);
+    })
+    .catch((err) => {
+      checkAccess(err);
+      console.error(err);
+    });
+  }
 
   useLayoutEffect(() => {
     const handleScroll = () => {
@@ -86,6 +100,7 @@ const ProductEMX = (props) => {
     AOS.init();
     loadProducts();
     loadPincodes();
+    loadReviews();
     window.enterView({
       selector: "section",
       enter: function (el) {
@@ -957,229 +972,36 @@ const ProductEMX = (props) => {
           </div>
         </div>
 
-        <Carousel>
-            <div>
+        {
+          reviews.length > 0 ?
+          <Carousel>
+          {
+            reviews.map(r=>(
+              <div>
               <div class="customer_rev_wapp">
                 <div class="d-flex justify-content-between">
-                  <h6>Ajay Khatri</h6>
-                  <span>Apr 03, 2021</span>
+                  <h6>{r.userName}</h6>
+                  <span>{r.created_at.split("T")[0]}</span>
                 </div>
                 <p>
-                  I had never drove the E cycle in my life, The E-motorad Trex
-                  is the first which I bought. And I am very happy with the
-                  model. Really it's very cost saving and alternative to
-                  vehicle.I am very much satisfied with Trex and suggest
-                  everyone switch to electric
+                  {r.message}
                 </p>
 
                 <ul>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star" style={{"color": r.rating >= 1 ? "#10b068" : "grey"}}></i></li>
+                  <li><i class="fa fa-star" style={{"color": r.rating >= 2 ? "#10b068" : "grey"}}></i></li>
+                  <li><i class="fa fa-star" style={{"color": r.rating >= 3 ? "#10b068" : "grey"}}></i></li>
+                  <li><i class="fa fa-star" style={{"color": r.rating >= 4 ? "#10b068" : "grey"}}></i></li>
+                  <li><i class="fa fa-star" style={{"color": r.rating >= 5 ? "#10b068" : "grey"}}></i></li>
                 </ul>
               </div>
             </div>
-            <div>
-              <div class="customer_rev_wapp">
-                <div class="d-flex justify-content-between">
-                  <h6>Sandeep Bhardwaj</h6>
-                  <span>Apr 03, 2021</span>
-                </div>
-
-                <p>
-                  Product is good and delivered on time. But they send me rear
-                  mudguard without attachment. And there is no marking for
-                  height adjustment on saddle/seat rod which is shown in there
-                  individual emotorad site.
-                </p>
-
-                <ul class="mt-5">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-              </div>
-            </div>
-            <div>
-              <div class="customer_rev_wapp">
-                <div class="d-flex justify-content-between">
-                  <h6>Kamal K</h6>
-                  <span>Apr 03, 2021</span>
-                </div>
-
-                <p>
-                  The best in its class. Really amazed with the product..It
-                  exceeds all my expectations. I'm getting a good range without
-                  any flaws. Acceleration is very linear and comfortable.
-                  Peddling is effortless and smooth. Overall a very good
-                  product.
-                </p>
-
-                <ul>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-              </div>
-            </div>
-          </Carousel>      
-
-        <div class="row justify-content-center" style={{ display : 'none' }}>
-          <div class="col-lg-11 d-none d-lg-block">
-            <div
-              class="customer_rev_flexs"
-              data-aos="fade-up"
-              data-aos-duration="2000"
-            >
-              <div class="customer_rev_wapp">
-                <div class="d-flex justify-content-between">
-                  <h6>Ajay Khatri</h6>
-                  <span>Apr 03, 2021</span>
-                </div>
-
-                <p>
-                  I had never drove the E cycle in my life, The E-motorad Trex
-                  is the first which I bought. And I am very happy with the
-                  model. Really it's very cost saving and alternative to
-                  vehicle.I am very much satisfied with Trex and suggest
-                  everyone switch to electric
-                </p>
-
-                <ul>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-              </div>
-              <div class="customer_rev_wapp">
-                <div class="d-flex justify-content-between">
-                  <h6>Sandeep Bhardwaj</h6>
-                  <span>Apr 03, 2021</span>
-                </div>
-
-                <p>
-                  Product is good and delivered on time. But they send me rear
-                  mudguard without attachment. And there is no marking for
-                  height adjustment on saddle/seat rod which is shown in there
-                  individual emotorad site.
-                </p>
-
-                <ul class="mt-5">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-              </div>
-              <div class="customer_rev_wapp">
-                <div class="d-flex justify-content-between">
-                  <h6>Kamal K</h6>
-                  <span>Apr 03, 2021</span>
-                </div>
-
-                <p>
-                  The best in its class. Really amazed with the product..It
-                  exceeds all my expectations. I'm getting a good range without
-                  any flaws. Acceleration is very linear and comfortable.
-                  Peddling is effortless and smooth. Overall a very good
-                  product.
-                </p>
-
-                <ul>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-              </div>
-            </div>
-            {/* <div class="flex_rev_boxs">
-              <a href="#"
-                >Read all reviews
-                <img src="images/arrw_rgt.svg" alt="a" class="img-fluid"
-              /></a>
-            </div> */}
-          </div>
-          <div class="col-12 d-lg-none">
-            <div class="rev_sliders">
-              <div class="customer_rev_wapp">
-                <div class="d-flex justify-content-between">
-                  <h6>Ajay Khatri</h6>
-                  <span>Apr 03, 2021</span>
-                </div>
-
-                <p>
-                  I had never drove the E cycle in my life, The E-motorad Trex
-                  is the first which I bought. And I am very happy with the
-                  model. Really it's very cost saving and alternative to
-                  vehicle.I am very much satisfied with Trex and suggest
-                  everyone switch to electric
-                </p>
-
-                <ul>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-              </div>
-              <div class="customer_rev_wapp">
-                <div class="d-flex justify-content-between">
-                  <h6>Sandeep Bhardwaj</h6>
-                  <span>Apr 03, 2021</span>
-                </div>
-
-                <p>
-                  Product is good and delivered on time. But they send me rear
-                  mudguard without attachment. And there is no marking for
-                  height adjustment on saddle/seat rod which is shown in there
-                  individual emotorad site.
-                </p>
-
-                <ul class="mt-5">
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-              </div>
-              <div class="customer_rev_wapp">
-                <div class="d-flex justify-content-between">
-                  <h6>Kamal K</h6>
-                  <span>Apr 03, 2021</span>
-                </div>
-
-                <p>
-                  The best in its class. Really amazed with the product..It
-                  exceeds all my expectations. I'm getting a good range without
-                  any flaws. Acceleration is very linear and comfortable.
-                  Peddling is effortless and smooth. Overall a very good
-                  product.
-                </p>
-
-                <ul>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                  <li><i class="fa fa-star"></i></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+            ))
+          }
+          </Carousel>
+          :
+          <></>
+        }
       </div>
     </section>
     <section class="shiping_section" id="ship_sec">
