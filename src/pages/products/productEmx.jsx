@@ -170,18 +170,11 @@ const ProductEMX = (props) => {
 
   const updateCart = async (payload) => {
     const params = {
-      "product": [
-        ...payload.product.filter(element => element.id !== productID),
-        {
-          "id": productID,
-          "amount": 1
-        }
-      ],
-      "accessories": payload.accessories
+      "id": productID,
     };
     console.log("param", params)
     await axios
-      .put(server + "/api/cart/update", params, config)
+      .post(server + "/api/cart/add", params, config)
       .then((rsp) => {
         console.log(rsp.data); //CHANGE THIS
         window.location.href = "/cart";

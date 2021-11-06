@@ -23,6 +23,7 @@ const Cart = (props) => {
   const [orderSuccess, setOrderSuccess] = useState(false);
 
   const [coupon, setCoupon] = useState({});
+  const [couponMsg, setCouponMsg] = useState("empty");
 
   const [message, setMessage] = useState("");
   const [loader, setLoader] = useState("");
@@ -92,7 +93,13 @@ const Cart = (props) => {
       .get(server + "/api/cart/read", config)
       .then((rsp) => {
         console.log(rsp);
-        setCart(rsp.data.payload[0]);
+        setCart(rsp.data.payload);
+        setNetAmount(rsp.data.payload.netAmount);
+        setTotalAmount(rsp.data.payload.grossAmount);
+        setCoupon(rsp.data.payload.coupon);
+        if(rsp.data.payload.coupon) {
+          setCouponMsg("valid")
+        }
       })
       .catch((err) => {
         checkAccess(err);
@@ -154,20 +161,45 @@ const Cart = (props) => {
     });
   }
 
+  const applyCoupon = async (e) => {
+    e.preventDefault();
+
+    var params = Array.from(e.target.elements)
+      .filter((el) => el.name)
+      .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
+
+    axios
+    .post(server + "/api/cart/apply-coupon", params, config)
+    .then((rsp) => {
+      setCouponMsg("valid");
+      console.log(rsp);
+      window.location.reload();
+    })
+    .catch((err) => {
+      setCouponMsg("invalid");
+      console.log(err.response);
+    });
+  }
+
+  const removeCoupon = async () => {
+    axios
+    .post(server + "/api/cart/apply-coupon", {code: ""}, config)
+    .then((rsp) => {
+      setCouponMsg("empty");
+      console.log(rsp);
+      window.location.reload();
+    })
+    .catch((err) => {
+      console.log(err.response);
+    });
+  }
+
   const addToCart = async (id) => {
     const params = {
-      "product": [
-        ...cart.product.filter(element => element.id !== id),
-        {
-          "id": id,
-          "amount": 1
-        }
-      ],
-      "accessories": cart.accessories
+      "id": id
     };
-    console.log("param", params)
     await axios
-      .put(server + "/api/cart/update", params, config)
+      .post(server + "/api/cart/add", params, config)
       .then((rsp) => {
         console.log(rsp.data); //CHANGE THIS
         window.location.href = "/cart";
@@ -177,11 +209,6 @@ const Cart = (props) => {
         console.error(err);
       });
   }
-
-  const calculateAmount = (netAmount) => {
-    setTotalAmount(Math.ceil(netAmount * 1.05));
-  }
-
   useEffect(() => {
     loadCart();
     loadProducts();
@@ -189,7 +216,7 @@ const Cart = (props) => {
   }, []);
 
   useEffect(() => {
-    let localCart = [], localAmount = 0;
+    let localCart = [];
     if(cart && "id" in cart && products.length > 0) {
       console.log(cart, products);
 
@@ -200,55 +227,26 @@ const Cart = (props) => {
         localProduct.quantity = element.amount;
         localCart.push(localProduct);
 
-        localAmount += localProduct.price2 * localProduct.quantity;
+      });
+
+      localProduct = {}
+
+      cart.accessories.forEach((element) => {
+
+        localProduct = element;
+        localProduct.quantity = element.amount;
+        localCart.push(localProduct);
 
       });
-      setNetAmount(localAmount)
+
       console.log("local", localCart)
       setDisplayData(localCart);
     }
   }, [cart, products]);
 
-  useEffect(() => {
-    console.log(displayData)
-    calculateAmount(netAmount);
-  }, [netAmount]);
-
-  const checkCoupon = (e) => {
-    e.preventDefault();
-
-    var params = Array.from(e.target.elements)
-      .filter((el) => el.name)
-      .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
-      
-    setLoader(<Loader/>);
-
-    axios
-    .get(server + `/api/coupon/read/${params.code}`)
-    .then((rsp) => {
-      console.log(rsp);
-      if(rsp.data.payload){
-        setCoupon(rsp.data.payload);
-        setMessage(<Alert className="success" message={"Coupon Applied"} />);
-        setLoader("");
-      }
-      else {
-        setMessage(<Alert className="danger" message={"Invalid Coupon"} />);
-        setLoader("");
-      }
-    })
-    .catch((err) => {
-      console.log(err.response);
-      if (err.response) {
-        setMessage(<Alert className="danger" message={err.response.data.message} />);
-        setLoader("");
-      }
-    });
-  }
-
-  const updateCart = async (params) => {
+  const changeQuantity = async (id, type) => {
     await axios
-      .put(server + "/api/cart/update", params, config)
+      .post(server + "/api/cart/update-amount", {"id": id, "type": type}, config)
       .then((rsp) => {
         console.log(rsp.data);
         // window.location.href = "/cart";
@@ -260,38 +258,18 @@ const Cart = (props) => {
       });
   }
 
-  const changeQuantity = async (id, type, amount) => {
-    let params = {}
-    if (type==="plus") {
-      params = {
-        "product": [
-          ...cart.product.filter(element => element.id !== id),
-          {id: id, amount: amount + 1}
-        ],
-        "accessories": []
-      };
-    }
-    else {
-      params = {
-        "product": [
-          ...cart.product.filter(element => element.id !== id),
-          {"id": id, "amount": amount > 0 ? amount - 1 : 0}
-        ],
-        "accessories": []
-      };
-    }
-    updateCart(params);
-  }
-
   const deleteItem = async (id) => {
-    const params = {
-      "product": [
-        ...cart.product.filter(element => element.id !== id),
-      ],
-      "accessories": []
-    };
-    console.log("params", params);
-    updateCart(params);
+    await axios
+      .delete(server + `/api/cart/delete/${id}`, config)
+      .then((rsp) => {
+        console.log(rsp.data);
+        // window.location.href = "/cart";
+        window.location.reload();
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
   }
 
   const handleSelectAddress = async(e) => {
@@ -377,13 +355,16 @@ const Cart = (props) => {
                             <p>Color : <i class="fa fa-circle" style={{"color": item.color}}></i></p>
                           </td>
                           <td>
-                            <h5>₹ {item.price2}</h5>
+                            <h5>₹ {item.price}</h5>
                           </td>
-                          <td>
+
+                          {
+                            item.price !== 0 ?
+                            <td>
                             <div class="incre">
                               <a href="javascript:void(0)" class="button-container"
                               onClick={() => {
-                                changeQuantity(item.id, "minus", item.quantity)
+                                changeQuantity(item.id, "minus")
                               }}>
                                 <i class="fa fa-minus cart-qty-minus"></i>
                               </a>
@@ -398,16 +379,22 @@ const Cart = (props) => {
 
                               <a href="javascript:void(0)" class="button-container"
                               onClick={() => {
-                                changeQuantity(item.id, "plus", item.quantity)
+                                changeQuantity(item.id, "plus")
                               }}>
                                 <i class="fa fa-plus cart-qty-plus"></i>
                               </a>
                             </div>
                           </td>
+                          :
+                          <td></td>
+                          }
+                          
                           <td>
-                            <h5>₹ {item.price2 * item.quantity}</h5>
+                            <h5>₹ {item.price * item.quantity}</h5>
                           </td>
-                          <td>
+                          {
+                            item.price !== 0 ?
+                            <td>
                             <a href="javascript:void(0)"
                             onClick={() => {
                               deleteItem(item.id)
@@ -418,6 +405,10 @@ const Cart = (props) => {
                                 class="img-fluid"
                             /></a>
                           </td>
+                          :
+                          <td></td>
+                          }
+                          
                         </tr>
                       )
                       :
@@ -438,13 +429,26 @@ const Cart = (props) => {
               </div>
             </div>
             <div class="col-lg-4">
-              {message}
+              {couponMsg === "empty" ?
+               "" : couponMsg==="valid" ?
+                <Alert className="success" message={"Coupon Applied"} /> :
+                 <Alert className="danger" message={"Invalid Coupon"} />}
               <div class="cart_invo_wrap">
                 <h4>Have a coupon?</h4>
-                <form onSubmit={checkCoupon}>
+                <form onSubmit={couponMsg === "valid" ? ()=>{} : applyCoupon}>
                   <div class="copun_enter_input">
-                      <input type="text" placeholder="Enter Coupon Code" name="code" required/>
-                      <button type="submit">Apply</button>
+                    {
+                      couponMsg !== "valid" ?
+                      <>
+                        <input type="text" placeholder="Enter Coupon Code" name="code" required/>
+                        <button type="submit">Apply</button>
+                      </>
+                      :
+                      <>
+                        <input type="text" value={coupon} disabled/>
+                        <button type="submit" onClick={removeCoupon}><img src="images/close_ic.png" style={{"filter":"invert(100%)"}} alt="x" class="img-fluid" /></button>
+                      </>
+                    }
                   </div>
                 </form>
                 <div class="subtotal_tab">
@@ -459,7 +463,7 @@ const Cart = (props) => {
                     </tr>
                     <tr>
                       <td>GST (5%):</td>
-                      <td>₹ {Math.ceil(totalAmount * 5 / 105)}</td>
+                      <td>₹ {Math.round(totalAmount - netAmount)}</td>
                     </tr>
                     <tr>
                       <td>Total :</td>
@@ -523,7 +527,7 @@ const Cart = (props) => {
                     <img src={`${server}${prod.banner}`} alt="a" class="img-fluid" />
                     <div class="d-flex justify-content-between">
                       <h6>{prod.name}</h6>
-                      <h6>₹ {prod.price2}</h6>
+                      <h6>₹ {prod.price}</h6>
                     </div>
                     <a href="javascript:void(0)" onClick={()=>{
                       addToCart(prod.id)
