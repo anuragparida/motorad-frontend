@@ -49,9 +49,11 @@ const ProductEMX = (props) => {
   //     window.requestAnimationFrame(scrollPlay);
   //   </script>
 
+  const [pincodes, setPincodes] = useState([]);
   const [products, setProducts] = useState([]);
   const [productID, setProductID] = useState("");
-  const [deviceType, setDeviceType] = useState("");
+  const [deviceType, setDeviceType] = useState("");   
+  const [delivery, setDelivery] = useState(true); 
 
   const [visibleImagesMap, setVisibleImagesMap] = useState(
     images.reduce((map, image) => {
@@ -83,6 +85,7 @@ const ProductEMX = (props) => {
   useEffect(() => {
     AOS.init();
     loadProducts();
+    loadPincodes();
     window.enterView({
       selector: "section",
       enter: function (el) {
@@ -110,6 +113,19 @@ const ProductEMX = (props) => {
       setDeviceType("Desktop");
     }
   }, []);
+
+  const loadPincodes = async () => {
+    await axios
+      .get(server + "/api/pin-code/read", config)
+      .then((rsp) => {
+        console.log(rsp);
+        setPincodes(rsp.data.payload[0].code.split(","));
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
+  }
 
   const loadProducts = async() => {
     await axios
@@ -1196,12 +1212,19 @@ const ProductEMX = (props) => {
 
               <form action="">
                 <div class="form-group">
-                  <input
+                <input
                     type="text"
                     class="form-control"
                     placeholder="Enter Pincode"
+                    id="pincode_inp"
                   />
-                  <a href="#">CHECK</a>
+                  <a href="javascript:void(0)" onClick={()=>{
+                    if(pincodes.includes(document.getElementById("pincode_inp").value)) {
+                      setDelivery(true)
+                    } else {
+                      setDelivery(false)
+                    }
+                  }}>CHECK</a>
                 </div>
               </form>
               <div class="shiping_day">
@@ -1210,7 +1233,12 @@ const ProductEMX = (props) => {
                     src="images/clock_ic.svg"
                     alt="a"
                     class="img-fluid"
-                  /><span>Free Delivery:</span> 8 to 10 working days
+                  />{
+                    delivery ?
+                    <><span>Free Delivery:</span> 8 to 10 working days</>
+                    :
+                    <><span>Unfortunately,</span> we don't deliver to your location</>
+                  }
                 </h6>
               </div>
             </div>
@@ -1234,7 +1262,7 @@ const ProductEMX = (props) => {
                   />No Cost EMI Available,
                   <span style={{"color": "#10b068"}}>Starts From Rs. 6189/Month</span>
                 </h6>
-                <a href="#"
+                <a href="/emi"
                   >EXPLORE EMI OPTIONS
                   <img src="images/arw_rgt.svg" alt="a" class="img-fluid"
                 /></a>
