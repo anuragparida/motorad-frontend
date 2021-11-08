@@ -10,12 +10,33 @@ const BookRide = (props) => {
   const [bookSuccess, setBookSuccess] = useState(false);
   const [city, setCity] = useState("");
   const [stores, setStores] = useState([]);
+  const [cities, setCities] = useState([]);
 
   const [bike, setBike] = useState('trex');
 
   useEffect(() => {
+    if(city)
     loadStores(city);
   }, [city]);
+
+  const loadCities = async(e) => {
+    axios
+    .get(server + `/api/store/read-states`)
+    .then((rsp) => {
+      console.log(rsp);
+      console.log([].concat.apply([], Object.values(rsp.data.payload)))
+      setCities([].concat.apply([], Object.values(rsp.data.payload)));
+    })
+    .catch((err) => {
+      console.log(err.response);
+      if (err.response) {
+      }
+    });
+  }
+
+  useEffect(()=>{
+    loadCities();
+  }, [])
 
   const changeBike = (event) => {
     if (event.target.value === "TREX") {
@@ -118,7 +139,7 @@ const BookRide = (props) => {
             <div class="test_ride_frm">
             <div class="d-flex justify-content-between align-items-center">
               <h5>Book Your Test Ride Now</h5>
-              <a href="#" class="d-none d-lg-block">or Contact Us</a>
+              <a href="/contact" class="d-none d-lg-block">or Contact Us</a>
             </div>
             <div class="emi_plan_frm">
               <form onSubmit={bookRide}>
@@ -181,15 +202,11 @@ const BookRide = (props) => {
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label for="">Enter City</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Enter your city"
-                        name="city"
-                        value={city}
-                        onChange={e => setCity(e.target.value)}
-                        required
-                      />
+                      <select name="city" class="form-control" required onChange={e => setCity(e.target.value)}>
+                      {
+                        cities.map(x=><option value={x}>{x}</option>)
+                      }
+                  </select>
                     </div>
                   </div>
                   <div class="col-lg-6">
