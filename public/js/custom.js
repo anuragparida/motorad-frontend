@@ -173,6 +173,7 @@ function cartSliderInit(n) {
 }
 
 function showSecondForm() {
+  $("#exampleModalLong").modal("hide");
   $("#exampleModal").modal("show");
 }
 

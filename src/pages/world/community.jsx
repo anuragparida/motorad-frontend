@@ -62,7 +62,7 @@ const Community = (props) => {
         <div class="row justify-content-center">
           <div class="col-lg-10">
             <div class="community_img">
-              <img class="img-fluid" src="images/community_img.png" alt="a" />
+              <img class="img-fluid" src="images/community.jpg" alt="a" />
             </div>
           </div>
         </div>

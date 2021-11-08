@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
@@ -10,6 +10,12 @@ const FindStore = (props) => {
   const [findSuccess, setFindSuccess] = useState(false);
   const [stores, setStores] = useState([]);
   const [city, setCity] = useState("");
+  const [cities, setCities] = useState({});
+  const [state, setState] = useState('');
+
+  const changeState = (event) => {
+    setState(event.target.value);
+  }
 
   const loadStores = async (e) => {
 
@@ -38,6 +44,24 @@ const FindStore = (props) => {
     setFindSuccess(true);
 
   }
+
+  const loadCities = async(e) => {
+    axios
+    .get(server + `/api/store/read-states`)
+    .then((rsp) => {
+      console.log(rsp);
+      setCities(rsp.data.payload);
+    })
+    .catch((err) => {
+      console.log(err.response);
+      if (err.response) {
+      }
+    });
+  }
+
+  useEffect(()=>{
+    loadCities();
+  }, [])
 
   return(
     <>
@@ -122,11 +146,19 @@ const FindStore = (props) => {
               <form onSubmit={loadStores}>
                 <div class="form-group">
                   <label for="">Enter State</label>
-                  <input type="text" class="form-control" name="state" required/>
+                  <select name="state" class="form-control" required onChange={changeState}>
+                    {
+                      Object.keys(cities).map(x=><option value={x}>{x}</option>)
+                    }
+                  </select>
                 </div>
                 <div class="form-group">
                   <label for="">Enter City</label>
-                  <input type="text" class="form-control" name="city" required/>
+                  <select name="city" class="form-control" required>
+                    {
+                      state && cities[state].map(x=><option value={x}>{x}</option>)
+                    }
+                  </select>
                 </div>
                 <div class="form-group">
                   {/* <a href="javascript:void(0)" onClick={()=>{setFindSuccess(true)}} class="btn_submit">Get Started</a> */}

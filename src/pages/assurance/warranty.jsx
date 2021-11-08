@@ -64,7 +64,6 @@ const Warranty = (props) => {
       params.dealerType = dealerType;
       params.bike = params.bike === "trex" ? products[0] : params.bike === "emx" ? products[1] : products[2];
 
-      params.dealerName = dealerType === "online" ? "amazon" : params.dealerName;
       delete params.invoice;
 
       console.log(params);
@@ -75,8 +74,8 @@ const Warranty = (props) => {
         formData.append(key, value);
       }
 
-    formData.append("invoice", e.target.elements.invoice.files[0]);
-    console.log(e.target.elements.invoice.files[0]);
+      formData.append("invoice", e.target.elements.invoice.files[0]);
+      console.log(e.target.elements.invoice.files[0]);
 
       for (var value of formData.values()) {
         // console.log(value);
@@ -242,6 +241,14 @@ const Warranty = (props) => {
                                     </div>
                                     :
                                     <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label for="">Select Store</label>
+                                            <select name="dealerName" id="" class="form-control" defaultValue="Balaji">
+                                                {
+                                                ["Amazon", "Flipkart"].map(x=><option value={x}>{x}</option>)
+                                                }
+                                            </select>
+                                        </div>
                                     </div>
                                 }
                                 

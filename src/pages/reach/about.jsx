@@ -22,7 +22,7 @@ const About = (props) => {
                 <br />
                 Dedicated Team
               </h3>
-              <img class="img-fluid" src="images/dedicated_team_img.png" alt="a" />
+              <img class="img-fluid" src="images/aboutus.jpg" alt="a" />
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
-import { server } from "../../env";
+import { formDataConfig, server } from "../../env";
 import axios from "axios";
 
 const RSA = (props) => {
@@ -17,6 +17,7 @@ const RSA = (props) => {
   //   </script>
 
   const [rsaFaq, setRsaFaq] = useState([]);
+  const [partOne, setPartOne] = useState({});
 
   const loadFAQ = async () => {
     await axios
@@ -35,6 +36,52 @@ const RSA = (props) => {
   useEffect(()=>{
     loadFAQ();
   }, []);
+
+  const savePartOne = (e) => {
+    e.preventDefault();
+
+    var params = Array.from(e.target.elements)
+      .filter((el) => el.name)
+      .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
+
+    setPartOne(params);
+    window.showSecondForm();
+  }
+
+  const sendRSA = async(e) => {
+    e.preventDefault();
+
+    var params2 = Array.from(e.target.elements)
+      .filter((el) => el.name)
+      .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
+
+    let params = {...partOne, ...params2}
+
+    params.type = "rsa"
+
+    delete params.invoice;
+
+    console.log(params);
+
+    let formData = new FormData();
+  
+    for (const [key, value] of Object.entries(params)) {
+      formData.append(key, value);
+    }
+
+    formData.append("invoice", e.target.elements.invoice.files[0]);
+
+    axios
+    .post(server + "/api/rsa/create", formData, formDataConfig)
+    .then((rsp) => {
+      console.log(rsp);
+    })
+    .catch((err) => {
+      console.log(err.response);
+      if (err.response) {
+      }
+    });
+  }
 
   return(
     <>
@@ -277,7 +324,7 @@ const RSA = (props) => {
                   </h5>
                 </div>
                 <div class="emi_plan_frm accnt_modal_plan rsa_modal_txt">
-                  <form>
+                  <form onSubmit={savePartOne}>
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="form-group">
@@ -290,9 +337,9 @@ const RSA = (props) => {
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label for="">
-                            Select State
+                            Enter State
                           </label>
-                          <input class="form-control" type="text" placeholder="Select your state" />
+                          <input class="form-control" type="text" placeholder="Enter your state" name="state" required/>
                         </div>
                       </div>
                       <div class="col-lg-6">
@@ -300,7 +347,7 @@ const RSA = (props) => {
                           <label for="">
                             Your City
                           </label>
-                          <input class="form-control" type="text" placeholder="Select your city" />
+                          <input class="form-control" type="text" placeholder="Enter your city" name="city" required/>
                         </div>
                       </div>
                       <div class="col-lg-6">
@@ -308,7 +355,7 @@ const RSA = (props) => {
                           <label for="">
                             Pincode
                           </label>
-                          <input class="form-control" type="text" placeholder="Enter your pincode" />
+                          <input class="form-control" type="number" placeholder="Enter your pincode" name="pincode" required/>
                         </div>
                       </div>
                       <div class="col-lg-12">
@@ -316,7 +363,7 @@ const RSA = (props) => {
                           <label for="">
                             Your Address
                           </label>
-                          <textarea id="" class="form-control" style={{"min-height": "80px"}} cols="30" name="" rows="10" placeholder="Enter your address">
+                          <textarea class="form-control" style={{"min-height": "80px"}} cols="30" name="address" rows="10" placeholder="Enter your address" required>
                           </textarea>
                         </div>
                       </div>
@@ -325,7 +372,7 @@ const RSA = (props) => {
                           <label for="">
                             Your Email
                           </label>
-                          <input class="form-control" type="text" placeholder="Enter your email" />
+                          <input class="form-control" type="email" placeholder="Enter your email" name="email" required/>
                         </div>
                       </div>
                       <div class="col-lg-6">
@@ -333,13 +380,13 @@ const RSA = (props) => {
                           <label for="">
                             Your Contact
                           </label>
-                          <input class="form-control" type="text" placeholder="Enter your contact" />
+                          <input class="form-control" type="number" placeholder="Enter your contact" name="contact" required/>
                         </div>
                       </div>
                       <div class="col-lg-12">
                         <div class="accnt_submit_modal">
                           {/* <button class="btn btn_submit" type="submit" data-toggle="modal" data-target="#exampleModal" data-dismiss="modal"> */}
-                          <button class="btn btn_submit" onClick={()=>window.showSecondForm()} type="submit" data-dismiss="modal">
+                          <button class="btn btn_submit" type="submit">
                             Next
                             <img class="img-fluid" src="images/arrw_w_rgt.svg" alt="a" />
                           </button>
@@ -375,14 +422,14 @@ const RSA = (props) => {
                   </h5>
                 </div>
                 <div class="emi_plan_frm accnt_modal_plan rsa_modal_txt">
-                  <form>
+                  <form onSubmit={sendRSA}>
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label for="">
                             Make of the cycle
                           </label>
-                          <input class="form-control" type="text" placeholder="Enter make of your cycle" />
+                          <input class="form-control" type="text" placeholder="Enter make of your cycle" name="makeCycle" required/>
                         </div>
                       </div>
                       <div class="col-lg-6">
@@ -390,7 +437,11 @@ const RSA = (props) => {
                           <label for="">
                             Select a Bike
                           </label>
-                          <input class="form-control" type="text" placeholder="Select a bike" />
+                          <select name="bike" class="form-control" defaultValue="TREX" required>
+                            <option value="TREX">TREX</option>
+                            <option value="EMX">EMX</option>
+                            <option value="DOODLE">DOODLE</option>
+                          </select>
                         </div>
                       </div>
                       <div class="col-lg-6">
@@ -398,7 +449,7 @@ const RSA = (props) => {
                           <label for="">
                             Frame Number
                           </label>
-                          <input class="form-control" type="text" placeholder="Select your city" />
+                          <input class="form-control" type="text" placeholder="Enter Frame Number" name="frameNumber" required/>
                         </div>
                       </div>
                       <div class="col-lg-6">
@@ -406,7 +457,7 @@ const RSA = (props) => {
                           <label for="">
                             Select Cycle Color
                           </label>
-                          <input class="form-control" type="text" placeholder="Select Color" />
+                          <input class="form-control" type="text" placeholder="Select Color" name="color" required/>
                         </div>
                       </div>
                       <div class="col-lg-6">
@@ -414,7 +465,7 @@ const RSA = (props) => {
                           <label for="">
                             Invoice Number
                           </label>
-                          <input class="form-control" type="text" placeholder="Enter Invoice number" />
+                          <input class="form-control" type="text" placeholder="Enter Invoice number" name="invoiceNumber" required/>
                         </div>
                       </div>
                       <div class="col-lg-6">
@@ -422,16 +473,17 @@ const RSA = (props) => {
                           <label for="">
                             Invoice Date
                           </label>
-                          <input class="form-control" type="text" placeholder="27-09-2021" />
+                          <input class="form-control" type="date" name="invoiceDate" required/>
                         </div>
                       </div>
                       <div class="col-lg-6">
                         <div class="rsa_modal_upload">
                           <label class="upload-area">
-                            <input type="file" />
+                            <input type="file" name="invoice" required/>
                             <span class="upload-button">
                               <img class="img-fluid" src="images/upload_plus.svg" alt="a" />
                             </span>
+                            
                           </label>
                           <p>
                             Upload your Invoice
