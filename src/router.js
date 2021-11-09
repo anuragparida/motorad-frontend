@@ -30,6 +30,7 @@ import facebookAuth from "./pages/auth/facebookAuth";
 import ScrollToTop from "./utils/scrollToTop";
 import Overview from "./pages/user/overview";
 import Account from "./pages/user/account";
+import ProductEnerg from "./pages/products/productEnerg";
 
 export default function Router() {
   return (
@@ -49,6 +50,7 @@ export default function Router() {
         <Route path="/overview" component={Overview} />
         <Route path="/emx" component={ProductEMX} />
         <Route path="/trex" component={ProductTREX} />
+        <Route path="/energ" component={ProductEnerg} />
         <Route path="/doodle" component={ProductDOODLE} />
         <Route path="/bikes" component={AllProducts} />
         <Route path="/emi" component={EMI} />
@@ -69,6 +71,7 @@ export default function Router() {
         <Route path="/book" component={BookRide} />
         <Route path="/cart" component={Cart} />
         <Route path="/" component={Landing} />
+
       </Switch>
     </BrowserRouter>
   );

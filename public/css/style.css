@@ -3283,6 +3283,23 @@ img {
   z-index: 4;
   background-image: url("../images/Doodle/Web-E.png");
 }
+.image_energ_0 {
+  z-index: 0;
+  background-image: url("../images/uae/ENERG/Web-A.png");
+}
+.image_energ_1 {
+  z-index: 0;
+  background-image: url("../images/uae/ENERG/Web-B.png");
+}.image_energ_2 {
+  z-index: 0;
+  background-image: url("../images/uae/ENERG/Web-C.png");
+}.image_energ_3 {
+  z-index: 0;
+  background-image: url("../images/uae/ENERG/Web-D.png");
+}.image_energ_4 {
+  z-index: 0;
+  background-image: url("../images/uae/ENERG/Web-E.png");
+}
 
 .imageRotate {
   -webkit-transform: rotate(0deg);

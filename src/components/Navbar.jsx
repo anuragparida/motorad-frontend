@@ -239,6 +239,12 @@ const Navbar = (props) => {
                         <Link to="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
                     </div>
                 </div>
+                <div class="col-lg-3">
+                    <div class="bog_drop_wraps">
+                        <img src="images/uae/ENER-G.png" alt="a" class="img-fluid"/>
+                        <Link to="/energ">ENER G <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
+                    </div>
+                </div>
                 <div class="col-12">
                     <div class="big_dop_btn">
                         <a href="/bikes">View all Products <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></a>
