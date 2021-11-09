@@ -3520,3 +3520,10 @@ img {
   border-right: 1px solid black !important;
   height: 200px !important;
 }
+
+.slick-arrow {
+  display: none !important;
+}  
+
+
+

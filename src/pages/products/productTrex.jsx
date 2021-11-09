@@ -17,6 +17,7 @@ import { Carousel } from 'react-responsive-carousel';
 let images = [0, 1, 2, 3, 4];
 
 
+
 const ProductTREX = (props) => {
 
   const [pincodes, setPincodes] = useState([]);
@@ -25,6 +26,7 @@ const ProductTREX = (props) => {
   const [productID, setProductID] = useState("");
   const [deviceType, setDeviceType] = useState("");   
   const [delivery, setDelivery] = useState(true); 
+  const [subdomain, setSubdomain] = useState("");   
 
   const [visibleImagesMap, setVisibleImagesMap] = useState(
     images.reduce((map, image) => {
@@ -104,6 +106,11 @@ const ProductTREX = (props) => {
     } else {
       setDeviceType("Desktop");
     }
+
+    let full = window.location.host
+    let parts = full.split('.')
+    let sub = parts[0]
+    setSubdomain(sub);
   }, []);
 
   const loadPincodes = async () => {

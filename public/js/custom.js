@@ -94,6 +94,7 @@ $(function () {
   });
 
   /* all slider start */
+  // $(".expo_bike_slider").not('.slick-initialized').slick()
   $(".expo_bike_slider").slick({
     infinite: true,
     slidesToShow: 3,
