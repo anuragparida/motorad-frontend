@@ -110,6 +110,7 @@ const ProductTREX = (props) => {
     let full = window.location.host
     let parts = full.split('.')
     let sub = parts[0]
+    sub = 'uae';
     setSubdomain(sub);
   }, []);
 
@@ -232,7 +233,14 @@ const ProductTREX = (props) => {
                     ))}
 
                     <li class="d-none d-lg-block">
-                      <h6>Rs 37,133</h6>
+                      {
+                        (subdomain == '' || subdomain == 'nepal') ?
+                          <h6>Rs 37,133</h6>
+                        : (subdomain == 'uae') ? 
+                        <h6>AED 3,499</h6>
+                        :
+                        <h6>Rs 37,133</h6>
+                      }
                     </li>
                     <li class="d-none d-lg-block">
                       <h6>{products.length > 0 && <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>}</h6>

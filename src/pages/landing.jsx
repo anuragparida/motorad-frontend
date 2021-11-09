@@ -33,7 +33,7 @@ const Landing = (props) => {
                         <div class="col-lg-12 d-none d-lg-block">
                             <div class="home_hero_bike_wrap">
                                 {
-                                    (subdomain == '') ?
+                                    (subdomain == '' || subdomain == 'nepal') ?
                                         <img src="images/manin-hero-img.gif" alt="a" class="img-fluid w-100" />
                                         : (subdomain == 'uae') ?
                                             <img src="images/uae/Main-hero-UAE.gif" alt="a" class="img-fluid w-100" />
@@ -1300,7 +1300,7 @@ const Landing = (props) => {
                                                 </tr>
                                             </table>
                                             <div class="explore_bttn row mx-auto">
-                                                <Link to="/emx">Buy Now</Link>
+                                                <Link to="/energ">Buy Now</Link>
                                             </div>
                                         </div>
                                     </Link>
@@ -1389,7 +1389,7 @@ const Landing = (props) => {
                                                 </tr>
                                             </table>
                                             <div class="explore_bttn row mx-auto">
-                                                <Link to="/doodle">Buy Now</Link>
+                                                <Link to="/trible">Buy Now</Link>
                                             </div>
                                         </div>
                                     </Link>

@@ -18,7 +18,7 @@ let images = [0, 1, 2, 3, 4];
 
 
 
-const ProductEnerg = (props) => {
+const ProductTrible = (props) => {
 
     const [pincodes, setPincodes] = useState([]);
     const [reviews, setReviews] = useState([]);
@@ -232,7 +232,7 @@ const ProductEnerg = (props) => {
                                         ))}
 
                                         <li class="d-none d-lg-block">
-                                            <h6>AED 3,599</h6>
+                                            <h6>AED 3,399</h6>
                                         </li>
                                         <li class="d-none d-lg-block">
                                             <h6>{products.length > 0 && <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>}</h6>
@@ -257,7 +257,7 @@ const ProductEnerg = (props) => {
                                         class="img-fluid the_best"
                                     />
                                     <svg viewBox="0 0 1280 720">
-                                        <text text-anchor="middle" x="50%" y="50%">ENER-G</text>
+                                        <text text-anchor="middle" x="50%" y="50%">TRIBLE</text>
                                     </svg>
                                     <img
                                         src="images/the_best.png"
@@ -276,14 +276,14 @@ const ProductEnerg = (props) => {
                                                     alt="a"
                                                     class="img-fluid"
                                                 />
-                                                :
                                                 
                                         } */}
+
                                         <img
-                                                    src="images/uae/ENERG/Top-Part/White.png"
-                                                    alt="a"
-                                                    class="img-fluid"
-                                                />
+                                            src="images/uae/TRIBLE/Top-Part/Yellow.png"
+                                            alt="a"
+                                            class="img-fluid"
+                                        />
 
                                     </div>
                                     {/* <div class="product_hero_txt" style={{ "display": "none" }}>
@@ -341,11 +341,11 @@ const ProductEnerg = (props) => {
                       />
                     ))} */}
                                                 {images.map((image) => (
-                                                    <div className={classnames("image imageRotate", `image_energ_${image}`, {
+                                                    <div className={classnames("image imageRotate", `image_trible_${image}`, {
                                                         image_visible: visibleImagesMap[image]
                                                     })}
                                                         key={image}
-                                                        id={"image_energ_" + image}
+                                                        id={"image_trible_" + image}
                                                     // style={{backgroundPosition: 'calc(100% + 30px) calc(100% + 30px);' }}
                                                     />
                                                 ))}
@@ -560,7 +560,7 @@ const ProductEnerg = (props) => {
                                     data-aos="fade-up"
                                     data-aos-duration="2000"
                                 >
-                                    <img src="images/uae/ENERG/White-Pulse.png" alt="a" class="img-fluid" />
+                                    <img src="images/uae/TRIBLE/Blue-Pulse.png" alt="a" class="img-fluid" />
                                     {/* <div class="spe_dot_1 d-none d-lg-block">
                     <div class="dot">
                       <div class="dot-pulse"></div>
@@ -570,7 +570,7 @@ const ProductEnerg = (props) => {
                       <p>7.5Ah 36V Lithium-Ion</p>
                     </div>
                   </div> */}
-                                    <div class="spe_dot_2 d-none d-lg-block">
+                                    <div class="spe_dot_2 d-none d-lg-block">     
                                         <div class="dot">
                                             <div class="dot-pulse"></div>
                                         </div>
@@ -1537,4 +1537,4 @@ const ProductEnerg = (props) => {
         </>
     );
 }
-export default ProductEnerg;
+export default ProductTrible;

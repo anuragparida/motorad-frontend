@@ -10,6 +10,7 @@ const Navbar = (props) => {
   const [links, setLinks] = useState({});
   const [cartHasItem, setCartHasItem] = useState(false);
   const [logged, setLogged] = useState(false);
+  const [subdomain, setSubdomain] = useState("");
 
   const loadLinks = async() => {
     await axios
@@ -48,6 +49,12 @@ const Navbar = (props) => {
     if(isLoggedIn()) {
         checkCart();
     }
+
+    let full = window.location.host
+    let parts = full.split('.')
+    let sub = parts[0]
+    sub = 'uae';
+    setSubdomain(sub);
   }, []);
   
 
@@ -221,30 +228,76 @@ const Navbar = (props) => {
     <div class="big_dropdown_wrap collapse" id="collapseExample">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-3">
-                    <div class="bog_drop_wraps">
-                        <img src="images/cycle_warenty.png" alt="a" class="img-fluid"/>
-                        <Link to="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
+                { (subdomain == '' || subdomain == 'nepal') ?
+                <>
+                    <div class="col-lg-3">
+                        <div class="bog_drop_wraps">
+                            <img src="images/cycle_warenty.png" alt="a" class="img-fluid"/>
+                            <Link to="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="bog_drop_wraps">
-                        <img src="images/bicycle_3.png" alt="a" class="img-fluid"/>
-                        <Link to="/emx">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
+                    <div class="col-lg-3">
+                        <div class="bog_drop_wraps">
+                            <img src="images/bicycle_3.png" alt="a" class="img-fluid"/>
+                            <Link to="/emx">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="bog_drop_wraps">
-                        <img src="images/bicycle_2.png" alt="a" class="img-fluid"/>
-                        <Link to="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
+                    <div class="col-lg-3">
+                        <div class="bog_drop_wraps">
+                            <img src="images/bicycle_2.png" alt="a" class="img-fluid"/>
+                            <Link to="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3">
-                    <div class="bog_drop_wraps">
-                        <img src="images/uae/ENER-G.png" alt="a" class="img-fluid"/>
-                        <Link to="/energ">ENER G <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
+                </>
+                 : (subdomain == 'uae') ?
+                <>
+                    <div class="col-lg-3">
+                        <div class="bog_drop_wraps">
+                            <img src="images/cycle_warenty.png" alt="a" class="img-fluid"/>
+                            <Link to="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
+                        </div>
                     </div>
-                </div>
+                    <div class="col-lg-3">
+                        <div class="bog_drop_wraps">
+                            <img src="images/bicycle_2.png" alt="a" class="img-fluid"/>
+                            <Link to="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="bog_drop_wraps">
+                            <img src="images/uae/Ener-G.png" alt="a" class="img-fluid" style={{ height : '139px' }} />
+                            <Link to="/energ">ENER G <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="bog_drop_wraps">
+                            <img src="images/uae/Trible.png" alt="a" class="img-fluid" style={{ height : '139px' }} />
+                            <Link to="/trible">TRIBLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
+                        </div>
+                    </div>
+                </>
+                :
+                <>
+                    <div class="col-lg-3">
+                        <div class="bog_drop_wraps">
+                            <img src="images/cycle_warenty.png" alt="a" class="img-fluid"/>
+                            <Link to="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="bog_drop_wraps">
+                            <img src="images/bicycle_3.png" alt="a" class="img-fluid"/>
+                            <Link to="/emx">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="bog_drop_wraps">
+                            <img src="images/bicycle_2.png" alt="a" class="img-fluid"/>
+                            <Link to="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></Link>
+                        </div>
+                    </div>
+                </>
+                }  
                 <div class="col-12">
                     <div class="big_dop_btn">
                         <a href="/bikes">View all Products <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/></a>

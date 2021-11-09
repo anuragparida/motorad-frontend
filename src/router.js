@@ -31,6 +31,7 @@ import ScrollToTop from "./utils/scrollToTop";
 import Overview from "./pages/user/overview";
 import Account from "./pages/user/account";
 import ProductEnerg from "./pages/products/productEnerg";
+import ProductTrible from "./pages/products/productTrible";
 
 export default function Router() {
   return (
@@ -40,6 +41,7 @@ export default function Router() {
       <Switch>
         {/* <Route path="/settings" component={Settings} />
             <Route path="/orders" component={Order} /> */}
+         <Route path="/trible" component={ProductTrible} />
         <Route path="/login" component={Login} />
         <Route path="/facebook/auth" component={facebookAuth} />
         <Route path="/signup" component={Signup} />
@@ -71,6 +73,7 @@ export default function Router() {
         <Route path="/book" component={BookRide} />
         <Route path="/cart" component={Cart} />
         <Route path="/" component={Landing} />
+        
 
       </Switch>
     </BrowserRouter>

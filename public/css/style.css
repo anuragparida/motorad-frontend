@@ -3301,6 +3301,24 @@ img {
   background-image: url("../images/uae/ENERG/Web-E.png");
 }
 
+.image_trible_0 {
+  z-index: 0;
+  background-image: url("../images/uae/TRIBLE/Web-A.png");
+}
+.image_trible_1 {
+  z-index: 0;
+  background-image: url("../images/uae/TRIBLE/Web-B.png");
+}.image_trible_2 {
+  z-index: 0;
+  background-image: url("../images/uae/TRIBLE/Web-C.png");
+}.image_trible_3 {
+  z-index: 0;
+  background-image: url("../images/uae/TRIBLE/Web-D.png");
+}.image_trible_4 {
+  z-index: 0;
+  background-image: url("../images/uae/TRIBLE/Web-E.png");
+}
+
 .imageRotate {
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
