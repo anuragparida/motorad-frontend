@@ -102,6 +102,7 @@ const Landing = (props) => {
                                 </>
                                 : (subdomain == 'uae') ?
                                     <>
+                                
                                         <div class="col-12">
                                             <div class="moobile_cycle mt_50">
                                                 <img src="images/EMX.gif" alt="a" class="img-fluid w-100" />
@@ -408,7 +409,7 @@ const Landing = (props) => {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                                                    <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 
                                                         <div class="row">
                                                             <div class="col-lg-6">
@@ -465,14 +466,14 @@ const Landing = (props) => {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="tab-pane fade show active" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                                                    <div class="tab-pane fade " id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
 
                                                         <div class="row">
                                                             <div class="col-lg-6">
                                                                 <div class="dual_suspension_txt">
-                                                                    <h3>India’s First <span>Dual Suspension</span> E-Bike</h3>
+                                                                    <h3>India’s First <span>Dual Suspension</span> TRIBLE</h3>
 
-                                                                    <p>City riding is now a breeze as you traverse across town without any fuss or effort. The EMX is designed for the city; traffic, uneven roads and slopes included. India’s first dual suspension e-cycle.</p>
+                                                                    <p>A lightweight tri-folding eBike, the Trible is your compion for your commute or an exciting adventure. Ride further and more often with a power-assisted ride or store it compactly and safely at home or work.</p>
                                                                 </div>
                                                                 <div class="row">
                                                                     <div class="col-lg-10">
@@ -481,7 +482,7 @@ const Landing = (props) => {
                                                                                 <div class="suspension_wrap">
                                                                                     <img src="images/small_bike.svg" alt="a" class="img-fluid" />
                                                                                     <h6>RANGE</h6>
-                                                                                    <p>65+ kms <br /> (50+ Km with throttle)</p>
+                                                                                    <p>50+ kms <br /> (35+ Km with throttle)</p>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-lg-6 col-6">
@@ -502,7 +503,7 @@ const Landing = (props) => {
                                                                                 <div class="suspension_wrap">
                                                                                     <img src="images/battrey_icon.svg" alt="a" class="img-fluid" />
                                                                                     <h6>BATTERY</h6>
-                                                                                    <p>36 Volts <br /> (10.4 Ah Powerful Battery)</p>
+                                                                                    <p>36 Volts <br /> (7.5 Ah Powerful Battery)</p>
                                                                                 </div>
                                                                             </div>
                                                                             <div class="col-lg-12">
@@ -517,7 +518,64 @@ const Landing = (props) => {
                                                             </div>
                                                             <div class="col-lg-6">
                                                                 <div class="suspension_img" data-aos="zoom-in-up" data-aos-duration="2000">
-                                                                    <a href="#"><img src="images/EMX.gif" alt="a" class="img-fluid" /></a>
+                                                                    <a href="#"><img src="images/uae/Trible.gif" alt="a" class="img-fluid" /></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tab-pane fade " id="pills-energ" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="dual_suspension_txt">
+                                                                    <h3>India’s First <span>Dual Suspension</span> ENER-G</h3>
+
+                                                                    <p>Designed to last for miles, Ener-G can keep going when others have given up. Packed with everything you need, this long range, dual-seater moped suits your different needs.</p>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-lg-10">
+                                                                        <div class="row">
+                                                                            <div class="col-lg-6 col-6">
+                                                                                <div class="suspension_wrap">
+                                                                                    <img src="images/small_bike.svg" alt="a" class="img-fluid" />
+                                                                                    <h6>RANGE</h6>
+                                                                                    <p>110+ kms <br /> (90+ Km with throttle)</p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-lg-6 col-6">
+                                                                                <div class="suspension_wrap">
+                                                                                    <img src="images/speed_icon.svg" alt="a" class="img-fluid" />
+                                                                                    <h6>SPEED</h6>
+                                                                                    <p>25km/hr <br /> (Max Speed)</p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-lg-6 col-6">
+                                                                                <div class="suspension_wrap">
+                                                                                    <img src="images/park_meter.svg" alt="a" class="img-fluid" />
+                                                                                    <h6>BRAKES</h6>
+                                                                                    <p>Advanced Dual <br /> Disc Brakes</p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-lg-6 col-6">
+                                                                                <div class="suspension_wrap">
+                                                                                    <img src="images/battrey_icon.svg" alt="a" class="img-fluid" />
+                                                                                    <h6>BATTERY</h6>
+                                                                                    <p>48 Volts <br /> (20 Ah Powerful Battery)</p>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-lg-12">
+                                                                                <div class="suspension_bttns">
+                                                                                    <Link to="/emx">Buy Now</Link>
+                                                                                    <Link to="/emx">View More</Link>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="suspension_img" data-aos="zoom-in-up" data-aos-duration="2000">
+                                                                    <a href="#"><img src="images/uae/EnerG.gif" alt="a" class="img-fluid" /></a>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -733,25 +791,25 @@ const Landing = (props) => {
                                                     : (subdomain == 'uae') ?
                                                         <>
                                                             <li>
-                                                                <a class="" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">
+                                                                <a class="active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-home" aria-selected="true">
                                                                     <img src="images/uae/TREX.png" alt="a" class="img-fluid" />
                                                                     <span>T-REX</span>
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a class="" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">
+                                                                <a class="" id="pills-energ-tab" data-toggle="pill" href="#pills-energ" role="tab" aria-controls="pills-profile" aria-selected="false">
                                                                     <img src="images/uae/Ener-G.png" alt="a" class="img-fluid" />
                                                                     <span>ENER G</span>
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a class="active" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">
+                                                                <a class="" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-contact" aria-selected="false">
                                                                     <img src="images/uae/Doodle.png" alt="a" class="img-fluid" />
                                                                     <span>DOODLE</span>
                                                                 </a>
                                                             </li>
                                                             <li>
-                                                                <a class="active" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">
+                                                                <a class="" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">
                                                                     <img src="images/uae/Trible.png" alt="a" class="img-fluid" />
                                                                     <span>TRIBLE</span>
                                                                 </a>
