@@ -110,6 +110,9 @@ const ProductEnerg = (props) => {
         let full = window.location.host
         let parts = full.split('.')
         let sub = parts[0]
+        if(sub == 'http://localhost:3000') {
+            sub = '';
+        }
         setSubdomain(sub);
     }, []);
 
@@ -357,31 +360,32 @@ const ProductEnerg = (props) => {
                         </div>
                     </section>
                     :
-                    <section class="product_vdo_sec" style={{ display : 'none' }}>
+                    <section class="product_vdo_sec" id="feat_sec">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    {/* {images.map((image) => (
-                    <div className={`image_${image}`} 
-                      key={image}
-                      id={"image_"+image}
-                      // style={{backgroundPosition: 'calc(100% + 30px) calc(100% + 30px);' }}
-                    />
-                ))}           */}
-                                    <img src="../images/Mobile-A.png" width="100%" className="img-fluid" />
-                                    <img src="../images/Mobile-B.png" width="100%" className="img-fluid" />
-                                    <img src="../images/Mobile-C.png" width="100%" className="img-fluid" />
-                                    <img src="../images/Mobile-D.png" width="100%" className="img-fluid" />
-                                    <img src="../images/Mobile-E.png" width="100%" className="img-fluid" />
+                                    <div class="app">
+                                        <div id="bound-two" class="scroll-bound">
+                                            <div class="content">
+                                                <video id="v0" tabindex="0" autobuffer muted preload>
+                                                    <source
+                                                        src="images/uae/ENERG/EnerG-Mobile.mp4"
+                                                        type="video/mp4"
+                                                        class="d-lg-none"
+                                                    /> 
+                                                </video>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </section>
+                    
             }
 
 
-            <section class="product_vdo_sec" id="feat_sec" style={{ display: 'none' }}>
-                {/* style={{ display :'none' }} */}
+            {/* <section class="product_vdo_sec" id="feat_sec" style={{ display: 'none' }}>
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
@@ -389,11 +393,11 @@ const ProductEnerg = (props) => {
                                 <div id="bound-two" class="scroll-bound">
                                     <div class="content">
                                         <video id="v0" tabindex="0" autobuffer muted preload>
-                                            {/* <source
+                                             <source
                       src="images/3D-Renders/T-Rex-Mobile-FFMpeg.mp4"
                       type="video/mp4"
                       class="d-lg-none"
-                    />  */}
+                    />  
                                         </video>
                                     </div>
                                 </div>
@@ -401,7 +405,7 @@ const ProductEnerg = (props) => {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
             <section class="glory_section" id="gal_sec">
                 <div class="container">
                     <div class="row justify-content-end">
@@ -1413,7 +1417,7 @@ const ProductEnerg = (props) => {
                                             <td>Colors</td>
                                         </tr>
                                         <tr>
-                                            <td>Rs 37,142</td>
+                                            <td>AED 3,599</td>
                                             <td><i class="fa fa-circle"></i> <i class="fa fa-circle"></i></td>
                                         </tr>
                                     </table>
@@ -1563,8 +1567,8 @@ const ProductEnerg = (props) => {
             <div class="book_ride_sticky d-lg-none">
                 <div class="d-flex">
 
-                    <a href="javascript:void(0)" onClick={addToCart}><p>Rs 37,133</p> BUY NOW</a>
-                </div>
+                    <a href="javascript:void(0)" onClick={addToCart}><p>AED 3,599</p> BUY NOW</a>
+                </div> 
                 <a href="#" class="back-top-btn d-none d-lg-block">
                     <i class="fa fa-angle-up"></i>
                 </a>
