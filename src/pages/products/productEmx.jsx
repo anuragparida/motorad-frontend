@@ -55,6 +55,8 @@ const ProductEMX = (props) => {
   const [productID, setProductID] = useState("");
   const [deviceType, setDeviceType] = useState("");   
   const [delivery, setDelivery] = useState(true); 
+  const [country, setCountry] = useState(true);
+
 
   const [visibleImagesMap, setVisibleImagesMap] = useState(
     images.reduce((map, image) => {
@@ -127,7 +129,7 @@ const ProductEMX = (props) => {
     } else {     
       setDeviceType("Desktop");
     }
-  }, []);
+  }, [country]);
 
   const loadPincodes = async () => {
     await axios
@@ -202,7 +204,7 @@ const ProductEMX = (props) => {
 
   return(
     <>
-    <Navbar>
+    <Navbar setCountry={setCountry} country={country}>
     <section class="product_menu_sec">
         <div class="container">
           <div class="row">

@@ -23,6 +23,7 @@ const ProductDOODLE = (props) => {
   const [productID, setProductID] = useState("");
   const [deviceType, setDeviceType] = useState("");   
   const [delivery, setDelivery] = useState(true); 
+  const [country, setCountry] = useState(true); 
   const [subdomain, setSubdomain] = useState("");
 
   const [visibleImagesMap, setVisibleImagesMap] = useState(
@@ -100,9 +101,10 @@ const ProductDOODLE = (props) => {
     let full = window.location.host
     let parts = full.split('.')
     let sub = parts[0]
-    sub = 'uae';
+    // sub = 'uae';
+     sub =  localStorage.getItem('subDomain');
     setSubdomain(sub);
-  }, []);
+  }, [!country]);
 
   const loadPincodes = async () => {
     await axios
@@ -177,7 +179,7 @@ const ProductDOODLE = (props) => {
 
   return(
     <>
-    <Navbar>
+    <Navbar setCountry={setCountry} country={country}>
     <section class="product_menu_sec">
         <div class="container">
           <div class="row">

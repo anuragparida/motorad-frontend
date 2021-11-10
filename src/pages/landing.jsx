@@ -11,20 +11,24 @@ import { Carousel } from 'react-responsive-carousel';
 const Landing = (props) => {
 
     const [subdomain, setSubdomain] = useState("");
+    const [country, setCountry] = useState(true);
+
     useEffect(() => {
 
         AOS.init();
         let full = window.location.host
         let parts = full.split('.')
         let sub = parts[0]
-        sub = 'uae';
+        // sub = 'uae';
+        sub =  localStorage.getItem('subDomain');
         setSubdomain(sub);
+        // setSubdomain(sub);
 
-    }, []);
+    }, [country]);
 
     return (
         <>
-            <Navbar />
+            <Navbar setCountry={setCountry} country={country} />
             <MobileNavbar />
 
             <section class="home_hero_sec">
@@ -102,7 +106,7 @@ const Landing = (props) => {
                                 </>
                                 : (subdomain == 'uae') ?
                                     <>
-                                
+
                                         <div class="col-12">
                                             <div class="moobile_cycle mt_50">
                                                 <img src="images/EMX.gif" alt="a" class="img-fluid w-100" />

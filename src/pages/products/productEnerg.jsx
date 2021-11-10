@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import { VideoScroll } from 'react-video-scroll'
 
 
 let images = [0, 1, 2, 3, 4];
@@ -27,6 +28,8 @@ const ProductEnerg = (props) => {
     const [deviceType, setDeviceType] = useState("");
     const [delivery, setDelivery] = useState(true);
     const [subdomain, setSubdomain] = useState("");
+    const [country, setCountry] = useState(true);
+
 
     const [visibleImagesMap, setVisibleImagesMap] = useState(
         images.reduce((map, image) => {
@@ -34,6 +37,16 @@ const ProductEnerg = (props) => {
             return map;
         }, {})
     );
+
+    const setStyles = (wrapperEl, videoEl, playbackRate) => {
+        wrapperEl.style.marginTop = `calc(180% - ${Math.floor(videoEl.duration) *
+          playbackRate +
+          'px'})`
+        wrapperEl.style.marginBottom = `calc(180% - ${Math.floor(videoEl.duration) *
+          playbackRate +
+          'px'})`
+      }
+      
 
     const loadReviews = async () => {
         await axios
@@ -52,25 +65,16 @@ const ProductEnerg = (props) => {
         const handleScroll = () => {
             const scrollTop = document.documentElement.scrollTop;
             const viewportHeight = window.innerHeight;
-
             const newVisibleImagesMap = images.reduce((map, image) => {
                 map[image] = scrollTop >= image * viewportHeight;
                 return map;
             }, {});
 
-            // document.getElementById("image_0").setAttribute("style","background-image:url('../images/Web-A.png?"+new Date().getTime()+"');z-index:0;");
-            // document.getElementById("image_1").setAttribute("style","background-image:url('../images/Web-B.png?"+new Date().getTime()+"');z-index:1;");
-            // document.getElementById("image_2").setAttribute("style","background-image:url('../images/Web-C.png?"+new Date().getTime()+"');z-index:2;");
-            // document.getElementById("image_3").setAttribute("style","background-image:url('../images/Web-D.png?"+new Date().getTime()+"');z-index:3;");
-            // document.getElementById("image_4").setAttribute("style","background-image:url('../images/Web-E.png?"+new Date().getTime()+"');z-index:4;");
-
             console.log(newVisibleImagesMap);
             setVisibleImagesMap(newVisibleImagesMap);
         };
-
         window.addEventListener("scroll", handleScroll);
         handleScroll();
-
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
@@ -87,14 +91,16 @@ const ProductEnerg = (props) => {
         });
 
         var frameNumber = 0,
-            playbackConst = 1000,
+            playbackConst = 100,
             vid = document.getElementById("v0");
         function scrollPlay() {
             var frameNumber = window.pageYOffset / playbackConst;
-            vid.currentTime = frameNumber;
-            window.requestAnimationFrame(scrollPlay);
+            // console.log(vid);
+            if(vid != null) {
+                vid.currentTime = frameNumber;
+                window.requestAnimationFrame(scrollPlay);
+            }
         }
-
         window.requestAnimationFrame(scrollPlay);
 
         if (
@@ -110,11 +116,13 @@ const ProductEnerg = (props) => {
         let full = window.location.host
         let parts = full.split('.')
         let sub = parts[0]
-        if(sub == 'http://localhost:3000') {
-            sub = '';
-        }
+        // if(sub == 'http://localhost:3000') {
+        //     sub = '';
+        // }
+        // setSubdomain(sub);
+        sub = localStorage.getItem('subDomain');
         setSubdomain(sub);
-    }, []);
+    }, [country]);
 
     const loadPincodes = async () => {
         await axios
@@ -189,7 +197,7 @@ const ProductEnerg = (props) => {
 
     return (
         <>
-            <Navbar>
+            <Navbar setCountry={setCountry} country={country}>
                 <section class="product_menu_sec">
                     <div class="container">
                         <div class="row">
@@ -283,10 +291,10 @@ const ProductEnerg = (props) => {
                                                 
                                         } */}
                                         <img
-                                                    src="images/uae/ENERG/Top-Part/White.png"
-                                                    alt="a"
-                                                    class="img-fluid"
-                                                />
+                                            src="images/uae/ENERG/Top-Part/White.png"
+                                            alt="a"
+                                            class="img-fluid"
+                                        />
 
                                     </div>
                                     {/* <div class="product_hero_txt" style={{ "display": "none" }}>
@@ -329,6 +337,7 @@ const ProductEnerg = (props) => {
             {
                 (deviceType == 'Desktop') ?
                     <section class="product_vdo_sec">
+                        
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -361,6 +370,7 @@ const ProductEnerg = (props) => {
                     </section>
                     :
                     <section class="product_vdo_sec" id="feat_sec">
+                        
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -372,8 +382,25 @@ const ProductEnerg = (props) => {
                                                         src="images/uae/ENERG/EnerG-Mobile.mp4"
                                                         type="video/mp4"
                                                         class="d-lg-none"
-                                                    /> 
+                                                    />
                                                 </video>
+                                                {/* <VideoScroll
+                                                    onLoad={props =>
+                                                        setStyles(props.wrapperEl, props.videoEl, props.playbackRate)
+                                                    }
+                                                    playbackRate={200}
+                                                    style={{ position: 'relative' }}
+                                                    >
+                                                    <video
+                                                        tabIndex="0"
+                                                        autobuffer="autobuffer"
+                                                        preload="preload"
+                                                        style={{ width: '100%', objectFit: 'contain' }}
+                                                        playsInline
+                                                    >
+                                                        <source type="video/mp4" src="images/uae/ENERG/EnerG-Mobile.mp4" />
+                                                    </video>
+                                                </VideoScroll> */}
                                             </div>
                                         </div>
                                     </div>
@@ -381,7 +408,7 @@ const ProductEnerg = (props) => {
                             </div>
                         </div>
                     </section>
-                    
+
             }
 
 
@@ -574,8 +601,8 @@ const ProductEnerg = (props) => {
                       <p>7.5Ah 36V Lithium-Ion</p>
                     </div>
                   </div> */}
-                                    <div class="spe_dot_2 d-none d-lg-block" style={{marginTop:"75px"}}>
-                                        <div class="dot" style={{marginLeft:"-40px"}}>
+                                    <div class="spe_dot_2 d-none d-lg-block" style={{ marginTop: "75px" }}>
+                                        <div class="dot" style={{ marginLeft: "-40px" }}>
                                             <div class="dot-pulse"></div>
                                         </div>
                                         <div class="spe_dot_ol">
@@ -583,8 +610,8 @@ const ProductEnerg = (props) => {
                                             <p>250W 36V Rear Hub BLDC</p>
                                         </div>
                                     </div>
-                                    <div class="spe_dot_3 d-none d-lg-block"  style={{marginTop:"60px"}}>
-                                        <div class="dot" style={{marginLeft:"30px"}}>
+                                    <div class="spe_dot_3 d-none d-lg-block" style={{ marginTop: "60px" }}>
+                                        <div class="dot" style={{ marginLeft: "30px" }}>
                                             <div class="dot-pulse"></div>
                                         </div>
 
@@ -613,8 +640,8 @@ const ProductEnerg = (props) => {
                       <p>7.5Ah 36V Lithium-Ion</p>
                     </div>
                   </div> */}
-                                    <div class="spe_dot_6 d-none d-lg-block" style={{marginTop:"70px"}}>
-                                        <div class="dot" style={{marginLeft:"-130px"}}>
+                                    <div class="spe_dot_6 d-none d-lg-block" style={{ marginTop: "70px" }}>
+                                        <div class="dot" style={{ marginLeft: "-130px" }}>
                                             <div class="dot-pulse"></div>
                                         </div>
 
@@ -633,8 +660,8 @@ const ProductEnerg = (props) => {
                       <p>7.5Ah 36V Lithium-Ion</p>
                     </div>
                   </div> */}
-                                    <div class="spe_dot_8 d-none d-lg-block front_light" style={{marginTop:"-40px"}}>
-                                        <div class="dot"  style={{marginLeft:"-25px"}}>
+                                    <div class="spe_dot_8 d-none d-lg-block front_light" style={{ marginTop: "-40px" }}>
+                                        <div class="dot" style={{ marginLeft: "-25px" }}>
                                             <div class="dot-pulse"></div>
                                         </div>
 
@@ -655,8 +682,8 @@ const ProductEnerg = (props) => {
                       <p>7.5Ah 36V Lithium-Ion</p>
                     </div>
                   </div> */}
-                                    <div class="spe_dot_10 d-none d-lg-block"  style={{marginTop:"50px"}}>
-                                        <div class="dot" style={{marginLeft:"-40px"}}>
+                                    <div class="spe_dot_10 d-none d-lg-block" style={{ marginTop: "50px" }}>
+                                        <div class="dot" style={{ marginLeft: "-40px" }}>
                                             <div class="dot-pulse"></div>
                                         </div>
 
@@ -666,8 +693,8 @@ const ProductEnerg = (props) => {
                                             <p>LCD Display</p>
                                         </div>
                                     </div>
-                                    <div class="spe_dot_11 d-none d-lg-block"  style={{marginTop:"25px"}}>
-                                        <div class="dot" style={{marginLeft:"-30px"}}>
+                                    <div class="spe_dot_11 d-none d-lg-block" style={{ marginTop: "25px" }}>
+                                        <div class="dot" style={{ marginLeft: "-30px" }}>
                                             <div class="dot-pulse"></div>
                                         </div>
 
@@ -678,7 +705,7 @@ const ProductEnerg = (props) => {
                                             <p>Cutoff while braking</p>
                                         </div>
                                     </div>
-                                    <div class="spe_dot_7 d-none d-lg-block"  style={{marginTop:"120px"}}>
+                                    <div class="spe_dot_7 d-none d-lg-block" style={{ marginTop: "120px" }}>
                                         <div class="dot">
                                             <div class="dot-pulse"></div>
                                         </div>
@@ -1029,7 +1056,7 @@ const ProductEnerg = (props) => {
                                     <div class="technical_specific_box">
                                         <h6>Frame</h6>
                                         <p>
-                                        Steel
+                                            Steel
                                         </p>
                                     </div>
                                     <div class="technical_specific_box">
@@ -1042,26 +1069,26 @@ const ProductEnerg = (props) => {
                                     <div class="technical_specific_box">
                                         <h6>Rim</h6>
                                         <p>
-                                        Magnesium Aluminium Alloy
+                                            Magnesium Aluminium Alloy
                                         </p>
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>Tyres</h6>
                                         <p>
-                                        14X2.5" Tyres
+                                            14X2.5" Tyres
                                         </p>
                                     </div>
                                     <div class="technical_specific_box mr-0">
                                         <h6>Derailleurs</h6>
                                         <p>
-                                        3 Level - Low,<br />
-                                        Medium and High Tourney 
+                                            3 Level - Low,<br />
+                                            Medium and High Tourney
                                         </p>
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>Shifters</h6>
                                         <p>
-                                        Automatic
+                                            Automatic
                                         </p>
                                     </div>
                                     <div class="technical_specific_box">
@@ -1078,9 +1105,9 @@ const ProductEnerg = (props) => {
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>Brakes</h6>
-                                        <p>Dual Mechanical Disc<br/>
-                                        Brakes with Ceramic pads,<br/>
-                                        Zoom brake lever
+                                        <p>Dual Mechanical Disc<br />
+                                            Brakes with Ceramic pads,<br />
+                                            Zoom brake lever
 
                                         </p>
                                     </div>
@@ -1142,7 +1169,7 @@ const ProductEnerg = (props) => {
                                     <div class="technical_specific_box">
                                         <h6>Lights</h6>
                                         <p>LED headlamps <br />
-                                        LED head and rear <br /> lamps with integrated horn
+                                            LED head and rear <br /> lamps with integrated horn
                                         </p>
                                     </div>
                                     <div class="technical_specific_box">
@@ -1177,7 +1204,7 @@ const ProductEnerg = (props) => {
                                             boot type
                                         </p>
                                     </div> */}
-                                 
+
                                     {/* <div class="technical_specific_box">
                                         <h6>Stem</h6>
                                         <p>110 mm</p>
@@ -1568,7 +1595,7 @@ const ProductEnerg = (props) => {
                 <div class="d-flex">
 
                     <a href="javascript:void(0)" onClick={addToCart}><p>AED 3,599</p> BUY NOW</a>
-                </div> 
+                </div>
                 <a href="#" class="back-top-btn d-none d-lg-block">
                     <i class="fa fa-angle-up"></i>
                 </a>

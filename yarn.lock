@@ -8912,7 +8912,7 @@ prompts@2.4.0, prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -9289,6 +9289,13 @@ react-scroll-parallax@^2.4.0:
   integrity sha512-lFbf2SIEyxyIko/edR8Fx2mnn4T0t2WzLBa4E5ApoGwDsSWS1crL+LjRYtin+f3EV+rmBDzWqqr7vB5GsRpg9Q==
   dependencies:
     prop-types "^15.5.10"
+
+react-video-scroll@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-video-scroll/-/react-video-scroll-1.0.1.tgz#a716e51d3364a9d7b054714be55f7d89d5a54945"
+  integrity sha512-LpqqufeLp/uI7HdtaI1kUQbxIZ+9B7vparHo2Js846o8BVHYpv3RyWiKoj4KOzLj970zuNPq7JcDbLp+fop8Kg==
+  dependencies:
+    prop-types "^15.6.1"
 
 react@^17.0.2:
   version "17.0.2"
