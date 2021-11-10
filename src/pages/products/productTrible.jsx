@@ -357,7 +357,7 @@ const ProductTrible = (props) => {
                         </div>
                     </section>
                     :
-                    <section class="product_vdo_sec" style={{ display : 'none' }}>
+                    <section class="product_vdo_sec" style={{ display: 'none' }}>
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -570,8 +570,8 @@ const ProductTrible = (props) => {
                       <p>7.5Ah 36V Lithium-Ion</p>
                     </div>
                   </div> */}
-                                    <div class="spe_dot_2 d-none d-lg-block">     
-                                        <div class="dot">
+                                    <div class="spe_dot_2 d-none d-lg-block" style={{ marginTop: "65px" }}>
+                                        <div class="dot" style={{ marginLeft: "-40px" }}>
                                             <div class="dot-pulse"></div>
                                         </div>
                                         <div class="spe_dot_ol">
@@ -579,14 +579,24 @@ const ProductTrible = (props) => {
                                             <p>250W 36V Rear Hub BLDC</p>
                                         </div>
                                     </div>
-                                    <div class="spe_dot_3 d-none d-lg-block">
-                                        <div class="dot">
+                                    <div class="spe_dot_3 d-none d-lg-block" style={{ marginTop: "45px" }}>
+                                        <div class="dot" style={{ marginLeft: "-20px" }}>
                                             <div class="dot-pulse"></div>
                                         </div>
 
                                         <div class="spe_dot_ol">
                                             <h6>Pedal Asist Sensor</h6>
                                             <p>5-level Pedal Asist Sensor</p>
+                                        </div>
+                                    </div>
+                                    <div class="spe_dot_2 d-none d-lg-block motor" style={{ marginTop: "15px" }}>
+                                        <div class="dot">
+                                            <div class="dot-pulse"></div>
+                                        </div>
+                                        <div class="spe_dot_ol">
+                                            <h6>Derailleurs</h6>
+                                            <p>Single Speed </p>
+                                            
                                         </div>
                                     </div>
                                     {/* <div class="spe_dot_4 d-none d-lg-block">
@@ -609,14 +619,26 @@ const ProductTrible = (props) => {
                       <p>7.5Ah 36V Lithium-Ion</p>
                     </div>
                   </div> */}
-                                    <div class="spe_dot_6 d-none d-lg-block">
+                                    <div class="spe_dot_6 d-none d-lg-block" style={{ marginTop: "45px" }}>
                                         <div class="dot">
                                             <div class="dot-pulse"></div>
                                         </div>
 
                                         <div class="spe_dot_ol">
-                                            <h6>Battery</h6>
-                                            <p>7.5Ah 36V Lithium-Ion</p>
+                                            <h6>Lithium-ion battery</h6>
+                                            <p>7.5 Ah 36 volt Lithium-ion detachable battery</p>
+                                        </div>
+                                    </div>
+                                    <div class="spe_dot_4 d-none d-lg-block saddle" style={{ marginTop: "45px" }}>
+                                        <div class="dot">
+                                            <div class="dot-pulse"></div>
+                                        </div>
+
+                                        <div class="spe_dot_ol">
+                                            <h6>Saddle</h6>
+                                            <p>Double stitched PU</p>
+                                            <p>hydrodyme soft</p>
+                                            <p>cushion saddle</p>
                                         </div>
                                     </div>
                                     {/* <div class="spe_dot_7 d-none d-lg-block">
@@ -629,7 +651,7 @@ const ProductTrible = (props) => {
                       <p>7.5Ah 36V Lithium-Ion</p>
                     </div>
                   </div> */}
-                                    <div class="spe_dot_8 d-none d-lg-block front_light">
+                                    <div class="spe_dot_8 d-none d-lg-block front_light" style={{ marginTop: "125px" }}>
                                         <div class="dot">
                                             <div class="dot-pulse"></div>
                                         </div>
@@ -637,8 +659,8 @@ const ProductTrible = (props) => {
                                         <div class="spe_dot_ol">
                                             <h6>Front Light</h6>
                                             <p>High Luminostly LED</p>
-                                            <p>Light with Integrated</p>
-                                            <p>Horn</p>
+                                            <p>light with throttle</p>
+                                            <p>integrated Horn</p>
                                         </div>
                                     </div>
                                     {/* <div class="spe_dot_9 d-none d-lg-block">
@@ -651,8 +673,8 @@ const ProductTrible = (props) => {
                       <p>7.5Ah 36V Lithium-Ion</p>
                     </div>
                   </div> */}
-                                    <div class="spe_dot_10 d-none d-lg-block">
-                                        <div class="dot">
+                                    <div class="spe_dot_10 d-none d-lg-block" style={{ marginTop: "-30px" }}>
+                                        <div class="dot" style={{ marginLeft: "-60px" }}>
                                             <div class="dot-pulse"></div>
                                         </div>
 
@@ -662,8 +684,8 @@ const ProductTrible = (props) => {
                                             <p>LCD Display</p>
                                         </div>
                                     </div>
-                                    <div class="spe_dot_11 d-none d-lg-block">
-                                        <div class="dot">
+                                    <div class="spe_dot_11 d-none d-lg-block" style={{ marginTop: "-10px" }}>
+                                        <div class="dot" style={{ marginLeft: "-60px" }}>
                                             <div class="dot-pulse"></div>
                                         </div>
 
@@ -672,6 +694,48 @@ const ProductTrible = (props) => {
                                             <p>Front and rear</p>
                                             <p>E-breaks for power</p>
                                             <p>Cutoff while braking</p>
+                                        </div>
+                                    </div>
+                                        <div class="spe_dot_7 d-none d-lg-block" style={{ marginTop: "100px" }}>
+                                        <div class="dot" style={{ marginLeft: "-60px" }}>
+                                            <div class="dot-pulse"></div>
+                                        </div>
+
+                                        <div class="spe_dot_ol">
+                                            <h6>Tyres</h6>
+                                            <p>16" x 1.9" CST tyres</p>
+                                        </div>
+                                    </div>
+                                    <div class="spe_dot_8 d-none d-lg-block" style={{ marginTop: "172px",marginRight: "-39px" }}>
+                                        <div class="dot">
+                                            <div class="dot-pulse"></div>
+                                        </div>
+
+                                        <div class="spe_dot_ol">
+                                            <h6>Suspension</h6>
+                                            <p>Rigid Fork</p>
+                                        </div>
+                                    </div>
+                                    <div class="spe_dot_9 d-none d-lg-block" style={{ marginTop: "28px",marginRight: "-20px" }}>
+                                        <div class="dot">
+                                            <div class="dot-pulse"></div>
+                                        </div>
+
+                                        <div class="spe_dot_ol">
+                                            <h6>Brakes</h6>
+                                            <p>Dual Mechanical Disc Brakes with Ceramic pads,</p>
+                                            <p>Zoom brake lever</p>
+                                        </div>
+                                    </div> 
+                                    <div class="spe_dot_5 d-none d-lg-block" style={{ marginTop: "128px",marginLeft: "70px" }}>
+                                        <div class="dot">
+                                            <div class="dot-pulse"></div>
+                                        </div>
+
+                                        <div class="spe_dot_ol">
+                                            <h6>Frame</h6>
+                                            <p>20" Aluminium Alloy</p>
+                                            <p>6061 Hardtail</p>
                                         </div>
                                     </div>
 
@@ -1015,43 +1079,40 @@ const ProductTrible = (props) => {
                                     <div class="technical_specific_box">
                                         <h6>Frame</h6>
                                         <p>
-                                            17" Unisex Aluminium <br />
+                                            20" Unisex Aluminium <br />
                                             Alloy 6061
                                         </p>
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>Suspension</h6>
                                         <p>
-                                            Front with 100 mm <br />
-                                            travel and lock-out
+                                            Rigid Fork
                                         </p>
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>Rim</h6>
                                         <p>
-                                            Aluminium Alloy double <br />
-                                            wall 36-Hole
+                                            Magnesium <br />
+                                            Aluminium Alloy
                                         </p>
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>Tyres</h6>
                                         <p>
-                                            26" x 2.0" <br />
-                                            Chanyoung*
+                                            16" x 1.90" CST <br />
+                                            Tyres
                                         </p>
                                     </div>
                                     <div class="technical_specific_box mr-0">
                                         <h6>Derailleurs</h6>
                                         <p>
-                                            7-Speed Shimano <br />
-                                            Tourney
+                                            Single Speed
                                         </p>
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>Shifters</h6>
                                         <p>
-                                            Shimano thumb <br />
-                                            shifter
+                                            Nil
                                         </p>
                                     </div>
                                     <div class="technical_specific_box">
@@ -1064,38 +1125,44 @@ const ProductTrible = (props) => {
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>Pedals</h6>
-                                        <p>Aluminium Alloy</p>
+                                        <p>	Foldable Fibre</p>
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>Brakes</h6>
-                                        <p>Dual Disc</p>
+                                        <p>Dual Mechanical Disc <br />
+                                            Brakes with Ceramic pads,<br />
+                                            Zoom brake lever
+                                        </p>
                                     </div>
                                     <div class="technical_specific_box mr-0">
-                                        <h6>Crank Set</h6>
-                                        <p>Aluminium Alloy</p>
+                                        <h6>Crank </h6>
+                                        <p>	Prowheell Aluminium Alloy</p>
                                     </div>
                                     <div class="technical_specific_box">
-                                        <h6>BB Set</h6>
-                                        <p>Squared tapered</p>
+                                        <h6>Lights</h6>
+                                        <p>LED headlamps <br />
+                                            with throttle  <br /> integrated horn
+                                        </p>
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>Stand</h6>
                                         <p>
-                                            Chainstay mounted <br />
+                                            Chainstay<br /> mounted <br />
                                             boot type
                                         </p>
                                     </div>
                                     <div class="technical_specific_box">
-                                        <h6>Handlebar</h6>
+                                        <h6>Throttle type</h6>
                                         <p>
-                                            630 mm Aluminium <br />
-                                            Alloy
+                                            Twist
                                         </p>
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>Stem</h6>
-                                        <p>110 mm</p>
+                                        <p>Rigid, Foldable</p>
                                     </div>
+
+
                                     <div class="technical_specific_box mr-0">
                                         <h6>Seat Post</h6>
                                         <p>Adjustable</p>
@@ -1107,15 +1174,16 @@ const ProductTrible = (props) => {
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>Bike weight</h6>
-                                        <p>22.3kg</p>
+                                        <p>23 kg</p>
                                     </div>
+
                                     <div class="technical_specific_box">
-                                        <h6>Bike weight</h6>
+                                        <h6>Front Hub</h6>
                                         <p>Quick-release</p>
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>Battery</h6>
-                                        <p>7.5 Ah 36V <br /> Lithium-Ion </p>
+                                        <p>36v 7.5 Ah  <br /> Lithium-Ion </p>
                                     </div>
                                     <div class="technical_specific_box mr-0">
                                         <h6>Top speed</h6>
@@ -1128,7 +1196,7 @@ const ProductTrible = (props) => {
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>Motor</h6>
-                                        <p>35+ Km on Throttle <br />50+ Km on PAS</p>
+                                        <p>	36V, 250W, BLDC <br />Rear Hub Motor</p>
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>Charger</h6>
@@ -1136,16 +1204,16 @@ const ProductTrible = (props) => {
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>IP certification</h6>
-                                        <p>IP 65 protected</p>
+                                        <p>IP65 </p>
                                     </div>
                                     <div class="technical_specific_box mr-0">
                                         <h6>Display</h6>
-                                        <p>3" LCD 866 <br /> display</p>
+                                        <p>3" LCD display</p>
                                     </div>
 
 
                                     <div class="technical_specific_box">
-                                        <h6>Operation <br /> Modes</h6>
+                                        <h6>Operation  Modes</h6>
                                         <p>a. Mechanical <br />
                                             b. 5 levels of <br />
                                             pedal assist <br />
@@ -1154,25 +1222,15 @@ const ProductTrible = (props) => {
                                             e. Walk mode</p>
                                     </div>
                                     <div class="technical_specific_box">
-                                        <h6>Lights</h6>
-                                        <p>LED headlamps <br />
-                                            with integrated <br /> horn
-                                        </p>
+                                        <h6>Rider height</h6>
+                                        <p>3'5" and above</p>
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>Rider weight</h6>
                                         <p>Up to 120Kg</p>
                                     </div>
-                                    <div class="technical_specific_box">
-                                        <h6>Rider height</h6>
-                                        <p>5' to 5'9"</p>
-                                    </div>
-                                    <div class="technical_specific_box mr-0">
-                                        <div style={{ display: 'none' }}>
-                                            <h6>Display</h6>
-                                            <p>3" LCD 866 <br /> display</p>
-                                        </div>
-                                    </div>
+
+
 
 
                                 </div>

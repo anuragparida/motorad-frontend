@@ -570,8 +570,8 @@ const ProductEnerg = (props) => {
                       <p>7.5Ah 36V Lithium-Ion</p>
                     </div>
                   </div> */}
-                                    <div class="spe_dot_2 d-none d-lg-block">
-                                        <div class="dot">
+                                    <div class="spe_dot_2 d-none d-lg-block" style={{marginTop:"75px"}}>
+                                        <div class="dot" style={{marginLeft:"-40px"}}>
                                             <div class="dot-pulse"></div>
                                         </div>
                                         <div class="spe_dot_ol">
@@ -579,8 +579,8 @@ const ProductEnerg = (props) => {
                                             <p>250W 36V Rear Hub BLDC</p>
                                         </div>
                                     </div>
-                                    <div class="spe_dot_3 d-none d-lg-block">
-                                        <div class="dot">
+                                    <div class="spe_dot_3 d-none d-lg-block"  style={{marginTop:"60px"}}>
+                                        <div class="dot" style={{marginLeft:"30px"}}>
                                             <div class="dot-pulse"></div>
                                         </div>
 
@@ -609,14 +609,14 @@ const ProductEnerg = (props) => {
                       <p>7.5Ah 36V Lithium-Ion</p>
                     </div>
                   </div> */}
-                                    <div class="spe_dot_6 d-none d-lg-block">
-                                        <div class="dot">
+                                    <div class="spe_dot_6 d-none d-lg-block" style={{marginTop:"70px"}}>
+                                        <div class="dot" style={{marginLeft:"-130px"}}>
                                             <div class="dot-pulse"></div>
                                         </div>
 
                                         <div class="spe_dot_ol">
-                                            <h6>Battery</h6>
-                                            <p>7.5Ah 36V Lithium-Ion</p>
+                                            <h6>Lithium-Ion Battery</h6>
+                                            <p>20 Ah 36 volt Lithium-ion detachable battery </p>
                                         </div>
                                     </div>
                                     {/* <div class="spe_dot_7 d-none d-lg-block">
@@ -629,16 +629,16 @@ const ProductEnerg = (props) => {
                       <p>7.5Ah 36V Lithium-Ion</p>
                     </div>
                   </div> */}
-                                    <div class="spe_dot_8 d-none d-lg-block front_light">
-                                        <div class="dot">
+                                    <div class="spe_dot_8 d-none d-lg-block front_light" style={{marginTop:"-40px"}}>
+                                        <div class="dot"  style={{marginLeft:"-25px"}}>
                                             <div class="dot-pulse"></div>
                                         </div>
 
                                         <div class="spe_dot_ol">
-                                            <h6>Front Light</h6>
+                                            <h6>Front and rear lights</h6>
                                             <p>High Luminostly LED</p>
-                                            <p>Light with Integrated</p>
-                                            <p>Horn</p>
+                                            <p>light with throttle</p>
+                                            <p>integrated Horn</p>
                                         </div>
                                     </div>
                                     {/* <div class="spe_dot_9 d-none d-lg-block">
@@ -651,19 +651,19 @@ const ProductEnerg = (props) => {
                       <p>7.5Ah 36V Lithium-Ion</p>
                     </div>
                   </div> */}
-                                    <div class="spe_dot_10 d-none d-lg-block">
-                                        <div class="dot">
+                                    <div class="spe_dot_10 d-none d-lg-block"  style={{marginTop:"50px"}}>
+                                        <div class="dot" style={{marginLeft:"-40px"}}>
                                             <div class="dot-pulse"></div>
                                         </div>
 
                                         <div class="spe_dot_ol">
                                             <h6>LCD Display</h6>
-                                            <p>3-inch Multifunctional</p>
+                                            <p>8-inch Multifunctional</p>
                                             <p>LCD Display</p>
                                         </div>
                                     </div>
-                                    <div class="spe_dot_11 d-none d-lg-block">
-                                        <div class="dot">
+                                    <div class="spe_dot_11 d-none d-lg-block"  style={{marginTop:"25px"}}>
+                                        <div class="dot" style={{marginLeft:"-30px"}}>
                                             <div class="dot-pulse"></div>
                                         </div>
 
@@ -672,6 +672,16 @@ const ProductEnerg = (props) => {
                                             <p>Front and rear</p>
                                             <p>E-breaks for power</p>
                                             <p>Cutoff while braking</p>
+                                        </div>
+                                    </div>
+                                    <div class="spe_dot_7 d-none d-lg-block"  style={{marginTop:"120px"}}>
+                                        <div class="dot">
+                                            <div class="dot-pulse"></div>
+                                        </div>
+
+                                        <div class="spe_dot_ol">
+                                            <h6>Tyres</h6>
+                                            <p>14 x 2.5" tyres</p>
                                         </div>
                                     </div>
 
@@ -1015,8 +1025,7 @@ const ProductEnerg = (props) => {
                                     <div class="technical_specific_box">
                                         <h6>Frame</h6>
                                         <p>
-                                            17" Unisex Aluminium <br />
-                                            Alloy 6061
+                                        Steel
                                         </p>
                                     </div>
                                     <div class="technical_specific_box">
@@ -1029,29 +1038,26 @@ const ProductEnerg = (props) => {
                                     <div class="technical_specific_box">
                                         <h6>Rim</h6>
                                         <p>
-                                            Aluminium Alloy double <br />
-                                            wall 36-Hole
+                                        Magnesium Aluminium Alloy
                                         </p>
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>Tyres</h6>
                                         <p>
-                                            26" x 2.0" <br />
-                                            Chanyoung*
+                                        14X2.5" Tyres
                                         </p>
                                     </div>
                                     <div class="technical_specific_box mr-0">
                                         <h6>Derailleurs</h6>
                                         <p>
-                                            7-Speed Shimano <br />
-                                            Tourney
+                                        3 Level - Low,<br />
+                                        Medium and High Tourney 
                                         </p>
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>Shifters</h6>
                                         <p>
-                                            Shimano thumb <br />
-                                            shifter
+                                        Automatic
                                         </p>
                                     </div>
                                     <div class="technical_specific_box">
@@ -1068,10 +1074,92 @@ const ProductEnerg = (props) => {
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>Brakes</h6>
-                                        <p>Dual Disc</p>
+                                        <p>Dual Mechanical Disc<br/>
+                                        Brakes with Ceramic pads,<br/>
+                                        Zoom brake lever
+
+                                        </p>
                                     </div>
                                     <div class="technical_specific_box mr-0">
-                                        <h6>Crank Set</h6>
+                                        <h6>Crank </h6>
+                                        <p>Aluminium Alloy</p>
+                                    </div>
+                                    <div class="technical_specific_box ">
+                                        <h6>Display</h6>
+                                        <p>	8" multifunctional <br />LCD display</p>
+                                    </div>
+                                    <div class="technical_specific_box ">
+                                        <h6>Charger</h6>
+                                        <p>2A charger, <br />4-5 hrs to fully <br /> charge the battery</p>
+                                    </div>
+                                    <div class="technical_specific_box">
+                                        <h6>Handlebar</h6>
+                                        <p>
+                                            64 cm Aluminium <br />
+                                            Alloy
+                                        </p>
+                                    </div>
+                                    <div class="technical_specific_box">
+                                        <h6>IP certification</h6>
+                                        <p>IP65</p>
+                                    </div>
+                                    <div class="technical_specific_box mr-0">
+                                        <h6>Seat Post</h6>
+                                        <p>Adjustable</p>
+                                    </div>
+                                    <div class="technical_specific_box">
+                                        <h6>Mudguards</h6>
+                                        <p>Yes</p>
+                                    </div>
+                                    <div class="technical_specific_box">
+                                        <h6>Bike weight</h6>
+                                        <p>28.3kg</p>
+                                    </div>
+                                    <div class="technical_specific_box">
+                                        <h6>Front Hub</h6>
+                                        <p>Quick-release</p>
+                                    </div>
+                                    <div class="technical_specific_box">
+                                        <h6>Battery</h6>
+                                        <p>20 Ah <br /> Lithium-Ion </p>
+                                    </div>
+                                    <div class="technical_specific_box mr-0">
+                                        <h6>Top speed</h6>
+                                        <p>25 km/hr</p>
+                                    </div>
+                                    <div class="technical_specific_box">
+                                        <h6>Range</h6>
+                                        <p>110+ Km on Throttle<br />50+ Km on PAS</p>
+                                    </div>
+                                    <div class="technical_specific_box">
+                                        <h6>Motor</h6>
+                                        <p>	48V, 350W, BLDC <br />Rear Hub Motor</p>
+                                    </div>
+                                    <div class="technical_specific_box">
+                                        <h6>Lights</h6>
+                                        <p>LED headlamps <br />
+                                        LED head and rear <br /> lamps with integrated horn
+                                        </p>
+                                    </div>
+                                    <div class="technical_specific_box">
+                                        <h6>Rider weight</h6>
+                                        <p>Up to 150Kg</p>
+                                    </div>
+                                    <div class="technical_specific_box">
+                                        <h6>Rider height</h6>
+                                        <p>4'5" and above</p>
+                                    </div>
+                                    <div class="technical_specific_box">
+                                        <h6>Operation <br /> Modes</h6>
+                                        <p>a. Mechanical <br />
+                                            b. 5 levels of <br />
+                                            pedal assist <br />
+                                            c. Throttle mode <br />
+                                            d. Cruise mode <br />
+                                            e. Walk mode</p>
+                                    </div>
+                                    {/* <div class="technical_specific_box mr-0">
+                                        <h6>Crank </h6>
                                         <p>Aluminium Alloy</p>
                                     </div>
                                     <div class="technical_specific_box">
@@ -1084,95 +1172,42 @@ const ProductEnerg = (props) => {
                                             Chainstay mounted <br />
                                             boot type
                                         </p>
-                                    </div>
-                                    <div class="technical_specific_box">
-                                        <h6>Handlebar</h6>
-                                        <p>
-                                            630 mm Aluminium <br />
-                                            Alloy
-                                        </p>
-                                    </div>
-                                    <div class="technical_specific_box">
+                                    </div> */}
+                                 
+                                    {/* <div class="technical_specific_box">
                                         <h6>Stem</h6>
                                         <p>110 mm</p>
                                     </div>
-                                    <div class="technical_specific_box mr-0">
-                                        <h6>Seat Post</h6>
-                                        <p>Adjustable</p>
-                                    </div>
+                                
 
-                                    <div class="technical_specific_box">
-                                        <h6>Mudguards</h6>
-                                        <p>Yes</p>
-                                    </div>
-                                    <div class="technical_specific_box">
-                                        <h6>Bike weight</h6>
-                                        <p>22.3kg</p>
-                                    </div>
-                                    <div class="technical_specific_box">
-                                        <h6>Bike weight</h6>
-                                        <p>Quick-release</p>
-                                    </div>
-                                    <div class="technical_specific_box">
-                                        <h6>Battery</h6>
-                                        <p>7.5 Ah 36V <br /> Lithium-Ion </p>
-                                    </div>
-                                    <div class="technical_specific_box mr-0">
-                                        <h6>Top speed</h6>
-                                        <p>25 km/hr</p>
-                                    </div>
+                                
+                           
+                                
+                              
+                               
 
-                                    <div class="technical_specific_box">
-                                        <h6>Range</h6>
-                                        <p>35+ Km on Throttle<br />50+ Km on PAS</p>
-                                    </div>
-                                    <div class="technical_specific_box">
-                                        <h6>Motor</h6>
-                                        <p>35+ Km on Throttle <br />50+ Km on PAS</p>
-                                    </div>
+                              
+                              
                                     <div class="technical_specific_box">
                                         <h6>Charger</h6>
                                         <p>2A charger, <br />3-4 hrs to fully <br /> charge the battery</p>
                                     </div>
-                                    <div class="technical_specific_box">
-                                        <h6>IP certification</h6>
-                                        <p>IP 65 protected</p>
-                                    </div>
+                                  
                                     <div class="technical_specific_box mr-0">
                                         <h6>Display</h6>
                                         <p>3" LCD 866 <br /> display</p>
                                     </div>
 
 
-                                    <div class="technical_specific_box">
-                                        <h6>Operation <br /> Modes</h6>
-                                        <p>a. Mechanical <br />
-                                            b. 5 levels of <br />
-                                            pedal assist <br />
-                                            c. Throttle mode <br />
-                                            d. Cruise mode <br />
-                                            e. Walk mode</p>
-                                    </div>
-                                    <div class="technical_specific_box">
-                                        <h6>Lights</h6>
-                                        <p>LED headlamps <br />
-                                            with integrated <br /> horn
-                                        </p>
-                                    </div>
-                                    <div class="technical_specific_box">
-                                        <h6>Rider weight</h6>
-                                        <p>Up to 120Kg</p>
-                                    </div>
-                                    <div class="technical_specific_box">
-                                        <h6>Rider height</h6>
-                                        <p>5' to 5'9"</p>
-                                    </div>
+                          
+                               
+                             
                                     <div class="technical_specific_box mr-0">
                                         <div style={{ display: 'none' }}>
                                             <h6>Display</h6>
                                             <p>3" LCD 866 <br /> display</p>
                                         </div>
-                                    </div>
+                                    </div> */}
 
 
                                 </div>
