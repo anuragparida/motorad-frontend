@@ -111,7 +111,7 @@ const ProductEMX = (props) => {
     });
 
     var frameNumber = 0,
-      playbackConst = 1000,
+      playbackConst = 150,
       vid = document.getElementById("v0");
     function scrollPlay() {
       var frameNumber = window.pageYOffset / playbackConst;
@@ -347,30 +347,37 @@ const ProductEMX = (props) => {
         </div>
       </section> 
       :
-      <section class="product_vdo_sec">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-                {/* {images.map((image) => (
-                    <div className={`image_${image}`} 
-                      key={image}
-                      id={"image_"+image}
-                      // style={{backgroundPosition: 'calc(100% + 30px) calc(100% + 30px);' }}
-                    />
-                ))}           */}
-                <img src="../images/EMX/Mobile-A.png" width="100%" className="img-fluid"/>
-                <img src="../images/EMX/Mobile-B.png" width="100%" className="img-fluid"/>
-                <img src="../images/EMX/Mobile-C.png" width="100%" className="img-fluid"/>
-                <img src="../images/EMX/Mobile-D.png" width="100%" className="img-fluid"/>
-                <img src="../images/EMX/Mobile-E.png" width="100%" className="img-fluid"/>
-            </div>                
+      <section class="product_vdo_sec" id="feat_sec">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="app">
+              <div id="bound-two" class="scroll-bound">
+                <div class="content">
+                  <video
+                    class="d-lg-none"
+                    id="v0"
+                    tabindex="0"
+                    autobuffer
+                    muted
+                    preload
+                  >
+                    <source
+                      src="images/3D-Renders/EMX-Mobile-FFMpeg.mp4"
+                      type="video/mp4"
+                    /> 
+                  </video>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>    
-      </section>  
+        </div>
+      </div>
+    </section>
     }
 
 
-    <section class="product_vdo_sec" id="feat_sec" style={{ display: 'none' }}>
+    {/* <section class="product_vdo_sec" id="feat_sec" style={{ display: 'none' }}>
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -378,10 +385,10 @@ const ProductEMX = (props) => {
               <div id="bound-two" class="scroll-bound">
                 <div class="content">
                   <video id="v0" tabindex="0" autobuffer muted preload>
-                    {/* <source
+                    <source
                       src="images/3D-Renders/EMX-full-FFMpeg.mp4"
                       type="video/mp4"
-                    /> */}
+                    /> 
                   </video>
                   <video
                     class="d-lg-none"
@@ -391,10 +398,10 @@ const ProductEMX = (props) => {
                     muted
                     preload
                   >
-                    {/* <source
+                    <source
                       src="images/3D-Renders/EMX-Mobile-FFMpeg.mp4"
                       type="video/mp4"
-                    /> */}
+                    /> 
                   </video>
                 </div>
               </div>
@@ -402,7 +409,7 @@ const ProductEMX = (props) => {
           </div>
         </div>
       </div>
-    </section>
+    </section> */}
     <section class="glory_section" id="gal_sec">
       <div class="container">
         <div class="row justify-content-end">

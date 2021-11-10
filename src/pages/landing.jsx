@@ -1218,7 +1218,7 @@ const Landing = (props) => {
                                 </Link>
                             </div>
                         </div>
-                        :
+                        : (subdomain == 'uae') ?
                         <>
                             <div class="row expo_bike_slider_uae">
                                 <div class="col-lg-3">
@@ -1400,6 +1400,141 @@ const Landing = (props) => {
                                 </div>
                             </div>
                         </>
+                        :
+                        <div class="row  expo_bike_slider">
+                            <div class="col-lg-4">
+                                <Link to="/trex">
+                                    <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                                        <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
+
+                                        <h3>T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+
+                                        <h5>FEATURES</h5>
+                                        <table>
+                                            <tr>
+                                                <td>RANGE</td>
+                                                <td>50+ Kms</td>
+                                            </tr>
+                                            <tr>
+                                                <td>SPEED (MAX)</td>
+                                                <td>25Km/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>BRAKES</td>
+                                                <td>Dual Disc</td>
+                                            </tr>
+                                            <tr>
+                                                <td>BATTERY</td>
+                                                <td>36 Volts</td>
+                                            </tr>
+                                            <tr>
+                                                <td>CAPACITY</td>
+                                                <td>7.5 Ah</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Starting From</td>
+                                                <td>Colors</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Rs 37,142</td>
+                                                <td><i class="fa fa-circle"></i> <i class="fa fa-circle"></i></td>
+                                            </tr>
+                                        </table>
+                                        <div class="explore_bttn row mx-auto">
+                                            <Link to="/trex">Buy Now</Link>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+                            <div class="col-lg-4">
+                                <Link to="/emx">
+                                    <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                                        <img src="images/bicycle_3.png" alt="a" class="img-fluid" />
+
+                                        <h3>EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+
+                                        <h5>FEATURES</h5>
+                                        <table>
+                                            <tr>
+                                                <td>RANGE</td>
+                                                <td>65+ Kms</td>
+                                            </tr>
+                                            <tr>
+                                                <td>SPEED (MAX)</td>
+                                                <td>25Km/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>BRAKES</td>
+                                                <td>Dual Disc</td>
+                                            </tr>
+                                            <tr>
+                                                <td>BATTERY</td>
+                                                <td>36 Volts</td>
+                                            </tr>
+                                            <tr>
+                                                <td>CAPACITY</td>
+                                                <td>10.4 Ah</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Starting From</td>
+                                                <td>Colors</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Rs 52,380</td>
+                                                <td><i class="fa fa-circle" style={{ "color": "#DBFF00" }}></i></td>
+                                            </tr>
+                                        </table>
+                                        <div class="explore_bttn row mx-auto">
+                                            <Link to="/emx">Buy Now</Link>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+                            <div class="col-lg-4">
+                                <Link to="/trex">
+                                    <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                                        <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
+
+                                        <h3>DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+
+                                        <h5>FEATURES</h5>
+                                        <table>
+                                            <tr>
+                                                <td>RANGE</td>
+                                                <td>55+ Kms</td>
+                                            </tr>
+                                            <tr>
+                                                <td>SPEED (MAX)</td>
+                                                <td>25Km/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>BRAKES</td>
+                                                <td>Dual Disc</td>
+                                            </tr>
+                                            <tr>
+                                                <td>BATTERY</td>
+                                                <td>36 Volts</td>
+                                            </tr>
+                                            <tr>
+                                                <td>CAPACITY</td>
+                                                <td>10 Ah</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Starting From</td>
+                                                <td>Colors</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Rs 76,190</td>
+                                                <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{ "color": "#10B068" }}></i></td>
+                                            </tr>
+                                        </table>
+                                        <div class="explore_bttn row mx-auto">
+                                            <Link to="/doodle">Buy Now</Link>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+                        </div>
                     }
                 </div>
             </section>

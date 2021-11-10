@@ -79,7 +79,7 @@ const ProductDOODLE = (props) => {
     });
 
     var frameNumber = 0,
-      playbackConst = 1000,
+      playbackConst = 150,
       vid = document.getElementById("v0");
     function scrollPlay() {
       var frameNumber = window.pageYOffset / playbackConst;
@@ -352,29 +352,7 @@ const ProductDOODLE = (props) => {
         </div>
       </section> 
     :
-    <section class="product_vdo_sec">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-              {/* {images.map((image) => (
-                  <div className={`image_${image}`} 
-                    key={image}
-                    id={"image_"+image}
-                    // style={{backgroundPosition: 'calc(100% + 30px) calc(100% + 30px);' }}
-                  />
-              ))}           */}
-              <img src="../images/Doodle/Mobile-A.png" width="100%" className="img-fluid"/>
-              <img src="../images/Doodle/Mobile-B.png" width="100%" className="img-fluid"/>
-              <img src="../images/Doodle/Mobile-C.png" width="100%" className="img-fluid"/>
-              <img src="../images/Doodle/Mobile-D.png" width="100%" className="img-fluid"/>
-              <img src="../images/Doodle/Mobile-E.png" width="100%" className="img-fluid"/>
-          </div>                
-        </div>
-      </div>    
-    </section>  
-  }  
-
-    <section class="product_vdo_sec" id="feat_sec" style={{ display: 'none' }}>
+    <section class="product_vdo_sec" id="feat_sec">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
@@ -382,15 +360,11 @@ const ProductDOODLE = (props) => {
               <div id="bound-two" class="scroll-bound">
                 <div class="content">
                   <video id="v0" tabindex="0" autobuffer muted preload>
-                    {/* <source
-                      src="images/3D-Renders/Doodle-Full-FFMpeg.mp4"
-                      type="video/mp4"
-                    />
                     <source
                       src="images/3D-Renders/Doodle-Mobile-FFMpeg.mp4"
                       type="video/mp4"
                       class="d-lg-none"
-                    /> */}
+                    />
                   </video>
                 </div>
               </div>
@@ -398,7 +372,34 @@ const ProductDOODLE = (props) => {
           </div>
         </div>
       </div>
-    </section>
+    </section> 
+  }  
+
+    {/* <section class="product_vdo_sec" id="feat_sec" style={{ display: 'none' }}>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="app">
+              <div id="bound-two" class="scroll-bound">
+                <div class="content">
+                  <video id="v0" tabindex="0" autobuffer muted preload>
+                    <source
+                      src="images/3D-Renders/Doodle-Full-FFMpeg.mp4"
+                      type="video/mp4"
+                    />
+                    <source
+                      src="images/3D-Renders/Doodle-Mobile-FFMpeg.mp4"
+                      type="video/mp4"
+                      class="d-lg-none"
+                    />
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> */}
     <section class="glory_section" id="gal_sec">
       <div class="container">
         <div class="row justify-content-end">

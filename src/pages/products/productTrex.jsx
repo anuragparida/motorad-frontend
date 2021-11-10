@@ -24,9 +24,9 @@ const ProductTREX = (props) => {
   const [reviews, setReviews] = useState([]);
   const [products, setProducts] = useState([]);
   const [productID, setProductID] = useState("");
-  const [deviceType, setDeviceType] = useState("");   
-  const [delivery, setDelivery] = useState(true); 
-  const [subdomain, setSubdomain] = useState("");  
+  const [deviceType, setDeviceType] = useState("");
+  const [delivery, setDelivery] = useState(true);
+  const [subdomain, setSubdomain] = useState("");
   const [country, setCountry] = useState(true);
 
 
@@ -39,15 +39,15 @@ const ProductTREX = (props) => {
 
   const loadReviews = async () => {
     await axios
-    .post(server + "/api/order/review/read")
-    .then((rsp) => {
-      console.log(rsp);
-      setReviews(rsp.data.payload);
-    })
-    .catch((err) => {
-      checkAccess(err);
-      console.error(err);
-    });
+      .post(server + "/api/order/review/read")
+      .then((rsp) => {
+        console.log(rsp);
+        setReviews(rsp.data.payload);
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
   }
 
   useLayoutEffect(() => {
@@ -89,7 +89,7 @@ const ProductTREX = (props) => {
     });
 
     var frameNumber = 0,
-      playbackConst = 1000,
+      playbackConst = 150,
       vid = document.getElementById("v0");
     function scrollPlay() {
       var frameNumber = window.pageYOffset / playbackConst;
@@ -113,7 +113,7 @@ const ProductTREX = (props) => {
     let parts = full.split('.')
     let sub = parts[0]
     // sub = 'uae';
-    sub =  localStorage.getItem('subDomain');
+    sub = localStorage.getItem('subDomain');
     setSubdomain(sub);
   }, [country]);
 
@@ -239,10 +239,10 @@ const ProductTREX = (props) => {
                       {
                         (subdomain == '' || subdomain == 'nepal') ?
                           <h6>Rs 37,133</h6>
-                        : (subdomain == 'uae') ? 
-                        <h6>AED 3,499</h6>
-                        :
-                        <h6>Rs 37,133</h6>
+                          : (subdomain == 'uae') ?
+                            <h6>AED 3,499</h6>
+                            :
+                            <h6>Rs 37,133</h6>
                       }
                     </li>
                     <li class="d-none d-lg-block">
@@ -371,22 +371,23 @@ const ProductTREX = (props) => {
             </div>
           </section>
           :
-          <section class="product_vdo_sec">
+          <section class="product_vdo_sec" id="feat_sec">
             <div class="container">
               <div class="row">
                 <div class="col-lg-12">
-                  {/* {images.map((image) => (
-                    <div className={`image_${image}`} 
-                      key={image}
-                      id={"image_"+image}
-                      // style={{backgroundPosition: 'calc(100% + 30px) calc(100% + 30px);' }}
-                    />
-                ))}           */}
-                  <img src="../images/Mobile-A.png" width="100%" className="img-fluid" />
-                  <img src="../images/Mobile-B.png" width="100%" className="img-fluid" />
-                  <img src="../images/Mobile-C.png" width="100%" className="img-fluid" />
-                  <img src="../images/Mobile-D.png" width="100%" className="img-fluid" />
-                  <img src="../images/Mobile-E.png" width="100%" className="img-fluid" />
+                  <div class="app">
+                    <div id="bound-two" class="scroll-bound">
+                      <div class="content">
+                        <video id="v0" tabindex="0" autobuffer muted preload>
+                          <source
+                            src="images/3D-Renders/T-Rex-Mobile-FFMpeg.mp4"
+                            type="video/mp4"
+                            class="d-lg-none"
+                          />
+                        </video>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -394,8 +395,7 @@ const ProductTREX = (props) => {
       }
 
 
-      <section class="product_vdo_sec" id="feat_sec" style={{ display: 'none' }}>
-        {/* style={{ display :'none' }} */}
+      {/* <section class="product_vdo_sec" id="feat_sec" style={{ display: 'none' }}>
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
@@ -403,11 +403,11 @@ const ProductTREX = (props) => {
                 <div id="bound-two" class="scroll-bound">
                   <div class="content">
                     <video id="v0" tabindex="0" autobuffer muted preload>
-                      {/* <source
-                      src="images/3D-Renders/T-Rex-Mobile-FFMpeg.mp4"
-                      type="video/mp4"
-                      class="d-lg-none"
-                    />  */}
+                      <source
+                        src="images/3D-Renders/T-Rex-Mobile-FFMpeg.mp4"
+                        type="video/mp4"
+                        class="d-lg-none"
+                      />  
                     </video>
                   </div>
                 </div>
@@ -415,7 +415,7 @@ const ProductTREX = (props) => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       <section class="glory_section" id="gal_sec">
         <div class="container">
           <div class="row justify-content-end">
@@ -1211,35 +1211,35 @@ const ProductTREX = (props) => {
           </div>
 
           {
-          reviews.length > 0 ?
-          <Carousel>
-          {
-            reviews.map(r=>(
-              <div>
-              <div class="customer_rev_wapp">
-                <div class="d-flex justify-content-between">
-                  <h6>{r.userName}</h6>
-                  <span>{r.created_at.split("T")[0]}</span>
-                </div>
-                <p>
-                  {r.message}
-                </p>
+            reviews.length > 0 ?
+              <Carousel>
+                {
+                  reviews.map(r => (
+                    <div>
+                      <div class="customer_rev_wapp">
+                        <div class="d-flex justify-content-between">
+                          <h6>{r.userName}</h6>
+                          <span>{r.created_at.split("T")[0]}</span>
+                        </div>
+                        <p>
+                          {r.message}
+                        </p>
 
-                <ul>
-                  <li><i class="fa fa-star" style={{"color": r.rating >= 1 ? "#10b068" : "grey"}}></i></li>
-                  <li><i class="fa fa-star" style={{"color": r.rating >= 2 ? "#10b068" : "grey"}}></i></li>
-                  <li><i class="fa fa-star" style={{"color": r.rating >= 3 ? "#10b068" : "grey"}}></i></li>
-                  <li><i class="fa fa-star" style={{"color": r.rating >= 4 ? "#10b068" : "grey"}}></i></li>
-                  <li><i class="fa fa-star" style={{"color": r.rating >= 5 ? "#10b068" : "grey"}}></i></li>
-                </ul>
-              </div>
-            </div>
-            ))
+                        <ul>
+                          <li><i class="fa fa-star" style={{ "color": r.rating >= 1 ? "#10b068" : "grey" }}></i></li>
+                          <li><i class="fa fa-star" style={{ "color": r.rating >= 2 ? "#10b068" : "grey" }}></i></li>
+                          <li><i class="fa fa-star" style={{ "color": r.rating >= 3 ? "#10b068" : "grey" }}></i></li>
+                          <li><i class="fa fa-star" style={{ "color": r.rating >= 4 ? "#10b068" : "grey" }}></i></li>
+                          <li><i class="fa fa-star" style={{ "color": r.rating >= 5 ? "#10b068" : "grey" }}></i></li>
+                        </ul>
+                      </div>
+                    </div>
+                  ))
+                }
+              </Carousel>
+              :
+              <></>
           }
-          </Carousel>
-          :
-          <></>
-        }
 
         </div>
       </section>
@@ -1266,19 +1266,19 @@ const ProductTREX = (props) => {
 
                 <form action="">
                   <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Enter Pincode"
-                    id="pincode_inp"
-                  />
-                  <a href="javascript:void(0)" onClick={()=>{
-                    if(pincodes.includes(document.getElementById("pincode_inp").value)) {
-                      setDelivery(true)
-                    } else {
-                      setDelivery(false)
-                    }
-                  }}>CHECK</a>
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Enter Pincode"
+                      id="pincode_inp"
+                    />
+                    <a href="javascript:void(0)" onClick={() => {
+                      if (pincodes.includes(document.getElementById("pincode_inp").value)) {
+                        setDelivery(true)
+                      } else {
+                        setDelivery(false)
+                      }
+                    }}>CHECK</a>
                   </div>
                 </form>
                 <div class="shiping_day">
@@ -1289,9 +1289,9 @@ const ProductTREX = (props) => {
                       class="img-fluid"
                     />{
                       delivery ?
-                      <><span>Free Delivery:</span> 8 to 10 working days</>
-                      :
-                      <><span>Unfortunately,</span> we don't deliver to your location</>
+                        <><span>Free Delivery:</span> 8 to 10 working days</>
+                        :
+                        <><span>Unfortunately,</span> we don't deliver to your location</>
                     }
                   </h6>
                 </div>

@@ -56,7 +56,6 @@ const Navbar = (props) => {
         setcountryName( e.target.firstElementChild.alt.toUpperCase())
         console.log(e.target.firstElementChild)
         setcountryflag(e.target.firstElementChild.src)
-      
     }
     console.log(countryflag)
 
