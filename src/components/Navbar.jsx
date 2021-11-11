@@ -61,7 +61,7 @@ const Navbar = (props) => {
     const defaultCountry = () => {
         let uaeflag = "images/uae.png";
         let indiaflag = "images/india-flag.png";
-        let japanflag = "images/Japan.png";
+        let japanflag = "images/japan.png";
         let nepalflag = "images/nepal.png";
         
         localStorage.setItem('subDomain', "japan")
@@ -118,7 +118,7 @@ const Navbar = (props) => {
                                         <ul class="assurance_drop_dwn_5">
                                             <li onClick={(e) => getCountry(e)}><a href="javascript:void(0)"><img src="images/india-flag.png" alt="india" class="img-fluid" />India</a></li>
                                             <li onClick={(e) => getCountry(e)} ><a href="javascript:void(0)"><img src="images/uae.png" alt="uae" class="img-fluid" />UAE</a></li>
-                                            <li onClick={(e) => getCountry(e)}><a href="javascript:void(0)"><img src="images/Japan.png" alt="japan" class="img-fluid" />Japan</a></li>
+                                            <li onClick={(e) => getCountry(e)}><a href="javascript:void(0)"><img src="images/japan.png" alt="japan" class="img-fluid" />Japan</a></li>
                                             <li onClick={(e) => getCountry(e)}><a href="javascript:void(0)"><img src="images/nepal.png" alt="nepal" class="img-fluid" />Nepal</a></li>
                                         </ul>
                                     </li>
