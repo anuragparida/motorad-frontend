@@ -11,6 +11,7 @@ const BookRide = (props) => {
   const [city, setCity] = useState("");
   const [stores, setStores] = useState([]);
   const [cities, setCities] = useState([]);
+  const [country, setCountry] = useState(true); 
 
   const [bike, setBike] = useState('trex');
 
@@ -87,7 +88,7 @@ const BookRide = (props) => {
 
   return(
     <>
-    <Navbar/>
+    <Navbar setCountry={setCountry} country={country}/>
     <MobileNavbar/>
     <section class="emi_hero_section">
       <div class="container">

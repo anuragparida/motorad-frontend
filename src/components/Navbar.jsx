@@ -47,6 +47,7 @@ const Navbar = (props) => {
         window.location.reload();
     }
     const getCountry = (e) => {
+        return false;
         localStorage.setItem('subDomain', e.target.firstElementChild.alt);
         localStorage.setItem('countryflag', e.target.firstElementChild.src);
 
@@ -57,7 +58,18 @@ const Navbar = (props) => {
         console.log(e.target.firstElementChild)
         setcountryflag(e.target.firstElementChild.src)
     }
-    console.log(countryflag)
+    const defaultCountry = () => {
+        let uaeflag = "images/uae.png";
+        let indiaflag = "images/india-flag.png";
+        let japanflag = "images/japan.png";
+        let nepalflag = "images/nepal.png";
+        
+        localStorage.setItem('subDomain', "uae")
+        let getsub = localStorage.getItem('subDomain');
+        setSubdomain(getsub);
+        setcountryName(getsub.toUpperCase())
+        setcountryflag(uaeflag) 
+    }
 
     useEffect(() => {
         loadLinks();
@@ -71,10 +83,11 @@ const Navbar = (props) => {
         let sub = parts[0]
         let getsub = localStorage.getItem('subDomain');
         let getflag = localStorage.getItem('countryflag') ? localStorage.getItem('countryflag') :"images/india-flag.png";
-        sub = getsub ? getsub : localStorage.setItem('subDomain', "")
-        setSubdomain(sub);
-        setcountryName(sub?sub.toUpperCase():"INDIA")
+        sub = getsub ? getsub : localStorage.setItem('subDomain', "uae")
+        setSubdomain("uae");
+        setcountryName(sub?sub.toUpperCase():"UAE")
         setcountryflag(getflag)
+        defaultCountry()
     }, []);
 
 

@@ -19,6 +19,8 @@ const Partner = (props) => {
 
   const formRef = useRef(null);
   const [sendSuccess, setSendSuccess] = useState(false);
+  const [country, setCountry] = useState(true); 
+
 
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
@@ -50,7 +52,7 @@ const Partner = (props) => {
 
   return(
     <>
-    <Navbar/>
+    <Navbar setCountry={setCountry} country={country}/>
     <MobileNavbar/>
     <section class="emi_hero_section">
       <div class="container">

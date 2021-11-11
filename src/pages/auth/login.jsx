@@ -15,6 +15,8 @@ const Login = (props) => {
 
   const [message, setMessage] = useState("");
   const [loader, setLoader] = useState("");
+  const [country, setCountry] = useState(true); 
+
 
   const stringifiedParams = queryString.stringify({
     client_id: env.FACEBOOK_APP_ID,
@@ -154,7 +156,7 @@ const Login = (props) => {
 
   return(
     <>
-    <Navbar/>
+    <Navbar setCountry={setCountry} country={country}/>
     <MobileNavbar/>
     <section class="signup_section">
       <div class="container">

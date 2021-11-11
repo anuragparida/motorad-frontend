@@ -8,6 +8,8 @@ import axios from "axios";
 const Community = (props) => {
 
   const [sendSuccess, setSendSuccess] = useState(false);
+  const [country, setCountry] = useState(true); 
+
 
   const createCommunity = async (e) => {
 
@@ -33,8 +35,8 @@ const Community = (props) => {
 
   return(
     <>
-    <Navbar/>
-    <MobileNavbar/>
+    <Navbar setCountry={setCountry} country={country}/>
+    <MobileNavbar/> 
     <section class="community_hero_sec">
       <div class="container">
         <div class="row justify-content-center">

@@ -17,6 +17,8 @@ const FAQ = (props) => {
   //   </script>
 
   const [faq, setFaq] = useState([]);
+  const [country, setCountry] = useState(true); 
+
 
   const loadFAQ = async () => {
     await axios
@@ -38,7 +40,7 @@ const FAQ = (props) => {
 
   return(
     <>
-    <Navbar/>
+    <Navbar setCountry={setCountry} country={country}/>
     <MobileNavbar/>
     <section class="faq_section">
       <div class="container">

@@ -17,6 +17,8 @@ const Contact = (props) => {
   //   </script>
 
   const [sendSuccess, setSendSuccess] = useState(false);
+  const [country, setCountry] = useState(true); 
+
 
   const createContact = async (e) => {
 
@@ -42,7 +44,7 @@ const Contact = (props) => {
 
   return(
     <>
-    <Navbar/>
+    <Navbar setCountry={setCountry} country={country}/>
     <MobileNavbar/>
     <section class="contact_map_section">
       <div class="container">

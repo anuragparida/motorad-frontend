@@ -1,16 +1,18 @@
-import React, {useEffect} from "react";
+import React, {useEffect,useState} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
 
 const About = (props) => {
+  const [country, setCountry] = useState(true); 
+
 
   useEffect(()=>{
     window.aboutUsReadMore();
   }, [])
   return(
     <>
-    <Navbar/>
+    <Navbar setCountry={setCountry} country={country}/>
     <MobileNavbar/>
     <section class="about_team_sec">
       <div class="container">

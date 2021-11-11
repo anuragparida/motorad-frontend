@@ -1,12 +1,15 @@
-import React from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
+import React, {useState} from "react";
+
 
 const Careers = (props) => {
+  const [country, setCountry] = useState(true); 
+
   return(
     <>
-    <Navbar/>
+    <Navbar setCountry={setCountry} country={country}/>
     <MobileNavbar/>
     <section class="career_section">
       <div class="container">

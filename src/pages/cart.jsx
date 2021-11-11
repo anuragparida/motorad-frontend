@@ -27,6 +27,7 @@ const Cart = (props) => {
 
   const [message, setMessage] = useState("");
   const [loader, setLoader] = useState("");
+  const [country, setCountry] = useState(true); 
 
   const razorPayPaymentHandler = async (params) => {
 
@@ -289,7 +290,7 @@ const Cart = (props) => {
 
   return(
     <>
-    <Navbar/>
+    <Navbar setCountry={setCountry} country={country}/>
     <MobileNavbar/>
     {orderSuccess ?
     <section class="order_success_sec">

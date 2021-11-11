@@ -12,6 +12,8 @@ const FindStore = (props) => {
   const [city, setCity] = useState("");
   const [cities, setCities] = useState({});
   const [state, setState] = useState('');
+  const [country, setCountry] = useState(true); 
+
 
   const changeState = (event) => {
     setState(event.target.value);
@@ -65,7 +67,7 @@ const FindStore = (props) => {
 
   return(
     <>
-    <Navbar/>
+    <Navbar setCountry={setCountry} country={country}/>
     <MobileNavbar/>
     <section class="find_store_sec">
       <div class="container">

@@ -13,6 +13,8 @@ const Signup = (props) => {
 
   const [message, setMessage] = useState("");
   const [loader, setLoader] = useState("");
+  const [country, setCountry] = useState(true); 
+
 
   const signup = async (e) => {
 
@@ -53,7 +55,7 @@ const Signup = (props) => {
 
   return(
     <>
-    <Navbar/>
+    <Navbar setCountry={setCountry} country={country}/>
     <MobileNavbar/>
     <section class="signup_section">
       <div class="container">

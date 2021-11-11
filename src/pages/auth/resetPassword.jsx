@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
@@ -8,6 +8,7 @@ import Cookies from "js-cookie";
 import axios from "axios";
 
 const ResetPassword = (props) => {
+  const [country, setCountry] = useState(true); 
 
   const resetPass = async (e) => {
 
@@ -42,7 +43,7 @@ const ResetPassword = (props) => {
 
   return(
     <>
-    <Navbar/>
+    <Navbar setCountry={setCountry} country={country}/>
     <MobileNavbar/>
     <section class="signup_section">
       <div class="container">
