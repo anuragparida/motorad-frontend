@@ -47,7 +47,7 @@ const Navbar = (props) => {
         window.location.reload();
     }
     const getCountry = (e) => {
-        // return false;
+        return false;
         localStorage.setItem('subDomain', e.target.firstElementChild.alt);
         localStorage.setItem('countryflag', e.target.firstElementChild.src);
 
@@ -64,11 +64,11 @@ const Navbar = (props) => {
         let japanflag = "images/japan.png";
         let nepalflag = "images/nepal.png";
         
-        localStorage.setItem('subDomain', "uae")
+        localStorage.setItem('subDomain', "japan")
         let getsub = localStorage.getItem('subDomain');
         setSubdomain(getsub);
         setcountryName(getsub.toUpperCase())
-        setcountryflag(uaeflag) 
+        setcountryflag(japanflag) 
     }
 
     useEffect(() => {
@@ -81,12 +81,12 @@ const Navbar = (props) => {
         let full = window.location.host
         let parts = full.split('.')
         let sub = parts[0]
-        let getsub = localStorage.getItem('subDomain');
-        let getflag = localStorage.getItem('countryflag') ? localStorage.getItem('countryflag') :"images/india-flag.png";
-        sub = getsub ? getsub : localStorage.setItem('subDomain', "uae")
-        setSubdomain("uae");
-        setcountryName(sub?sub.toUpperCase():"UAE")
-        setcountryflag(getflag)
+        // let getsub = localStorage.getItem('subDomain');
+        // let getflag = localStorage.getItem('countryflag') ? localStorage.getItem('countryflag') :"images/india-flag.png";
+        // sub = getsub ? getsub : localStorage.setItem('subDomain', "uae")
+        // setSubdomain("uae");
+        // setcountryName(sub?sub.toUpperCase():"UAE")
+        // setcountryflag(getflag)
         defaultCountry()
     }, []);
 
@@ -314,13 +314,13 @@ const Navbar = (props) => {
                                     <>
                                        <div class="col-lg-3">
                                             <div class="bog_drop_wraps">
-                                                <img src="images/japan/XPLORER/Xplorer-pulse-black.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
+                                                <img src="images/Japan/XPLORER/Xplorer-pulse-black.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
                                                 <Link to="/xplorer">XPLORER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="bog_drop_wraps">
-                                                <img src="images/japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
+                                                <img src="images/Japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
                                                 <Link to="/glyder">GLYDER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
                                             </div>
                                         </div>
