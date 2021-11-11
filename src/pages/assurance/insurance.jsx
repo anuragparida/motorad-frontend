@@ -301,7 +301,7 @@ const Insurance = (props) => {
               </div>
               <div class="col-lg-12">
                 <div class="insuarence_btttns">
-                  <a href="#">
+                  <a href="#" data-toggle="modal" data-target="#exampleModalLong">
                     Get Now
                     <img class="img-fluid" src="images/arrw_w_rgt.svg" alt="a" />
                   </a>
@@ -534,17 +534,11 @@ const Insurance = (props) => {
                         </div>
                       </div>
                       <div class="col-lg-6">
-                        <div class="rsa_modal_upload">
-                          <label class="upload-area">
-                            <input type="file" name="invoice" required/>
-                            <span class="upload-button">
-                              <img class="img-fluid" src="images/upload_plus.svg" alt="a" />
-                            </span>
-                            
+                        <div className="form-group">
+                          <label for="">
+                            Upload Invoice
                           </label>
-                          <p>
-                            Upload your Invoice
-                          </p>
+                          <input type="file" name="invoice" required/>
                         </div>
                       </div>
                       <div class="col-lg-6">
