@@ -941,13 +941,13 @@ const Landing = (props) => {
                                                             <>
                                                                 <li >
                                                                     <a class="active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-contact" aria-selected="false">
-                                                                        <img src="images/japan/XPLORER/Xplorer-pulse-black.png" alt="a" class="img-fluid" />
+                                                                        <img src="images/Japan/XPLORER/Xplorer-pulse-black.png" alt="a" class="img-fluid" />
                                                                         <span>XPLORER</span>
                                                                     </a>
                                                                 </li>
                                                                 <li style={{ marginRight: "199px" }}>
                                                                     <a class="" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">
-                                                                        <img src="images/japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" />
+                                                                        <img src="images/Japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" />
                                                                         <span>GLYDER</span>
                                                                     </a>
                                                                 </li>
@@ -1540,7 +1540,7 @@ const Landing = (props) => {
                                         <div class="col-lg-6">
                                             <Link to="/xplorer">
                                                 <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                                                    <img src="images/japan/XPLORER/Xplorer-pulse-black.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
+                                                    <img src="images/Japan/XPLORER/Xplorer-pulse-black.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
                                                     <h3>XPLORER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
@@ -1581,7 +1581,7 @@ const Landing = (props) => {
                                         <div class="col-lg-6">
                                             <Link to="/glyder">
                                                 <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                                                    <img src="images/japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
+                                                    <img src="images/Japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
                                                     <h3>GLYDER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 

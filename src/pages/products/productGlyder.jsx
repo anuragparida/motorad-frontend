@@ -291,7 +291,7 @@ const ProductGlyder = (props) => {
                                                 
                                         } */}
                                         <img
-                                            src="images/japan/GLYDER/Top-Part/Glyder-White.png"
+                                            src="images/Japan/GLYDER/Top-Part/Glyder-White.png"
                                             alt="a"
                                             class="img-fluid"
                                         />
@@ -379,7 +379,7 @@ const ProductGlyder = (props) => {
                                             <div class="content">
                                                 <video id="v0" tabindex="0" autobuffer muted preload>
                                                     <source
-                                                        src="images/japan/GLYDER/Glyder-Mobile.mp4"
+                                                        src="images/Japan/GLYDER/Glyder-Mobile.mp4"
                                                         type="video/mp4"
                                                         class="d-lg-none"
                                                     />
@@ -591,7 +591,7 @@ const ProductGlyder = (props) => {
                                     data-aos="fade-up"
                                     data-aos-duration="2000"
                                 >
-                                    <img src="images/japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" />
+                                    <img src="images/Japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" />
                                     {/* <div class="spe_dot_1 d-none d-lg-block">
                     <div class="dot">
                       <div class="dot-pulse"></div>
@@ -1446,7 +1446,7 @@ const ProductGlyder = (props) => {
                         <div class="col-lg-6">
                             <Link to="/xplorer">
                                 <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                                    <img src="images/japan/XPLORER/Xplorer-pulse-black.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
+                                    <img src="images/Japan/XPLORER/Xplorer-pulse-black.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
                                     <h3>XPLORER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
@@ -1487,7 +1487,7 @@ const ProductGlyder = (props) => {
                         <div class="col-lg-6">
                             <Link to="/glyder">
                                 <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                                    <img src="images/japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
+                                    <img src="images/Japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
                                     <h3>GLYDER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
