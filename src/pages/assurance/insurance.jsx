@@ -75,6 +75,7 @@ const Insurance = (props) => {
     .post(server + "/api/rsa/create", formData, formDataConfig)
     .then((rsp) => {
       console.log(rsp);
+      window.location.reload();
     })
     .catch((err) => {
       console.log(err.response);
@@ -91,9 +92,6 @@ const Insurance = (props) => {
     <section class="emi_hero_section">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-12 d-lg-none">
-            <img class="img-fluid" src="images/insu_m_banr.png" alt="a" />
-          </div>
           <div class="col-lg-5">
             <div class="emi_hero_txt">
               <h6>

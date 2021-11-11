@@ -10,10 +10,10 @@ const Navbar = (props) => {
     const [links, setLinks] = useState({});
     const [cartHasItem, setCartHasItem] = useState(false);
     const [logged, setLogged] = useState(false);
+
     const [subdomain, setSubdomain] = useState("");
     const [countryName, setcountryName] = useState("");
     const [countryflag, setcountryflag] = useState("images/india-flag.png");
-
 
 
     const loadLinks = async () => {
@@ -68,7 +68,7 @@ const Navbar = (props) => {
         let getsub = localStorage.getItem('subDomain');
         setSubdomain(getsub);
         setcountryName(getsub.toUpperCase())
-        setcountryflag(japanflag) 
+        setcountryflag(japanflag)
     }
 
     useEffect(() => {
@@ -262,7 +262,7 @@ const Navbar = (props) => {
                 <div class="big_dropdown_wrap collapse" id="collapseExample">
                     <div class="container">
                         <div class="row justify-content-center">
-                            {(subdomain == '' || subdomain == 'nepal') ?
+                            {(subdomain === '' || subdomain === 'nepal') ?
                                 <>
                                     <div class="col-lg-3">
                                         <div class="bog_drop_wraps">
@@ -283,7 +283,7 @@ const Navbar = (props) => {
                                         </div>
                                     </div>
                                 </>
-                                : (subdomain == 'uae') ?
+                                : (subdomain === 'uae') ?
                                     <>
                                         <div class="col-lg-3">
                                             <div class="bog_drop_wraps">
@@ -310,7 +310,7 @@ const Navbar = (props) => {
                                             </div>
                                         </div>
                                     </>
-                                    :(subdomain == 'japan') ?
+                                    :(subdomain === 'japan') ?
                                     <>
                                        <div class="col-lg-3">
                                             <div class="bog_drop_wraps">

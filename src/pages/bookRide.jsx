@@ -25,8 +25,7 @@ const BookRide = (props) => {
     .get(server + `/api/store/read-states`)
     .then((rsp) => {
       console.log(rsp);
-      console.log([].concat.apply([], Object.values(rsp.data.payload)))
-      setCities([].concat.apply([], Object.values(rsp.data.payload)));
+      setCities(rsp.data.payload.cities);
     })
     .catch((err) => {
       console.log(err.response);
@@ -93,9 +92,6 @@ const BookRide = (props) => {
     <section class="emi_hero_section">
       <div class="container">
         <div class="row d-lg-none">
-          <div class="col-12 mb-3">
-            <img src="images/insu_m_banr.png" alt="a" class="img-fluid" />
-          </div>
         </div>
         <div class="row">
           <div class="col-lg-6 d-none d-lg-block">
@@ -148,14 +144,22 @@ const BookRide = (props) => {
                   <div class="col-lg-6 d-lg-none">
                     <div class="form-group">
                       <label for="">Select Bike</label>
-                      <a href="#" class="mobile_bikee_selectt"
-                        >T-REX
-                        <img src="images/sm1.png" alt="a" class="img-fluid"
-                      /></a>
+                      <a href="#" class="mobile_bikee_selectt">
+                      {bike==="trex" ? "T - REX" : bike === "emx" ? "EMX" : "DOODLE"}
+                        {
+                          bike==="trex" ? 
+                          <img src="images/sm1.png" alt="a" class="img-fluid" />
+                          : bike === "emx" ?
+                          <img src="images/sm2.png" alt="a" class="img-fluid" />
+                          :
+                          <img src="images/sm3.png" alt="a" class="img-fluid" />
+                        }
+                        </a>
                     </div>
                   </div>
+                  
                   <div class="col-lg-6">
-                    <div class="form-group d-none d-lg-block">
+                    <div class="form-group d-lg-block">
                       <label for="">Select Bike</label>
                       <select name="bike" class="form-control" defaultValue="TREX" required onChange={changeBike}>
                         <option value="TREX">TREX</option>
@@ -233,7 +237,7 @@ const BookRide = (props) => {
                   </div>
                   <div class="col-lg-12">
                     <div class="test_ride_submit_btn text-center">
-                      <a href="javascript:void(0)" onClick={()=>bookRide()}>Book Now</a>
+                      <button type="submit">Book Now</button>
                     </div>
                   </div>
                 </div>

@@ -183,7 +183,7 @@ const Warranty = (props) => {
                                 <div class="col-lg-6">
                                      <div class="form-group">
                                          <label for="">Select A Bike</label>
-                                         <select name="bike" class="form-control">
+                                         <select name="bike" class="form-control" required>
                                              <option value="trex">T-REX</option>
                                              <option value="emx">EMX</option>
                                              <option value="doodle">DOODLE</option>
@@ -286,7 +286,7 @@ const Warranty = (props) => {
                         <h5>Your Response has been <br/> submitted Successfully</h5>
                     </div>
                     <div class="warenty_suc_btn">
-                        <a href="#"><img src="images/download_w_icon.svg" alt="a" class="img-fluid"/> Download Document</a>
+                        <a href="files/warranty.pdf"><img src="images/download_w_icon.svg" alt="a" class="img-fluid"/> Download Document</a>
                         <a href="index.html">Go to HomePage</a>
                     </div>
                 </div>
