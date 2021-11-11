@@ -47,7 +47,7 @@ const Navbar = (props) => {
         window.location.reload();
     }
     const getCountry = (e) => {
-        return false;
+        // return false;
         localStorage.setItem('subDomain', e.target.firstElementChild.alt);
         localStorage.setItem('countryflag', e.target.firstElementChild.src);
 
@@ -307,6 +307,21 @@ const Navbar = (props) => {
                                             <div class="bog_drop_wraps">
                                                 <img src="images/uae/Trible.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
                                                 <Link to="/trible">TRIBLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                            </div>
+                                        </div>
+                                    </>
+                                    :(subdomain == 'japan') ?
+                                    <>
+                                       <div class="col-lg-3">
+                                            <div class="bog_drop_wraps">
+                                                <img src="images/japan/XPLORER/Xplorer-pulse-black.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
+                                                <Link to="/xplorer">XPLORER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="bog_drop_wraps">
+                                                <img src="images/japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
+                                                <Link to="/glyder">GLYDER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
                                             </div>
                                         </div>
                                     </>

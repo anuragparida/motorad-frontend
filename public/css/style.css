@@ -3301,6 +3301,45 @@ img {
   background-image: url("../images/uae/ENERG/Web-E.png");
 }
 
+.image_xplorer_0 {
+  z-index: 0;
+  background-image: url("../images/japan/XPLORER/Web-A.png");
+}
+.image_xplorer_1 {
+  z-index: 0;
+  background-image: url("../images/japan/XPLORER/Web-B.png");
+}.image_xplorer_2 {
+  z-index: 0;
+  background-image: url("../images/japan/XPLORER/Web-C.png");
+}.image_xplorer_3 {
+  z-index: 0;
+  background-image: url("../images/japan/XPLORER/Web-D.png");
+}.image_xplorer_4 {
+  z-index: 0;
+  background-image: url("../images/japan/XPLORER/Web-E.png");
+}
+
+.image_glyder_0 {
+  z-index: 0;
+  background-image: url("../images/japan/GLYDER/Web-A.png");
+}
+.image_glyder_1 {
+  z-index: 0;
+  background-image: url("../images/japan/GLYDER/Web-B.png");
+}
+.image_glyder_2 {
+  z-index: 0;
+  background-image: url("../images/japan/GLYDER/Web-C.png");
+}
+.image_glyder_3 {
+  z-index: 0;
+  background-image: url("../images/japan/GLYDER/Web-D.png");
+}
+.image_glyder_4 {
+  z-index: 0;
+  background-image: url("../images/japan/GLYDER/Web-E.png");
+}
+
 .image_trible_0 {
   z-index: 0;
   background-image: url("../images/uae/TRIBLE/Web-A.png");
