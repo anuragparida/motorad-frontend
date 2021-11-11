@@ -100,7 +100,7 @@ const [links, setLinks] = useState({});
                                  <ul class="assurance_drop_dwn_5">
                                     <li><Link to="#"><img src="images/india-flag.png" alt="a" class="img-fluid"/> India</Link></li>
                                     <li><Link to="#"><img src="images/uae.png" alt="a" class="img-fluid"/> UAE</Link></li>
-                                    <li><Link to="#"><img src="images/japan.png" alt="a" class="img-fluid"/> Japan</Link></li>
+                                    <li><Link to="#"><img src="images/Japan.png" alt="a" class="img-fluid"/> Japan</Link></li>
                                     <li><Link to="#"><img src="images/nepal.png" alt="a" class="img-fluid"/> Nepal</Link></li>
                                 </ul>
                              </li>
