@@ -5,6 +5,9 @@ import Footer from './../components/Footer';
 import AOS from 'aos';
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
+import axios from "axios";
+import { server, config, checkAccess } from "../env";
+
 // import Slider from "react-slick";
 
 
@@ -12,9 +15,42 @@ const Landing = (props) => {
 
     const [subdomain, setSubdomain] = useState("");
     const [country, setCountry] = useState(true);
+    const [productPrice, setProductPrice] = useState({
+        trex:"",
+        emx:"",
+        doodle:""
+      });
 
+      const loadProducts = async() => {
+        await axios
+          .get(server + "/api/product/read", config)
+          .then((rsp) => {
+            console.log(rsp);
+            const filteredRsp = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"));
+            if (filteredRsp.length > 0) {
+              // console.log(filteredRsp);
+            //   setProducts(filteredRsp);
+            //   setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"))[0].id);
+              setProductPrice({
+                ...productPrice,
+                trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
+                emx:rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"))[0].price,
+                doodle:rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].price
+              })
+            }
+            else {
+              //   setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
+            //   setProductID(1);
+            alert("Products not set correctly. Please Contact Admin.");
+            }
+          })
+          .catch((err) => {
+            checkAccess(err);
+            console.error(err);
+          });
+      }
     useEffect(() => {
-
+        loadProducts()
         AOS.init();
         let full = window.location.host
         let parts = full.split('.')
@@ -1220,7 +1256,7 @@ const Landing = (props) => {
                             </div>
                         </div>
                     </div>
-                    {(subdomain == '' || subdomain == 'nepal') ?
+                    {(subdomain == '' ||subdomain=='india'|| subdomain == 'nepal') ?
                         <div class="row  expo_bike_slider">
                             <div class="col-lg-4">
                                 <Link to="/trex">
@@ -1256,7 +1292,7 @@ const Landing = (props) => {
                                                 <td>Colors</td>
                                             </tr>
                                             <tr>
-                                                <td>Rs 37,142</td>
+                                                <td>Rs {productPrice.trex.toLocaleString()}</td>
                                                 <td><i class="fa fa-circle"></i> <i class="fa fa-circle"></i></td>
                                             </tr>
                                         </table>
@@ -1300,7 +1336,7 @@ const Landing = (props) => {
                                                 <td>Colors</td>
                                             </tr>
                                             <tr>
-                                                <td>Rs 52,380</td>
+                                                <td>Rs{productPrice.emx.toLocaleString()}</td>
                                                 <td><i class="fa fa-circle" style={{ "color": "#DBFF00" }}></i></td>
                                             </tr>
                                         </table>
@@ -1344,7 +1380,7 @@ const Landing = (props) => {
                                                 <td>Colors</td>
                                             </tr>
                                             <tr>
-                                                <td>Rs 76,190</td>
+                                                <td>Rs {productPrice.doodle.toLocaleString()}</td>
                                                 <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{ "color": "#10B068" }}></i></td>
                                             </tr>
                                         </table>

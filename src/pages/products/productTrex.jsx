@@ -28,6 +28,12 @@ const ProductTREX = (props) => {
   const [delivery, setDelivery] = useState(true);
   const [subdomain, setSubdomain] = useState("");
   const [country, setCountry] = useState(true);
+  const [productPrice, setProductPrice] = useState({
+    trex:"",
+    emx:"",
+    doodle:""
+  });
+
 
 
   const [visibleImagesMap, setVisibleImagesMap] = useState(
@@ -93,7 +99,7 @@ const ProductTREX = (props) => {
       vid = document.getElementById("v0");
     function scrollPlay() {
       var frameNumber = window.pageYOffset / playbackConst;
-      vid.currentTime = frameNumber;
+      // vid.currentTime = frameNumber;
       window.requestAnimationFrame(scrollPlay);
     }
 
@@ -140,6 +146,12 @@ const ProductTREX = (props) => {
           console.log(filteredRsp);
           setProducts(filteredRsp);
           setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].id);
+          setProductPrice({
+            ...productPrice,
+            trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
+            emx:rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"))[0].price,
+            doodle:rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].price
+          })
         }
         else {
           //   setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
@@ -152,6 +164,7 @@ const ProductTREX = (props) => {
         console.error(err);
       });
   }
+
 
   const addToCart = async () => {
     if (!isLoggedIn()) {
@@ -229,6 +242,8 @@ const ProductTREX = (props) => {
                         <label class="chck">
                           <input type="radio" checked={prod.id === productID} onChange={() => {
                             setProductID(prod.id);
+                         
+
                           }} />
                           <span class="checkmark" style={{ "background": prod.color }}></span>
                         </label>
@@ -237,8 +252,9 @@ const ProductTREX = (props) => {
 
                     <li class="d-none d-lg-block">
                       {
-                        (subdomain == '' || subdomain == 'nepal') ?
-                          <h6>Rs 37,133</h6>
+
+                        (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
+                          <h6>Rs {productPrice.trex.toLocaleString()}</h6>
                           : (subdomain == 'uae') ?
                             <h6>AED 3,499</h6>
                             :
@@ -1391,7 +1407,7 @@ const ProductTREX = (props) => {
                       <td>Colors</td>
                     </tr>
                     <tr>
-                      <td>Rs 37,142</td>
+                      <td>Rs {productPrice.trex.toLocaleString()}</td>
                       <td><i class="fa fa-circle"></i> <i class="fa fa-circle"></i></td>
                     </tr>
                   </table>
@@ -1435,7 +1451,7 @@ const ProductTREX = (props) => {
                       <td>Colors</td>
                     </tr>
                     <tr>
-                      <td>Rs 52,380</td>
+                      <td>Rs{productPrice.emx.toLocaleString()}</td>
                       <td><i class="fa fa-circle" style={{ "color": "#DBFF00" }}></i></td>
                     </tr>
                   </table>
@@ -1479,7 +1495,7 @@ const ProductTREX = (props) => {
                       <td>Colors</td>
                     </tr>
                     <tr>
-                      <td>Rs 76,190</td>
+                      <td>Rs {productPrice.doodle.toLocaleString()}</td>
                       <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{ "color": "#10B068" }}></i></td>
                     </tr>
                   </table>
@@ -1496,7 +1512,7 @@ const ProductTREX = (props) => {
       <div class="book_ride_sticky d-lg-none">
         <div class="d-flex">
 
-          <a href="javascript:void(0)" onClick={addToCart}><p>Rs 37,133</p> BUY NOW</a>
+          <a href="javascript:void(0)" onClick={addToCart}><p>Rs {productPrice.trex.toLocaleString()}</p> BUY NOW</a>
         </div>
         <a href="#" class="back-top-btn d-none d-lg-block">
           <i class="fa fa-angle-up"></i>

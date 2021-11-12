@@ -56,7 +56,11 @@ const ProductEMX = (props) => {
   const [deviceType, setDeviceType] = useState("");   
   const [delivery, setDelivery] = useState(true); 
   const [country, setCountry] = useState(true);
-
+  const [productPrice, setProductPrice] = useState({
+    trex:"",
+    emx:"",
+    doodle:""
+  });
 
   const [visibleImagesMap, setVisibleImagesMap] = useState(
     images.reduce((map, image) => {
@@ -115,7 +119,7 @@ const ProductEMX = (props) => {
       vid = document.getElementById("v0");
     function scrollPlay() {
       var frameNumber = window.pageYOffset / playbackConst;
-      vid.currentTime = frameNumber;
+      // vid.currentTime = frameNumber;
       window.requestAnimationFrame(scrollPlay);
     }
 
@@ -135,12 +139,12 @@ const ProductEMX = (props) => {
     await axios
       .get(server + "/api/pin-code/read", config)
       .then((rsp) => {
-        console.log(rsp);
+        // console.log(rsp);
         setPincodes(rsp.data.payload[0].code.split(","));
       })
       .catch((err) => {
         checkAccess(err);
-        console.error(err);
+        // console.error(err);
       });
   }
 
@@ -151,9 +155,15 @@ const ProductEMX = (props) => {
         console.log(rsp);
         const filteredRsp = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"));
         if (filteredRsp.length > 0) {
-          console.log(filteredRsp);
+          // console.log(filteredRsp);
           setProducts(filteredRsp);
           setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"))[0].id);
+          setProductPrice({
+            ...productPrice,
+            trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
+            emx:rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"))[0].price,
+            doodle:rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].price
+          })
         }
         else {
           //   setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
@@ -249,7 +259,7 @@ const ProductEMX = (props) => {
                   ))}
 
                   <li class="d-none d-lg-block">
-                    <h6>Rs 52,371</h6>
+                    <h6>Rs {productPrice.emx.toLocaleString()}</h6>
                   </li>
                   <li class="d-none d-lg-block">
                   <h6>{products.length>0 && <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>}</h6>
@@ -1161,7 +1171,7 @@ const ProductEMX = (props) => {
                                  <td>Colors</td>
                              </tr>
                              <tr>
-                                 <td>Rs 37,142</td>
+                                 <td>Rs {productPrice.trex.toLocaleString()}</td>
                                  <td><i class="fa fa-circle"></i> <i class="fa fa-circle"></i></td>
                              </tr>
                          </table>
@@ -1205,7 +1215,7 @@ const ProductEMX = (props) => {
                                  <td>Colors</td>
                              </tr>
                              <tr>
-                                 <td>Rs 52,380</td>
+                                 <td>Rs {productPrice.emx.toLocaleString()}</td>
                                  <td><i class="fa fa-circle" style={{"color": "#DBFF00"}}></i></td>
                              </tr>
                          </table>
@@ -1249,7 +1259,7 @@ const ProductEMX = (props) => {
                                  <td>Colors</td>
                              </tr>
                              <tr>
-                                 <td>Rs 76,190</td>
+                                 <td>Rs {productPrice.doodle.toLocaleString()}</td>
                                  <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{"color": "#10B068"}}></i></td>
                              </tr>
                          </table>
@@ -1266,7 +1276,7 @@ const ProductEMX = (props) => {
     <div class="book_ride_sticky d-lg-none">
       <div class="d-flex">
         
-        <a href="javascript:void(0)" onClick={addToCart}><p>Rs 52,371</p> BUY NOW</a>
+        <a href="javascript:void(0)" onClick={addToCart}><p>Rs {productPrice.emx.toLocaleString()}</p> BUY NOW</a>
       </div>
     </div>
     <div class="wapp_sticky">
