@@ -1915,7 +1915,7 @@ img {
 .test_ride_submit_btn {
   margin-top: 14px;
 }
-.test_ride_submit_btn a {
+.test_ride_submit_btn button {
   background: #10b068;
   font-style: normal;
   font-weight: 600;
@@ -1928,7 +1928,7 @@ img {
   display: block;
   width: 100%;
 }
-.test_ride_submit_btn a:hover {
+.test_ride_submit_btn button:hover {
   background: transparent;
   color: #10b068;
 }
@@ -3290,13 +3290,16 @@ img {
 .image_energ_1 {
   z-index: 0;
   background-image: url("../images/uae/ENERG/Web-B.png");
-}.image_energ_2 {
+}
+.image_energ_2 {
   z-index: 0;
   background-image: url("../images/uae/ENERG/Web-C.png");
-}.image_energ_3 {
+}
+.image_energ_3 {
   z-index: 0;
   background-image: url("../images/uae/ENERG/Web-D.png");
-}.image_energ_4 {
+}
+.image_energ_4 {
   z-index: 0;
   background-image: url("../images/uae/ENERG/Web-E.png");
 }
@@ -3308,13 +3311,16 @@ img {
 .image_xplorer_1 {
   z-index: 0;
   background-image: url("../images/Japan/XPLORER/Web-B.png");
-}.image_xplorer_2 {
+}
+.image_xplorer_2 {
   z-index: 0;
   background-image: url("../images/Japan/XPLORER/Web-C.png");
-}.image_xplorer_3 {
+}
+.image_xplorer_3 {
   z-index: 0;
   background-image: url("../images/Japan/XPLORER/Web-D.png");
-}.image_xplorer_4 {
+}
+.image_xplorer_4 {
   z-index: 0;
   background-image: url("../images/Japan/XPLORER/Web-E.png");
 }
@@ -3347,13 +3353,16 @@ img {
 .image_trible_1 {
   z-index: 0;
   background-image: url("../images/uae/TRIBLE/Web-B.png");
-}.image_trible_2 {
+}
+.image_trible_2 {
   z-index: 0;
   background-image: url("../images/uae/TRIBLE/Web-C.png");
-}.image_trible_3 {
+}
+.image_trible_3 {
   z-index: 0;
   background-image: url("../images/uae/TRIBLE/Web-D.png");
-}.image_trible_4 {
+}
+.image_trible_4 {
   z-index: 0;
   background-image: url("../images/uae/TRIBLE/Web-E.png");
 }
@@ -3492,21 +3501,20 @@ img {
     padding-top: 20px;
   }
   .explore_bttn a {
-    padding : 15px 86px !important;
+    padding: 15px 86px !important;
   }
 }
 
-
 .front_light {
-  right: 341px !important;   
+  right: 341px !important;
 }
 
 .saddle {
-  top: 90px !important;   
+  top: 90px !important;
 }
 
 .motor {
-  top: 429px !important;   
+  top: 429px !important;
 }
 
 .display {
@@ -3516,19 +3524,19 @@ img {
 
 .ebreak {
   right: 355px !important;
-  top: 15px !important;  
+  top: 15px !important;
 }
 
 .front_light_emx {
-  right: 360px !important;   
+  right: 360px !important;
 }
 
 .emx_motor {
-  top: 335px !important;   
+  top: 335px !important;
 }
 
 .emx_saddle {
-  top: 99px !important;   
+  top: 99px !important;
 }
 
 .emx_susspension {
@@ -3540,16 +3548,16 @@ img {
 }
 
 .doodle_motor {
-  top: 405px !important;    
+  top: 405px !important;
 }
 
 .doodle_display {
-  right: 423px !important; 
-  top: 52px !important; 
+  right: 423px !important;
+  top: 52px !important;
 }
 
 .doodle_breaks {
-  right: 405px !important; 
+  right: 405px !important;
 }
 
 .doodle_lights {
@@ -3581,7 +3589,7 @@ img {
 }
 
 .doodle_tyre {
-  top : 305px !important;
+  top: 305px !important;
 }
 
 .doodle_derailliurs {
@@ -3597,7 +3605,4 @@ img {
 
 .slick-arrow {
   display: none !important;
-}  
-
-
-
+}

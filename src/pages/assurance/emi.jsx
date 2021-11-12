@@ -37,6 +37,8 @@ const EMI = (props) => {
       .filter((el) => el.name)
       .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
 
+    params.bike = bike;
+
     axios
     .post(server + "/api/emi/contact/create", params)
     .then((rsp) => {

@@ -477,17 +477,11 @@ const RSA = (props) => {
                         </div>
                       </div>
                       <div class="col-lg-6">
-                        <div class="rsa_modal_upload">
-                          <label class="upload-area">
-                            <input type="file" name="invoice" required/>
-                            <span class="upload-button">
-                              <img class="img-fluid" src="images/upload_plus.svg" alt="a" />
-                            </span>
-                            
+                        <div className="form-group">
+                          <label for="">
+                            Upload Invoice
                           </label>
-                          <p>
-                            Upload your Invoice
-                          </p>
+                          <input type="file" name="invoice" required/>
                         </div>
                       </div>
                       <div class="col-lg-6">

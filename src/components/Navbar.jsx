@@ -10,10 +10,10 @@ const Navbar = (props) => {
     const [links, setLinks] = useState({});
     const [cartHasItem, setCartHasItem] = useState(false);
     const [logged, setLogged] = useState(false);
+
     const [subdomain, setSubdomain] = useState("");
     const [countryName, setcountryName] = useState("");
     const [countryflag, setcountryflag] = useState("images/india-flag.png");
-
 
 
     const loadLinks = async () => {
@@ -68,7 +68,7 @@ const Navbar = (props) => {
         let getsub = localStorage.getItem('subDomain');
         setSubdomain(getsub);
         setcountryName(getsub.toUpperCase())
-        setcountryflag(japanflag) 
+        setcountryflag(japanflag)
     }
 
     useEffect(() => {
@@ -100,10 +100,10 @@ const Navbar = (props) => {
                             <div class="header_social_icons">
                                 {links.linkedin &&
                                     <ul>
-                                        <li>Follow Us</li>
-                                        <li><a target="_blank" href={links.facebook}><i class="fa fa-facebook-square"></i></a></li>
+                                        <li>{subdomain == 'japan'?'フォローする':'Follow Us'}</li>
+                                        <li><a target="_blank" href={subdomain == 'japan'?"https://www.facebook.com/EMotoradEbikeJapan":links.facebook}><i class="fa fa-facebook-square"></i></a></li>
                                         <li><a target="_blank" href={links.twitter}><i class="fa fa-twitter"></i></a></li>
-                                        <li><a target="_blank" href={links.instagram}><i class="fa fa-instagram"></i></a></li>
+                                        <li><a target="_blank" href={subdomain == 'japan' ?"https://instagram.com/emotorad_ebike_japan?utm_medium=copy_link": links.instagram}><i class="fa fa-instagram"></i></a></li>
                                         <li><a target="_blank" href={links.linkedin}><i class="fa fa-linkedin-square"></i></a></li>
                                     </ul>
                                 }
@@ -122,8 +122,8 @@ const Navbar = (props) => {
                                             <li onClick={(e) => getCountry(e)}><a href="javascript:void(0)"><img src="images/nepal.png" alt="nepal" class="img-fluid" />Nepal</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="mailtocontactus@emotorad.com:">contactus@emotorad.com</a></li>
-                                    <li><a href="#">+91-8686050590</a></li>
+                                    <li><a href="mailtocontactus@emotorad.com:">{subdomain == 'japan'?'connect_japan@emotorad.com':"contactus@emotorad.com"}</a></li>
+                                    <li><a href="#">{subdomain == 'japan'?'+81 90 3683 8540':"+91-8686050590"}</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -143,25 +143,27 @@ const Navbar = (props) => {
                         <div class="collapse navbar-collapse d-none d-lg-block" id="navbarNav">
                             <ul class="navbar-nav mr-auto custm_scrl">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0)" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">THE BIKES</a>
+                                    <a class="nav-link" href="javascript:void(0)" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">{subdomain == 'japan'?'バイク':'THE BIKES'}</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link drp_dwn_clk" href="javascript:void(0)">ASSURANCE</a>
+                                    <a class="nav-link drp_dwn_clk" href="javascript:void(0)">{subdomain == 'japan'?'ご購入者の方へ':'ASSURANCE'}</a>
                                     <ul class="assurance_drop_dwn">
                                         <li>
-                                            <Link to="/warranty">Activate Warranty</Link>
+                                            <Link to="/warranty">{subdomain == 'japan'?'保証を有効にする':'Activate Warranty'}</Link>
                                         </li>
                                         <li>
-                                            <Link to="/insurance">Insurance</Link>
+                                            <Link to="/insurance">{subdomain == 'japan'?'保 険':'Insurance'}</Link>
                                         </li>
                                         <li>
-                                            <Link to="/rsa">Roadside Assistance</Link>
+                                            <Link to="/rsa">{subdomain == 'japan'?'道端での援助':'Roadside Assistance'}</Link>
                                         </li>
+                                        {subdomain !== 'japan' ?
                                         <li>
                                             <Link to="/emi">EMI</Link>
                                         </li>
+                                        :""}
                                         <li>
-                                            <Link to="/buysmart">Buy Smart</Link>
+                                            <Link to="/buysmart">{subdomain == 'japan'?'スマートに購入':'Buy Smart'}</Link>
                                         </li>
                                     </ul>
                                 </li>
@@ -170,40 +172,40 @@ const Navbar = (props) => {
 
                                     <ul class="assurance_drop_dwn_2">
                                         <li>
-                                            <Link to="/community">Community</Link>
+                                            <Link to="/community">{subdomain=="japan"?"コミュニティ":"Community"}</Link>
                                         </li>
                                         <li>
-                                            <a href="#">Blogs</a>
+                                            <a href="#">{subdomain=="japan"?"ブログ":"Blogs"}</a>
                                         </li>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link drp_dwn_clk_3" href="javascript:void(0)">REACH US</a>
+                                    <a class="nav-link drp_dwn_clk_3" href="javascript:void(0)">{subdomain == 'japan'?'お問い合わせ':'REACH US'}</a>
 
                                     <ul class="assurance_drop_dwn_3">
                                         <li>
-                                            <Link to="/about">About Us</Link>
+                                            <Link to="/about">{subdomain == 'japan'?"私たちに関しては":"About Us"}</Link>
                                         </li>
                                         <li>
                                             <Link to="/faq">FAQs</Link>
                                         </li>
                                         <li>
-                                            <Link to="/partner">Partner with Us</Link>
+                                            <Link to="/partner">{subdomain == 'japan'?"私たちとパートナー":"Partner with Us"}</Link>
                                         </li>
                                         <li>
-                                            <Link to="/store">Find a Store</Link>
+                                            <Link to="/store">{subdomain == 'japan'?"お店を探す":"Find a Store"}</Link>
                                         </li>
                                         <li>
-                                            <Link to="/careers">Careers</Link>
+                                            <Link to="/careers">{subdomain =='japan'?"キャリア":"Careers"}</Link>
                                         </li>
                                         <li>
-                                            <Link to="/contact">Contact Us</Link>
+                                            <Link to="/contact">{subdomain == 'japan'?"お問い合わせ":"Contact Us"}</Link>
                                         </li>
                                     </ul>
                                 </li>
                             </ul>
                             <form class="form-inline">
-                                <Link to="/book" class="head_bttn">BOOK A TEST RIDE</Link>
+                                <Link to="/book" class="head_bttn">{subdomain == 'japan'?'試乗を予約する':"BOOK A TEST RIDE"}</Link>
                                 <ul>
                                     {/* <li><a href="javascript:void(0)"><img src="images/search_icon.svg" alt="logo" class="img-fluid"/></a></li> */}
                                     <li>
@@ -232,10 +234,10 @@ const Navbar = (props) => {
                                                     :
                                                     <>
                                                         <li>
-                                                            <Link to="/signup">Sign Up</Link>
+                                                            <Link to="/signup">{subdomain =='japan'?"サインアップ ":"Sign Up"}</Link>
                                                         </li>
                                                         <li>
-                                                            <Link to="/login">Log In</Link>
+                                                            <Link to="/login">{subdomain =='japan'?"ログインする":"Log In"}</Link>
                                                         </li>
                                                     </>
                                             }
@@ -262,7 +264,7 @@ const Navbar = (props) => {
                 <div class="big_dropdown_wrap collapse" id="collapseExample">
                     <div class="container">
                         <div class="row justify-content-center">
-                            {(subdomain == '' || subdomain == 'nepal') ?
+                            {(subdomain === '' || subdomain === 'nepal') ?
                                 <>
                                     <div class="col-lg-3">
                                         <div class="bog_drop_wraps">
@@ -283,7 +285,7 @@ const Navbar = (props) => {
                                         </div>
                                     </div>
                                 </>
-                                : (subdomain == 'uae') ?
+                                : (subdomain === 'uae') ?
                                     <>
                                         <div class="col-lg-3">
                                             <div class="bog_drop_wraps">
@@ -310,7 +312,7 @@ const Navbar = (props) => {
                                             </div>
                                         </div>
                                     </>
-                                    :(subdomain == 'japan') ?
+                                    :(subdomain === 'japan') ?
                                     <>
                                        <div class="col-lg-3">
                                             <div class="bog_drop_wraps">

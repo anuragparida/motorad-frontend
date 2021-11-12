@@ -75,6 +75,7 @@ const Insurance = (props) => {
     .post(server + "/api/rsa/create", formData, formDataConfig)
     .then((rsp) => {
       console.log(rsp);
+      window.location.reload();
     })
     .catch((err) => {
       console.log(err.response);
@@ -91,9 +92,6 @@ const Insurance = (props) => {
     <section class="emi_hero_section">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-12 d-lg-none">
-            <img class="img-fluid" src="images/insu_m_banr.png" alt="a" />
-          </div>
           <div class="col-lg-5">
             <div class="emi_hero_txt">
               <h6>
@@ -303,7 +301,7 @@ const Insurance = (props) => {
               </div>
               <div class="col-lg-12">
                 <div class="insuarence_btttns">
-                  <a href="#">
+                  <a href="#" data-toggle="modal" data-target="#exampleModalLong">
                     Get Now
                     <img class="img-fluid" src="images/arrw_w_rgt.svg" alt="a" />
                   </a>
@@ -536,17 +534,11 @@ const Insurance = (props) => {
                         </div>
                       </div>
                       <div class="col-lg-6">
-                        <div class="rsa_modal_upload">
-                          <label class="upload-area">
-                            <input type="file" name="invoice" required/>
-                            <span class="upload-button">
-                              <img class="img-fluid" src="images/upload_plus.svg" alt="a" />
-                            </span>
-                            
+                        <div className="form-group">
+                          <label for="">
+                            Upload Invoice
                           </label>
-                          <p>
-                            Upload your Invoice
-                          </p>
+                          <input type="file" name="invoice" required/>
                         </div>
                       </div>
                       <div class="col-lg-6">
