@@ -987,12 +987,16 @@ const Landing = (props) => {
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="customer_stories_head">
-                                <h2>Our Customer <br /> <span>Stories</span></h2>
+                                {subdomain == 'japan' ?
+                                    <h2>オンラインレビュー</h2> :
+                                    <h2>Our Customer <br /> <span>Stories</span></h2>
+                                }
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="customer_stories_head">
-                                <p>We make amazing e-bikes for some amazing people to ride further and more often. These are a few specially picked stories from thousands of customers.</p>
+                                <p>{subdomain == 'japan' ? "購入する前にオンラインで自転車をチェックしてみませんか？わかりました。これらは、何千ものオンラインレビューから特別に選ばれたいくつかのストーリーです。" :
+                                    "We make amazing e-bikes for some amazing people to ride further and more often. These are a few specially picked stories from thousands of customers."}</p>
                             </div>
                         </div>
                     </div>
@@ -1537,7 +1541,7 @@ const Landing = (props) => {
                                 <>
                                     <div class="row expo_bike_slider_uae">
 
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <Link to="/xplorer">
                                                 <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
                                                     <img src="images/Japan/XPLORER/Xplorer-pulse-black.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
@@ -1573,12 +1577,12 @@ const Landing = (props) => {
                                                         </tr>
                                                     </table>
                                                     <div class="explore_bttn row mx-auto">
-                                                        <Link to="/xplorer">Buy Now</Link>
+                                                        <Link to="/xplorer">今すぐ購入</Link>
                                                     </div>
                                                 </div>
                                             </Link>
                                         </div>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <Link to="/glyder">
                                                 <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
                                                     <img src="images/Japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
@@ -1615,7 +1619,51 @@ const Landing = (props) => {
                                                         </tr>
                                                     </table>
                                                     <div class="explore_bttn row mx-auto">
-                                                        <Link to="/glyder">Buy Now</Link>
+                                                        <Link to="/glyder">今すぐ購入</Link>
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <Link to="/trex">
+                                                <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                                                    <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
+
+                                                    <h3>DOLPHIN <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+
+                                                    <h5>FEATURES</h5>
+                                                    <table>
+                                                        <tr>
+                                                            <td>RANGE</td>
+                                                            <td>45+ Kms</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>SPEED (MAX)</td>
+                                                            <td>25Km/hr</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>BRAKES</td>
+                                                            <td>Dual Disc</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>BATTERY</td>
+                                                            <td>36 Volts</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>CAPACITY</td>
+                                                            <td>7.5 Ah</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Starting From</td>
+                                                            <td>Colors</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>AED 4,599</td>
+                                                            <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{ "color": "#10B068" }}></i></td>
+                                                        </tr>
+                                                    </table>
+                                                    <div class="explore_bttn row mx-auto">
+                                                        <Link to="/doodle">今すぐ購入</Link>
                                                     </div>
                                                 </div>
                                             </Link>
