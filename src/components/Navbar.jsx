@@ -47,7 +47,15 @@ const Navbar = (props) => {
         window.location.reload();
     }
     const getCountry = (e) => {
-        return false;
+        if(e.target.firstElementChild.alt == 'uae') {
+            document.location.href= 'https://uae.emotorad.in/';
+        } else if(e.target.firstElementChild.alt == 'india') {
+            document.location.href= 'https://emotorad.in/';
+        } else if(e.target.firstElementChild.alt == 'japan') {
+            document.location.href= 'https://japan.emotorad.in/';
+        } else if(e.target.firstElementChild.alt == 'nepal') {
+            document.location.href= 'https://nepal.emotorad.in/';
+        }
         localStorage.setItem('subDomain', e.target.firstElementChild.alt);
         localStorage.setItem('countryflag', e.target.firstElementChild.src);
 
@@ -62,13 +70,13 @@ const Navbar = (props) => {
         let uaeflag = "images/uae.png";
         let indiaflag = "images/india-flag.png";
         let japanflag = "images/japan.png";
-        let nepalflag = "images/nepal.png";
+        let nepalflag = "images/nepal.png";  
         
-        localStorage.setItem('subDomain', "japan")
+        localStorage.setItem('subDomain', "india")
         let getsub = localStorage.getItem('subDomain');
         setSubdomain(getsub);
         setcountryName(getsub.toUpperCase())
-        setcountryflag(japanflag)
+        setcountryflag(indiaflag)
     }
 
     useEffect(() => {
