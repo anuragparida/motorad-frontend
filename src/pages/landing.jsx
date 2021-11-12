@@ -1541,7 +1541,7 @@ const Landing = (props) => {
                                 <>
                                     <div class="row expo_bike_slider_uae">
 
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-6">
                                             <Link to="/xplorer">
                                                 <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
                                                     <img src="images/Japan/XPLORER/Xplorer-pulse-black.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
@@ -1582,7 +1582,7 @@ const Landing = (props) => {
                                                 </div>
                                             </Link>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div class="col-lg-6">
                                             <Link to="/glyder">
                                                 <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
                                                     <img src="images/Japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
@@ -1624,7 +1624,7 @@ const Landing = (props) => {
                                                 </div>
                                             </Link>
                                         </div>
-                                        <div class="col-lg-4">
+                                        {/* <div class="col-lg-4">
                                             <Link to="/trex">
                                                 <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
                                                     <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
@@ -1667,7 +1667,7 @@ const Landing = (props) => {
                                                     </div>
                                                 </div>
                                             </Link>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </>
                                 :

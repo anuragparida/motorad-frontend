@@ -1127,7 +1127,7 @@ const ProductXplorer = (props) => {
                                     <div class="technical_specific_box">
                                         <h6>Frame</h6>
                                         <p>
-                                        Aluminium Alloy	
+                                            Aluminium Alloy
                                         </p>
                                     </div>
                                     <div class="technical_specific_box">
@@ -1140,7 +1140,7 @@ const ProductXplorer = (props) => {
                                     <div class="technical_specific_box">
                                         <h6>Trasmission</h6>
                                         <p>
-                                            SHIMANO 7SP	
+                                            SHIMANO 7SP
                                         </p>
                                     </div>
                                     <div class="technical_specific_box mr-0">
@@ -1150,13 +1150,13 @@ const ProductXplorer = (props) => {
                                     <div class="technical_specific_box">
                                         <h6>Handlebar Riser	</h6>
                                         <p>
-                                        Aluminium Alloy Tube	
+                                            Aluminium Alloy Tube
                                         </p>
                                     </div>
                                     <div class="technical_specific_box">
                                         <h6>Seat Tube</h6>
                                         <p>
-                                        Aluminium Alloy Seat<br/> Tube	
+                                            Aluminium Alloy Seat<br /> Tube
                                         </p>
                                     </div>
                                     <div class="technical_specific_box">
@@ -1166,7 +1166,7 @@ const ProductXplorer = (props) => {
                                     <div class="technical_specific_box">
                                         <h6>Brake</h6>
                                         <p>Weicheng Mechanic<br />
-                                        Disc Brake
+                                            Disc Brake
 
                                         </p>
                                     </div>
@@ -1174,7 +1174,7 @@ const ProductXplorer = (props) => {
                                         <h6>Tire </h6>
                                         <p>Guangwei 20*4.0	</p>
                                     </div>
-                                  
+
                                     <div class="technical_specific_box ">
                                         <h6>Charger</h6>
                                         <p>JP 48V2A	</p>
@@ -1182,10 +1182,10 @@ const ProductXplorer = (props) => {
                                     <div class="technical_specific_box">
                                         <h6>Net/Gross weight (kg)</h6>
                                         <p>
-                                        26/30	
+                                            26/30
                                         </p>
                                     </div>
-                                   
+
                                     {/* <div class="technical_specific_box mr-0">
                                         <h6>Crank </h6>
                                         <p>Aluminium Alloy</p>
@@ -1407,134 +1407,134 @@ const ProductXplorer = (props) => {
                     </div>
                     <div class="row expo_bike_slider">
 
-                    <div class="col-lg-4">
-                                            <Link to="/xplorer">
-                                                <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                                                    <img src="images/Japan/XPLORER/Xplorer-pulse-black.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
+                        <div class="col-lg-6">
+                            <Link to="/xplorer">
+                                <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                                    <img src="images/Japan/XPLORER/Xplorer-pulse-black.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
-                                                    <h3>XPLORER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+                                    <h3>XPLORER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
-                                                    <h5>FEATURES</h5>
-                                                    <table>
-                                                        <tr>
-                                                            <td>RANGE</td>
-                                                            <td>120 Kms</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>SPEED (MAX)</td>
-                                                            <td>25Km/hr</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BRAKES</td>
-                                                            <td>Mechanic Disc Brake</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BATTERY</td>
-                                                            <td>48 Volts</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>CAPACITY</td>
-                                                            <td>15 Ah</td>
-                                                        </tr>
+                                    <h5>FEATURES</h5>
+                                    <table>
+                                        <tr>
+                                            <td>RANGE</td>
+                                            <td>120 Kms</td>
+                                        </tr>
+                                        <tr>
+                                            <td>SPEED (MAX)</td>
+                                            <td>25Km/hr</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BRAKES</td>
+                                            <td>Mechanic Disc Brake</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BATTERY</td>
+                                            <td>48 Volts</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CAPACITY</td>
+                                            <td>15 Ah</td>
+                                        </tr>
 
-                                                        <tr>
-                                                            <td>YEN 268,000</td>
-                                                            <td><i class="fa fa-circle"></i> <i class="fa fa-circle"></i></td>
-                                                        </tr>
-                                                    </table>
-                                                    <div class="explore_bttn row mx-auto">
-                                                        <Link to="/xplorer">今すぐ購入</Link>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <Link to="/glyder">
-                                                <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                                                    <img src="images/Japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
+                                        <tr>
+                                            <td>YEN 268,000</td>
+                                            <td><i class="fa fa-circle"></i> <i class="fa fa-circle"></i></td>
+                                        </tr>
+                                    </table>
+                                    <div class="explore_bttn row mx-auto">
+                                        <Link to="/xplorer">今すぐ購入</Link>
+                                    </div>
+                                </div>
+                            </Link>
+                        </div>
+                        <div class="col-lg-6">
+                            <Link to="/glyder">
+                                <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                                    <img src="images/Japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
-                                                    <h3>GLYDER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+                                    <h3>GLYDER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
-                                                    <h5>FEATURES</h5>
-                                                    <table>
-                                                        <tr>
-                                                            <td>RANGE</td>
-                                                            <td>80 Kms</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>SPEED (MAX)</td>
-                                                            <td>25Km/hr</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BRAKES</td>
-                                                            <td>Mechanic Disc Brake &nbsp;JAK F&R</td>
+                                    <h5>FEATURES</h5>
+                                    <table>
+                                        <tr>
+                                            <td>RANGE</td>
+                                            <td>80 Kms</td>
+                                        </tr>
+                                        <tr>
+                                            <td>SPEED (MAX)</td>
+                                            <td>25Km/hr</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BRAKES</td>
+                                            <td>Mechanic Disc Brake &nbsp;JAK F&R</td>
 
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BATTERY</td>
-                                                            <td>36 Volts</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>CAPACITY</td>
-                                                            <td>14 Ah</td>
-                                                        </tr>
+                                        </tr>
+                                        <tr>
+                                            <td>BATTERY</td>
+                                            <td>36 Volts</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CAPACITY</td>
+                                            <td>14 Ah</td>
+                                        </tr>
 
-                                                        <tr>
-                                                            <td>YEN 228,800</td>
-                                                            <td><i class="fa fa-circle" style={{ "color": "#DBFF00" }}></i></td>
-                                                        </tr>
-                                                    </table>
-                                                    <div class="explore_bttn row mx-auto">
-                                                        <Link to="/glyder">今すぐ購入</Link>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <Link to="/trex">
-                                                <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                                                    <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
+                                        <tr>
+                                            <td>YEN 228,800</td>
+                                            <td><i class="fa fa-circle" style={{ "color": "#DBFF00" }}></i></td>
+                                        </tr>
+                                    </table>
+                                    <div class="explore_bttn row mx-auto">
+                                        <Link to="/glyder">今すぐ購入</Link>
+                                    </div>
+                                </div>
+                            </Link>
+                        </div>
+                        {/* <div class="col-lg-4">
+                            <Link to="/trex">
+                                <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                                    <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
 
-                                                    <h3>DOLPHIN <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+                                    <h3>DOLPHIN <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
-                                                    <h5>FEATURES</h5>
-                                                    <table>
-                                                        <tr>
-                                                            <td>RANGE</td>
-                                                            <td>45+ Kms</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>SPEED (MAX)</td>
-                                                            <td>25Km/hr</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BRAKES</td>
-                                                            <td>Dual Disc</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BATTERY</td>
-                                                            <td>36 Volts</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>CAPACITY</td>
-                                                            <td>7.5 Ah</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Starting From</td>
-                                                            <td>Colors</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>AED 4,599</td>
-                                                            <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{ "color": "#10B068" }}></i></td>
-                                                        </tr>
-                                                    </table>
-                                                    <div class="explore_bttn row mx-auto">
-                                                        <Link to="/doodle">今すぐ購入</Link>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                        </div>
-                      
+                                    <h5>FEATURES</h5>
+                                    <table>
+                                        <tr>
+                                            <td>RANGE</td>
+                                            <td>45+ Kms</td>
+                                        </tr>
+                                        <tr>
+                                            <td>SPEED (MAX)</td>
+                                            <td>25Km/hr</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BRAKES</td>
+                                            <td>Dual Disc</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BATTERY</td>
+                                            <td>36 Volts</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CAPACITY</td>
+                                            <td>7.5 Ah</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Starting From</td>
+                                            <td>Colors</td>
+                                        </tr>
+                                        <tr>
+                                            <td>AED 4,599</td>
+                                            <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{ "color": "#10B068" }}></i></td>
+                                        </tr>
+                                    </table>
+                                    <div class="explore_bttn row mx-auto">
+                                        <Link to="/doodle">今すぐ購入</Link>
+                                    </div>
+                                </div>
+                            </Link>
+                        </div> */}
+
                     </div>
                 </div>
             </section>
