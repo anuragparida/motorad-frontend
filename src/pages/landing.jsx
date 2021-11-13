@@ -78,7 +78,7 @@ const Landing = (props) => {
                                         : (subdomain == 'uae') ?
                                             <img src="images/uae/Main-hero-UAE.gif" alt="a" class="img-fluid w-100" />
                                             : (subdomain == 'japan') ?
-                                                <img src="images/japan/Top-Part/Hero-Main.gif" alt="a" class="img-fluid w-100" />
+                                                <img src="images/Japan/Top-Part/Hero-Main.gif" alt="a" class="img-fluid w-100" />
                                                 :
                                                 <img src="images/manin-hero-img.gif" alt="a" class="img-fluid w-100" />
                                 }
@@ -715,7 +715,7 @@ const Landing = (props) => {
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <div class="suspension_img" data-aos="zoom-in-up" data-aos-duration="2000">
-                                                                        <a href="/glyder"><img src="images/japan/Solo-Bikes-3D/Glyder.gif" alt="a" class="img-fluid" /></a>
+                                                                        <a href="/glyder"><img src="images/Japan/Solo-Bikes-3D/Glyder.gif" alt="a" class="img-fluid" /></a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -772,7 +772,7 @@ const Landing = (props) => {
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <div class="suspension_img" data-aos="zoom-in-up" data-aos-duration="2000">
-                                                                        <a href="/xplorer"><img src="images/japan/Solo-Bikes-3D/Xplorer.gif" alt="a" class="img-fluid" /></a>
+                                                                        <a href="/xplorer"><img src="images/Japan/Solo-Bikes-3D/Xplorer.gif" alt="a" class="img-fluid" /></a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -829,7 +829,7 @@ const Landing = (props) => {
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <div class="suspension_img" data-aos="zoom-in-up" data-aos-duration="2000">
-                                                                        <a href="/glyder"><img src="images/japan/Solo-Bikes-3D/Dolphin.gif" alt="a" class="img-fluid" /></a>
+                                                                        <a href="/glyder"><img src="images/Japan/Solo-Bikes-3D/Dolphin.gif" alt="a" class="img-fluid" /></a>
                                                                     </div>
                                                                 </div>
                                                             </div>

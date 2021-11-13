@@ -72,7 +72,7 @@ const Navbar = (props) => {
         let japanflag = "images/japan.png";
         let nepalflag = "images/nepal.png";  
         
-        localStorage.setItem('subDomain', "japan")
+        localStorage.setItem('subDomain', "india")
         let getsub = localStorage.getItem('subDomain');
         setSubdomain(getsub);
         setcountryName(getsub.toUpperCase())
