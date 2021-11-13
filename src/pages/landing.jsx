@@ -16,39 +16,39 @@ const Landing = (props) => {
     const [subdomain, setSubdomain] = useState("");
     const [country, setCountry] = useState(true);
     const [productPrice, setProductPrice] = useState({
-        trex:"",
-        emx:"",
-        doodle:""
-      });
+        trex: "",
+        emx: "",
+        doodle: ""
+    });
 
-      const loadProducts = async() => {
+    const loadProducts = async () => {
         await axios
-          .get(server + "/api/product/read", config)
-          .then((rsp) => {
-            console.log(rsp);
-            const filteredRsp = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"));
-            if (filteredRsp.length > 0) {
-              // console.log(filteredRsp);
-            //   setProducts(filteredRsp);
-            //   setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"))[0].id);
-              setProductPrice({
-                ...productPrice,
-                trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
-                emx:rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"))[0].price,
-                doodle:rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].price
-              })
-            }
-            else {
-              //   setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
-            //   setProductID(1);
-            alert("Products not set correctly. Please Contact Admin.");
-            }
-          })
-          .catch((err) => {
-            checkAccess(err);
-            console.error(err);
-          });
-      }
+            .get(server + "/api/product/read", config)
+            .then((rsp) => {
+                console.log(rsp);
+                const filteredRsp = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"));
+                if (filteredRsp.length > 0) {
+                    // console.log(filteredRsp);
+                    //   setProducts(filteredRsp);
+                    //   setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"))[0].id);
+                    setProductPrice({
+                        ...productPrice,
+                        trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
+                        emx: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"))[0].price,
+                        doodle: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].price
+                    })
+                }
+                else {
+                    //   setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
+                    //   setProductID(1);
+                    alert("Products not set correctly. Please Contact Admin.");
+                }
+            })
+            .catch((err) => {
+                checkAccess(err);
+                console.error(err);
+            });
+    }
     useEffect(() => {
         loadProducts()
         AOS.init();
@@ -73,17 +73,19 @@ const Landing = (props) => {
                         <div class="col-lg-12 d-none d-lg-block">
                             <div class="home_hero_bike_wrap">
                                 {
-                                    (subdomain == '' || subdomain == 'nepal') ?
-                                        <img src="images/manin-hero-img.gif" alt="a" class="img-fluid w-100" />
+                                    (subdomain == '' || subdomain == "india" || subdomain == 'nepal') ?
+                                        <img src="images/uae/India-Home_Page_Render.gif" alt="a" class="img-fluid w-100" />
                                         : (subdomain == 'uae') ?
                                             <img src="images/uae/Main-hero-UAE.gif" alt="a" class="img-fluid w-100" />
-                                            :
-                                            <img src="images/manin-hero-img.gif" alt="a" class="img-fluid w-100" />
+                                            : (subdomain == 'japan') ?
+                                                <img src="images/japan/Top-Part/Hero-Main.gif" alt="a" class="img-fluid w-100" />
+                                                :
+                                                <img src="images/manin-hero-img.gif" alt="a" class="img-fluid w-100" />
                                 }
                             </div>
                             <div class="home_hero_bike_title">
                                 {
-                                    (subdomain == '' || subdomain == 'nepal') ?
+                                    (subdomain == '' || subdomain == "india" || subdomain == 'nepal') ?
                                         <>
                                             <Link to="/doodle"><h3 class="text-outline text-outline-hover" data-text="DOODLE">DOODLE</h3></Link>
                                             <Link to="/trex"><h3 class="text-outline text-outline-hover" data-text="T-REX">T-REX</h3></Link>
@@ -96,19 +98,25 @@ const Landing = (props) => {
                                                 <Link to="/energ"><h3 class="text-outline text-outline-hover" data-text="ENER-G">ENER-G</h3></Link>
                                                 <Link to="/doodle"><h3 class="text-outline text-outline-hover" data-text="DOODLE">DOODLE</h3></Link>
                                             </>
-                                            :
-                                            <>
-                                                <Link to="/doodle"><h3 class="text-outline text-outline-hover" data-text="DOODLE">DOODLE</h3></Link>
-                                                <Link to="/trex"><h3 class="text-outline text-outline-hover" data-text="T-REX">T-REX</h3></Link>
-                                                <Link to="/emx"><h3 class="text-outline text-outline-hover" data-text="EMX">EMX</h3></Link>
-                                            </>
+                                            : (subdomain == 'japan') ?
+                                                <>
+                                                    <Link to="/dolphin"><h3 class="text-outline text-outline-hover" data-text="DOLPHIN">DOLPHIN</h3></Link>
+                                                    <Link to="/xplorer"><h3 class="text-outline text-outline-hover" data-text="XPLORER">XPLORER</h3></Link>
+                                                    <Link to="/glyder"><h3 class="text-outline text-outline-hover" data-text="GLYDER">GLYDER</h3></Link>
+                                                </>
+                                                :
+                                                <>
+                                                    <Link to="/doodle"><h3 class="text-outline text-outline-hover" data-text="DOODLE">DOODLE</h3></Link>
+                                                    <Link to="/trex"><h3 class="text-outline text-outline-hover" data-text="T-REX">T-REX</h3></Link>
+                                                    <Link to="/emx"><h3 class="text-outline text-outline-hover" data-text="EMX">EMX</h3></Link>
+                                                </>
                                 }
                             </div>
                         </div>
                     </div>
                     <div class="row d-lg-none">
                         {
-                            (subdomain == '' || subdomain == 'nepal') ?
+                            (subdomain == '' || subdomain == "india" || subdomain == 'nepal') ?
                                 <>
                                     <div class="col-12">
                                         <div class="moobile_cycle mt_50">
@@ -160,7 +168,7 @@ const Landing = (props) => {
                                             </div>
                                             <div class="home_hero_bike_title">
 
-                                                <h3 class="text-outline text-outline-hover" data-text="DOODLE">DOODLE</h3>
+                                                <h3 class="text-outline text-outline-hover" data-text="GLYDER">GLYDER</h3>
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -169,42 +177,74 @@ const Landing = (props) => {
                                             </div>
                                             <div class="home_hero_bike_title">
 
-                                                <h3 class="text-outline text-outline-hover" data-text="T-REX">T-REX</h3>
+                                                <h3 class="text-outline text-outline-hover" data-text="DOLPHIN">DOLPHIN</h3>
                                             </div>
                                         </div>
                                     </>
-                                    :
-                                    <>
-                                        <div class="col-12">
-                                            <div class="moobile_cycle mt_50">
-                                                <img src="images/EMX.gif" alt="a" class="img-fluid w-100" />
+                                    : (subdomain == 'japan') ?
+                                        <>
+                                            <div class="col-12">
+                                                <div class="moobile_cycle mt_50">
+                                                    <img src="images/EMX.gif" alt="a" class="img-fluid w-100" />
+                                                </div>
+                                                <a href="/xplorer">
+                                                    <div class="home_hero_bike_title">
+
+                                                        <h3 class="text-outline text-outline-hover" data-text="XPLORER">XPLORER</h3>
+                                                    </div>
+                                                </a>
                                             </div>
-                                            <a href="/emx">
+                                            <div class="col-12">
+                                                <div class="moobile_cycle">
+                                                    <img src="images/DOODLE.gif" alt="a" class="img-fluid w-100" />
+                                                </div>
                                                 <div class="home_hero_bike_title">
 
-                                                    <h3 class="text-outline text-outline-hover" data-text="EMX">EMX</h3>
+                                                    <h3 class="text-outline text-outline-hover" data-text="DOODLE">DOODLE</h3>
                                                 </div>
-                                            </a>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="moobile_cycle">
-                                                <img src="images/DOODLE.gif" alt="a" class="img-fluid w-100" />
                                             </div>
-                                            <div class="home_hero_bike_title">
+                                            <div class="col-12">
+                                                <div class="moobile_cycle">
+                                                    <img src="images/T-REX.gif" alt="a" class="img-fluid w-100" />
+                                                </div>
+                                                <div class="home_hero_bike_title">
 
-                                                <h3 class="text-outline text-outline-hover" data-text="DOODLE">DOODLE</h3>
+                                                    <h3 class="text-outline text-outline-hover" data-text="T-REX">T-REX</h3>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <div class="moobile_cycle">
-                                                <img src="images/T-REX.gif" alt="a" class="img-fluid w-100" />
-                                            </div>
-                                            <div class="home_hero_bike_title">
+                                        </>
+                                        :
+                                        <>
+                                            <div class="col-12">
+                                                <div class="moobile_cycle mt_50">
+                                                    <img src="images/EMX.gif" alt="a" class="img-fluid w-100" />
+                                                </div>
+                                                <a href="/emx">
+                                                    <div class="home_hero_bike_title">
 
-                                                <h3 class="text-outline text-outline-hover" data-text="T-REX">T-REX</h3>
+                                                        <h3 class="text-outline text-outline-hover" data-text="EMX">EMX</h3>
+                                                    </div>
+                                                </a>
                                             </div>
-                                        </div>
-                                    </>
+                                            <div class="col-12">
+                                                <div class="moobile_cycle">
+                                                    <img src="images/DOODLE.gif" alt="a" class="img-fluid w-100" />
+                                                </div>
+                                                <div class="home_hero_bike_title">
+
+                                                    <h3 class="text-outline text-outline-hover" data-text="DOODLE">DOODLE</h3>
+                                                </div>
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="moobile_cycle">
+                                                    <img src="images/T-REX.gif" alt="a" class="img-fluid w-100" />
+                                                </div>
+                                                <div class="home_hero_bike_title">
+
+                                                    <h3 class="text-outline text-outline-hover" data-text="T-REX">T-REX</h3>
+                                                </div>
+                                            </div>
+                                        </>
                         }
                     </div>
                 </div>
@@ -628,7 +668,7 @@ const Landing = (props) => {
                                                             <div class="row">
                                                                 <div class="col-lg-6">
                                                                     <div class="dual_suspension_txt">
-                                                                        <h3>japan's First <span>E-Bike</span>GLYDER </h3>
+                                                                        <h3>japan's First <span>E-Bike</span> GLYDER </h3>
 
                                                                         <p>A lightweight, portable, folding e-bike, Glyder is your companion on your commute or an exciting adventure. Ride further and more often with a power-assisted ride to transform your daily travel experience. When you get there, fold it up in an instant into a compact package that is small enough to fit in a car or store it safely at home or work. The aluminium 6061 frame gives it strength while keeping the weight light so that you can carry it anywhere you travel. </p>
                                                                     </div>
@@ -675,7 +715,7 @@ const Landing = (props) => {
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <div class="suspension_img" data-aos="zoom-in-up" data-aos-duration="2000">
-                                                                        <a href="#"><img src="images/EMX.gif" alt="a" class="img-fluid" /></a>
+                                                                        <a href="/glyder"><img src="images/japan/Solo-Bikes-3D/Glyder.gif" alt="a" class="img-fluid" /></a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -732,7 +772,64 @@ const Landing = (props) => {
                                                                 </div>
                                                                 <div class="col-lg-6">
                                                                     <div class="suspension_img" data-aos="zoom-in-up" data-aos-duration="2000">
-                                                                        <a href="/doodle"><img src="images/DOODLE.gif" alt="a" class="img-fluid" /></a>
+                                                                        <a href="/xplorer"><img src="images/japan/Solo-Bikes-3D/Xplorer.gif" alt="a" class="img-fluid" /></a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="tab-pane fade " id="pills-dolphin" role="tabpanel" aria-labelledby="pills-dolphin-tab">
+
+                                                            <div class="row">
+                                                                <div class="col-lg-6">
+                                                                    <div class="dual_suspension_txt">
+                                                                        <h3>japan's First <span>E-Bike</span> DOLPHIN </h3>
+
+                                                                        <p>A lightweight, portable, folding e-bike, Glyder is your companion on your commute or an exciting adventure. Ride further and more often with a power-assisted ride to transform your daily travel experience. When you get there, fold it up in an instant into a compact package that is small enough to fit in a car or store it safely at home or work. The aluminium 6061 frame gives it strength while keeping the weight light so that you can carry it anywhere you travel. </p>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-lg-10">
+                                                                            <div class="row">
+                                                                                <div class="col-lg-6 col-6">
+                                                                                    <div class="suspension_wrap">
+                                                                                        <img src="images/small_bike.svg" alt="a" class="img-fluid" />
+                                                                                        <h6>RANGE</h6>
+                                                                                        <p>45 kms </p>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-6 col-6">
+                                                                                    <div class="suspension_wrap">
+                                                                                        <img src="images/speed_icon.svg" alt="a" class="img-fluid" />
+                                                                                        <h6>SPEED</h6>
+                                                                                        <p>25km/hr <br /> (Max Speed)</p>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-6 col-6">
+                                                                                    <div class="suspension_wrap">
+                                                                                        <img src="images/park_meter.svg" alt="a" class="img-fluid" />
+                                                                                        <h6>BRAKES</h6>
+                                                                                        <p>Dual Dics</p>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-6 col-6">
+                                                                                    <div class="suspension_wrap">
+                                                                                        <img src="images/battrey_icon.svg" alt="a" class="img-fluid" />
+                                                                                        <h6>BATTERY</h6>
+                                                                                        <p>36 Volts <br /> (10 Ah Powerful Battery)</p>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="col-lg-12">
+                                                                                    <div class="suspension_bttns">
+                                                                                        <Link to="/glyder">Buy Now</Link>
+                                                                                        <Link to="/glyder">View More</Link>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-lg-6">
+                                                                    <div class="suspension_img" data-aos="zoom-in-up" data-aos-duration="2000">
+                                                                        <a href="/glyder"><img src="images/japan/Solo-Bikes-3D/Dolphin.gif" alt="a" class="img-fluid" /></a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -977,14 +1074,20 @@ const Landing = (props) => {
                                                             <>
                                                                 <li >
                                                                     <a class="active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-contact" aria-selected="false">
-                                                                        <img src="images/Japan/XPLORER/Xplorer-pulse-black.png" alt="a" class="img-fluid" />
+                                                                        <img src="images/Japan/Bottom-Bikes/Xplorer.png" alt="a" class="img-fluid" />
                                                                         <span>XPLORER</span>
                                                                     </a>
                                                                 </li>
-                                                                <li style={{ marginRight: "199px" }}>
+                                                                <li >
                                                                     <a class="" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">
-                                                                        <img src="images/Japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" />
+                                                                        <img src="images/Japan/Bottom-Bikes/Glyder.png" alt="a" class="img-fluid" />
                                                                         <span>GLYDER</span>
+                                                                    </a>
+                                                                </li>
+                                                                <li >
+                                                                    <a class="" id="pills-dolphin-tab" data-toggle="pill" href="#pills-dolphin" role="tab" aria-controls="pills-dolphin" aria-selected="false">
+                                                                        <img src="images/Japan/Bottom-Bikes/Dolphin.png" alt="a" class="img-fluid" />
+                                                                        <span>DOLPHIN</span>
                                                                     </a>
                                                                 </li>
                                                             </>
@@ -1256,7 +1359,7 @@ const Landing = (props) => {
                             </div>
                         </div>
                     </div>
-                    {(subdomain == '' ||subdomain=='india'|| subdomain == 'nepal') ?
+                    {(subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
                         <div class="row  expo_bike_slider">
                             <div class="col-lg-4">
                                 <Link to="/trex">
@@ -1577,10 +1680,10 @@ const Landing = (props) => {
                                 <>
                                     <div class="row expo_bike_slider_uae">
 
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <Link to="/xplorer">
                                                 <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                                                    <img src="images/Japan/XPLORER/Xplorer-pulse-black.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
+                                                    <img src="images/Japan/Bottom-Bikes/Xplorer.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
                                                     <h3>XPLORER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
@@ -1606,6 +1709,10 @@ const Landing = (props) => {
                                                             <td>CAPACITY</td>
                                                             <td>15 Ah</td>
                                                         </tr>
+                                                        <tr>
+                                                            <td>Starting From</td>
+                                                            <td>Colors</td>
+                                                        </tr>
 
                                                         <tr>
                                                             <td>YEN 268,000</td>
@@ -1618,10 +1725,10 @@ const Landing = (props) => {
                                                 </div>
                                             </Link>
                                         </div>
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <Link to="/glyder">
                                                 <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                                                    <img src="images/Japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
+                                                    <img src="images/Japan/Bottom-Bikes/Glyder.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
                                                     <h3>GLYDER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
@@ -1637,7 +1744,7 @@ const Landing = (props) => {
                                                         </tr>
                                                         <tr>
                                                             <td>BRAKES</td>
-                                                            <td>Mechanic Disc Brake &nbsp;JAK F&R</td>
+                                                            <td>Mechanic Disc Brake <small>JAK F&R</small></td>
 
                                                         </tr>
                                                         <tr>
@@ -1647,6 +1754,10 @@ const Landing = (props) => {
                                                         <tr>
                                                             <td>CAPACITY</td>
                                                             <td>14 Ah</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Starting From</td>
+                                                            <td>Colors</td>
                                                         </tr>
 
                                                         <tr>
@@ -1660,10 +1771,10 @@ const Landing = (props) => {
                                                 </div>
                                             </Link>
                                         </div>
-                                        {/* <div class="col-lg-4">
+                                        <div class="col-lg-4">
                                             <Link to="/trex">
                                                 <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                                                    <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
+                                                    <img src="images/Japan/Bottom-Bikes/Dolphin.png" alt="a" class="img-fluid" style={{ width: "185px" }}  />
 
                                                     <h3>DOLPHIN <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
@@ -1703,7 +1814,7 @@ const Landing = (props) => {
                                                     </div>
                                                 </div>
                                             </Link>
-                                        </div> */}
+                                        </div>
                                     </div>
                                 </>
                                 :
