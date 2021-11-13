@@ -436,7 +436,8 @@ img {
   padding: 22px;
   position: absolute;
   top: 50px;
-  left: 138px;
+  left: 253px;
+  /* 138px; */
   z-index: 9999 !important;
   display: none;
   opacity: 0;
@@ -447,7 +448,8 @@ img {
   padding: 22px;
   position: absolute;
   top: 50px;
-  left: 324px;
+  left: 394px;
+  /* 324px; */
   z-index: 9999 !important;
   display: none;
 }
@@ -457,7 +459,8 @@ img {
   padding: 22px;
   position: absolute;
   top: 50px;
-  left: 420px;
+  left: 485px;
+  /* 420px; */
   z-index: 9999 !important;
   display: none;
 }

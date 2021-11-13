@@ -12,6 +12,7 @@ const BookRide = (props) => {
   const [stores, setStores] = useState([]);
   const [cities, setCities] = useState([]);
   const [country, setCountry] = useState(true); 
+  const [subdomain, setSubdomain] = useState("");
 
   const [bike, setBike] = useState('trex');
 
@@ -36,6 +37,8 @@ const BookRide = (props) => {
 
   useEffect(()=>{
     loadCities();
+    let sub = localStorage.getItem('subDomain');
+    setSubdomain(sub);
   }, [])
 
   const changeBike = (event) => {
@@ -194,7 +197,16 @@ const BookRide = (props) => {
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label for="">Your Contact (+91)</label>
+                      {
+                        (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
+                          <label for="">Your Contact (+91)</label>
+                        : (subdomain == 'uae') ?  
+                          <label for="">Your Contact (+971)</label>
+                        : (subdomain == 'japan') ?  
+                          <label for="">Your Contact (+81)</label>    
+                        :
+                          <label for="">Your Contact (+91)</label>
+                      }  
                       <input
                         type="number"
                         class="form-control"

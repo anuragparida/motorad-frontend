@@ -151,6 +151,9 @@ const Navbar = (props) => {
                         <div class="collapse navbar-collapse d-none d-lg-block" id="navbarNav">
                             <ul class="navbar-nav mr-auto custm_scrl">
                                 <li class="nav-item">
+                                    <a class="nav-link" href="javascript:void(0)"><Link to="/">Home</Link></a>
+                                </li>
+                                <li class="nav-item">
                                     <a class="nav-link" href="javascript:void(0)" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">{subdomain == 'japan'?'バイク':'THE BIKES'}</a>
                                 </li>
                                 <li class="nav-item">
