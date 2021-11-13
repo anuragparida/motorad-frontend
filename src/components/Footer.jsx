@@ -26,6 +26,8 @@ const [links, setLinks] = useState({});
 
   return(
     <>
+     <WhattsApp/>
+
      <footer class="footer_section">
          <div class="container">
              <div class="row">
@@ -126,7 +128,6 @@ const [links, setLinks] = useState({});
              </div>
          </div>
      </section>
-     <WhattsApp/>
      </>
   );
 }
