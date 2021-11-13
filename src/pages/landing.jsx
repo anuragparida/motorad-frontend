@@ -1025,7 +1025,7 @@ const Landing = (props) => {
                             <div class="customer_stories_head">
                                 {subdomain == 'japan' ?
                                     <h2>オンラインレビュー</h2> :
-                                    <h2>Our Customer <br /> <span>Stories</span></h2>
+                                    <h2>Online<br /> <span>Reviews</span></h2>
                                 }
                             </div>
                         </div>
