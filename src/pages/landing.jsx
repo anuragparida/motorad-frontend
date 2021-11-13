@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import axios from "axios";
 import { server, config, checkAccess } from "../env";
+import WhattsApp from "../components/WhattsApp";
 
 // import Slider from "react-slick";
 
@@ -1774,7 +1775,7 @@ const Landing = (props) => {
                                         <div class="col-lg-4">
                                             <Link to="/trex">
                                                 <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                                                    <img src="images/Japan/Bottom-Bikes/Dolphin.png" alt="a" class="img-fluid" style={{ width: "185px" }}  />
+                                                    <img src="images/Japan/Bottom-Bikes/Dolphin.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
                                                     <h3>DOLPHIN <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
@@ -1957,7 +1958,7 @@ const Landing = (props) => {
             </section>
 
             <Footer />
-
+            {/* <WhattsApp/> */}
             <div class="book_ride_sticky d-lg-none">
                 <a href="/book">BOOK A TEST RIDE</a>
             </div>

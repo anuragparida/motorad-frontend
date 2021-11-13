@@ -1279,9 +1279,7 @@ const ProductEMX = (props) => {
         <a href="javascript:void(0)" onClick={addToCart}><p>Rs {productPrice.emx.toLocaleString()}</p> BUY NOW</a>
       </div>
     </div>
-    <div class="wapp_sticky">
-      <a href="https://api.whatsapp.com/send/?phone=918686050590&text&app_absent=0"><img src="images/wapp.svg" alt="a" class="img-fluid" /></a>
-    </div>
+
     <a href="#" class="back-top-btn d-none d-lg-block">
       <i class="fa fa-angle-up"></i>
     </a>

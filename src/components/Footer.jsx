@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import { server, config, checkAccess } from "../env";
+import WhattsApp from "./WhattsApp";
 
 const Footer = (props) => {
 const [links, setLinks] = useState({});
@@ -125,6 +126,7 @@ const [links, setLinks] = useState({});
              </div>
          </div>
      </section>
+     <WhattsApp/>
      </>
   );
 }

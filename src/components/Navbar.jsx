@@ -76,7 +76,7 @@ const Navbar = (props) => {
         let getsub = localStorage.getItem('subDomain');
         setSubdomain(getsub);
         setcountryName(getsub.toUpperCase())
-        setcountryflag(japanflag)
+        setcountryflag(indiaflag) 
     }
 
     useEffect(() => {
