@@ -61,6 +61,31 @@ const ProductEMX = (props) => {
     emx:"",
     doodle:""
   });
+  const [subdomain, setSubdomain] = useState("");
+
+  const articleStructuredData = {
+    "@context": "https://schema.org/", 
+    "@type": "Product", 
+    "name": "EMX",
+    "image": "https://emotorad.in/images/EMX-Hero.png",
+    "description": "City riding is now a breeze as you traverse across town without any fuss or effort. The EMX is designed for the city; traffic, uneven roads and slopes included. India’s first dual suspension e-cycle, the dual-suspension of the EMX ensures that you will have a cushion ride and the power to cruise.",
+    "brand": "EMotorad",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://emotorad.in/emx",
+      "priceCurrency": "INR",
+      "price": "52371",
+      "availability": "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "1500"
+    }
+  }
 
   const [visibleImagesMap, setVisibleImagesMap] = useState(
     images.reduce((map, image) => {
@@ -133,6 +158,9 @@ const ProductEMX = (props) => {
     } else {     
       setDeviceType("Desktop");
     }
+
+    let sub = localStorage.getItem('subDomain');
+    setSubdomain(sub);
   }, [country]);
 
   const loadPincodes = async () => {
@@ -215,6 +243,16 @@ const ProductEMX = (props) => {
   return(
     <>
     <Navbar setCountry={setCountry} country={country}>
+
+    {
+      (subdomain == '' ||subdomain=='india'|| subdomain == 'nepal') ?
+        <script type="application/ld+json">
+          {JSON.stringify(articleStructuredData)}
+        </script>
+      :
+      ''  
+    }
+
     <section class="product_menu_sec">
         <div class="container">
           <div class="row">

@@ -15,6 +15,46 @@ const Navbar = (props) => {
     const [countryName, setcountryName] = useState("");
     const [countryflag, setcountryflag] = useState("images/india-flag.png");
 
+    const reviewSEO = {
+        "@context": "https://schema.org/",
+        "@type": "AggregateRating",
+        "itemReviewed": {
+          "@type": "Organization",
+          "name": "Emotorad",
+          "telephone": "+91 8686050590",
+        },
+        "ratingValue": "4.7",
+        "bestRating": "5",
+        "ratingCount": "1500"
+    }
+
+    const webpageSEO = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Emotorad",
+        "description": "The company aims to bring across top quality electric cycles which would currently cost way higher in the Indian market at an affordable price utilizing its local sourcing and manufacturing capabilities."
+    }
+
+    const websiteSEO = {
+        "@context": "https://schema.org/",
+        "@type": "WebSite",
+        "name": "Emotorad",
+        "url": "https://emotorad.in/",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+
+    const organizationSEO = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Emotorad",
+        "url": "https://www.emotorad.com/",
+        "logo": "https://emotorad.in/images/logo-main.svg"
+    }
+
 
     const loadLinks = async () => {
         await axios
@@ -101,6 +141,17 @@ const Navbar = (props) => {
 
     return (
         <div class="navbar_static">
+            {
+                (subdomain == '' ||subdomain=='india'|| subdomain == 'nepal') ?
+                <script type="application/ld+json">
+                    {JSON.stringify(reviewSEO)}
+                    {JSON.stringify(webpageSEO)}
+                    {JSON.stringify(websiteSEO)}
+                    {JSON.stringify(organizationSEO)}
+                </script>
+                :
+                ''      
+            }       
             <header class="header_social_sec">
                 <div class="container-fluid">
                     <div class="row">

@@ -34,6 +34,28 @@ const ProductTREX = (props) => {
     doodle:""
   });
 
+  const articleStructuredData = {
+    "@context": "https://schema.org/", 
+    "@type": "Product", 
+    "name": "T-rex",
+    "image": "https://emotorad.in/images/3D-Renders/T-Rex-Mobile-FFMpeg.mp4",
+    "description": "Get the best and fastest mountain electric bike - T-Rex by Emotorad. EMI starts from INR 1999/mo. Get your FREE Test Ride Now",
+    "brand": "EMotorad",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://emotorad.in/trex",
+      "priceCurrency": "INR",
+      "price": "36999"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "1500"
+    }
+  }
+
 
 
   const [visibleImagesMap, setVisibleImagesMap] = useState(
@@ -204,6 +226,14 @@ const ProductTREX = (props) => {
   return (
     <>
       <Navbar setCountry={setCountry} country={country}>
+      {
+        (subdomain == '' ||subdomain=='india'|| subdomain == 'nepal') ?
+          <script type="application/ld+json">
+            {JSON.stringify(articleStructuredData)}
+          </script>
+        :
+        ''  
+      }   
         <section class="product_menu_sec">
           <div class="container">
             <div class="row">

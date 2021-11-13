@@ -31,6 +31,30 @@ const ProductDOODLE = (props) => {
     doodle: ""
   });
 
+  const articleStructuredData = {
+    "@context": "https://schema.org/",
+    "@type": "Product",
+    "name": "Doodle",
+    "image": "https://emotorad.in/images/Doodle-Black.png",
+    "description": "Best in Class Foldable Electric Bike Its small size might make you think this is a fun little ride, but the Doodle has power to spare when you are in the mood for adventure. And when you don’t, you can fold it away. From sandy beaches to city roads, this bike has the oomph and the portability that will tempt you to take it with you wherever you may go.",
+    "brand": "EMotorad",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://emotorad.in/doodle",
+      "priceCurrency": "INR",
+      "price": "76000",
+      "availability": "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "1500"
+    }
+  }
+
   const [visibleImagesMap, setVisibleImagesMap] = useState(
     images.reduce((map, image) => {
       map[image] = false;
@@ -191,6 +215,16 @@ const ProductDOODLE = (props) => {
   return (
     <>
       <Navbar setCountry={setCountry} country={country}>
+
+      {
+        (subdomain == '' ||subdomain=='india'|| subdomain == 'nepal') ?
+          <script type="application/ld+json">
+            {JSON.stringify(articleStructuredData)}
+          </script>
+        :
+        ''  
+      }
+
         <section class="product_menu_sec">
           <div class="container">
             <div class="row">
