@@ -112,11 +112,30 @@ const Navbar = (props) => {
         let japanflag = "images/japan.png";
         let nepalflag = "images/nepal.png";  
         
-        localStorage.setItem('subDomain', "uae")
-        let getsub = localStorage.getItem('subDomain');
-        setSubdomain(getsub);
-        setcountryName(getsub.toUpperCase())
-        setcountryflag(uaeflag) 
+        let full = window.location.host
+        let parts = full.split('.')
+        let sub = parts[0];
+
+        if(sub == 'uae') {
+            localStorage.setItem('subDomain', "uae")
+            let getsub = localStorage.getItem('subDomain');
+            setSubdomain(getsub);
+            setcountryName(getsub.toUpperCase())
+            setcountryflag(uaeflag)
+        } else if(sub == 'japan') {
+            localStorage.setItem('subDomain', "japan")
+            let getsub = localStorage.getItem('subDomain');
+            setSubdomain(getsub);
+            setcountryName(getsub.toUpperCase())
+            setcountryflag(japanflag)
+        } else {
+            localStorage.setItem('subDomain', "india")
+            let getsub = localStorage.getItem('subDomain');
+            setSubdomain(getsub);
+            setcountryName(getsub.toUpperCase())
+            setcountryflag(indiaflag)
+        }
+         
     }
 
     useEffect(() => {

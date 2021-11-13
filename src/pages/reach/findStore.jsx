@@ -52,7 +52,7 @@ const FindStore = (props) => {
     .get(server + `/api/store/read-states`)
     .then((rsp) => {
       console.log(rsp);
-      setCities(rsp.data.payload);
+      setCities(rsp.data.payload.states);
     })
     .catch((err) => {
       console.log(err.response);
