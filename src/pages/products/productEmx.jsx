@@ -361,6 +361,19 @@ const ProductEMX = (props) => {
               a cushion ride and the power to cruise.
             </p>
 
+            <p>
+            Riding is now a breeze as you traverse across town or over hills without any fuss or effort. EMX is designed for any terrain; traffic, uneven roads and slopes. India’s first dual suspension e-cycle, the dual-suspension of EMX ensures that you will have a cushioned ride and the power to cruise.
+            </p>
+
+            <p>
+            Handle it all<br />
+            Even as you hit the slopes, stay centred with absolute control on a dual suspension adapted just for you.
+            </p>
+
+            <p>Cover the Distance<br />
+            A massive 10.4 Ah battery gets you through the roughest terrain or the longest roads.
+            </p>
+
             <a href="#"
               >WATCH IT IN ACTION
               <img src="images/play_icon.png" alt="a" class="img-fluid"
@@ -477,7 +490,7 @@ const ProductEMX = (props) => {
                   <p>
                     Even as you hit the slopes, stay centred with absolute
                     control on a ride adapted just for you.
-                  </p>
+                  </p>    
                 </div>
                 <div
                   class="glory_img mt-5 pt-3 d-none d-lg-block"
@@ -599,6 +612,33 @@ const ProductEMX = (props) => {
         </div>
       </div>
     </section>
+
+
+    {
+        (subdomain == 'india' || subdomain == '') ?
+        <>
+        <section class="glory_section" id="gal_sec">
+        <div class="container">
+          <div class="row justify-content-end">
+            <div class="col-lg-11">
+              <div
+                  class="glory_lng_ttx"
+                  data-aos="fade-up"
+                  data-aos-duration="2000"
+                >
+                <p>EMX provides the smoothest of rides on any terrain.</p>
+                <p>Experience the power of an e-bike in real Life.</p>
+              </div>
+            </div>
+          </div>
+          </div>
+          </section>
+        </>
+        :
+        ''  
+      }
+
+
     <section class="product_specification" id="spe_sec">
       <div class="container">
         <div class="row">

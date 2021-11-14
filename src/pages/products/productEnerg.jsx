@@ -267,7 +267,7 @@ const ProductEnerg = (props) => {
                                         alt="a"
                                         class="img-fluid the_best"
                                     />
-                                    <svg viewBox="0 0 1280 720">
+                                    <svg viewBox="0 0 1400 720">
                                         <text text-anchor="middle" x="50%" y="50%">ENER-G</text>
                                     </svg>
                                     <img

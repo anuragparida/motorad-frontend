@@ -146,7 +146,7 @@ const BookRide = (props) => {
                 <div class="row">
                   <div class="col-lg-6 d-lg-none">
                     <div class="form-group">
-                      <label for="">Select Bike</label>
+                      {/* <label for="">Select Bike</label> */}
                       <a href="#" class="mobile_bikee_selectt">
                       {bike==="trex" ? "T - REX" : bike === "emx" ? "EMX" : "DOODLE"}
                         {

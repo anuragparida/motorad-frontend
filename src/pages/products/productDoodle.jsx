@@ -367,10 +367,14 @@ const ProductDOODLE = (props) => {
               >WATCH IT IN ACTION
                 <img src="images/play_icon.png" alt="a" class="img-fluid"
                 /></a>
+
+            <p>Your weekend rides just got better with the foldable Doodle. Its size might make it seem like a fun little ride, but Doodle has power to spare when you are in the mood for adventure. Fold the SUV of e-bikes in the back of your car and get away with the ideal dune cruiser. From sandy beaches to city roads, this e-bike has the oomph and portability to tempt you into taking it wherever you may go.
+            </p>
             </div>
           </div>
         </div>
       </div>
+
 
       {
         (deviceType == 'Desktop') ?
@@ -445,6 +449,36 @@ const ProductDOODLE = (props) => {
         </div>
       </div>
     </section> */}
+
+      {
+        (subdomain == 'india' || subdomain == '') ?
+        <>
+        <section class="glory_section" id="gal_sec">
+        <div class="container">
+          <div class="row justify-content-end">
+            <div class="col-lg-11">
+            <div
+                  class="glory_lng_ttx"
+                  data-aos="fade-up"
+                  data-aos-duration="2000"
+                >
+                <p>Fold. Pack. Unfold. <br />
+A light yet strong Aluminium 6061 frame makes for a tidy package that is perfect for storage or transport.
+</p>
+                <p>Activate Cruise Mode<br />
+The potent motor and long-lasting 10 Ah battery powering Doodle boost every ride you take.
+</p>
+            </div>
+            </div>
+          </div>
+          </div>
+          </section>
+        </>
+        :
+        ''  
+      } 
+
+
       <section class="glory_section" id="gal_sec">
         <div class="container">
           <div class="row justify-content-end">
@@ -585,6 +619,33 @@ const ProductDOODLE = (props) => {
           </div>
         </div>
       </section>
+
+
+      {
+        (subdomain == 'india' || subdomain == '') ?
+        <>
+        <section class="glory_section" id="gal_sec">
+        <div class="container">
+          <div class="row justify-content-end">
+            <div class="col-lg-11">
+            <div
+                  class="glory_lng_ttx"
+                  data-aos="fade-up"
+                  data-aos-duration="2000"
+                >
+                <p>Doodle is your partner on any adventure.</p>
+                <p>Experience the power of an e-bike in real Life.</p>
+            </div>
+            </div>
+          </div>
+          </div>
+          </section>
+        </>
+        :
+        ''  
+      }
+
+
       <section class="product_specification" id="spe_sec">
         <div class="container">
           <div class="row">

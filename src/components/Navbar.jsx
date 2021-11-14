@@ -114,8 +114,8 @@ const Navbar = (props) => {
         
         let full = window.location.host
         let parts = full.split('.')
-        let sub = parts[0];
-
+        let sub = parts[0];    
+        sub = 'uae';    
         if(sub == 'uae') {
             localStorage.setItem('subDomain', "uae")
             let getsub = localStorage.getItem('subDomain');
@@ -221,7 +221,7 @@ const Navbar = (props) => {
                         <div class="collapse navbar-collapse d-none d-lg-block" id="navbarNav">
                             <ul class="navbar-nav mr-auto custm_scrl">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0)"><Link to="/">Home</Link></a>
+                                    <a class="nav-link" href="javascript:void(0)"><Link to="/">HOME</Link></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="javascript:void(0)" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">{subdomain == 'japan'?'バイク':'THE BIKES'}</a>
@@ -232,13 +232,24 @@ const Navbar = (props) => {
                                         <li>
                                             <Link to="/warranty">{subdomain == 'japan'?'保証を有効にする':'Activate Warranty'}</Link>
                                         </li>
+                                        {
+                                            (subdomain == 'india' || subdomain == '') ?
                                         <li>
                                             <Link to="/insurance">{subdomain == 'japan'?'保 険':'Insurance'}</Link>
                                         </li>
-                                        <li>
-                                            <Link to="/rsa">{subdomain == 'japan'?'道端での援助':'Roadside Assistance'}</Link>
-                                        </li>
-                                        {subdomain !== 'japan' ?
+                                        :
+                                        ''
+                                        }
+                                        {
+                                            (subdomain == 'india' || subdomain == '') ?
+                                            <li>
+                                                <Link to="/rsa">{subdomain == 'japan'?'道端での援助':'Roadside Assistance'}</Link>
+                                            </li>
+                                            :
+                                            ''
+                                        }    
+                                        {
+                                            (subdomain == 'india' || subdomain == '') ?
                                         <li>
                                             <Link to="/emi">EMI</Link>
                                         </li>
@@ -256,7 +267,7 @@ const Navbar = (props) => {
                                             <Link to="/community">{subdomain=="japan"?"コミュニティ":"Community"}</Link>
                                         </li>
                                         <li>
-                                            <a href="#">{subdomain=="japan"?"ブログ":"Blogs"}</a>
+                                            <a href="https://blog.emotorad.in/" target="blank">{subdomain=="japan"?"ブログ":"Blogs"}</a>
                                         </li>
                                     </ul>
                                 </li>

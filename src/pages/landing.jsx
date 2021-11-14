@@ -154,65 +154,68 @@ const Landing = (props) => {
 
                                         <div class="col-12">
                                             <div class="moobile_cycle mt_50">
-                                                <img src="images/EMX.gif" alt="a" class="img-fluid w-100" />
+                                                <img src="images/uae/Trible.gif" alt="a" class="img-fluid w-100" />
                                             </div>
-                                            <a href="/emx">
+                                            <a href="/trible">
                                                 <div class="home_hero_bike_title">
-
-                                                    <h3 class="text-outline text-outline-hover" data-text="EMX">EMX</h3>
+                                                    <h3 class="text-outline text-outline-hover" data-text="TRIBLE">TRIBLE</h3>
                                                 </div>
                                             </a>
                                         </div>
                                         <div class="col-12">
                                             <div class="moobile_cycle">
-                                                <img src="images/DOODLE.gif" alt="a" class="img-fluid w-100" />
+                                                <img src="images/uae/TREX.gif" alt="a" class="img-fluid w-100" />
                                             </div>
                                             <div class="home_hero_bike_title">
-
-                                                <h3 class="text-outline text-outline-hover" data-text="GLYDER">GLYDER</h3>
+                                                <h3 class="text-outline text-outline-hover" data-text="T-REX">T-REX</h3>
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="moobile_cycle">
-                                                <img src="images/T-REX.gif" alt="a" class="img-fluid w-100" />
+                                                <img src="images/uae/TREX.gif" alt="a" class="img-fluid w-100" />
                                             </div>
                                             <div class="home_hero_bike_title">
 
-                                                <h3 class="text-outline text-outline-hover" data-text="DOLPHIN">DOLPHIN</h3>
+                                                <h3 class="text-outline text-outline-hover" data-text="ENER-G">ENER-G</h3>
                                             </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="moobile_cycle">
+                                                <img src="images/uae/Doodle.gif" alt="a" class="img-fluid w-100" />
+                                            </div>
+                                            <div class="home_hero_bike_title">
+                                                <h3 class="text-outline text-outline-hover" data-text="DOODLE">DOODLE</h3>
+                                            </div>       
                                         </div>
                                     </>
                                     : (subdomain == 'japan') ?
                                         <>
                                             <div class="col-12">
                                                 <div class="moobile_cycle mt_50">
-                                                    <img src="images/EMX.gif" alt="a" class="img-fluid w-100" />
+                                                    <img src="images/Japan/Solo-Bikes-3D/Xplorer.gif" alt="a" class="img-fluid w-100" />
                                                 </div>
                                                 <a href="/xplorer">
                                                     <div class="home_hero_bike_title">
-
                                                         <h3 class="text-outline text-outline-hover" data-text="XPLORER">XPLORER</h3>
                                                     </div>
                                                 </a>
                                             </div>
                                             <div class="col-12">
                                                 <div class="moobile_cycle">
-                                                    <img src="images/DOODLE.gif" alt="a" class="img-fluid w-100" />
+                                                    <img src="images/Japan/Solo-Bikes-3D/Glyder.gif" alt="a" class="img-fluid w-100" />
                                                 </div>
                                                 <div class="home_hero_bike_title">
-
-                                                    <h3 class="text-outline text-outline-hover" data-text="DOODLE">DOODLE</h3>
+                                                    <h3 class="text-outline text-outline-hover" data-text="Glyder">Glyder</h3>
                                                 </div>
                                             </div>
-                                            <div class="col-12">
+                                            {/* <div class="col-12">
                                                 <div class="moobile_cycle">
                                                     <img src="images/T-REX.gif" alt="a" class="img-fluid w-100" />
                                                 </div>
                                                 <div class="home_hero_bike_title">
-
                                                     <h3 class="text-outline text-outline-hover" data-text="T-REX">T-REX</h3>
                                                 </div>
-                                            </div>
+                                            </div> */}
                                         </>
                                         :
                                         <>
@@ -959,8 +962,20 @@ const Landing = (props) => {
                                                                 <div class="col-lg-6">
                                                                     <div class="dual_suspension_txt">
                                                                         <h3>India’s First <span>Dual Suspension</span> E-Bike</h3>
-
-                                                                        <p>City riding is now a breeze as you traverse across town without any fuss or effort. The EMX is designed for the city; traffic, uneven roads and slopes included. India’s first dual suspension e-cycle.</p>
+                                                                        {
+                                                                            (subdomain == 'india' || subdomain == '') ?
+                                                                                <>
+                                                                                    <p>Whether you are commuting to the office, exploring local streets or climbing the hills, EMX is the ideal mobility partner. Traverse across the landscape without any fuss or effort.  India’s first dual suspension e-bike, EMX is designed for the city, uneven roads and the slopes.
+                                                                                    </p><br />
+                                                                                    <h6>The Beast For All Terrains</h6><br />
+                                                                                    <p>Make adventure your friend as you master the trails on T-Rex with the power and build to navigate any road you wish to roam. Now, you can go further and climb higher with our powerful motor, intuitive controls and lightweight, yet rigid frames. Designed for all terrains, each part is designed to seamlessly integrate into the best possible ride.
+                                                                                    </p><br />    
+                                                                                    <h6>The Fat-Tyre SUV of E-Bikes</h6><br />
+                                                                                    <p>Say hello to adventure with the foldable Doodle. Its size might make it seem like a fun little ride, but Doodle has power to spare when you are in the mood for adventure. Fold the SUV of e-bikes in the back of your car and get away with the ideal dune cruiser. From sandy beaches to city roads, this e-bike has the oomph and portability to tempt you into taking it wherever you may go.</p>
+                                                                                </>
+                                                                                :
+                                                                                <p>City riding is now a breeze as you traverse across town without any fuss or effort. The EMX is designed for the city; traffic, uneven roads and slopes included. India’s first dual suspension e-cycle.</p>
+                                                                        }
                                                                     </div>
                                                                     <div class="row">
                                                                         <div class="col-lg-10">
@@ -1136,7 +1151,7 @@ const Landing = (props) => {
                         <div class="col-lg-6">
                             <div class="customer_stories_head">
                                 <p>{subdomain == 'japan' ? "購入する前にオンラインで自転車をチェックしてみませんか？わかりました。これらは、何千ものオンラインレビューから特別に選ばれたいくつかのストーリーです。" :
-                                    "We make amazing e-bikes for some amazing people to ride further and more often. These are a few specially picked stories from thousands of customers."}</p>
+                                    "Want to check out our bikes online before you buy? We get it. These are a few specially picked videos from thousands of online reviews."}</p>
                             </div>
                         </div>
                     </div>
