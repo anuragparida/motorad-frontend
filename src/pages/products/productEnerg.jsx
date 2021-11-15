@@ -151,18 +151,41 @@ const ProductEnerg = (props) => {
             .get(server + "/api/product/read", config)
             .then((rsp) => {
                 console.log(rsp);
+                const filteredRsp = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("ener g"));
                 const allProducts = rsp.data.payload;
                 setAllProducts(allProducts)
-                const filteredRsp = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("ener g"));
                 if (filteredRsp.length > 0) {
+                  let domain = localStorage.getItem('subDomain');
+                  if (domain == 'nepal' || domain == 'india' || domain == '') {
                     console.log(filteredRsp);
                     setProducts(filteredRsp);
                     setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("ener g"))[0].id);
+                    setProductPrice({
+                      ...productPrice,
+                      trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
+                      emx: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"))[0].price,
+                      doodle: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].price,
+                      energ: 0,
+                      trible: 0,
+                    })
+                  } else if (domain == 'uae') {
+                    setProducts(filteredRsp);
+                    setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("ener g"))[0].id);
+                    setProductPrice({
+                      ...productPrice,
+                      trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
+                      energ: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("ener g"))[0].price,
+                      trible: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("trible"))[0].price,
+                      doodle: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].price,
+                      emx: 0,
+                    })
+                  }
+        
                 }
                 else {
-                    //   setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
-                    //   setProductID(1);
-                    alert("Products not set correctly. Please Contact Admin.");
+                  //   setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
+                  //   setProductID(1);
+                  alert("Products not set correctly. Please Contact Admin.");
                 }
             })
             .catch((err) => {
