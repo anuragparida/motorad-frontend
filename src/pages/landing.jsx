@@ -1558,7 +1558,7 @@ const Landing = (props) => {
                                         </Link>
                                     </div>
                                     <div class="col-lg-3">
-                                        <Link to="/emx">
+                                        <Link to="/energ">
                                             <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
                                                 <img src="images/uae/Ener-G.png" alt="a" class="img-fluid" />
 
@@ -1602,7 +1602,7 @@ const Landing = (props) => {
                                         </Link>
                                     </div>
                                     <div class="col-lg-3">
-                                        <Link to="/trex">
+                                        <Link to="/doodle">
                                             <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
                                                 <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
 
@@ -1646,7 +1646,7 @@ const Landing = (props) => {
                                         </Link>
                                     </div>
                                     <div class="col-lg-3">
-                                        <Link to="/trex">
+                                        <Link to="/trible">
                                             <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
                                                 <img src="images/uae/Trible.png" alt="a" class="img-fluid" />
 

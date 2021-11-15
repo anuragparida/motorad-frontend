@@ -4,7 +4,7 @@ import MobileNavbar from '../../components/MobileNavbar';
 import Footer from '../../components/Footer';
 import AOS from 'aos';
 import axios from "axios";
-import { server, config, checkAccess } from "../../env";
+import {  server,config, checkAccess } from "../../env";
 import isLoggedIn from './../../utils/checkLogin';
 import { render } from "react-dom";
 import classnames from "classnames";
@@ -19,6 +19,7 @@ let images = [0, 1, 2, 3, 4];
 
 
 const ProductTrible = (props) => {
+    let server= "https://uae-api.emotorad.in";
 
     const [pincodes, setPincodes] = useState([]);
     const [reviews, setReviews] = useState([]);
@@ -93,7 +94,7 @@ const ProductTrible = (props) => {
             vid = document.getElementById("v0");
         function scrollPlay() {
             var frameNumber = window.pageYOffset / playbackConst;
-            vid.currentTime = frameNumber;
+            // vid.currentTime = frameNumber;
             window.requestAnimationFrame(scrollPlay);
         }
 
@@ -135,11 +136,11 @@ const ProductTrible = (props) => {
             .get(server + "/api/product/read", config)
             .then((rsp) => {
                 console.log(rsp);
-                const filteredRsp = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"));
+                const filteredRsp = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("trible"));
                 if (filteredRsp.length > 0) {
                     console.log(filteredRsp);
                     setProducts(filteredRsp);
-                    setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].id);
+                    setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("trible"))[0].id);
                 }
                 else {
                     //   setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
@@ -226,6 +227,7 @@ const ProductTrible = (props) => {
 
                                         {products.map(prod => (
                                             <li>
+                                                {console.log(prod)}
                                                 <label class="chck">
                                                     <input type="radio" checked={prod.id === productID} onChange={() => {
                                                         setProductID(prod.id);
@@ -272,22 +274,23 @@ const ProductTrible = (props) => {
 
                                 <div class="hero_pro_img">
                                     <div class="product_hero_txts">
-                                        {/* {
+                                        {
                                             products.length > 0 &&
                                                 products.find(prod => prod.id === productID) ?
                                                 <img
-                                                    src={products.find(prod => prod.id === productID).banner === "images/uae/ENERG/Top-Part/White.png" ? "images/uae/ENERG/Top-Part/White.png" : "images/uae/ENERG/Top-Part/Green.png"}
+                                                src={"https://uae-api.emotorad.in/"+products.find(prod => prod.id === productID).banner}
                                                     alt="a"
                                                     class="img-fluid"
                                                 />
                                                 
-                                        } */}
+                                        :
 
                                         <img
                                             src="images/uae/TRIBLE/Top-Part/Yellow.png"
                                             alt="a"
                                             class="img-fluid"
                                         />
+                                    }
 
                                     </div>
                                     {/* <div class="product_hero_txt" style={{ "display": "none" }}>

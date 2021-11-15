@@ -25,11 +25,11 @@ const BookRide = (props) => {
     axios
     .get(server + `/api/store/read-states`)
     .then((rsp) => {
-      console.log(rsp);
+      // console.log(rsp);
       setCities(rsp.data.payload.cities);
     })
     .catch((err) => {
-      console.log(err.response);
+      // console.log(err.response);
       if (err.response) {
       }
     });
@@ -57,7 +57,7 @@ const BookRide = (props) => {
     await axios
       .post(server + "/api/store/read", {"search": city})
       .then((rsp) => {
-        console.log(rsp);
+        // console.log(rsp);
         setStores(rsp.data.payload);
       })
       .catch((err) => {
@@ -77,11 +77,11 @@ const BookRide = (props) => {
     axios
     .post(server + "/api/ride/book", params)
     .then((rsp) => {
-      console.log(rsp);
+      // console.log(rsp);
       setBookSuccess(true)
     })
     .catch((err) => {
-      console.log(err.response);
+      // console.log(err.response);
       if (err.response) {
       }
     });

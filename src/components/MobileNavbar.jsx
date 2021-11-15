@@ -10,7 +10,7 @@ const MobileNavbar = (props) => {
     await axios
       .get(server + "/api/social/read", config)
       .then((rsp) => {
-        console.log(rsp);
+        // console.log(rsp);
         setLinks(rsp.data.payload.reduce((t, e) => ({ ...t, [e.name]: e.link }), {}));
       })
       .catch((err) => {

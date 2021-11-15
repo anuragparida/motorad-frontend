@@ -20,6 +20,7 @@ let images = [0, 1, 2, 3, 4];
 
 
 const ProductEnerg = (props) => {
+    let server= "https://uae-api.emotorad.in";
 
     const [pincodes, setPincodes] = useState([]);
     const [reviews, setReviews] = useState([]);
@@ -142,11 +143,11 @@ const ProductEnerg = (props) => {
             .get(server + "/api/product/read", config)
             .then((rsp) => {
                 console.log(rsp);
-                const filteredRsp = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"));
+                const filteredRsp = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("ener g"));
                 if (filteredRsp.length > 0) {
                     console.log(filteredRsp);
                     setProducts(filteredRsp);
-                    setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].id);
+                    setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("ener g"))[0].id);
                 }
                 else {
                     //   setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
@@ -279,23 +280,23 @@ const ProductEnerg = (props) => {
 
                                 <div class="hero_pro_img">
                                     <div class="product_hero_txts">
-                                        {/* {
+                                       {
                                             products.length > 0 &&
                                                 products.find(prod => prod.id === productID) ?
                                                 <img
-                                                    src={products.find(prod => prod.id === productID).banner === "images/uae/ENERG/Top-Part/White.png" ? "images/uae/ENERG/Top-Part/White.png" : "images/uae/ENERG/Top-Part/Green.png"}
+                                                src={"https://uae-api.emotorad.in/"+products.find(prod => prod.id === productID).banner}
                                                     alt="a"
                                                     class="img-fluid"
                                                 />
                                                 :
                                                 
-                                        } */}
+                                        
                                         <img
                                             src="images/uae/ENERG/Top-Part/White.png"
                                             alt="a"
                                             class="img-fluid"
                                         />
-
+}
                                     </div>
                                     {/* <div class="product_hero_txt" style={{ "display": "none" }}>
                     <img

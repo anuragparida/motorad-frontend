@@ -60,7 +60,7 @@ const Navbar = (props) => {
         await axios
             .get(server + "/api/social/read", config)
             .then((rsp) => {
-                console.log(rsp);
+                // console.log(rsp);
                 setLinks(rsp.data.payload.reduce((t, e) => ({ ...t, [e.name]: e.link }), {}));
             })
             .catch((err) => {
@@ -73,7 +73,7 @@ const Navbar = (props) => {
         await axios
             .get(server + "/api/cart/read", config)
             .then((rsp) => {
-                console.log(rsp);
+                // console.log(rsp);
                 setCartHasItem(rsp.data.payload.product.length > 0);
             })
             .catch((err) => {
@@ -103,7 +103,7 @@ const Navbar = (props) => {
         setSubdomain(sub);
         props.setCountry(!props.country)
         setcountryName( e.target.firstElementChild.alt.toUpperCase())
-        console.log(e.target.firstElementChild)
+        // console.log(e.target.firstElementChild)
         setcountryflag(e.target.firstElementChild.src)
     }
     const defaultCountry = () => {
