@@ -29,6 +29,12 @@ const ProductGlyder = (props) => {
     const [delivery, setDelivery] = useState(true);
     const [subdomain, setSubdomain] = useState("");
     const [country, setCountry] = useState(true);
+    const [productPrice, setProductPrice] = useState({
+        glyder: "",
+        xplorer: ""
+    });
+    const [allProducts, setAllProducts] = useState([]);
+
 
 
     const [visibleImagesMap, setVisibleImagesMap] = useState(
@@ -138,15 +144,34 @@ const ProductGlyder = (props) => {
     }
 
     const loadProducts = async () => {
+        let domain = localStorage.getItem('subDomain');
+        let server;
+        if (domain == 'nepal' || domain == 'india' || domain == '') {
+            server = 'https://api.emotorad.in';
+        } else if (domain == 'uae') {
+            server = 'https://uae-api.emotorad.in';
+        } else if (domain == 'japan') {
+            server = 'https://japan-api.emotorad.in';
+        } else {
+            server = 'https://api.emotorad.in';
+
+        }
         await axios
             .get(server + "/api/product/read", config)
             .then((rsp) => {
                 console.log(rsp);
-                const filteredRsp = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"));
+                const filteredRsp = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("glyder"));
+                const allProducts = rsp.data.payload;
+                setAllProducts(allProducts)
                 if (filteredRsp.length > 0) {
                     console.log(filteredRsp);
                     setProducts(filteredRsp);
-                    setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].id);
+                    setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("glyder"))[0].id);
+                    setProductPrice({
+                        ...productPrice,
+                        xplorer: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("xplorer"))[0].price,
+                        glyder: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("glyder"))[0].price,
+                    })
                 }
                 else {
                     //   setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
@@ -1477,8 +1502,15 @@ const ProductGlyder = (props) => {
                                         </tr>
 
                                         <tr>
-                                            <td>YEN 268,000</td>
-                                            <td><i class="fa fa-circle"></i> <i class="fa fa-circle"></i></td>
+                                            <td>YEN {productPrice.xplorer.toLocaleString()}</td>
+                                            <td>
+                                                {allProducts.
+                                                    filter(prod => prod.name.toLowerCase().includes("xplorer")).map(prod => (
+
+                                                        <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+
+                                                    ))}
+                                            </td>
                                         </tr>
                                     </table>
                                     <div class="explore_bttn row mx-auto">
@@ -1523,8 +1555,13 @@ const ProductGlyder = (props) => {
                                         </tr>
 
                                         <tr>
-                                            <td>YEN 228,800</td>
-                                            <td><i class="fa fa-circle" style={{ "color": "#DBFF00" }}></i></td>
+                                            <td>YEN {productPrice.glyder.toLocaleString()}</td>
+                                            {allProducts.
+                                                filter(prod => prod.name.toLowerCase().includes("glyder")).map(prod => (
+
+                                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+
+                                                ))}
                                         </tr>
                                     </table>
                                     <div class="explore_bttn row mx-auto">

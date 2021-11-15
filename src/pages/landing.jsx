@@ -16,28 +16,73 @@ const Landing = (props) => {
 
     const [subdomain, setSubdomain] = useState("");
     const [country, setCountry] = useState(true);
+    const [products, setProducts] = useState([]);
+    const [productID, setProductID] = useState("");
     const [productPrice, setProductPrice] = useState({
         trex: "",
         emx: "",
-        doodle: ""
+        doodle: "",
+        energ: "",
+        trible: "",
+        glyder: "",
+        xplorer: ""
     });
 
     const loadProducts = async () => {
+        let domain = localStorage.getItem('subDomain');
+        let server;
+        if (domain == 'nepal' || domain == 'india' || domain == '') {
+            server = 'https://api.emotorad.in';
+        } else if (domain == 'uae') {
+            server = 'https://uae-api.emotorad.in';
+        } else if (domain == 'japan') {
+            server = 'https://japan-api.emotorad.in';
+        } else {
+            server = 'https://api.emotorad.in';
+
+        }
+        console.log(server)
         await axios
             .get(server + "/api/product/read", config)
             .then((rsp) => {
                 console.log(rsp);
-                const filteredRsp = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"));
+                const filteredRsp = rsp.data.payload;
                 if (filteredRsp.length > 0) {
-                    // console.log(filteredRsp);
-                    //   setProducts(filteredRsp);
-                    //   setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"))[0].id);
-                    setProductPrice({
-                        ...productPrice,
-                        trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
-                        emx: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"))[0].price,
-                        doodle: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].price
-                    })
+                    let domain = localStorage.getItem('subDomain');
+                    if (domain == 'nepal' || domain == 'india' || domain == '') {
+                        console.log(server)
+                        console.log(filteredRsp);
+                        setProducts(filteredRsp);
+                        setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].id);
+                        setProductPrice({
+                            ...productPrice,
+                            trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
+                            emx: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"))[0].price,
+                            doodle: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].price,
+                            energ: 0,
+                            trible: 0,
+                        })
+                    } else if (domain == 'uae') {
+                        setProducts(filteredRsp);
+                        setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].id);
+                        setProductPrice({
+                            ...productPrice,
+                            trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
+                            energ: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("ener g"))[0].price,
+                            trible: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("trible"))[0].price,
+                            doodle: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].price,
+                            emx: 0,
+                        })
+                    } else if (domain == 'japan') {
+                        setProducts(filteredRsp);
+                        setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("xplorer"))[0].id);
+                        setProductPrice({
+                            ...productPrice,
+                            xplorer: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("xplorer"))[0].price,
+                            glyder: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("glyder"))[0].price,
+                        })
+                    }
+
                 }
                 else {
                     //   setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
@@ -185,7 +230,7 @@ const Landing = (props) => {
                                             </div>
                                             <div class="home_hero_bike_title">
                                                 <h3 class="text-outline text-outline-hover" data-text="DOODLE">DOODLE</h3>
-                                            </div>       
+                                            </div>
                                         </div>
                                     </>
                                     : (subdomain == 'japan') ?
@@ -969,7 +1014,7 @@ const Landing = (props) => {
                                                                                     </p><br />
                                                                                     <h6>The Beast For All Terrains</h6><br />
                                                                                     <p>Make adventure your friend as you master the trails on T-Rex with the power and build to navigate any road you wish to roam. Now, you can go further and climb higher with our powerful motor, intuitive controls and lightweight, yet rigid frames. Designed for all terrains, each part is designed to seamlessly integrate into the best possible ride.
-                                                                                    </p><br />    
+                                                                                    </p><br />
                                                                                     <h6>The Fat-Tyre SUV of E-Bikes</h6><br />
                                                                                     <p>Say hello to adventure with the foldable Doodle. Its size might make it seem like a fun little ride, but Doodle has power to spare when you are in the mood for adventure. Fold the SUV of e-bikes in the back of your car and get away with the ideal dune cruiser. From sandy beaches to city roads, this e-bike has the oomph and portability to tempt you into taking it wherever you may go.</p>
                                                                                 </>
@@ -1412,7 +1457,14 @@ const Landing = (props) => {
                                             </tr>
                                             <tr>
                                                 <td>Rs {productPrice.trex.toLocaleString()}</td>
-                                                <td><i class="fa fa-circle"></i> <i class="fa fa-circle"></i></td>
+                                                <td>
+                                                    {products.
+                                                        filter(prod => prod.name.toLowerCase().includes("t-rex")).map(prod => (
+
+                                                            <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+
+                                                        ))}
+                                                </td>
                                             </tr>
                                         </table>
                                         <div class="explore_bttn row mx-auto">
@@ -1456,7 +1508,14 @@ const Landing = (props) => {
                                             </tr>
                                             <tr>
                                                 <td>Rs{productPrice.emx.toLocaleString()}</td>
-                                                <td><i class="fa fa-circle" style={{ "color": "#DBFF00" }}></i></td>
+                                                <td>
+                                                    {products.
+                                                        filter(prod => prod.name.toLowerCase().includes("emx")).map(prod => (
+
+                                                            <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+
+                                                        ))}
+                                                </td>
                                             </tr>
                                         </table>
                                         <div class="explore_bttn row mx-auto">
@@ -1500,7 +1559,14 @@ const Landing = (props) => {
                                             </tr>
                                             <tr>
                                                 <td>Rs {productPrice.doodle.toLocaleString()}</td>
-                                                <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{ "color": "#10B068" }}></i></td>
+                                                <td>
+                                                    {products.
+                                                        filter(prod => prod.name.toLowerCase().includes("doodle")).map(prod => (
+
+                                                            <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+
+                                                        ))}
+                                                </td>
                                             </tr>
                                         </table>
                                         <div class="explore_bttn row mx-auto">
@@ -1547,8 +1613,15 @@ const Landing = (props) => {
                                                         <td>Colors</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>AED 3,499</td>
-                                                        <td><i class="fa fa-circle"></i> <i class="fa fa-circle"></i></td>
+                                                        <td>AED {productPrice.trex.toLocaleString()}</td>
+                                                        <td>
+                                                            {products.
+                                                                filter(prod => prod.name.toLowerCase().includes("t-rex")).map(prod => (
+
+                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+
+                                                                ))}
+                                                        </td>
                                                     </tr>
                                                 </table>
                                                 <div class="explore_bttn row mx-auto">
@@ -1591,8 +1664,15 @@ const Landing = (props) => {
                                                         <td>Colors</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>AED 3,599</td>
-                                                        <td><i class="fa fa-circle" style={{ "color": "#DBFF00" }}></i></td>
+                                                        <td>AED {productPrice.energ.toLocaleString()}</td>
+                                                        <td>
+                                                            {products.
+                                                                filter(prod => prod.name.toLowerCase().includes("ener g")).map(prod => (
+
+                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+
+                                                                ))}
+                                                        </td>
                                                     </tr>
                                                 </table>
                                                 <div class="explore_bttn row mx-auto">
@@ -1635,8 +1715,15 @@ const Landing = (props) => {
                                                         <td>Colors</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>AED 4,599</td>
-                                                        <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{ "color": "#10B068" }}></i></td>
+                                                        <td>AED {productPrice.doodle.toLocaleString()}</td>
+                                                        <td>
+                                                            {products.
+                                                                filter(prod => prod.name.toLowerCase().includes("doodle")).map(prod => (
+
+                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+
+                                                                ))}
+                                                        </td>
                                                     </tr>
                                                 </table>
                                                 <div class="explore_bttn row mx-auto">
@@ -1680,8 +1767,15 @@ const Landing = (props) => {
                                                         <td>Colors</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>AED 3,399</td>
-                                                        <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{ "color": "#10B068" }}></i></td>
+                                                        <td>AED {productPrice.trible.toLocaleString()}</td>
+                                                        <td>
+                                                            {products.
+                                                                filter(prod => prod.name.toLowerCase().includes("trible")).map(prod => (
+
+                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+
+                                                                ))}
+                                                        </td>
                                                     </tr>
                                                 </table>
                                                 <div class="explore_bttn row mx-auto">
@@ -1731,8 +1825,15 @@ const Landing = (props) => {
                                                         </tr>
 
                                                         <tr>
-                                                            <td>YEN 268,000</td>
-                                                            <td><i class="fa fa-circle"></i> <i class="fa fa-circle"></i></td>
+                                                            <td>YEN {productPrice.xplorer.toLocaleString()}</td>
+                                                            <td>
+                                                                {products.
+                                                                    filter(prod => prod.name.toLowerCase().includes("xplorer")).map(prod => (
+
+                                                                        <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+
+                                                                    ))}
+                                                            </td>
                                                         </tr>
                                                     </table>
                                                     <div class="explore_bttn row mx-auto">
@@ -1777,8 +1878,13 @@ const Landing = (props) => {
                                                         </tr>
 
                                                         <tr>
-                                                            <td>YEN 228,800</td>
-                                                            <td><i class="fa fa-circle" style={{ "color": "#DBFF00" }}></i></td>
+                                                            <td>YEN {productPrice.glyder.toLocaleString()}</td>
+                                                            {products.
+                                                                filter(prod => prod.name.toLowerCase().includes("glyder")).map(prod => (
+
+                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+
+                                                                ))}
                                                         </tr>
                                                     </table>
                                                     <div class="explore_bttn row mx-auto">

@@ -4,7 +4,7 @@ import MobileNavbar from '../../components/MobileNavbar';
 import Footer from '../../components/Footer';
 import AOS from 'aos';
 import axios from "axios";
-import {  server,config, checkAccess } from "../../env";
+import { server, config, checkAccess } from "../../env";
 import isLoggedIn from './../../utils/checkLogin';
 import { render } from "react-dom";
 import classnames from "classnames";
@@ -19,16 +19,23 @@ let images = [0, 1, 2, 3, 4];
 
 
 const ProductTrible = (props) => {
-    let server= "https://uae-api.emotorad.in";
 
     const [pincodes, setPincodes] = useState([]);
     const [reviews, setReviews] = useState([]);
     const [products, setProducts] = useState([]);
+    const [allProducts, setAllProducts] = useState([]);
     const [productID, setProductID] = useState("");
     const [deviceType, setDeviceType] = useState("");
     const [delivery, setDelivery] = useState(true);
     const [subdomain, setSubdomain] = useState("");
     const [country, setCountry] = useState(true);
+    const [productPrice, setProductPrice] = useState({
+        trex: "",
+        emx: "",
+        doodle: "",
+        energ: "",
+        trible: "",
+    });
 
 
     const [visibleImagesMap, setVisibleImagesMap] = useState(
@@ -114,7 +121,7 @@ const ProductTrible = (props) => {
         let parts = full.split('.')
         let sub = parts[0]
         // setSubdomain(sub);
-        sub =  localStorage.getItem('subDomain');
+        sub = localStorage.getItem('subDomain');
         setSubdomain(sub);
     }, [country]);
 
@@ -132,15 +139,52 @@ const ProductTrible = (props) => {
     }
 
     const loadProducts = async () => {
+        let domain = localStorage.getItem('subDomain');
+        let server;
+        if (domain == 'nepal' || domain == 'india' || domain == '') {
+            server = 'https://api.emotorad.in';
+        } else if (domain == 'uae') {
+            server = 'https://uae-api.emotorad.in';
+        } else {
+            server = 'https://api.emotorad.in';
+        }
         await axios
             .get(server + "/api/product/read", config)
             .then((rsp) => {
-                console.log(rsp);
+                console.log("rsp");
+                // console.log(rsp);
                 const filteredRsp = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("trible"));
+                const allProducts = rsp.data.payload;
+                setAllProducts(allProducts)
                 if (filteredRsp.length > 0) {
-                    console.log(filteredRsp);
-                    setProducts(filteredRsp);
-                    setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("trible"))[0].id);
+                    let domain = localStorage.getItem('subDomain');
+                    if (domain == 'nepal' || domain == 'india' || domain == '') {
+                        console.log(filteredRsp);
+                        setProducts(filteredRsp);
+                        setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].id);
+                        setProductPrice({
+                            ...productPrice,
+                            trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
+                            emx: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"))[0].price,
+                            doodle: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].price,
+                            energ: 0,
+                            trible: 0,
+                        })
+                    } else if (domain == 'uae') {
+                        setProducts(filteredRsp);
+                        setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].id);
+                        setProductPrice({
+                            ...productPrice,
+                            trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
+                            energ: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("ener g"))[0].price,
+                            trible: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("trible"))[0].price,
+                            doodle: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].price,
+                            emx: 0,
+                        })
+                    } else {
+
+                    }
+
                 }
                 else {
                     //   setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
@@ -238,7 +282,7 @@ const ProductTrible = (props) => {
                                         ))}
 
                                         <li class="d-none d-lg-block">
-                                            <h6>AED 3,399</h6>
+                                            <h6>AED {productPrice.trible.toLocaleString()}</h6>
                                         </li>
                                         <li class="d-none d-lg-block">
                                             <h6>{products.length > 0 && <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>}</h6>
@@ -278,19 +322,19 @@ const ProductTrible = (props) => {
                                             products.length > 0 &&
                                                 products.find(prod => prod.id === productID) ?
                                                 <img
-                                                src={"https://uae-api.emotorad.in/"+products.find(prod => prod.id === productID).banner}
+                                                    src={"https://uae-api.emotorad.in/" + products.find(prod => prod.id === productID).banner}
                                                     alt="a"
                                                     class="img-fluid"
                                                 />
-                                                
-                                        :
 
-                                        <img
-                                            src="images/uae/TRIBLE/Top-Part/Yellow.png"
-                                            alt="a"
-                                            class="img-fluid"
-                                        />
-                                    }
+                                                :
+
+                                                <img
+                                                    src="images/uae/TRIBLE/Top-Part/Yellow.png"
+                                                    alt="a"
+                                                    class="img-fluid"
+                                                />
+                                        }
 
                                     </div>
                                     {/* <div class="product_hero_txt" style={{ "display": "none" }}>
@@ -373,10 +417,10 @@ const ProductTrible = (props) => {
                                             <div class="content">
                                                 <video id="v0" tabindex="0" autobuffer muted preload>
                                                     <source
-                                                    src="images/uae/TRIBLE/Trible-Mobile.mp4"
-                                                    type="video/mp4"
-                                                    class="d-lg-none"
-                                                    />  
+                                                        src="images/uae/TRIBLE/Trible-Mobile.mp4"
+                                                        type="video/mp4"
+                                                        class="d-lg-none"
+                                                    />
                                                 </video>
                                             </div>
                                         </div>
@@ -603,7 +647,7 @@ const ProductTrible = (props) => {
                                         <div class="spe_dot_ol">
                                             <h6>Derailleurs</h6>
                                             <p>Single Speed </p>
-                                            
+
                                         </div>
                                     </div>
                                     {/* <div class="spe_dot_4 d-none d-lg-block">
@@ -703,7 +747,7 @@ const ProductTrible = (props) => {
                                             <p>Cutoff while braking</p>
                                         </div>
                                     </div>
-                                        <div class="spe_dot_7 d-none d-lg-block" style={{ marginTop: "100px" }}>
+                                    <div class="spe_dot_7 d-none d-lg-block" style={{ marginTop: "100px" }}>
                                         <div class="dot" style={{ marginLeft: "-60px" }}>
                                             <div class="dot-pulse"></div>
                                         </div>
@@ -713,7 +757,7 @@ const ProductTrible = (props) => {
                                             <p>16" x 1.9" CST tyres</p>
                                         </div>
                                     </div>
-                                    <div class="spe_dot_8 d-none d-lg-block" style={{ marginTop: "172px",marginRight: "-39px" }}>
+                                    <div class="spe_dot_8 d-none d-lg-block" style={{ marginTop: "172px", marginRight: "-39px" }}>
                                         <div class="dot">
                                             <div class="dot-pulse"></div>
                                         </div>
@@ -723,7 +767,7 @@ const ProductTrible = (props) => {
                                             <p>Rigid Fork</p>
                                         </div>
                                     </div>
-                                    <div class="spe_dot_9 d-none d-lg-block" style={{ marginTop: "28px",marginRight: "-20px" }}>
+                                    <div class="spe_dot_9 d-none d-lg-block" style={{ marginTop: "28px", marginRight: "-20px" }}>
                                         <div class="dot">
                                             <div class="dot-pulse"></div>
                                         </div>
@@ -733,8 +777,8 @@ const ProductTrible = (props) => {
                                             <p>Dual Mechanical Disc Brakes with Ceramic pads,</p>
                                             <p>Zoom brake lever</p>
                                         </div>
-                                    </div> 
-                                    <div class="spe_dot_5 d-none d-lg-block" style={{ marginTop: "128px",marginLeft: "70px" }}>
+                                    </div>
+                                    <div class="spe_dot_5 d-none d-lg-block" style={{ marginTop: "128px", marginLeft: "70px" }}>
                                         <div class="dot">
                                             <div class="dot-pulse"></div>
                                         </div>
@@ -1407,186 +1451,582 @@ const ProductTrible = (props) => {
                             </div>
                         </div>
                     </div>
-                    <div class="row expo_bike_slider">
+                    {
+            (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
+              <div class="row expo_bike_slider">
+                <div class="col-lg-4">
+                  <Link to="/trex">
+                    <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                      <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
 
-                        <div class="col-lg-4">
-                            <Link to="/trex">
-                                <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                                    <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
+                      <h3>T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
-                                    <h3>T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+                      <h5>FEATURES</h5>
+                      <table>
+                        <tr>
+                          <td>RANGE</td>
+                          <td>50+ Kms</td>
+                        </tr>
+                        <tr>
+                          <td>SPEED (MAX)</td>
+                          <td>25Km/hr</td>
+                        </tr>
+                        <tr>
+                          <td>BRAKES</td>
+                          <td>Dual Disc</td>
+                        </tr>
+                        <tr>
+                          <td>BATTERY</td>
+                          <td>36 Volts</td>
+                        </tr>
+                        <tr>
+                          <td>CAPACITY</td>
+                          <td>7.5 Ah</td>
+                        </tr>
+                        <tr>
+                          <td>Starting From</td>
+                          <td>Colors</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            {
+                              (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
+                                'Rs '
+                                : (subdomain == 'uae') ?
+                                  'AED '
+                                  :
+                                  'Rs '
+                            }
+                            {productPrice.doodle.toLocaleString()}
+                          </td>
+                          <td>
+                            {products.
+                              map(prod => (
 
-                                    <h5>FEATURES</h5>
-                                    <table>
-                                        <tr>
-                                            <td>RANGE</td>
-                                            <td>50+ Kms</td>
-                                        </tr>
-                                        <tr>
-                                            <td>SPEED (MAX)</td>
-                                            <td>25Km/hr</td>
-                                        </tr>
-                                        <tr>
-                                            <td>BRAKES</td>
-                                            <td>Dual Disc</td>
-                                        </tr>
-                                        <tr>
-                                            <td>BATTERY</td>
-                                            <td>36 Volts</td>
-                                        </tr>
-                                        <tr>
-                                            <td>CAPACITY</td>
-                                            <td>7.5 Ah</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Starting From</td>
-                                            <td>Colors</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rs 37,142</td>
-                                            <td><i class="fa fa-circle"></i> <i class="fa fa-circle"></i></td>
-                                        </tr>
-                                    </table>
-                                    <div class="explore_bttn row mx-auto">
-                                        <Link to="/trex">Buy Now</Link>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                        <div class="col-lg-4">
-                            <Link to="/emx">
-                                <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                                    <img src="images/bicycle_3.png" alt="a" class="img-fluid" />
+                                <i class="fa fa-circle" style={{ "color": prod.color }}></i>
 
-                                    <h3>EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
-
-                                    <h5>FEATURES</h5>
-                                    <table>
-                                        <tr>
-                                            <td>RANGE</td>
-                                            <td>65+ Kms</td>
-                                        </tr>
-                                        <tr>
-                                            <td>SPEED (MAX)</td>
-                                            <td>25Km/hr</td>
-                                        </tr>
-                                        <tr>
-                                            <td>BRAKES</td>
-                                            <td>Dual Disc</td>
-                                        </tr>
-                                        <tr>
-                                            <td>BATTERY</td>
-                                            <td>36 Volts</td>
-                                        </tr>
-                                        <tr>
-                                            <td>CAPACITY</td>
-                                            <td>10.4 Ah</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Starting From</td>
-                                            <td>Colors</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rs 52,380</td>
-                                            <td><i class="fa fa-circle" style={{ "color": "#DBFF00" }}></i></td>
-                                        </tr>
-                                    </table>
-                                    <div class="explore_bttn row mx-auto">
-                                        <Link to="/emx">Buy Now</Link>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                        <div class="col-lg-4">
-                            <Link to="/trex">
-                                <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                                    <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
-
-                                    <h3>DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
-
-                                    <h5>FEATURES</h5>
-                                    <table>
-                                        <tr>
-                                            <td>RANGE</td>
-                                            <td>55+ Kms</td>
-                                        </tr>
-                                        <tr>
-                                            <td>SPEED (MAX)</td>
-                                            <td>25Km/hr</td>
-                                        </tr>
-                                        <tr>
-                                            <td>BRAKES</td>
-                                            <td>Dual Disc</td>
-                                        </tr>
-                                        <tr>
-                                            <td>BATTERY</td>
-                                            <td>36 Volts</td>
-                                        </tr>
-                                        <tr>
-                                            <td>CAPACITY</td>
-                                            <td>10 Ah</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Starting From</td>
-                                            <td>Colors</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Rs 76,190</td>
-                                            <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{ "color": "#10B068" }}></i></td>
-                                        </tr>
-                                    </table>
-                                    <div class="explore_bttn row mx-auto">
-                                        <Link to="/doodle">Buy Now</Link>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
-                        <div class="col-lg-4">
-                            <Link to="/trex">
-                                <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                                    <img src="images/uae/Trible.png" alt="a" class="img-fluid" />
-
-                                    <h3>TRIBLE
-                                        <img src="images/arw_rgt.svg" alt="a" class="img-fluid" />
-                                    </h3>
-                                    <h5>FEATURES</h5>
-                                    <table>
-                                        <tr>
-                                            <td>RANGE</td>
-                                            <td>50+ Kms</td>
-                                        </tr>
-                                        <tr>
-                                            <td>SPEED (MAX)</td>
-                                            <td>25Km/hr</td>
-                                        </tr>
-                                        <tr>
-                                            <td>BRAKES</td>
-                                            <td>Dual Disc</td>
-                                        </tr>
-                                        <tr>
-                                            <td>BATTERY</td>
-                                            <td>36 Volts</td>
-                                        </tr>
-                                        <tr>
-                                            <td>CAPACITY</td>
-                                            <td>7.5 Ah</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Starting From</td>
-                                            <td>Colors</td>
-                                        </tr>
-                                        <tr>
-                                            <td>AED 3,399</td>
-                                            <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{ "color": "#10B068" }}></i></td>
-                                        </tr>
-                                    </table>
-                                    <div class="explore_bttn row mx-auto">
-                                        <Link to="/doodle">Buy Now</Link>
-                                    </div>
-                                </div>
-                            </Link>
-                        </div>
+                              ))}
+                          </td>
+                        </tr>
+                      </table>
+                      <div class="explore_bttn row mx-auto">
+                        <Link to="/trex">Buy Now</Link>
+                      </div>
                     </div>
+                  </Link>
+                </div>
+
+                <div class="col-lg-4">
+                  <Link to="/emx">
+                    <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                      <img src="images/bicycle_3.png" alt="a" class="img-fluid" />
+
+                      <h3>EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+
+                      <h5>FEATURES</h5>
+                      <table>
+                        <tr>
+                          <td>RANGE</td>
+                          <td>65+ Kms</td>
+                        </tr>
+                        <tr>
+                          <td>SPEED (MAX)</td>
+                          <td>25Km/hr</td>
+                        </tr>
+                        <tr>
+                          <td>BRAKES</td>
+                          <td>Dual Disc</td>
+                        </tr>
+                        <tr>
+                          <td>BATTERY</td>
+                          <td>36 Volts</td>
+                        </tr>
+                        <tr>
+                          <td>CAPACITY</td>
+                          <td>10.4 Ah</td>
+                        </tr>
+                        <tr>
+                          <td>Starting From</td>
+                          <td>Colors</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            {
+                              (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
+                                'Rs '
+                                : (subdomain == 'uae') ?
+                                  'AED '
+                                  :
+                                  'Rs '
+                            }
+                            {productPrice.emx.toLocaleString()}
+                          </td>
+                          <td>
+                            {allProducts.filter(prod => prod.name.toLowerCase().includes("emx")).
+                              map(prod => (
+
+                                <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+
+                              ))}
+                          </td>
+                        </tr>
+                      </table>
+                      <div class="explore_bttn row mx-auto">
+                        <Link to="/emx">Buy Now</Link>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+
+                <div class="col-lg-4">
+                  <Link to="/doodle">
+                    <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                      <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
+
+                      <h3>DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+
+                      <h5>FEATURES</h5>
+                      <table>
+                        <tr>
+                          <td>RANGE</td>
+                          <td>55+ Kms</td>
+                        </tr>
+                        <tr>
+                          <td>SPEED (MAX)</td>
+                          <td>25Km/hr</td>
+                        </tr>
+                        <tr>
+                          <td>BRAKES</td>
+                          <td>Dual Disc</td>
+                        </tr>
+                        <tr>
+                          <td>BATTERY</td>
+                          <td>36 Volts</td>
+                        </tr>
+                        <tr>
+                          <td>CAPACITY</td>
+                          <td>10 Ah</td>
+                        </tr>
+                        <tr>
+                          <td>Starting From</td>
+                          <td>Colors</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            {
+                              (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
+                                'Rs '
+                                : (subdomain == 'uae') ?
+                                  'AED '
+                                  :
+                                  'Rs '
+                            }
+                            {productPrice.doodle.toLocaleString()}
+                          </td>
+                          <td>
+                            {products.
+                              map(prod => (
+
+                                <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+
+                              ))}
+                          </td>
+                        </tr>
+                      </table>
+                      <div class="explore_bttn row mx-auto">
+                        <Link to="/doodle">Buy Now</Link>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+              : (subdomain == 'uae') ?
+                <>
+                  <div class="row expo_bike_slider_uae">
+                    <div class="col-lg-3">
+                      <Link to="/trex">
+                        <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                          <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
+
+                          <h3>T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+
+                          <h5>FEATURES</h5>
+                          <table>
+                            <tr>
+                              <td>RANGE</td>
+                              <td>50+ Kms</td>
+                            </tr>
+                            <tr>
+                              <td>SPEED (MAX)</td>
+                              <td>25Km/hr</td>
+                            </tr>
+                            <tr>
+                              <td>BRAKES</td>
+                              <td>Dual Disc</td>
+                            </tr>
+                            <tr>
+                              <td>BATTERY</td>
+                              <td>36 Volts</td>
+                            </tr>
+                            <tr>
+                              <td>CAPACITY</td>
+                              <td>7.5 Ah</td>
+                            </tr>
+                            <tr>
+                              <td>Starting From</td>
+                              <td>Colors</td>
+                            </tr>
+                            <tr>
+                              <td>AED {productPrice.trex.toLocaleString()}</td>
+                              <td>
+                                {products.
+                                  map(prod => (
+
+                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+
+                                  ))}
+                              </td>
+                            </tr>
+                          </table>
+                          <div class="explore_bttn row mx-auto">
+                            <Link to="/trex">Buy Now</Link>
+                          </div>
+                        </div>
+                      </Link>
+                    </div>
+                    <div class="col-lg-3">
+                      <Link to="/energ">
+                        <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                          <img src="images/uae/Ener-G.png" alt="a" class="img-fluid" />
+
+                          <h3>ENER G <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+
+                          <h5>FEATURES</h5>
+                          <table>
+                            <tr>
+                              <td>RANGE</td>
+                              <td>110+ Kms</td>
+                            </tr>
+                            <tr>
+                              <td>SPEED (MAX)</td>
+                              <td>25Km/hr</td>
+                            </tr>
+                            <tr>
+                              <td>BRAKES</td>
+                              <td>Dual Disc</td>
+                            </tr>
+                            <tr>
+                              <td>BATTERY</td>
+                              <td>48 Volts</td>
+                            </tr>
+                            <tr>
+                              <td>CAPACITY</td>
+                              <td>20 Ah</td>
+                            </tr>
+                            <tr>
+                              <td>Starting From</td>
+                              <td>Colors</td>
+                            </tr>
+                            <tr>
+                              <td>AED {productPrice.energ.toLocaleString()}</td>
+                              <td>
+                                {allProducts.filter(prod => prod.name.toLowerCase().includes("ener g")).
+                                  map(prod => (
+
+                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+
+                                  ))}
+                              </td>
+                            </tr>
+                          </table>
+                          <div class="explore_bttn row mx-auto">
+                            <Link to="/energ">Buy Now</Link>
+                          </div>
+                        </div>
+                      </Link>
+                    </div>
+                    <div class="col-lg-3">
+                      <Link to="/doodle">
+                        <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                          <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
+
+                          <h3>DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+
+                          <h5>FEATURES</h5>
+                          <table>
+                            <tr>
+                              <td>RANGE</td>
+                              <td>55+ Kms</td>
+                            </tr>
+                            <tr>
+                              <td>SPEED (MAX)</td>
+                              <td>25Km/hr</td>
+                            </tr>
+                            <tr>
+                              <td>BRAKES</td>
+                              <td>Dual Disc</td>
+                            </tr>
+                            <tr>
+                              <td>BATTERY</td>
+                              <td>36 Volts</td>
+                            </tr>
+                            <tr>
+                              <td>CAPACITY</td>
+                              <td>10 Ah</td>
+                            </tr>
+                            <tr>
+                              <td>Starting From</td>
+                              <td>Colors</td>
+                            </tr>
+                            <tr>
+                              <td>AED {productPrice.doodle.toLocaleString()}</td>
+                              <td>
+                                {allProducts.filter(prod => prod.name.toLowerCase().includes("doodle")).
+                                  map(prod => (
+
+                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+
+                                  ))}
+                              </td>
+                            </tr>
+                          </table>
+                          <div class="explore_bttn row mx-auto">
+                            <Link to="/doodle">Buy Now</Link>
+                          </div>
+                        </div>
+                      </Link>
+                    </div>
+                    <div class="col-lg-3">
+                      <Link to="/trible">
+                        <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                          <img src="images/uae/Trible.png" alt="a" class="img-fluid" />
+
+                          <h3>TRIBLE
+                            <img src="images/arw_rgt.svg" alt="a" class="img-fluid" />
+                          </h3>
+                          <h5>FEATURES</h5>
+                          <table>
+                            <tr>
+                              <td>RANGE</td>
+                              <td>50+ Kms</td>
+                            </tr>
+                            <tr>
+                              <td>SPEED (MAX)</td>
+                              <td>25Km/hr</td>
+                            </tr>
+                            <tr>
+                              <td>BRAKES</td>
+                              <td>Dual Disc</td>
+                            </tr>
+                            <tr>
+                              <td>BATTERY</td>
+                              <td>36 Volts</td>
+                            </tr>
+                            <tr>
+                              <td>CAPACITY</td>
+                              <td>7.5 Ah</td>
+                            </tr>
+                            <tr>
+                              <td>Starting From</td>
+                              <td>Colors</td>
+                            </tr>
+                            <tr>
+                              <td>AED {productPrice.trible.toLocaleString()}</td>
+                              <td>
+                                {allProducts.filter(prod => prod.name.toLowerCase().includes("trible")).
+                                  map(prod => (
+
+                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+
+                                  ))}
+                              </td>
+                            </tr>
+                          </table>
+                          <div class="explore_bttn row mx-auto">
+                            <Link to="/trible">Buy Now</Link>
+                          </div>
+                        </div>
+                      </Link>
+                    </div>
+                  </div>
+                </>
+                :
+                <div class="row expo_bike_slider">
+                  <div class="col-lg-4">
+                    <Link to="/trex">
+                      <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                        <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
+
+                        <h3>T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+
+                        <h5>FEATURES</h5>
+                        <table>
+                          <tr>
+                            <td>RANGE</td>
+                            <td>50+ Kms</td>
+                          </tr>
+                          <tr>
+                            <td>SPEED (MAX)</td>
+                            <td>25Km/hr</td>
+                          </tr>
+                          <tr>
+                            <td>BRAKES</td>
+                            <td>Dual Disc</td>
+                          </tr>
+                          <tr>
+                            <td>BATTERY</td>
+                            <td>36 Volts</td>
+                          </tr>
+                          <tr>
+                            <td>CAPACITY</td>
+                            <td>7.5 Ah</td>
+                          </tr>
+                          <tr>
+                            <td>Starting From</td>
+                            <td>
+                              {/* Colors */}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              {
+                                (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
+                                  'Rs '
+                                  : (subdomain == 'uae') ?
+                                    'AED '
+                                    :
+                                    'Rs '
+                              }
+                              {productPrice.doodle.toLocaleString()}
+                            </td>
+                            <td>
+                              {/* <i class="fa fa-circle"></i> <i class="fa fa-circle"></i> */}
+                            </td>
+                          </tr>
+                        </table>
+                        <div class="explore_bttn row mx-auto">
+                          <Link to="/trex">Buy Now</Link>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                  <div class="col-lg-4">
+                    <Link to="/energ">
+                      <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                        <img src="images/uae/Ener-G.png" alt="a" class="img-fluid" width="75%" />
+                        <h3>ENER G <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+
+                        <h5>FEATURES</h5>
+                        <table>
+                          <tr>
+                            <td>RANGE</td>
+                            <td>65+ Kms</td>
+                          </tr>
+                          <tr>
+                            <td>SPEED (MAX)</td>
+                            <td>25Km/hr</td>
+                          </tr>
+                          <tr>
+                            <td>BRAKES</td>
+                            <td>Dual Disc</td>
+                          </tr>
+                          <tr>
+                            <td>BATTERY</td>
+                            <td>36 Volts</td>
+                          </tr>
+                          <tr>
+                            <td>CAPACITY</td>
+                            <td>10.4 Ah</td>
+                          </tr>
+                          <tr>
+                            <td>Starting From</td>
+                            <td>
+                              {/* Colors */}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              {
+                                (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
+                                  'Rs '
+                                  : (subdomain == 'uae') ?
+                                    'AED '
+                                    :
+                                    'Rs '
+                              }
+                              {productPrice.energ.toLocaleString()}
+                            </td>
+                            <td>
+                              {/* <i class="fa fa-circle" style={{ "color": "#DBFF00" }}></i> */}
+                            </td>
+                          </tr>
+                        </table>
+                        <div class="explore_bttn row mx-auto">
+                          <Link to="/energ">Buy Now</Link>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                  <div class="col-lg-4">
+                    <Link to="/doodle">
+                      <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                        <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
+
+                        <h3>DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+
+                        <h5>FEATURES</h5>
+                        <table>
+                          <tr>
+                            <td>RANGE</td>
+                            <td>55+ Kms</td>
+                          </tr>
+                          <tr>
+                            <td>SPEED (MAX)</td>
+                            <td>25Km/hr</td>
+                          </tr>
+                          <tr>
+                            <td>BRAKES</td>
+                            <td>Dual Disc</td>
+                          </tr>
+                          <tr>
+                            <td>BATTERY</td>
+                            <td>36 Volts</td>
+                          </tr>
+                          <tr>
+                            <td>CAPACITY</td>
+                            <td>10 Ah</td>
+                          </tr>
+                          <tr>
+                            <td>Starting From</td>
+                            <td>
+                              {/* Colors */}
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
+                              {
+                                (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
+                                  'Rs '
+                                  : (subdomain == 'uae') ?
+                                    'AED '
+                                    :
+                                    'Rs '
+                              }
+                              {productPrice.doodle.toLocaleString()}
+                            </td>
+                            <td>
+                              {/* <i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{ "color": "#10B068" }}></i> */}
+                            </td>
+                          </tr>
+                        </table>
+                        <div class="explore_bttn row mx-auto">
+                          <Link to="/doodle">Buy Now</Link>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+          }
                 </div>
             </section>
             <Footer />
