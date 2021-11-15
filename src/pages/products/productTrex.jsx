@@ -69,6 +69,15 @@ const ProductTREX = (props) => {
   );
 
   const loadReviews = async () => {
+    let domain = localStorage.getItem('subDomain');
+    let server;
+    if (domain == 'nepal' || domain == 'india' || domain == '') {
+      server = 'https://api.emotorad.in';
+    } else if (domain == 'uae') {
+      server = 'https://uae-api.emotorad.in';
+    }else{
+      server = 'https://api.emotorad.in';
+    }
     await axios
       .post(server + "/api/order/review/read")
       .then((rsp) => {
@@ -143,12 +152,20 @@ const ProductTREX = (props) => {
     let full = window.location.host
     let parts = full.split('.')
     let sub = parts[0]
-    // sub = 'uae';
     sub = localStorage.getItem('subDomain');
     setSubdomain(sub);
   }, [country]);
 
   const loadPincodes = async () => {
+    let domain = localStorage.getItem('subDomain');
+    let server;
+    if (domain == 'nepal' || domain == 'india' || domain == '') {
+      server = 'https://api.emotorad.in';
+    } else if (domain == 'uae') {
+      server = 'https://uae-api.emotorad.in';
+    }else{
+      server = 'https://api.emotorad.in';
+    }
     await axios
       .get(server + "/api/pin-code/read", config)
       .then((rsp) => {
@@ -222,6 +239,15 @@ const ProductTREX = (props) => {
 
 
   const addToCart = async () => {
+    let domain = localStorage.getItem('subDomain');
+    let server;
+    if (domain == 'nepal' || domain == 'india' || domain == '') {
+      server = 'https://api.emotorad.in';
+    } else if (domain == 'uae') {
+      server = 'https://uae-api.emotorad.in';
+    }else{
+      server = 'https://api.emotorad.in';
+    }
     if (!isLoggedIn()) {
       window.location.href = "/login";
     }
@@ -229,10 +255,13 @@ const ProductTREX = (props) => {
       await axios
         .get(server + "/api/cart/read", config)
         .then((rsp) => {
+          //alert('sdsd4');
+          console.log("rsp");
           console.log(rsp);
           updateCart(rsp.data.payload[0]);
         })
         .catch((err) => {
+          //alert('455');
           checkAccess(err);
           console.error(err);
         });
@@ -240,6 +269,15 @@ const ProductTREX = (props) => {
   }
 
   const updateCart = async (payload) => {
+    let domain = localStorage.getItem('subDomain');
+    let server;
+    if (domain == 'nepal' || domain == 'india' || domain == '') {
+      server = 'https://api.emotorad.in';
+    } else if (domain == 'uae') {
+      server = 'https://uae-api.emotorad.in';
+    }else{
+      server = 'https://api.emotorad.in';
+    }
     const params = {
       "id": productID,
     };
