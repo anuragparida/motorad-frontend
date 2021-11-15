@@ -324,11 +324,11 @@ const ProductEMX = (props) => {
                 <svg viewBox="0 0 1280 720">
                   <text text-anchor="middle" x="50%" y="50%">E M X</text>
                 </svg>
-                <img
+                {/* <img
                   src="images/the_best.png"
                   alt="a"
                   class="img-fluid intro"
-                />
+                /> */}
               </div>
 
               <div class="hero_pro_img">
@@ -353,25 +353,16 @@ const ProductEMX = (props) => {
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <p>
+            {/* <p>
               City riding is now a breeze as you traverse across town without
               any fuss or effort. The EMX is designed for the city; traffic,
               uneven roads and slopes included. India’s first dual suspension
               e-cycle, the dual-suspension of the EMX ensures that you will have
               a cushion ride and the power to cruise.
-            </p>
+            </p> */}
 
             <p>
             Riding is now a breeze as you traverse across town or over hills without any fuss or effort. EMX is designed for any terrain; traffic, uneven roads and slopes. India’s first dual suspension e-cycle, the dual-suspension of EMX ensures that you will have a cushioned ride and the power to cruise.
-            </p>
-
-            <p>
-            Handle it all<br />
-            Even as you hit the slopes, stay centred with absolute control on a dual suspension adapted just for you.
-            </p>
-
-            <p>Cover the Distance<br />
-            A massive 10.4 Ah battery gets you through the roughest terrain or the longest roads.
             </p>
 
             <a href="#"
@@ -483,13 +474,12 @@ const ProductEMX = (props) => {
                   data-aos-duration="2000"
                 >
                   <h6 className="galleryTitle">GALLERY</h6>
-                  <h3>
-                    IN ALL <br />
-                    ITS GLORY
+                  <h3 style={{ lineHeight : '55px'  }}>
+                    GRACEFUL  <br />
+                    LIGHTNING
                   </h3>
                   <p>
-                    Even as you hit the slopes, stay centred with absolute
-                    control on a ride adapted just for you.
+                    If poetry in motion took form, EMX would be it. Fluid lines fitted within an Aluminium 6061 frame.
                   </p>    
                 </div>
                 <div
@@ -599,10 +589,10 @@ const ProductEMX = (props) => {
                   data-aos-duration="2000"
                 >
                   <p>
-                    City riding is now a <br />
-                    breeze as you traverse across town. <br />
-                    <br />The EMX is designed for the city; traffic,
-                    <br />uneven roads and slopes included.
+                  EMX provides the smoothest of rides <br />  on any terrain. <br />
+                  <br />
+                    Experience the power of <br />  an e-bike in real Life.
+
                   </p>
                   <a href="/book">TEST RIDE</a>
                 </div>
@@ -612,31 +602,6 @@ const ProductEMX = (props) => {
         </div>
       </div>
     </section>
-
-
-    {
-        (subdomain == 'india' || subdomain == '') ?
-        <>
-        <section class="glory_section" id="gal_sec">
-        <div class="container">
-          <div class="row justify-content-end">
-            <div class="col-lg-11">
-              <div
-                  class="glory_lng_ttx"
-                  data-aos="fade-up"
-                  data-aos-duration="2000"
-                >
-                <p>EMX provides the smoothest of rides on any terrain.</p>
-                <p>Experience the power of an e-bike in real Life.</p>
-              </div>
-            </div>
-          </div>
-          </div>
-          </section>
-        </>
-        :
-        ''  
-      }
 
 
     <section class="product_specification" id="spe_sec">
