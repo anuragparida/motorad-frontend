@@ -309,12 +309,12 @@ const ProductXplorer = (props) => {
                                                 products.find(prod => prod.id === productID) ?
                                                 // console.log(products.find(prod => prod.id === productID).banner)
                                                 <img
-                                                    src={products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-Black.png' ?'images/japan/XPLORER/xplorer-colors/Xplorer-Black.png':
-                                                    products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-Green.png' ?"images/japan/XPLORER/xplorer-colors/Xplorer-Green.png":
-                                                    products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-Red.png' ?"images/japan/XPLORER/xplorer-colors/Xplorer-Red.png":
-                                                    products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-White.png' ?"images/japan/XPLORER/xplorer-colors/Xplorer-White.png":
-                                                    products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-Yellow.png' ?"images/japan/XPLORER/xplorer-colors/Xplorer-Yellow.png":
-                                                    "images/japan/XPLORER/xplorer-colors/Xplorer-Black.png"
+                                                    src={products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-Black.png' ?'images/Japan/XPLORER/xplorer-colors/Xplorer-Black.png':
+                                                    products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-Green.png' ?"images/Japan/XPLORER/xplorer-colors/Xplorer-Green.png":
+                                                    products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-Red.png' ?"images/Japan/XPLORER/xplorer-colors/Xplorer-Red.png":
+                                                    products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-White.png' ?"images/Japan/XPLORER/xplorer-colors/Xplorer-White.png":
+                                                    products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-Yellow.png' ?"images/Japan/XPLORER/xplorer-colors/Xplorer-Yellow.png":
+                                                    "images/Japan/XPLORER/xplorer-colors/Xplorer-Black.png"
                                                 }
                                                     alt="a"
                                                     class="img-fluid"
