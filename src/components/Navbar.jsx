@@ -115,14 +115,14 @@ const Navbar = (props) => {
         let full = window.location.host
         let parts = full.split('.')
         let sub = parts[0];    
-        sub = 'india';    
+        sub = 'uae';    
         if(sub == 'uae') {
             localStorage.setItem('subDomain', "uae")
             let getsub = localStorage.getItem('subDomain');
             setSubdomain(getsub);
             setcountryName(getsub.toUpperCase())
             setcountryflag(uaeflag)
-        } else if(sub == 'japan') {
+        } else if(sub == 'japan') {                    
             localStorage.setItem('subDomain', "japan")
             let getsub = localStorage.getItem('subDomain');
             setSubdomain(getsub);

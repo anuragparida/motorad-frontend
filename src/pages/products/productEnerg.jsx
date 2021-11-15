@@ -180,6 +180,13 @@ const ProductEnerg = (props) => {
     }
 
     const updateCart = async (payload) => {
+        let domain = localStorage.getItem('subDomain');
+        let server;
+        if (domain == 'nepal' || domain == 'india' || domain == '') {
+        server = 'https://api.emotorad.in';
+        } else if (domain == 'uae') {
+        server = 'https://uae-api.emotorad.in';
+        }
         const params = {
             "id": productID,
         };

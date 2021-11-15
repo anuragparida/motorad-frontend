@@ -324,11 +324,11 @@ const ProductEMX = (props) => {
                 <svg viewBox="0 0 1280 720">
                   <text text-anchor="middle" x="50%" y="50%">E M X</text>
                 </svg>
-                {/* <img
-                  src="images/the_best.png"
+                <img
+                  src="images/DUAL_SUSPENSION.png"
                   alt="a"
                   class="img-fluid intro"
-                /> */}
+                />
               </div>
 
               <div class="hero_pro_img">

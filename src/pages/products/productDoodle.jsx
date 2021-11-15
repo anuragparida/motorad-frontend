@@ -304,7 +304,7 @@ const ProductDOODLE = (props) => {
                     <text text-anchor="middle" x="50%" y="50%">DOODLE</text></svg
                   ><br />
                   <img
-                    src="images/the_best.png"
+                    src="images/THE_ADVENTURER.png"
                     alt="a"
                     style={{ "padding-top": "10px" }}
                     class="img-fluid intro"

@@ -22,6 +22,17 @@ const BookRide = (props) => {
   }, [city]);
 
   const loadCities = async(e) => {
+    let domain = localStorage.getItem('subDomain');
+    let server;
+    if (domain == 'nepal' || domain == 'india' || domain == '') {
+      server = 'https://api.emotorad.in';
+    } else if (domain == 'uae') {
+      server = 'https://uae-api.emotorad.in';
+    } else if (domain == 'japan') {
+      server = 'https://japan-api.emotorad.in';
+    } else {
+      server = 'https://api.emotorad.in';
+    }
     axios
     .get(server + `/api/store/read-states`)
     .then((rsp) => {
@@ -42,18 +53,53 @@ const BookRide = (props) => {
   }, [])
 
   const changeBike = (event) => {
-    if (event.target.value === "TREX") {
-      setBike('trex');
+    let domain = localStorage.getItem('subDomain');
+    if (domain == 'nepal' || domain == 'india' || domain == '') {
+      if (event.target.value === "TREX") {
+        setBike('trex');
+      } else if (event.target.value === "EMX") {
+        setBike('emx');
+      } else {
+        setBike('doodle');
+      }
+    } else if (domain == 'uae') {
+      if (event.target.value === "TREX") {
+        setBike('trex');
+      } else if (event.target.value === "DOODLE") {
+        setBike('doodle');
+      } else if (event.target.value === "ENERG") {
+        setBike('energ');
+      } else if (event.target.value === "TRIBLE") {
+        setBike('trible');
+      } else {
+        setBike('doodle');
+      }
+    } else if (domain == 'japan') {
+      if (event.target.value === "XPLORER") {
+        setBike('xplorer');
+      } else if (event.target.value === "GLYDER") {
+        setBike('glyder');
+      } else if (event.target.value === "DOLPHIN") {
+        setBike('dolphin');
+      } else {      
+        setBike('xplorer');
+      }
     }
-    else if (event.target.value === "EMX") {
-      setBike('emx');
-    }
-    else {
-      setBike('doodle');
-    }
+    
   }
 
   const loadStores = async(city) => {
+    let domain = localStorage.getItem('subDomain');
+    let server;
+    if (domain == 'nepal' || domain == 'india' || domain == '') {
+      server = 'https://api.emotorad.in';
+    } else if (domain == 'uae') {
+      server = 'https://uae-api.emotorad.in';
+    } else if (domain == 'japan') {
+      server = 'https://japan-api.emotorad.in';
+    } else {
+      server = 'https://api.emotorad.in';
+    }
     await axios
       .post(server + "/api/store/read", {"search": city})
       .then((rsp) => {
@@ -87,7 +133,7 @@ const BookRide = (props) => {
     });
 
   }
-
+ 
   return(
     <>
     <Navbar setCountry={setCountry} country={country}/>
@@ -148,26 +194,70 @@ const BookRide = (props) => {
                     <div class="form-group">
                       {/* <label for="">Select Bike</label> */}
                       <a href="#" class="mobile_bikee_selectt">
-                      {bike==="trex" ? "T - REX" : bike === "emx" ? "EMX" : "DOODLE"}
                         {
-                          bike==="trex" ? 
-                          <img src="images/sm1.png" alt="a" class="img-fluid" />
-                          : bike === "emx" ?
-                          <img src="images/sm2.png" alt="a" class="img-fluid" />
-                          :
-                          <img src="images/sm3.png" alt="a" class="img-fluid" />
+                          (subdomain == 'india' || subdomain == 'nepal' || subdomain == '') ?
+                            bike==="trex" ? 
+                            <img src="images/sm1.png" alt="a" class="img-fluid" />
+                            : bike === "emx" ?
+                            <img src="images/sm2.png" alt="a" class="img-fluid" />
+                            :
+                            <img src="images/sm3.png" alt="a" class="img-fluid" />
+                          :(subdomain == 'uae') ?
+                              bike == 'trex' ?
+                              <img src="images/sm1.png" alt="a" class="img-fluid" />
+                              : bike == 'doodle' ?
+                              <img src="images/sm3.png" alt="a" class="img-fluid" />
+                              : bike == 'energ' ?
+                              <img src="images/uae/ENERG/White-Pulse.png" alt="a" class="img-fluid" />
+                              : bike == 'trible' ?
+                              <img src="images/uae/TRIBLE/Blue-Pulse.png" alt="a" class="img-fluid" />
+                              :
+                              ''
+                          :(subdomain == 'japan') ?
+                              bike == 'xplorer' ?
+                              <img src="images/Japan/Bottom-Bikes/Xplorer.png" alt="a" class="img-fluid" />    
+                              :bike == 'dolphin' ?
+                              <img src="images/Japan/Bottom-Bikes/Dolphin.png" alt="a" class="img-fluid" />    
+                              :bike == 'glyder' ?
+                              <img src="images/Japan/Bottom-Bikes/Glyder.png" alt="a" class="img-fluid" />    
+                              :
+                              ''
+                          : ''  
                         }
                         </a>
-                    </div>
+                    </div> 
                   </div>
                   
                   <div class="col-lg-6">
                     <div class="form-group d-lg-block">
                       <label for="">Select Bike</label>
                       <select name="bike" class="form-control" defaultValue="TREX" required onChange={changeBike}>
-                        <option value="TREX">TREX</option>
-                        <option value="EMX">EMX</option>
-                        <option value="DOODLE">DOODLE</option>
+                        { 
+                          (subdomain == 'india' || subdomain == '' || subdomain == 'nepal') ?
+                          <>
+                            <option value="TREX">TREX</option>
+                            <option value="EMX">EMX</option>
+                            <option value="DOODLE">DOODLE</option>
+                          </>  
+                          : (subdomain == 'uae') ?
+                          <>
+                            <option value="TREX">TREX</option>
+                            <option value="ENERG">ENERG</option>
+                            <option value="DOODLE">DOODLE</option>
+                            <option value="TRIBLE">TRIBLE</option>
+                          </>  
+                          : (subdomain == 'japan') ?
+                          <>
+                            <option value="XPLORER">XPLORER</option>
+                            <option value="GLYDER">GLYDER</option>
+                          </>  
+                          :
+                          <>
+                            <option value="TREX">TREX</option>
+                            <option value="EMX">EMX</option>
+                            <option value="DOODLE">DOODLE</option>
+                          </>
+                        }
                       </select>
                     </div>
                   </div>

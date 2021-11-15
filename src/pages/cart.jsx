@@ -28,10 +28,27 @@ const Cart = (props) => {
   const [message, setMessage] = useState("");
   const [loader, setLoader] = useState("");
   const [country, setCountry] = useState(true); 
+  const [subdomain, setSubdomain] = useState("");
+
+  let domain = localStorage.getItem('subDomain');
+  let server;
+  if (domain == 'nepal' || domain == 'india' || domain == '') {
+    server = 'https://api.emotorad.in';
+  } else if (domain == 'uae') {
+    server = 'https://uae-api.emotorad.in';
+  }  
 
   const razorPayPaymentHandler = async (params) => {
 
     setLoader(<Loader/>);
+
+    let domain = localStorage.getItem('subDomain');
+    let server;
+    if (domain == 'nepal' || domain == 'india' || domain == '') {
+      server = 'https://api.emotorad.in';
+    } else if (domain == 'uae') {
+      server = 'https://uae-api.emotorad.in';
+    } 
 
     await axios
         .post(server + '/api/order/create', params, config)
@@ -86,6 +103,13 @@ const Cart = (props) => {
   }
 
   const loadCart = async() => {
+    let domain = localStorage.getItem('subDomain');
+    let server;
+    if (domain == 'nepal' || domain == 'india' || domain == '') {
+      server = 'https://api.emotorad.in';
+    } else if (domain == 'uae') {
+      server = 'https://uae-api.emotorad.in';
+    }
     if(!isLoggedIn()){
       window.location.href = "/login";
     }
@@ -110,6 +134,13 @@ const Cart = (props) => {
   }
 
   const loadProducts = async() => {
+    let domain = localStorage.getItem('subDomain');
+    let server;
+    if (domain == 'nepal' || domain == 'india' || domain == '') {
+      server = 'https://api.emotorad.in';
+    } else if (domain == 'uae') {
+      server = 'https://uae-api.emotorad.in';
+    }
     await axios
       .get(server + "/api/product/read", config)
       .then((rsp) => {
@@ -124,6 +155,13 @@ const Cart = (props) => {
   }
 
   const loadAddresses = async () => {
+    let domain = localStorage.getItem('subDomain');
+    let server;
+    if (domain == 'nepal' || domain == 'india' || domain == '') {
+      server = 'https://api.emotorad.in';
+    } else if (domain == 'uae') {
+      server = 'https://uae-api.emotorad.in';
+    }
     if(!isLoggedIn()){
       window.location.href = "/login";
     }
@@ -143,6 +181,13 @@ const Cart = (props) => {
   }
 
   const addAddress = async (e) => {
+    let domain = localStorage.getItem('subDomain');
+    let server;
+    if (domain == 'nepal' || domain == 'india' || domain == '') {
+      server = 'https://api.emotorad.in';
+    } else if (domain == 'uae') {
+      server = 'https://uae-api.emotorad.in';
+    }
     e.preventDefault();
 
     var params = Array.from(e.target.elements)
@@ -163,6 +208,13 @@ const Cart = (props) => {
   }
 
   const applyCoupon = async (e) => {
+    let domain = localStorage.getItem('subDomain');
+    let server;
+    if (domain == 'nepal' || domain == 'india' || domain == '') {
+      server = 'https://api.emotorad.in';
+    } else if (domain == 'uae') {
+      server = 'https://uae-api.emotorad.in';
+    }
     e.preventDefault();
 
     var params = Array.from(e.target.elements)
@@ -183,6 +235,13 @@ const Cart = (props) => {
   }
 
   const removeCoupon = async () => {
+    let domain = localStorage.getItem('subDomain');
+    let server;
+    if (domain == 'nepal' || domain == 'india' || domain == '') {
+      server = 'https://api.emotorad.in';
+    } else if (domain == 'uae') {
+      server = 'https://uae-api.emotorad.in';
+    }
     axios
     .post(server + "/api/cart/apply-coupon", {code: ""}, config)
     .then((rsp) => {
@@ -196,6 +255,13 @@ const Cart = (props) => {
   }
 
   const addToCart = async (id) => {
+    let domain = localStorage.getItem('subDomain');
+    let server;
+    if (domain == 'nepal' || domain == 'india' || domain == '') {
+      server = 'https://api.emotorad.in';
+    } else if (domain == 'uae') {
+      server = 'https://uae-api.emotorad.in';
+    }
     const params = {
       "id": id
     };
