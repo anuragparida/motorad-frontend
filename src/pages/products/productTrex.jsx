@@ -512,7 +512,7 @@ const ProductTREX = (props) => {
         </div>
       </section> */}
 
-      {
+      {/* {
         (subdomain == 'india' || subdomain == '') ?
           <>
             <section class="glory_section" id="gal_sec">
@@ -522,16 +522,16 @@ const ProductTREX = (props) => {
                     <h3>Feel the Power</h3>
                     <p>Distance passes by in the blink of an eye and unbelievable acceleration becomes everyday.</p>
 
-                    <h3>Ride Further</h3>
-                    <p>Your ride is effortless and reliable with trustworthy Lithium-Ion cells to power you on your way.</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </>
-          :
-          ''
-      }
+                <h3>Ride Further</h3>
+                <p>Your ride is effortless and reliable with trustworthy Lithium-Ion cells to power you on your way.</p>
+            </div>
+          </div>
+          </div>
+          </section>
+        </>
+        :
+        ''  
+      } */}
 
       <section class="glory_section" id="gal_sec">
         <div class="container">
@@ -549,10 +549,11 @@ const ProductTREX = (props) => {
                       IN ALL <br />
                       ITS GLORY
                     </h3>
-                    <p>
+                    {/* <p>
                       Even as you hit the slopes, stay centred with absolute
                       control on a ride adapted just for you.
-                    </p>
+                    </p> */}
+                    <p>A classic mountain bike Aluminium 6061 chassis provides the exact sturdiness and poise.</p>
                   </div>
                   <div
                     class="glory_img mt-5 pt-3 d-none d-lg-block"
@@ -663,8 +664,7 @@ const ProductTREX = (props) => {
                     <p>
                       The TREX lets you make <br />
                       the most of the mountain br bike. <br />
-                      <br />Experience the bike in real <br />
-                      life.
+                      <br />Experience the bike in real life.
                     </p>
                     <a href="#">TEST RIDE</a>
                   </div>

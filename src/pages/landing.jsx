@@ -120,7 +120,7 @@ const Landing = (props) => {
                             <div class="home_hero_bike_wrap">
                                 {
                                     (subdomain == '' || subdomain == "india" || subdomain == 'nepal') ?
-                                        <img src="images/uae/India-Home_Page_Render.gif" alt="a" class="img-fluid w-100" />
+                                        <img src="images/Hero-Main-Gif.gif" alt="a" class="img-fluid w-100" />
                                         : (subdomain == 'uae') ?
                                             <img src="images/uae/Main-hero-UAE.gif" alt="a" class="img-fluid w-100" />
                                             : (subdomain == 'japan') ?

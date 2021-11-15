@@ -404,21 +404,13 @@ const ProductDOODLE = (props) => {
           <div class="row">
             <div class="col-12">
               <p>
-                Best in Class Foldable Electric Bike Its small size might make you
-                think this is a fun little ride, but the Doodle has power to spare
-                when you are in the mood for adventure. And when you don’t, you
-                can fold it away. From sandy beaches to city roads, this bike has
-                the oomph and the portability that will tempt you to take it with
-                you wherever you may go.
+                Your weekend rides just got better with the foldable Doodle. Its size might make it seem like a fun little ride, but Doodle has power to spare when you are in the mood for adventure. Fold the SUV of e-bikes in the back of your car and get away with the ideal dune cruiser. From sandy beaches to city roads, this e-bike has the oomph and portability to tempt you into taking it wherever you may go.
               </p>
 
               <a href="#"
               >WATCH IT IN ACTION
                 <img src="images/play_icon.png" alt="a" class="img-fluid"
                 /></a>
-
-            <p>Your weekend rides just got better with the foldable Doodle. Its size might make it seem like a fun little ride, but Doodle has power to spare when you are in the mood for adventure. Fold the SUV of e-bikes in the back of your car and get away with the ideal dune cruiser. From sandy beaches to city roads, this e-bike has the oomph and portability to tempt you into taking it wherever you may go.
-            </p>
             </div>
           </div>
         </div>
@@ -499,33 +491,6 @@ const ProductDOODLE = (props) => {
       </div>
     </section> */}
 
-      {
-        (subdomain == 'india' || subdomain == '') ?
-        <>
-        <section class="glory_section" id="gal_sec">
-        <div class="container">
-          <div class="row justify-content-end">
-            <div class="col-lg-11">
-            <div
-                  class="glory_lng_ttx"
-                  data-aos="fade-up"
-                  data-aos-duration="2000"
-                >
-                <p>Fold. Pack. Unfold. <br />
-A light yet strong Aluminium 6061 frame makes for a tidy package that is perfect for storage or transport.
-</p>
-                <p>Activate Cruise Mode<br />
-The potent motor and long-lasting 10 Ah battery powering Doodle boost every ride you take.
-</p>
-            </div>
-            </div>
-          </div>
-          </div>
-          </section>
-        </>
-        :
-        ''  
-      } 
 
 
       <section class="glory_section" id="gal_sec">
@@ -540,13 +505,12 @@ The potent motor and long-lasting 10 Ah battery powering Doodle boost every ride
                     data-aos-duration="2000"
                   >
                     <h6 className="galleryTitle">GALLERY</h6>
-                    <h3>
-                      IN ALL <br />
-                      ITS GLORY
+                    <h3 style={{ fontSize : '40px', lineHeight : '45px' }}>
+                      THE ULTIMATE <br />
+                      EYE-CATCHER
                     </h3>
                     <p>
-                      Even as you hit the slopes, stay centred with absolute
-                      control on a ride adapted just for you.
+                      Foldable, reliable and comfortable take form in the trifecta of perfection that is Doodle.
                     </p>
                   </div>
                   <div
@@ -656,9 +620,8 @@ The potent motor and long-lasting 10 Ah battery powering Doodle boost every ride
                     data-aos-duration="2000"
                   >
                     <p>
-                      Best in Class <br />
-                      Foldable Electric Bike. <br />
-                      <br />Experience the bike in real life.
+                      Doodle is your partner <br /> on any adventure. <br /> <br />
+                      Experience the power of <br /> an e-bike in real life.
                     </p>
                     <a href="/book">TEST RIDE</a>
                   </div>
@@ -669,30 +632,6 @@ The potent motor and long-lasting 10 Ah battery powering Doodle boost every ride
         </div>
       </section>
 
-
-      {
-        (subdomain == 'india' || subdomain == '') ?
-        <>
-        <section class="glory_section" id="gal_sec">
-        <div class="container">
-          <div class="row justify-content-end">
-            <div class="col-lg-11">
-            <div
-                  class="glory_lng_ttx"
-                  data-aos="fade-up"
-                  data-aos-duration="2000"
-                >
-                <p>Doodle is your partner on any adventure.</p>
-                <p>Experience the power of an e-bike in real Life.</p>
-            </div>
-            </div>
-          </div>
-          </div>
-          </section>
-        </>
-        :
-        ''  
-      }
 
 
       <section class="product_specification" id="spe_sec">
