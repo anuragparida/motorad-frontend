@@ -69,15 +69,6 @@ const ProductTREX = (props) => {
   );
 
   const loadReviews = async () => {
-    let domain = localStorage.getItem('subDomain');
-    let server;
-    if (domain == 'nepal' || domain == 'india' || domain == '') {
-      server = 'https://api.emotorad.in';
-    } else if (domain == 'uae') {
-      server = 'https://uae-api.emotorad.in';
-    }else{
-      server = 'https://api.emotorad.in';
-    }
     await axios
       .post(server + "/api/order/review/read")
       .then((rsp) => {
@@ -157,15 +148,6 @@ const ProductTREX = (props) => {
   }, [country]);
 
   const loadPincodes = async () => {
-    let domain = localStorage.getItem('subDomain');
-    let server;
-    if (domain == 'nepal' || domain == 'india' || domain == '') {
-      server = 'https://api.emotorad.in';
-    } else if (domain == 'uae') {
-      server = 'https://uae-api.emotorad.in';
-    }else{
-      server = 'https://api.emotorad.in';
-    }
     await axios
       .get(server + "/api/pin-code/read", config)
       .then((rsp) => {
@@ -179,16 +161,6 @@ const ProductTREX = (props) => {
   }
 
   const loadProducts = async () => {
-    let domain = localStorage.getItem('subDomain');
-    let server;
-    if (domain == 'nepal' || domain == 'india' || domain == '') {
-      server = 'https://api.emotorad.in';
-    } else if (domain == 'uae') {
-      server = 'https://uae-api.emotorad.in';
-    }else{
-      server = 'https://api.emotorad.in';
-
-    }
     await axios
       .get(server + "/api/product/read", config)
       .then((rsp) => {
@@ -239,15 +211,6 @@ const ProductTREX = (props) => {
 
 
   const addToCart = async () => {
-    let domain = localStorage.getItem('subDomain');
-    let server;
-    if (domain == 'nepal' || domain == 'india' || domain == '') {
-      server = 'https://api.emotorad.in';
-    } else if (domain == 'uae') {
-      server = 'https://uae-api.emotorad.in';
-    }else{
-      server = 'https://api.emotorad.in';
-    }
     if (!isLoggedIn()) {
       window.location.href = "/login";
     }
@@ -269,15 +232,6 @@ const ProductTREX = (props) => {
   }
 
   const updateCart = async (payload) => {
-    let domain = localStorage.getItem('subDomain');
-    let server;
-    if (domain == 'nepal' || domain == 'india' || domain == '') {
-      server = 'https://api.emotorad.in';
-    } else if (domain == 'uae') {
-      server = 'https://uae-api.emotorad.in';
-    }else{
-      server = 'https://api.emotorad.in';
-    }
     const params = {
       "id": productID,
     };

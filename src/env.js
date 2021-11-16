@@ -1,7 +1,19 @@
 const Cookies = require("js-cookie");
+let domain = localStorage.getItem('subDomain');
+let server;
+if (domain == 'nepal' || domain == 'india' || domain == '') {
+  server = 'https://api.emotorad.in';
+} else if (domain == 'uae') {
+  server = 'https://uae-api.emotorad.in';
+} else if (domain == 'japan') {
+  server = 'https://japan-api.emotorad.in';
+} else {
+  server = 'https://api.emotorad.in';
+}
 
 module.exports = {
-  server: "https://api.emotorad.in",
+  //server: "https://api.emotorad.in",
+  server,
   //server: "http://localhost:7400",
 
   // SITE_KEY: "6LdaGssUAAAAAFMBwO3VPUNlV6pZE_uIY04zK8dh", ASK?

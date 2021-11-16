@@ -20,7 +20,6 @@ let images = [0, 1, 2, 3, 4];
 
 
 const ProductEnerg = (props) => {
-    let server = "https://uae-api.emotorad.in";
 
     const [pincodes, setPincodes] = useState([]);
     const [reviews, setReviews] = useState([]);

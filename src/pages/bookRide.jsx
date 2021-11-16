@@ -29,18 +29,6 @@ const BookRide = (props) => {
   const [bike, setBike] = useState('trex');
 
   const loadProducts = async () => {
-    let domain = localStorage.getItem('subDomain');
-    let server;
-    if (domain == 'nepal' || domain == 'india' || domain == '') {
-        server = 'https://api.emotorad.in';
-    } else if (domain == 'uae') {
-        server = 'https://uae-api.emotorad.in';
-    } else if (domain == 'japan') {
-        server = 'https://japan-api.emotorad.in';
-    } else {
-        server = 'https://api.emotorad.in';
-
-    }
     console.log(server)
     await axios
         .get(server + "/api/product/read", config)
@@ -106,17 +94,6 @@ const BookRide = (props) => {
   }, [city,country]);
 
   const loadCities = async(e) => {
-    let domain = localStorage.getItem('subDomain');
-    let server;
-    if (domain == 'nepal' || domain == 'india' || domain == '') {
-      server = 'https://api.emotorad.in';
-    } else if (domain == 'uae') {
-      server = 'https://uae-api.emotorad.in';
-    } else if (domain == 'japan') {
-      server = 'https://japan-api.emotorad.in';
-    } else {
-      server = 'https://api.emotorad.in';
-    }
     axios
     .get(server + `/api/store/read-states`)
     .then((rsp) => {
@@ -173,17 +150,6 @@ const BookRide = (props) => {
   }
 
   const loadStores = async(city) => {
-    let domain = localStorage.getItem('subDomain');
-    let server;
-    if (domain == 'nepal' || domain == 'india' || domain == '') {
-      server = 'https://api.emotorad.in';
-    } else if (domain == 'uae') {
-      server = 'https://uae-api.emotorad.in';
-    } else if (domain == 'japan') {
-      server = 'https://japan-api.emotorad.in';
-    } else {
-      server = 'https://api.emotorad.in';
-    }
     await axios
       .post(server + "/api/store/read", {"search": city})
       .then((rsp) => {

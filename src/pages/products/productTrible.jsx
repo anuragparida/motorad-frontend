@@ -139,15 +139,6 @@ const ProductTrible = (props) => {
     }
 
     const loadProducts = async () => {
-        let domain = localStorage.getItem('subDomain');
-        let server;
-        if (domain == 'nepal' || domain == 'india' || domain == '') {
-            server = 'https://api.emotorad.in';
-        } else if (domain == 'uae') {
-            server = 'https://uae-api.emotorad.in';
-        } else {
-            server = 'https://api.emotorad.in';
-        }
         await axios
             .get(server + "/api/product/read", config)
             .then((rsp) => {
