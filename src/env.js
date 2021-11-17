@@ -1,14 +1,14 @@
 const Cookies = require("js-cookie");
-let domain = localStorage.getItem('subDomain');
+let domain = localStorage.getItem("subDomain");
 let server;
-if (domain == 'nepal' || domain == 'india' || domain == '') {
-  server = 'https://api.emotorad.in';
-} else if (domain == 'uae') {
-  server = 'https://uae-api.emotorad.in';
-} else if (domain == 'japan') {
-  server = 'https://japan-api.emotorad.in';
+if (domain == "nepal" || domain == "india" || domain == "") {
+  server = "https://api.emotorad.in";
+} else if (domain == "uae") {
+  server = "https://uae-api.emotorad.in";
+} else if (domain == "japan") {
+  server = "https://japan-api.emotorad.in";
 } else {
-  server = 'https://api.emotorad.in';
+  server = "https://api.emotorad.in";
 }
 
 module.exports = {
@@ -20,6 +20,8 @@ module.exports = {
 
   // FACEBOOK_APP_ID: 296252462110494,
   FACEBOOK_APP_ID: 889533278598326,
+
+  REACT_APP_GOOGLE_API_KEY: "AIzaSyAJ_0_tWZb3bqaNUYu-vYI3L4jhFui1dv4",
 
   config: {
     headers: {

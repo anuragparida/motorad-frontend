@@ -2,8 +2,10 @@ import React, {useState, useEffect} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
-import { server } from "../../env";
+import { server, REACT_APP_GOOGLE_API_KEY } from "../../env";
 import axios from "axios";
+import { GoogleMap, LoadScript } from "@react-google-maps/api";
+import Markers from './Markers';
 
 const FindStore = (props) => {
 
@@ -13,6 +15,8 @@ const FindStore = (props) => {
   const [cities, setCities] = useState({});
   const [state, setState] = useState('');
   const [country, setCountry] = useState(true); 
+
+  const [points, setPoints] = useState([]);
 
 
   const changeState = (event) => {
@@ -34,7 +38,7 @@ const FindStore = (props) => {
     .then((rsp) => {
       console.log(rsp);
       setStores(rsp.data.payload);
-      
+      setPoints(rsp.data.payload.map(store=>[store.lat, store.long]))
     })
     .catch((err) => {
       console.log(err.response);
@@ -173,7 +177,38 @@ const FindStore = (props) => {
           
           <div class="col-lg-6">
             <div class="find_store_img">
-              <img src="images/map_pic.png" alt="a" class="img-fluid" />
+              {/* <img src="images/map_pic.png" alt="a" class="img-fluid" /> */}
+              {
+                <LoadScript googleMapsApiKey={REACT_APP_GOOGLE_API_KEY}>
+                  <GoogleMap
+                    mapContainerStyle={{
+                      width: "100%",
+                      height: "500px",
+                      margin: "auto",
+                    }}
+                    center={{
+                      lat: parseFloat(stores[0] ? stores[0].lat : 0),
+                      lng: parseFloat(stores[0] ? stores[0].long : 0),
+                    }}
+                    zoom={10}
+                  >
+                    {/* Child components, such as markers, info windows, etc. */}
+                    {stores[0] &&
+                      stores.map((store, index) => {
+                        return (
+                          <Markers
+                            id={store.id}
+                            key={store.id}
+                            index={index}
+                            center={{"lat": store.lat, "long": store.long}}
+                            label={store.name}
+                            address={store.address}
+                          />
+                        );
+                      })}
+                  </GoogleMap>
+                </LoadScript>
+              }
             </div>
           </div>
         </div>
