@@ -5,6 +5,7 @@ import Footer from './../components/Footer';
 import axios from "axios";
 import { server, config, checkAccess } from "../env";
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
 
 const BookRide = (props) => {
 
@@ -85,6 +86,7 @@ const BookRide = (props) => {
   }
 
   useEffect(() => {
+    AOS.init();
     if(city)
     loadStores(city);
     let sub = ''
@@ -603,7 +605,7 @@ const BookRide = (props) => {
                             </div>
                         </div>
                         : (subdomain == 'uae') ?
-                            <>
+                            // <>
                                 <div class="row expo_bike_slider_uae">
                                     <div class="col-lg-3">
                                         <Link to="/trex">
@@ -811,7 +813,7 @@ const BookRide = (props) => {
                                         </Link>
                                     </div>
                                 </div>
-                            </>
+                            // </>
                             : (subdomain == 'japan') ?
                                 <>
                                     <div class="row expo_bike_slider_uae">
