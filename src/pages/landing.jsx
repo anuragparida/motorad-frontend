@@ -1461,7 +1461,7 @@ const Landing = (props) => {
                                                     {products.
                                                         filter(prod => prod.name.toLowerCase().includes("t-rex")).map(prod => (
 
-                                                            <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                            <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                         ))}
                                                 </td>
@@ -1507,12 +1507,12 @@ const Landing = (props) => {
                                                 <td>Colors</td>
                                             </tr>
                                             <tr>
-                                                <td>Rs{productPrice.emx.toLocaleString()}</td>
+                                                <td>Rs {productPrice.emx.toLocaleString()}</td>
                                                 <td>
                                                     {products.
                                                         filter(prod => prod.name.toLowerCase().includes("emx")).map(prod => (
 
-                                                            <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                          <i class="fa fa-circle" style={{ "color": prod.color }}>  &nbsp;</i>
 
                                                         ))}
                                                 </td>
@@ -1563,7 +1563,7 @@ const Landing = (props) => {
                                                     {products.
                                                         filter(prod => prod.name.toLowerCase().includes("doodle")).map(prod => (
 
-                                                            <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                            <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                         ))}
                                                 </td>
@@ -1618,7 +1618,7 @@ const Landing = (props) => {
                                                             {products.
                                                                 filter(prod => prod.name.toLowerCase().includes("t-rex")).map(prod => (
 
-                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                                 ))}
                                                         </td>
@@ -1669,7 +1669,7 @@ const Landing = (props) => {
                                                             {products.
                                                                 filter(prod => prod.name.toLowerCase().includes("ener g")).map(prod => (
 
-                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                                 ))}
                                                         </td>
@@ -1720,7 +1720,7 @@ const Landing = (props) => {
                                                             {products.
                                                                 filter(prod => prod.name.toLowerCase().includes("doodle")).map(prod => (
 
-                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                                 ))}
                                                         </td>
@@ -1772,7 +1772,7 @@ const Landing = (props) => {
                                                             {products.
                                                                 filter(prod => prod.name.toLowerCase().includes("trible")).map(prod => (
 
-                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                                 ))}
                                                         </td>
@@ -1830,7 +1830,7 @@ const Landing = (props) => {
                                                                 {products.
                                                                     filter(prod => prod.name.toLowerCase().includes("xplorer")).map(prod => (
 
-                                                                        <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                                        <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                                     ))}
                                                             </td>
@@ -1882,7 +1882,7 @@ const Landing = (props) => {
                                                             {products.
                                                                 filter(prod => prod.name.toLowerCase().includes("glyder")).map(prod => (
 
-                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                                 ))}
                                                         </tr>
