@@ -3325,6 +3325,36 @@ img {
   background-image: url("../images/Japan/XPLORER/Web-E.png");
 }
 
+
+
+
+
+
+.image_dolphin_0 {
+  z-index: 0;
+  background-image: url("../images/Japan/DOLPHIN/Web-A.png");
+}
+.image_dolphin_1 {
+  z-index: 0;
+  background-image: url("../images/Japan/DOLPHIN/Web-B.png");
+}
+.image_dolphin_2 {
+  z-index: 0;
+  background-image: url("../images/Japan/DOLPHIN/Web-C.png");
+}
+.image_dolphin_3 {
+  z-index: 0;
+  background-image: url("../images/Japan/DOLPHIN/Web-D.png");
+}
+.image_dolphin_4 {
+  z-index: 0;
+  background-image: url("../images/Japan/DOLPHIN/Web-E.png");
+}
+
+
+
+
+
 .image_glyder_0 {
   z-index: 0;
   background-image: url("../images/Japan/GLYDER/Web-A.png");

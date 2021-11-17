@@ -30,25 +30,13 @@ const Cart = (props) => {
   const [country, setCountry] = useState(true); 
   const [subdomain, setSubdomain] = useState("");
 
-  let domain = localStorage.getItem('subDomain');
-  let server;
-  if (domain == 'nepal' || domain == 'india' || domain == '') {
-    server = 'https://api.emotorad.in';
-  } else if (domain == 'uae') {
-    server = 'https://uae-api.emotorad.in';
-  }  
-
+  const domain = localStorage.getItem('subDomain');   
+  
   const razorPayPaymentHandler = async (params) => {
 
     setLoader(<Loader/>);
 
-    let domain = localStorage.getItem('subDomain');
-    let server;
-    if (domain == 'nepal' || domain == 'india' || domain == '') {
-      server = 'https://api.emotorad.in';
-    } else if (domain == 'uae') {
-      server = 'https://uae-api.emotorad.in';
-    } 
+    
 
     await axios
         .post(server + '/api/order/create', params, config)
@@ -109,13 +97,6 @@ const Cart = (props) => {
   }
 
   const loadCart = async() => {
-    let domain = localStorage.getItem('subDomain');
-    let server;
-    if (domain == 'nepal' || domain == 'india' || domain == '') {
-      server = 'https://api.emotorad.in';
-    } else if (domain == 'uae') {
-      server = 'https://uae-api.emotorad.in';
-    }
     if(!isLoggedIn()){
       window.location.href = "/login";
     }
@@ -140,13 +121,6 @@ const Cart = (props) => {
   }
 
   const loadProducts = async() => {
-    let domain = localStorage.getItem('subDomain');
-    let server;
-    if (domain == 'nepal' || domain == 'india' || domain == '') {
-      server = 'https://api.emotorad.in';
-    } else if (domain == 'uae') {
-      server = 'https://uae-api.emotorad.in';
-    }
     await axios
       .get(server + "/api/product/read", config)
       .then((rsp) => {
@@ -161,13 +135,6 @@ const Cart = (props) => {
   }
 
   const loadAddresses = async () => {
-    let domain = localStorage.getItem('subDomain');
-    let server;
-    if (domain == 'nepal' || domain == 'india' || domain == '') {
-      server = 'https://api.emotorad.in';
-    } else if (domain == 'uae') {
-      server = 'https://uae-api.emotorad.in';
-    }
     if(!isLoggedIn()){
       window.location.href = "/login";
     }
@@ -187,13 +154,6 @@ const Cart = (props) => {
   }
 
   const addAddress = async (e) => {
-    let domain = localStorage.getItem('subDomain');
-    let server;
-    if (domain == 'nepal' || domain == 'india' || domain == '') {
-      server = 'https://api.emotorad.in';
-    } else if (domain == 'uae') {
-      server = 'https://uae-api.emotorad.in';
-    }
     e.preventDefault();
 
     var params = Array.from(e.target.elements)
@@ -214,13 +174,6 @@ const Cart = (props) => {
   }
 
   const applyCoupon = async (e) => {
-    let domain = localStorage.getItem('subDomain');
-    let server;
-    if (domain == 'nepal' || domain == 'india' || domain == '') {
-      server = 'https://api.emotorad.in';
-    } else if (domain == 'uae') {
-      server = 'https://uae-api.emotorad.in';
-    }
     e.preventDefault();
 
     var params = Array.from(e.target.elements)
@@ -241,13 +194,6 @@ const Cart = (props) => {
   }
 
   const removeCoupon = async () => {
-    let domain = localStorage.getItem('subDomain');
-    let server;
-    if (domain == 'nepal' || domain == 'india' || domain == '') {
-      server = 'https://api.emotorad.in';
-    } else if (domain == 'uae') {
-      server = 'https://uae-api.emotorad.in';
-    }
     axios
     .post(server + "/api/cart/apply-coupon", {code: ""}, config)
     .then((rsp) => {
@@ -261,13 +207,6 @@ const Cart = (props) => {
   }
 
   const addToCart = async (id) => {
-    let domain = localStorage.getItem('subDomain');
-    let server;
-    if (domain == 'nepal' || domain == 'india' || domain == '') {
-      server = 'https://api.emotorad.in';
-    } else if (domain == 'uae') {
-      server = 'https://uae-api.emotorad.in';
-    }
     const params = {
       "id": id
     };
@@ -431,7 +370,18 @@ const Cart = (props) => {
                             <p>Color : <i class="fa fa-circle" style={{"color": item.color}}></i></p>
                           </td>
                           <td>
-                            <h5>₹ {item.price}</h5>
+                            <h5>{
+                                (domain == 'india') ?
+                                  '₹ '
+                                : (domain == 'uae') ?
+                                  'AED '
+                                : (domain == 'japan') ?
+                                  'YEN '
+                                : (domain == 'nepal') ?
+                                  'NPR '
+                                :
+                                  ''      
+                              } {item.price}</h5>
                           </td>
 
                           {
@@ -466,7 +416,21 @@ const Cart = (props) => {
                           }
                           
                           <td>
-                            <h5>₹ {item.price * item.quantity}</h5>
+                            <h5> 
+                              {
+                                (domain == 'india') ?
+                                  '₹ '
+                                : (domain == 'uae') ?
+                                  'AED '
+                                : (domain == 'japan') ?
+                                  'YEN '
+                                : (domain == 'nepal') ?
+                                  'NPR '
+                                :
+                                  ''      
+                              } 
+                              {item.price * item.quantity}
+                            </h5>
                           </td>
                           {
                             item.price !== 0 ?
@@ -531,19 +495,74 @@ const Cart = (props) => {
                   <table>
                     <tr>
                       <td>Subtotal :</td>
-                      <td>₹ {netAmount}</td>
+                      <td>{
+                                (domain == 'india') ?
+                                  '₹ '
+                                : (domain == 'uae') ?
+                                  'AED '
+                                : (domain == 'japan') ?
+                                  'YEN '
+                                : (domain == 'nepal') ?
+                                  'NPR '
+                                :
+                                  ''      
+                              } {netAmount}</td>
                     </tr>
                     <tr>
                       <td>Discount :</td>
-                      <td>- ₹0.00</td>
+                      <td>- {
+                                (domain == 'india') ?
+                                  '₹ '
+                                : (domain == 'uae') ?
+                                  'AED '
+                                : (domain == 'japan') ?
+                                  'YEN '
+                                : (domain == 'nepal') ?
+                                  'NPR '
+                                :
+                                  ''      
+                              }0.00</td>
                     </tr>
                     <tr>
-                      <td>GST (5%):</td>
-                      <td>₹ {Math.round(totalAmount - netAmount)}</td>
+                      <td>{
+                                (domain == 'india') ?
+                                  'GST '
+                                : (domain == 'uae') ?
+                                  'VAT '
+                                : (domain == 'japan') ?
+                                  'VAT '
+                                : (domain == 'nepal') ?
+                                  'VAT '
+                                :
+                                  ''      
+                              } (5%):</td>
+                      <td>{
+                                (domain == 'india') ?
+                                  '₹ '
+                                : (domain == 'uae') ?
+                                  'AED '
+                                : (domain == 'japan') ?
+                                  'YEN '
+                                : (domain == 'nepal') ?
+                                  'NPR '
+                                :
+                                  ''      
+                              } {Math.round(totalAmount - netAmount)}</td>
                     </tr>
                     <tr>
                       <td>Total :</td>
-                      <td>₹ {totalAmount}</td>
+                      <td>{
+                                (domain == 'india') ?
+                                  '₹ '
+                                : (domain == 'uae') ?
+                                  'AED '
+                                : (domain == 'japan') ?
+                                  'YEN '
+                                : (domain == 'nepal') ?
+                                  'NPR '
+                                :
+                                  ''      
+                              } {totalAmount}</td>
                     </tr>
                   </table>
                 </div>
@@ -553,7 +572,18 @@ const Cart = (props) => {
                     // setOrderSuccess(true)
                     // razorPayPaymentHandler();
                     }}>
-                    <span>₹ {totalAmount} </span>
+                    <span>{
+                                (domain == 'india') ?
+                                  '₹ '
+                                : (domain == 'uae') ?
+                                  'AED '
+                                : (domain == 'japan') ?
+                                  'YEN '
+                                : (domain == 'nepal') ?
+                                  'NPR '
+                                :
+                                  ''      
+                              } {totalAmount} </span>
                     <span
                       >Checkout
                       <img src="images/arrw_w_rgt.svg" alt="a" class="img-fluid"
