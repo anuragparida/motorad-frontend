@@ -1495,7 +1495,7 @@ const ProductGlyder = (props) => {
                                                 {allProducts.
                                                     filter(prod => prod.name.toLowerCase().includes("xplorer")).map(prod => (
 
-                                                        <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                        <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                     ))}
                                             </td>
@@ -1547,7 +1547,7 @@ const ProductGlyder = (props) => {
                                             {allProducts.
                                                 filter(prod => prod.name.toLowerCase().includes("glyder")).map(prod => (
 
-                                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                 ))}
                                         </tr>
@@ -1559,7 +1559,7 @@ const ProductGlyder = (props) => {
                             </Link>
                         </div>
                         <div class="col-lg-4">
-                            <Link to="/trex">
+                            <Link to="/xplorer">
                                 <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
                                     <img src="images/Japan/Bottom-Bikes/Dolphin.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
@@ -1597,7 +1597,7 @@ const ProductGlyder = (props) => {
                                         </tr>
                                     </table>
                                     <div class="explore_bttn row mx-auto">
-                                        <Link to="/doodle">今すぐ購入</Link>
+                                        <Link to="/xplorer">今すぐ購入</Link>
                                     </div>
                                 </div>
                             </Link>

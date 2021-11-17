@@ -1534,7 +1534,7 @@ const ProductTREX = (props) => {
                             {products.
                               map(prod => (
 
-                                <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                               ))}
                           </td>
@@ -1596,7 +1596,7 @@ const ProductTREX = (props) => {
                             {allProducts.filter(prod => prod.name.toLowerCase().includes("emx")).
                               map(prod => (
 
-                                <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                               ))}
                           </td>
@@ -1655,10 +1655,10 @@ const ProductTREX = (props) => {
                             {productPrice.doodle.toLocaleString()}
                           </td>
                           <td>
-                            {products.
+                            {allProducts.filter(prod => prod.name.toLowerCase().includes("doodle")).
                               map(prod => (
 
-                                <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                               ))}
                           </td>
@@ -1713,7 +1713,7 @@ const ProductTREX = (props) => {
                                 {products.
                                   map(prod => (
 
-                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                   ))}
                               </td>
@@ -1764,7 +1764,7 @@ const ProductTREX = (props) => {
                                 {allProducts.filter(prod => prod.name.toLowerCase().includes("ener g")).
                                   map(prod => (
 
-                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                   ))}
                               </td>
@@ -1815,7 +1815,7 @@ const ProductTREX = (props) => {
                                 {allProducts.filter(prod => prod.name.toLowerCase().includes("doodle")).
                                   map(prod => (
 
-                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                   ))}
                               </td>
@@ -1867,7 +1867,7 @@ const ProductTREX = (props) => {
                                 {allProducts.filter(prod => prod.name.toLowerCase().includes("trible")).
                                   map(prod => (
 
-                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                   ))}
                               </td>

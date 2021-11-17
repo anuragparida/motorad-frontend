@@ -154,37 +154,37 @@ const ProductEnerg = (props) => {
                 const allProducts = rsp.data.payload;
                 setAllProducts(allProducts)
                 if (filteredRsp.length > 0) {
-                  let domain = localStorage.getItem('subDomain');
-                  if (domain == 'nepal' || domain == 'india' || domain == '') {
-                    console.log(filteredRsp);
-                    setProducts(filteredRsp);
-                    setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("ener g"))[0].id);
-                    setProductPrice({
-                      ...productPrice,
-                      trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
-                      emx: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"))[0].price,
-                      doodle: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].price,
-                      energ: 0,
-                      trible: 0,
-                    })
-                  } else if (domain == 'uae') {
-                    setProducts(filteredRsp);
-                    setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("ener g"))[0].id);
-                    setProductPrice({
-                      ...productPrice,
-                      trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
-                      energ: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("ener g"))[0].price,
-                      trible: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("trible"))[0].price,
-                      doodle: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].price,
-                      emx: 0,
-                    })
-                  }
-        
+                    let domain = localStorage.getItem('subDomain');
+                    if (domain == 'nepal' || domain == 'india' || domain == '') {
+                        console.log(filteredRsp);
+                        setProducts(filteredRsp);
+                        setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("ener g"))[0].id);
+                        setProductPrice({
+                            ...productPrice,
+                            trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
+                            emx: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"))[0].price,
+                            doodle: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].price,
+                            energ: 0,
+                            trible: 0,
+                        })
+                    } else if (domain == 'uae') {
+                        setProducts(filteredRsp);
+                        setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("ener g"))[0].id);
+                        setProductPrice({
+                            ...productPrice,
+                            trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
+                            energ: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("ener g"))[0].price,
+                            trible: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("trible"))[0].price,
+                            doodle: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].price,
+                            emx: 0,
+                        })
+                    }
+
                 }
                 else {
-                  //   setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
-                  //   setProductID(1);
-                  alert("Products not set correctly. Please Contact Admin.");
+                    //   setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
+                    //   setProductID(1);
+                    alert("Products not set correctly. Please Contact Admin.");
                 }
             })
             .catch((err) => {
@@ -215,9 +215,9 @@ const ProductEnerg = (props) => {
         let domain = localStorage.getItem('subDomain');
         let server;
         if (domain == 'nepal' || domain == 'india' || domain == '') {
-        server = 'https://api.emotorad.in';
+            server = 'https://api.emotorad.in';
         } else if (domain == 'uae') {
-        server = 'https://uae-api.emotorad.in';
+            server = 'https://uae-api.emotorad.in';
         }
         const params = {
             "id": productID,
@@ -1497,10 +1497,10 @@ const ProductEnerg = (props) => {
                                                         {productPrice.doodle.toLocaleString()}
                                                     </td>
                                                     <td>
-                                                        {products.
+                                                        {allProducts.filter(prod => prod.name.toLowerCase().includes("t-rex")).
                                                             map(prod => (
 
-                                                                <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                                <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                             ))}
                                                     </td>
@@ -1562,7 +1562,7 @@ const ProductEnerg = (props) => {
                                                         {allProducts.filter(prod => prod.name.toLowerCase().includes("emx")).
                                                             map(prod => (
 
-                                                                <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                                <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                             ))}
                                                     </td>
@@ -1621,10 +1621,10 @@ const ProductEnerg = (props) => {
                                                         {productPrice.doodle.toLocaleString()}
                                                     </td>
                                                     <td>
-                                                        {products.
+                                                        {allProducts.filter(prod => prod.name.toLowerCase().includes("doodle")).
                                                             map(prod => (
 
-                                                                <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                                <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                             ))}
                                                     </td>
@@ -1676,10 +1676,10 @@ const ProductEnerg = (props) => {
                                                         <tr>
                                                             <td>AED {productPrice.trex.toLocaleString()}</td>
                                                             <td>
-                                                                {products.
+                                                                {allProducts.filter(prod => prod.name.toLowerCase().includes("t-rex")).
                                                                     map(prod => (
 
-                                                                        <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                                        <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                                     ))}
                                                             </td>
@@ -1730,7 +1730,7 @@ const ProductEnerg = (props) => {
                                                                 {allProducts.filter(prod => prod.name.toLowerCase().includes("ener g")).
                                                                     map(prod => (
 
-                                                                        <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                                        <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                                     ))}
                                                             </td>
@@ -1781,7 +1781,7 @@ const ProductEnerg = (props) => {
                                                                 {allProducts.filter(prod => prod.name.toLowerCase().includes("doodle")).
                                                                     map(prod => (
 
-                                                                        <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                                        <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                                     ))}
                                                             </td>
@@ -1833,7 +1833,7 @@ const ProductEnerg = (props) => {
                                                                 {allProducts.filter(prod => prod.name.toLowerCase().includes("trible")).
                                                                     map(prod => (
 
-                                                                        <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                                        <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                                     ))}
                                                             </td>

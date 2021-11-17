@@ -238,14 +238,14 @@ const ProductDOODLE = (props) => {
     <>
       <Navbar setCountry={setCountry} country={country}>
 
-      {
-        (subdomain == '' ||subdomain=='india'|| subdomain == 'nepal') ?
-          <script type="application/ld+json">
-            {JSON.stringify(articleStructuredData)}
-          </script>
-        :
-        ''  
-      }
+        {
+          (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
+            <script type="application/ld+json">
+              {JSON.stringify(articleStructuredData)}
+            </script>
+            :
+            ''
+        }
 
         <section class="product_menu_sec">
           <div class="container">
@@ -279,22 +279,22 @@ const ProductDOODLE = (props) => {
                   <ul>
                     <li><p>Select Color</p></li>
 
-                    {    
-                    products.map(prod => (
-                      <li>
-                        <label class="chck">
-                          <input type="radio" checked={prod.id === productID} onChange={() => {
-                            setProductID(prod.id);
-                          }} />
-                          <span class="checkmark" style={{ "background": prod.color=="light-green" ?"green":prod.color }}></span>
-                        </label>
-                      </li>
-                    ))
+                    {
+                      products.map(prod => (
+                        <li>
+                          <label class="chck">
+                            <input type="radio" checked={prod.id === productID} onChange={() => {
+                              setProductID(prod.id);
+                            }} />
+                            <span class="checkmark" style={{ "background": prod.color == "light-green" ? "green" : prod.color }}></span>
+                          </label>
+                        </li>
+                      ))
                     }
 
                     <li class="d-none d-lg-block">
                       {
-                        (subdomain == '' ||subdomain=='india'|| subdomain == 'nepal') ?
+                        (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
                           <h6>Rs {productPrice.doodle.toLocaleString()}</h6>
                           : (subdomain == 'uae') ?
                             <h6>AED 3,499</h6>
@@ -338,35 +338,35 @@ const ProductDOODLE = (props) => {
                   <div class="product_hero_txts">
 
                     {
-                           (subdomain == '' ||subdomain=='india'|| subdomain == 'nepal') ?
-                      products.length > 0 &&
-                        products.find(prod => prod.id === productID) ?
-                        <img
-                          src={products.find(prod => prod.id === productID).banner === "/uploads/product_banner/doodle-pulse-black.png" ? "images/Doodle-Black.png" : "images/Doodle-Green.png"}
-                          alt="a"
-                          class="img-fluid"
-                        />
-                        :
-                        <img
-                          src="images/Doodle-Green.png"
-                          alt="a"
-                          class="img-fluid"
-                        />
-                        :(subdomain =='uae')?
+                      (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
                         products.length > 0 &&
-                        products.find(prod => prod.id === productID) ?
-                        <img
-                          src={products.find(prod => prod.id === productID).banner === "/uploads/product_banner/Doodle-Black.png" ? "images/Doodle-Black.png" : "images/Doodle-Green.png"}
-                          alt="a"
-                          class="img-fluid"
-                        />
-                        :
-                        <img
-                          src="images/Doodle-Green.png"
-                          alt="a"
-                          class="img-fluid"
-                        />
-                        :""
+                          products.find(prod => prod.id === productID) ?
+                          <img
+                            src={products.find(prod => prod.id === productID).banner === "/uploads/product_banner/doodle-pulse-black.png" ? "images/Doodle-Black.png" : "images/Doodle-Green.png"}
+                            alt="a"
+                            class="img-fluid"
+                          />
+                          :
+                          <img
+                            src="images/Doodle-Green.png"
+                            alt="a"
+                            class="img-fluid"
+                          />
+                        : (subdomain == 'uae') ?
+                          products.length > 0 &&
+                            products.find(prod => prod.id === productID) ?
+                            <img
+                              src={products.find(prod => prod.id === productID).banner === "/uploads/product_banner/Doodle-Black.png" ? "images/Doodle-Black.png" : "images/Doodle-Green.png"}
+                              alt="a"
+                              class="img-fluid"
+                            />
+                            :
+                            <img
+                              src="images/Doodle-Green.png"
+                              alt="a"
+                              class="img-fluid"
+                            />
+                          : ""
                     }
                   </div>
                   {/* <div class="product_hero_txt" style={{"display": "none"}}>
@@ -495,7 +495,7 @@ const ProductDOODLE = (props) => {
                     data-aos-duration="2000"
                   >
                     <h6 className="galleryTitle">GALLERY</h6>
-                    <h3 style={{ fontSize : '40px', lineHeight : '45px' }}>
+                    <h3 style={{ fontSize: '40px', lineHeight: '45px' }}>
                       THE ULTIMATE <br />
                       EYE-CATCHER
                     </h3>
@@ -1481,10 +1481,10 @@ const ProductDOODLE = (props) => {
                             {productPrice.doodle.toLocaleString()}
                           </td>
                           <td>
-                            {products.
+                            {allProducts.filter(prod => prod.name.toLowerCase().includes("t-rex")).
                               map(prod => (
 
-                                <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                               ))}
                           </td>
@@ -1546,7 +1546,7 @@ const ProductDOODLE = (props) => {
                             {allProducts.filter(prod => prod.name.toLowerCase().includes("emx")).
                               map(prod => (
 
-                                <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                               ))}
                           </td>
@@ -1608,7 +1608,7 @@ const ProductDOODLE = (props) => {
                             {products.
                               map(prod => (
 
-                                <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                               ))}
                           </td>
@@ -1660,10 +1660,10 @@ const ProductDOODLE = (props) => {
                             <tr>
                               <td>AED {productPrice.trex.toLocaleString()}</td>
                               <td>
-                                {products.
+                                {allProducts.filter(prod => prod.name.toLowerCase().includes("t-rex")).
                                   map(prod => (
 
-                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                   ))}
                               </td>
@@ -1714,7 +1714,7 @@ const ProductDOODLE = (props) => {
                                 {allProducts.filter(prod => prod.name.toLowerCase().includes("ener g")).
                                   map(prod => (
 
-                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                   ))}
                               </td>
@@ -1765,7 +1765,7 @@ const ProductDOODLE = (props) => {
                                 {allProducts.filter(prod => prod.name.toLowerCase().includes("doodle")).
                                   map(prod => (
 
-                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                   ))}
                               </td>
@@ -1817,7 +1817,7 @@ const ProductDOODLE = (props) => {
                                 {allProducts.filter(prod => prod.name.toLowerCase().includes("trible")).
                                   map(prod => (
 
-                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                   ))}
                               </td>
