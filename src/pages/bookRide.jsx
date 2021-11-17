@@ -26,7 +26,7 @@ const BookRide = (props) => {
         xplorer: ""
     });
 
-  const [bike, setBike] = useState('trex');
+  const [bike, setBike] = useState('');
 
   const loadProducts = async () => {
     console.log(server)
@@ -120,7 +120,7 @@ const BookRide = (props) => {
         setBike('trex');
       } else if (event.target.value === "EMX") {
         setBike('emx');
-      } else {
+      } else if (event.target.value === "DOODLE") {
         setBike('doodle');
       }
     } else if (domain == 'uae') {
@@ -132,8 +132,6 @@ const BookRide = (props) => {
         setBike('energ');
       } else if (event.target.value === "TRIBLE") {
         setBike('trible');
-      } else {
-        setBike('doodle');
       }
     } else if (domain == 'japan') {
       if (event.target.value === "XPLORER") {
@@ -142,7 +140,7 @@ const BookRide = (props) => {
         setBike('glyder');
       } else if (event.target.value === "DOLPHIN") {
         setBike('dolphin');
-      } else {      
+      } else if (event.target.value === "XPLORER") {
         setBike('xplorer');
       }
     }
@@ -206,14 +204,43 @@ const BookRide = (props) => {
                 Welcome to the electric revolution.
               </p>
               {
-                bike==="trex" ? 
-                <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
-                : bike === "emx" ?
-                <img src="images/bicycle_3.png" alt="a" class="img-fluid" />
-                :
-                <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
+                (subdomain == 'india' || subdomain == 'nepal')   ?
+                    
+                    (bike==="trex") ? 
+                        <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
+                    : (bike === "emx") ?
+                        <img src="images/bicycle_3.png" alt="a" class="img-fluid" />
+                    : (bike === "doodle") ?
+                        <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
+                    : ''    
+                : (subdomain == 'uae') ?    
+                    (bike==="trex") ? 
+                        <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
+                    : (bike === "trible") ?
+                        <img src="images/uae/Trible.png" style={{ width : '215px', height : '139px' }} alt="a" class="img-fluid" />
+                    : (bike === "energ") ?
+                        <img src="images/uae/Ener-G.png" style={{ width : '215px', height : '139px' }} alt="a" class="img-fluid" />
+                    : (bike === "doodle") ?
+                        <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
+                    : ''    
+                : (subdomain == 'japan') ?    
+                    (bike==="xplorer") ? 
+                        <img src="images/Japan/XPLORER/Xplorer-pulse-black.png" style={{ width : '215px', height : '139px' }} alt="a" class="img-fluid" />
+                    : (bike === "glyder") ?
+                        <img src="images/Japan/GLYDER/Glyder-pulse-black.png" style={{ width : '215px', height : '139px' }} alt="a" class="img-fluid" />
+                    : (bike === "dolphin") ?
+                        <img src="images/Japan/GLYDER/Glyder-pulse-black.png" style={{ width : '215px', height : '139px' }} alt="a" class="img-fluid" />
+                    : ''        
+                : ''    
               }
-              <h5>SELECTED BIKE: <span> {bike==="trex" ? "T - REX" : bike === "emx" ? "EMX" : "DOODLE"}</span></h5>
+              {
+                  (bike != '') ?
+                    <h5>SELECTED BIKE: <span> {bike==="trex" ? "T - REX" : bike === "emx" ? "EMX" : bike === 'doodle' ? 'DOODLE' : bike === 'energ' ? 'ENERG' : bike === 'trible' ? 'TRIBLE' : bike === 'xplorer' ? 'XPLORER' : bike === 'dolphin' ? 'DOLPHIN' : bike === 'glyder' ? 'GLYDER' : ''   }</span></h5>
+                  :
+                  ''                      
+              }
+              
+              
             </div>
           </div>
           <div class="col-lg-6">
@@ -281,7 +308,8 @@ const BookRide = (props) => {
                   <div class="col-lg-6">
                     <div class="form-group d-lg-block">
                       <label for="">Select Bike</label>
-                      <select name="bike" class="form-control" defaultValue="TREX" required onChange={changeBike}>
+                      <select name="bike" class="form-control" defaultValue="" required onChange={changeBike}>
+                        <option value="">Select Bike</option>
                         { 
                           (subdomain == 'india' || subdomain == '' || subdomain == 'nepal') ?
                           <>
@@ -300,6 +328,7 @@ const BookRide = (props) => {
                           <>
                             <option value="XPLORER">XPLORER</option>
                             <option value="GLYDER">GLYDER</option>
+                            <option value="DOLPHIN">DOLPHIN</option>
                           </>  
                           :
                           <>
@@ -359,9 +388,15 @@ const BookRide = (props) => {
                   <div class="col-lg-6">
                     <div class="form-group">
                       <label for="">Enter City</label>
+                      
                       <select name="city" class="form-control" required onChange={e => setCity(e.target.value)}>
                       {
-                        cities.map(x=><option value={x}>{x}</option>)
+                        <>  
+                        <option value="">Select City</option>
+                        {
+                            cities.map(x=><option value={x}>{x}</option>)
+                        }
+                        </>
                       }
                   </select>
                     </div>

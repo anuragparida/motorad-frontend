@@ -305,16 +305,15 @@ const Landing = (props) => {
                             <div class="suspension_main_view">
                                 <div class="tab-content" id="pills-tabContent">
                                     {
-                                        (subdomain == '' || subdomain == 'nepal') ?
+                                        (subdomain == 'india' || subdomain == 'nepal') ?
                                             <>
                                                 <div class="tab-pane fade " id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
 
                                                     <div class="row">
                                                         <div class="col-lg-6">
                                                             <div class="dual_suspension_txt">
-                                                                <h3>The <span>SUV</span> of EBikes <span>Doodle</span></h3>
-
-                                                                <p>Best in Class Foldable Electric Bike Its small size might make you think this is a fun little ride, but the Doodle has power to spare when you are in the mood for adventure. And when you don’t, you can fold it away. From sandy beaches to city roads, this bike has the oomph and the portability that will tempt you to take it with you wherever you may go. </p>
+                                                                <h3>The Fat-Tyre <span>SUV</span> of EBikes</h3>
+                                                                <p>Say hello to adventure with the foldable Doodle. Its size might make it seem like a fun little ride, but Doodle has power to spare when you are in the mood for adventure. Fold the SUV of e-bikes in the back of your car and get away with the ideal dune cruiser. From sandy beaches to city roads, this e-bike has the oomph and portability to tempt you into taking it wherever you may go.</p>
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-lg-10">
@@ -369,9 +368,8 @@ const Landing = (props) => {
                                                     <div class="row">
                                                         <div class="col-lg-6">
                                                             <div class="dual_suspension_txt">
-                                                                <h3>Designed for <span>all Terrains</span></h3>
-
-                                                                <p>The TREX lets you make the most of the mountain bike. Now, you can go further and climb higher with our powerful motor, intuitive controls and lightweight, yet rigid frames. Every part has been designed to seamlessly integrate into a truly magnificent experience as you explore the trails.  </p>
+                                                                <h3>The Beast For <span>All Terrains</span></h3>
+                                                                <p>Make adventure your friend as you master the trails on T-Rex with the power and build to navigate any road you wish to roam. Now, you can go further and climb higher with our powerful motor, intuitive controls and lightweight, yet rigid frames. Designed for all terrains, each part is designed to seamlessly integrate into the best possible ride.</p>
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-lg-10">
@@ -1012,11 +1010,6 @@ const Landing = (props) => {
                                                                                 <>
                                                                                     <p>Whether you are commuting to the office, exploring local streets or climbing the hills, EMX is the ideal mobility partner. Traverse across the landscape without any fuss or effort.  India’s first dual suspension e-bike, EMX is designed for the city, uneven roads and the slopes.
                                                                                     </p><br />
-                                                                                    <h6>The Beast For All Terrains</h6><br />
-                                                                                    <p>Make adventure your friend as you master the trails on T-Rex with the power and build to navigate any road you wish to roam. Now, you can go further and climb higher with our powerful motor, intuitive controls and lightweight, yet rigid frames. Designed for all terrains, each part is designed to seamlessly integrate into the best possible ride.
-                                                                                    </p><br />
-                                                                                    <h6>The Fat-Tyre SUV of E-Bikes</h6><br />
-                                                                                    <p>Say hello to adventure with the foldable Doodle. Its size might make it seem like a fun little ride, but Doodle has power to spare when you are in the mood for adventure. Fold the SUV of e-bikes in the back of your car and get away with the ideal dune cruiser. From sandy beaches to city roads, this e-bike has the oomph and portability to tempt you into taking it wherever you may go.</p>
                                                                                 </>
                                                                                 :
                                                                                 <p>City riding is now a breeze as you traverse across town without any fuss or effort. The EMX is designed for the city; traffic, uneven roads and slopes included. India’s first dual suspension e-cycle.</p>
