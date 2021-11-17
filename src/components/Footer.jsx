@@ -5,8 +5,8 @@ import { server, config, checkAccess } from "../env";
 import WhattsApp from "./WhattsApp";
 
 const Footer = (props) => {
-const [links, setLinks] = useState({});
-
+  const [links, setLinks] = useState({});
+  let subdomain = localStorage.getItem('subDomain');  
   const loadLinks = async() => {
     await axios
       .get(server + "/api/social/read", config)
@@ -71,9 +71,16 @@ const [links, setLinks] = useState({});
                                  <h6>Assurance</h6>
                                  <ul>
                                      <li><Link to="/warranty">Warranty</Link></li>
-                                     <li><Link to="/insurance">Insurance</Link></li>
-                                     <li><Link to="/rsa">RSA</Link></li>
-                                     <li><Link to="/emi">EMI</Link></li>
+                                     {
+                                        (subdomain == 'india' || subdomain == '') ?
+                                        <>
+                                            <li><Link to="/insurance">Insurance</Link></li>
+                                            <li><Link to="/rsa">RSA</Link></li>
+                                            <li><Link to="/emi">EMI</Link></li>
+                                        </> 
+                                        :
+                                        ''
+                                    }  
                                      <li><Link to="/buysmart">Buy Smart</Link></li>
                                  </ul>
                              </div>

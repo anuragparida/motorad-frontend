@@ -128,6 +128,12 @@ const Navbar = (props) => {
             setSubdomain(getsub);
             setcountryName(getsub.toUpperCase())
             setcountryflag(japanflag)
+        } else if(sub == 'nepal') {                    
+            localStorage.setItem('subDomain', "nepal")
+            let getsub = localStorage.getItem('subDomain');
+            setSubdomain(getsub);
+            setcountryName(getsub.toUpperCase())
+            setcountryflag(nepalflag)
         } else {
             localStorage.setItem('subDomain', "india")
             let getsub = localStorage.getItem('subDomain');

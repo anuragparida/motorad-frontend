@@ -5,7 +5,7 @@ import { server, config, checkAccess } from "../env";
 
 const MobileNavbar = (props) => {
   const [links, setLinks] = useState({});
-  
+  let subdomain = localStorage.getItem('subDomain');
   const loadLinks = async() => {
     await axios
       .get(server + "/api/social/read", config)
@@ -43,9 +43,16 @@ const MobileNavbar = (props) => {
                 
                     <ul class="mobile_submnu collapse" id="collapseExampleaa">
                         <li><Link to="/warranty">Activate Warranty</Link></li>
-                        <li><Link to="/insurance">Insurance</Link></li>
-                        <li><Link to="/rsa">RSA</Link></li>
-                        <li><Link to="/emi">EMI</Link></li>
+                        {
+                                (subdomain == 'india' || subdomain == '') ?
+                                <>
+                                    <li><Link to="/insurance">Insurance</Link></li>
+                                    <li><Link to="/rsa">RSA</Link></li>
+                                    <li><Link to="/emi">EMI</Link></li>
+                                </>
+                                :
+                                ''
+                        }
                         <li><Link to="/buysmart">Buy Smart</Link></li>
                     </ul>
                 </li>

@@ -1,8 +1,10 @@
 const Cookies = require("js-cookie");
 let domain = localStorage.getItem('subDomain');
 let server;
-if (domain == 'nepal' || domain == 'india' || domain == '') {
+if (domain == 'india' || domain == '') {
   server = 'https://api.emotorad.in';
+} else if(domain == 'nepal') {
+  server = 'https://nepal-api.emotorad.in';
 } else if (domain == 'uae') {
   server = 'https://uae-api.emotorad.in';
 } else if (domain == 'japan') {
