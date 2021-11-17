@@ -55,43 +55,49 @@ const Cart = (props) => {
         .then((rsp) => {
           console.log(rsp);
           const orderPayload = rsp.data.payload;
-          const options = {
-            key: '',
-            name: "EMotorad",
-            description: orderPayload.id,
-            order_id: orderPayload.id,
-            handler: async (response) => {
-              try {
-                const paymentId = response.razorpay_payment_id;
-               axios
-                .post(server + `/api/payment/razorpay/capture/${paymentId}?orderId=${orderPayload.localId}`, {}, config)
-                .then((rsp) => {
-                  // const successObj = JSON.parse(rsp.data)
-                  // const captured = successObj.captured;
-                  // console.log("App -> razorPayPaymentHandler -> captured", successObj)
-                  // if(captured){
-                      console.log('success')
-                      setMessage(<Alert className="success" message={rsp.data.message} />);
-                      setLoader("");
-                      setOrderSuccess(true);
-                  // }
-                })
-                .catch((err) => {
-                  setMessage(<Alert className="danger" message={rsp.data.message} />);
-                  setLoader("");
-                  console.log(err.response);
-                });
-               
-              } catch (err) {
-                console.log(err);
-              }
-            },
-            theme: {
-              color: "#10B068",
-            },
-          };
-          const rzp1 = new window.Razorpay(options);
-          rzp1.open();
+          if (server === 'https://api.emotorad.in') {
+              const options = {
+              key: '',
+              name: "EMotorad",
+              description: orderPayload.id,
+              order_id: orderPayload.id,
+              handler: async (response) => {
+                try {
+                  const paymentId = response.razorpay_payment_id;
+                axios
+                  .post(server + `/api/payment/razorpay/capture/${paymentId}?orderId=${orderPayload.localId}`, {}, config)
+                  .then((rsp) => {
+                    // const successObj = JSON.parse(rsp.data)
+                    // const captured = successObj.captured;
+                    // console.log("App -> razorPayPaymentHandler -> captured", successObj)
+                    // if(captured){
+                        console.log('success')
+                        setMessage(<Alert className="success" message={rsp.data.message} />);
+                        setLoader("");
+                        setOrderSuccess(true);
+                    // }
+                  })
+                  .catch((err) => {
+                    setMessage(<Alert className="danger" message={rsp.data.message} />);
+                    setLoader("");
+                    console.log(err.response);
+                  });
+                
+                } catch (err) {
+                  console.log(err);
+                }
+              },
+              theme: {
+                color: "#10B068",
+              },
+            };
+            const rzp1 = new window.Razorpay(options);
+            rzp1.open();
+          } else if (server === "https://uae-api.emotorad.in") {
+            document.body.innerHTML += orderPayload.formbody;
+            document.getElementById('nonseamless').submit();
+          }
+          
         })
         .catch((err) => {
           setMessage(<Alert className="warning" message={"Please Contact Admin"} />);
