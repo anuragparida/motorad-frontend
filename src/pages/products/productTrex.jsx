@@ -354,7 +354,7 @@ const ProductTREX = (props) => {
 
                         <img
                           // src={"https://uae-api.emotorad.in/" + products.find(prod => prod.id === productID).banner ==='' }
-                          src={products.find(prod => prod.id === productID).banner === "/uploads/product_banner/t-rex-yellow.png" ? "images/t-rex-hero-yellow.png" : "images/t-rex-hero-red.png"}
+                          src={products.find(prod => prod.id === productID).color === "red" ? "images/t-rex-hero-red.png" : "images/t-rex-hero-yellow.png"}
                           // src= {"/uploads/product_banner/t-rex-red.png" ? "images/t-rex-hero-red.png" : "images/t-rex-hero-yellow.png"}
                           alt="a"
                           class="img-fluid"
