@@ -2,7 +2,7 @@ $(function(){
     /* all slider start */
     $('.expo_bike_slider').slick({
       infinite: true,
-      slidesToShow: 3,
+      slidesToShow: 4,
       autoplay: true,
       slidesToScroll: 1,
         responsive: [
