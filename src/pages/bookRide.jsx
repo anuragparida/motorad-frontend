@@ -813,7 +813,6 @@ const BookRide = (props) => {
                                         </Link>
                                     </div>
                                 </div>
-                    
                             : (subdomain == 'japan') ?
                              
                                     <div class="row expo_bike_slider_uae">
