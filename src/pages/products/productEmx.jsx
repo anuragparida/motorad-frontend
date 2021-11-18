@@ -264,11 +264,11 @@ const ProductEMX = (props) => {
                 <div class="peoduct_menu_lft">
                   <h6>E M X</h6>
                   <ul class="d-none d-lg-block">
+                    {/* <li><i class="fa fa-star-o"></i></li>
                     <li><i class="fa fa-star-o"></i></li>
                     <li><i class="fa fa-star-o"></i></li>
                     <li><i class="fa fa-star-o"></i></li>
-                    <li><i class="fa fa-star-o"></i></li>
-                    <li><i class="fa fa-star-o"></i></li>
+                    <li><i class="fa fa-star-o"></i></li> */}
                     <li><span>(1351+)</span></li>
                   </ul>
                 </div>
@@ -1220,13 +1220,13 @@ const ProductEMX = (props) => {
                     <tr>
                       <td>Rs {productPrice.trex.toLocaleString()}</td>
                       <td>
-                            {allProducts.filter(prod => prod.name.toLowerCase().includes("t-rex")).
-                              map(prod => (
+                        {allProducts.filter(prod => prod.name.toLowerCase().includes("t-rex")).
+                          map(prod => (
 
-                                <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
+                            <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
-                              ))}
-                          </td>
+                          ))}
+                      </td>
                     </tr>
                   </table>
                   <div class="explore_bttn row mx-auto">
@@ -1321,14 +1321,14 @@ const ProductEMX = (props) => {
                     </tr>
                     <tr>
                       <td>Rs {productPrice.doodle.toLocaleString()}</td>
-                          <td>
-                            {allProducts.filter(prod => prod.name.toLowerCase().includes("doodle")).
-                              map(prod => (
+                      <td>
+                        {allProducts.filter(prod => prod.name.toLowerCase().includes("doodle")).
+                          map(prod => (
 
-                                <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
+                            <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
-                              ))}
-                          </td>
+                          ))}
+                      </td>
                     </tr>
                   </table>
                   <div class="explore_bttn row mx-auto">
@@ -1344,7 +1344,15 @@ const ProductEMX = (props) => {
       <div class="book_ride_sticky d-lg-none">
         <div class="d-flex">
 
-          <a href="javascript:void(0)" onClick={addToCart}><p>Rs {productPrice.emx.toLocaleString()}</p> BUY NOW</a>
+          <a href="javascript:void(0)" onClick={addToCart}><p>
+            {
+              (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
+                'Rs '
+                : (subdomain == 'uae') ?
+                  'AED '
+                  :
+                  'Rs '
+            } {productPrice.emx.toLocaleString()}</p> BUY NOW</a>
         </div>
       </div>
 

@@ -221,11 +221,11 @@ const ProductGlyder = (props) => {
                                 <div class="peoduct_menu_lft">
                                     <h6>GLYDER</h6>
                                     <ul class="d-none d-lg-block">
+                                        {/* <li><i class="fa fa-star-o"></i></li>
                                         <li><i class="fa fa-star-o"></i></li>
                                         <li><i class="fa fa-star-o"></i></li>
                                         <li><i class="fa fa-star-o"></i></li>
-                                        <li><i class="fa fa-star-o"></i></li>
-                                        <li><i class="fa fa-star-o"></i></li>
+                                        <li><i class="fa fa-star-o"></i></li> */}
                                         <li><span>(1351+)</span></li>
                                     </ul>
                                 </div>
@@ -1595,7 +1595,7 @@ const ProductGlyder = (props) => {
                                             <td>Colors</td>
                                         </tr>
                                         <tr>
-                                            <td>AED {productPrice.dolphin.toLocaleString()}</td>
+                                            <td>YEN {productPrice.dolphin.toLocaleString()}</td>
                                             <td>
                                             {allProducts.
                                                     filter(prod => prod.name.toLowerCase().includes("dolphin")).map(prod => (
@@ -1620,7 +1620,7 @@ const ProductGlyder = (props) => {
             <div class="book_ride_sticky d-lg-none">
                 <div class="d-flex">
 
-                    <a href="javascript:void(0)" onClick={addToCart}><p>AED 3,599</p> BUY NOW</a>
+                    <a href="javascript:void(0)" onClick={addToCart}><p>YEN {productPrice.glyder.toLocaleString()}</p> BUY NOW</a>
                 </div>
                 <a href="#" class="back-top-btn d-none d-lg-block">
                     <i class="fa fa-angle-up"></i>

@@ -266,11 +266,11 @@ const ProductTREX = (props) => {
                 <div class="peoduct_menu_lft">
                   <h6>T - REX</h6>
                   <ul class="d-none d-lg-block">
+                    {/* <li><i class="fa fa-star-o"></i></li>
                     <li><i class="fa fa-star-o"></i></li>
                     <li><i class="fa fa-star-o"></i></li>
                     <li><i class="fa fa-star-o"></i></li>
-                    <li><i class="fa fa-star-o"></i></li>
-                    <li><i class="fa fa-star-o"></i></li>
+                    <li><i class="fa fa-star-o"></i></li> */}
                     <li><span>(1351+)</span></li>
                   </ul>
                 </div>
@@ -2063,7 +2063,14 @@ const ProductTREX = (props) => {
       <div class="book_ride_sticky d-lg-none">
         <div class="d-flex">
 
-          <a href="javascript:void(0)" onClick={addToCart}><p>Rs {productPrice.trex.toLocaleString()}</p> BUY NOW</a>
+          <a href="javascript:void(0)" onClick={addToCart}><p>  {
+                              (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
+                                'Rs '
+                                : (subdomain == 'uae') ?
+                                  'AED '
+                                  :
+                                  'Rs '
+                            } {productPrice.trex.toLocaleString()}</p> BUY NOW</a>
         </div>
         <a href="#" class="back-top-btn d-none d-lg-block">
           <i class="fa fa-angle-up"></i>
