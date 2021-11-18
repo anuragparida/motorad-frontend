@@ -33,9 +33,32 @@ const MobileNavbar = (props) => {
                 <li>
                     <a href="javascript:void(0)" data-toggle="collapse" data-target="#collapseExamplea" aria-expanded="false" aria-controls="collapseExamplea">THE BIKES</a>
                     <ul class="mobile_submnu collapse" id="collapseExamplea">
-                        <li><Link to="/trex"><img src="images/sm1.png" alt="a" class="img-fluid"/>T- REX</Link></li>
-                        <li><Link to="/emx"><img src="images/sm2.png" alt="a" class="img-fluid"/>EMX</Link></li>
-                        <li><Link to="/doodle"><img src="images/sm3.png" alt="a" class="img-fluid"/>DOODLE</Link></li>
+                        {
+                            (subdomain == 'india' || subdomain == '' || subdomain == 'nepal') ?
+                            <>
+                                <li><Link to="/trex"><img src="images/sm1.png" alt="a" class="img-fluid"/>T- REX</Link></li>
+                                <li><Link to="/emx"><img src="images/sm2.png" alt="a" class="img-fluid"/>EMX</Link></li>
+                                <li><Link to="/doodle"><img src="images/sm3.png" alt="a" class="img-fluid"/>DOODLE</Link></li>
+                            </>
+                            :(subdomain == 'uae') ?
+                                <>
+                                    <li><Link to="/trex"><img src="images/sm1.png" alt="a" class="img-fluid"/>T- REX</Link></li>
+                                    <li><Link to="/enrg"><img src="images/uae/ENERG/White-Pulse.png" alt="a" class="img-fluid"/>ENERG</Link></li>
+                                    <li><Link to="/doodle"><img src="images/sm3.png" alt="a" class="img-fluid"/>DOODLE</Link></li>
+                                    <li><Link to="/trible"><img src="images/uae/TRIBLE/Blue-Pulse.png" alt="a" class="img-fluid"/>TRIBLE</Link></li>
+                                </>
+                            :(subdomain == 'japan') ?
+                            <>
+                                <li><Link to="/dolphine"><img src="images/Japan/DOLPHIN/BottomPart-BlinkingPoints/Dolphin-Pulse-part.png" alt="a" class="img-fluid"/>DOLPHIN</Link></li>
+                                <li style={{ display:'none' }}><Link to="/dolphin"><img src="images/Japan/DOLPHIN/BottomPart-BlinkingPoints/Dolphin-Pulse-part.png" alt="a" class="img-fluid"/>DOLPHIN</Link></li>
+                                {/* <li><Link to="/dolphin"><img src="images/Japan/DOLPHIN/BottomPart-BlinkingPoints/Dolphin-Pulse-part.png" alt="a" class="img-fluid"/>DOLPHIN</Link></li> */}
+                                <li><Link to="/xplorer"><img src="images/Japan/XPLORER/Bottom Part-BlinkingPoints/Xplorer-pulse-black.png" alt="a" class="img-fluid"/>XPLORER </Link></li>
+                                <li><Link to="/glyder"><img src="images/Japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid"/>GLYDER</Link></li>
+                            </>    
+                            :
+                            ''    
+                        }
+                        
                     </ul>
                 </li>
                 

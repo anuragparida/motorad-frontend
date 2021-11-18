@@ -8,6 +8,7 @@ import { Carousel } from 'react-responsive-carousel';
 import axios from "axios";
 import { server, config, checkAccess } from "../env";
 import WhattsApp from "../components/WhattsApp";
+import Slider from "react-slick";
 
 // import Slider from "react-slick";
 
@@ -111,6 +112,42 @@ const Landing = (props) => {
         // setSubdomain(sub);
 
     }, [country]);
+
+
+    const settings = {
+        dots: true,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        initialSlide: 0,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              initialSlide: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+          }
+        ]
+      };
 
     return (
         <>
@@ -1575,6 +1612,7 @@ const Landing = (props) => {
                         </div>
                         : (subdomain == 'uae') ?
                             <div class="row expo_bike_slider">
+                                {/* <Slider {...settings} class="row expo_bike_slider"> */}
                                 <div class="col-lg-3">
                                     <Link to="/trex">
                                         <div class="bike_explore_wrap">
@@ -1780,7 +1818,8 @@ const Landing = (props) => {
                                         </div>
                                     </Link>
                                 </div>
-                            </div>
+                                {/* </Slider> */}
+                            </div>   
                             : (subdomain == 'japan') ?
                                     <div class="row expo_bike_slider">
 

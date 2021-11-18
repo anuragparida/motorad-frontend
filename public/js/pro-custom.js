@@ -2,9 +2,9 @@ $(function(){
     /* all slider start */
     $('.expo_bike_slider').slick({
       infinite: true,
-      slidesToShow: 4,
+      slidesToShow: 3,
       autoplay: true,
-      slidesToScroll: 1,
+      slidesToScroll: 2,
         responsive: [
   {
       breakpoint: 992,
