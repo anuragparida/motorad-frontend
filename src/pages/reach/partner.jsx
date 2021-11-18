@@ -63,16 +63,13 @@ const Partner = (props) => {
                 PARTNER WITH US
               </h6>
               <h2 style={{"font-size": "60px", "line-height": "68px"}}>
-                Selling Best In
+                Selling Best-In-Class
                 <br />
-                Class Electric
-                <br />
-                Cycles
+                Electric Cycles
               </h2>
               <p>
-                Its about more than just a firm handshake. Its
-                <br />
-                about commiting to a cleaner envisonment.
+              Want to join the electric revolution?<br /> From Business Opportunities to <br /> Dealership inquiries, this is the place for you.
+              
               </p>
               <div class="hero_btn">
                 <a href="javascript:void(0)" onClick={scrollToForm}>Get Started</a>

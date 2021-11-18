@@ -52,11 +52,12 @@ const Community = (props) => {
           <div class="col-lg-5">
             <div class="comminty_hero_head">
               <p>
-                Join the community and get
-                <br />
-                invites and updates on all EM
-                <br />
-                events accross the country
+              Join the EMRads, connect <br /> 
+              with cyclists, and get
+              <br />
+              invites and updates on all EM
+              <br />
+              events across the country
               </p>
             </div>
           </div>

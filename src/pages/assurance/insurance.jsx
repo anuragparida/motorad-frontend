@@ -105,7 +105,7 @@ const Insurance = (props) => {
               <p>
                 EMotorad and GlobalAssure jointly bring you a
                 <br />
-                comprehensive eBike insurance policy.
+                comprehensive e-bike insurance policy.
               </p>
               <div class="hero_btn rsa_hero_btn">
                 <a href="#" data-toggle="modal" data-target="#exampleModalLong">

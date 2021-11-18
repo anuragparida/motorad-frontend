@@ -20,9 +20,9 @@ const Careers = (props) => {
                 Your Career with EM
               </h3>
               <p>
-                We work hard to build something we love because we want to grow
+              We work hard to build something we love to affect change in the <br /> 
+              World and grow alongside you
                 <br />
-                with you
               </p>
             </div>
           </div>

@@ -430,7 +430,7 @@ const Landing = (props) => {
                                                             <div class="dual_suspension_txt">
                                                                 <h3>India’s First <span>Dual Suspension</span> E-Bike</h3>
 
-                                                                <p>City riding is now a breeze as you traverse across town without any fuss or effort. The EMX is designed for the city; traffic, uneven roads and slopes included. India’s first dual suspension e-cycle.</p>
+                                                                <p>Whether you are commuting to the office, exploring local streets or climbing the hills, EMX is the ideal mobility partner. Traverse across the landscape without any fuss or effort.  India’s first dual suspension e-bike, EMX is designed for the city, uneven roads and the slopes.</p>
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-lg-10">
@@ -1326,8 +1326,8 @@ const Landing = (props) => {
                             <div class="feat_head_txt">
                                 <div class="media">
                                     <div class="media-body">
-                                        <h6>Awarded <span>Most <br /> Admirable Brand</span> 2021</h6>
-                                    </div>
+                                        <h6>Awarded <span>Most <br /> Admirable EV Brand</span> 2021</h6>
+                                    </div>    
                                     <img src="images/trophy_icon.svg" alt="a" class="img-fluid" />
                                 </div>
                             </div>
