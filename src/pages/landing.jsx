@@ -100,8 +100,8 @@ const Landing = (props) => {
             });
     }
     useEffect(() => {
-        loadProducts()
         AOS.init();
+        loadProducts()
         let full = window.location.host
         let parts = full.split('.')
         let sub = parts[0]
@@ -1577,7 +1577,7 @@ const Landing = (props) => {
                             <div class="row expo_bike_slider">
                                 <div class="col-lg-3">
                                     <Link to="/trex">
-                                        <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                                        <div class="bike_explore_wrap">
                                             <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
 
                                             <h3>T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
@@ -1628,7 +1628,7 @@ const Landing = (props) => {
                                 </div>
                                 <div class="col-lg-3">
                                     <Link to="/energ">
-                                        <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                                        <div class="bike_explore_wrap">
                                             <img src="images/uae/Ener-G.png" alt="a" class="img-fluid" />
 
                                             <h3>ENER G <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
@@ -1679,7 +1679,7 @@ const Landing = (props) => {
                                 </div>
                                 <div class="col-lg-3">
                                     <Link to="/doodle">
-                                        <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                                        <div class="bike_explore_wrap">
                                             <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
 
                                             <h3>DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
@@ -1730,7 +1730,7 @@ const Landing = (props) => {
                                 </div>
                                 <div class="col-lg-3">
                                     <Link to="/trible">
-                                        <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                                        <div class="bike_explore_wrap">
                                             <img src="images/uae/Trible.png" alt="a" class="img-fluid" />
 
                                             <h3>TRIBLE

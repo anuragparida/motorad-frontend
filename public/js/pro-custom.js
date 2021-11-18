@@ -19,6 +19,7 @@ $(function(){
     {
       breakpoint: 768,
       settings: {
+        autoplay:true,
         arrows: false,
         centerMode: false,
         centerPadding: '0px',
@@ -28,6 +29,7 @@ $(function(){
     {
       breakpoint: 480,
       settings: {
+        autoplay:true,
         arrows: false,
         centerMode: true,
         centerPadding: '10px',
