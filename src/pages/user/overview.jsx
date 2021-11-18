@@ -149,7 +149,7 @@ const Overview = (props) => {
                     </div>
                     <div class="cycle_details_btm">
                       <p>Frame Number</p>
-                      <h6 class="text-dark">API</h6>
+                      <h6 class="text-dark">{order.frame_number || "Pending"}</h6>
                     </div>
                   </div>
                   <div class="col-lg-3">
@@ -159,7 +159,7 @@ const Overview = (props) => {
                     </div>
                     <div class="cycle_details_btm">
                       <p>Tracking Number</p>
-                      <h6>API</h6>
+                      <h6>{order.tracking || "Pending"}</h6>
                     </div>
                   </div>
                   <div class="col-lg-3">
@@ -169,14 +169,16 @@ const Overview = (props) => {
                     </div>
                     <div class="cycle_details_btm text-left">
                       <p>Carrier</p>
-                      <h6>
-                        <u>API</u>
-                        <img
-                          src="images/arw_rgt.svg"
-                          alt="->"
-                          class="img-fluid"
-                        />
-                      </h6>
+                      <a href={order.career || "#"} target="_blank">
+                        <h6>
+                          <u>{order.career ? order.career.substring(0, 10) : "Pending"}</u>
+                          <img
+                            src="images/arw_rgt.svg"
+                            alt="->"
+                            class="img-fluid"
+                          />
+                        </h6>
+                      </a>
                     </div>
                   </div>
                   <div class="col-lg-3">
@@ -186,7 +188,7 @@ const Overview = (props) => {
                     </div>
                     <div class="cycle_details_btm text-center">
                       <p>Date of Delivery</p>
-                      <h6 class="text-dark">API</h6>
+                      <h6 class="text-dark">{order.date_of_delivery || "Pending"}</h6>
                     </div>
                   </div>
                 </div>

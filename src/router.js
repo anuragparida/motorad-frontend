@@ -34,6 +34,7 @@ import ProductEnerg from "./pages/products/productEnerg";
 import ProductTrible from "./pages/products/productTrible";
 import ProductXplorer from "./pages/products/productXplorer";
 import ProductGlyder from "./pages/products/productGlyder";
+import ProductDolphin from "./pages/products/productDolphine";
 
 
 export default function Router() {
@@ -77,6 +78,7 @@ export default function Router() {
         <Route path="/privacy" component={Privacy} />
         <Route path="/book" component={BookRide} />
         <Route path="/cart" component={Cart} />
+        <Route path="/dolphine" component={ProductDolphin} />
         <Route path="/" component={Landing} />
         
 

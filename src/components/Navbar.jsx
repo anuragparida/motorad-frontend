@@ -115,7 +115,7 @@ const Navbar = (props) => {
         let full = window.location.host
         let parts = full.split('.')
         let sub = parts[0];    
-        sub = 'uae';   
+        // sub = 'uae';
         if(sub == 'uae') {
             localStorage.setItem('subDomain', "uae")
             let getsub = localStorage.getItem('subDomain');
@@ -422,6 +422,12 @@ const Navbar = (props) => {
                                             <div class="bog_drop_wraps">
                                                 <img src="images/Japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
                                                 <Link to="/glyder">GLYDER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <div class="bog_drop_wraps">
+                                                <img src="images/Japan/DOLPHIN/BottomPart-BlinkingPoints/Dolphin-Pulse-part.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
+                                                <Link to="/dolphine">DOLPHIN <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
                                             </div>
                                         </div>
                                     </>

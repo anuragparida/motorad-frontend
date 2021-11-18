@@ -471,7 +471,7 @@ const ProductTrible = (props) => {
                     data-aos-duration="2000"
                   >
                     <img
-                      src="images/trex/11zon_resized.jpg"
+                      src="images/Showcase/UAE/Trible/Trible_B_04.jpg"
                       alt="a"
                       class="img-fluid"
                     />
@@ -482,7 +482,7 @@ const ProductTrible = (props) => {
                     data-aos-duration="2000"
                   >
                     <img
-                      src="images/trex/11zon_resized_2.jpg"
+                      src="images/Showcase/UAE/Trible/Trible_B_06.jpg"
                       alt="a"
                       class="img-fluid"
                     />
@@ -495,7 +495,7 @@ const ProductTrible = (props) => {
                     data-aos-duration="2000"
                   >
                     <img
-                      src="images/trex/11zon_resized_5.jpg"
+                      src="images/Showcase/UAE/Trible/Trible_B_02.jpg"
                       alt="a"
                       class="img-fluid"
                     />
@@ -506,7 +506,7 @@ const ProductTrible = (props) => {
                     data-aos-duration="2000"
                   >
                     <img
-                      src="images/trex/11zon_resized_3.jpg"
+                      src="images/Showcase/UAE/Trible/TRIBLE_Y06.jpg"
                       alt="a"
                       class="img-fluid"
                     />
@@ -517,7 +517,7 @@ const ProductTrible = (props) => {
                     data-aos-duration="2000"
                   >
                     <img
-                      src="images/trex/11zon_resized_4.jpg"
+                      src="images/Showcase/UAE/Trible/TRIBLE_Y07.jpg"
                       alt="a"
                       class="img-fluid"
                     />
@@ -530,7 +530,7 @@ const ProductTrible = (props) => {
                     data-aos-duration="2000"
                   >
                     <img
-                      src="images/trex/11zon_resized.jpg"
+                      src="images/Showcase/UAE/Trible/TRIBLE_Y07.jpg"
                       alt="a"
                       class="img-fluid"
                     />
@@ -554,7 +554,7 @@ const ProductTrible = (props) => {
                     data-aos-duration="2000"
                   >
                     <img
-                      src="images/trex/11zon_resized_6.jpg"
+                      src="images/Showcase/UAE/Trible/TRIBLE_Y01.jpg"
                       alt="a"
                       class="img-fluid"
                     />
@@ -564,7 +564,7 @@ const ProductTrible = (props) => {
                     data-aos="fade-up"
                     data-aos-duration="2000"
                   >
-                    <img src="images/trex/11zon_resized_7.jpg" alt="a" class="img-fluid" />
+                    <img src="images/Showcase/UAE/Trible/TRIBLE_B_FOOTER.jpg" alt="a" class="img-fluid" />
                   </div>
                   <div
                     class="glory_lng_ttx"
