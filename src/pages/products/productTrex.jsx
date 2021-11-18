@@ -1672,7 +1672,6 @@ const ProductTREX = (props) => {
                 </div>
               </div>
               : (subdomain == 'uae') ?
-                <>
                   <div class="row expo_bike_slider_uae">
                     <div class="col-lg-3">
                       <Link to="/trex">
@@ -1880,7 +1879,6 @@ const ProductTREX = (props) => {
                       </Link>
                     </div>
                   </div>
-                </>
                 :
                 <div class="row expo_bike_slider">
                   <div class="col-lg-4">
