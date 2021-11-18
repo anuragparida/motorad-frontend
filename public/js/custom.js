@@ -93,6 +93,42 @@ $(function () {
     ],
   });
 
+
+  $('.expo_bike_slider_uae').slick({
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+      responsive: [
+{
+    breakpoint: 992,
+    settings: {
+      arrows: false,
+      centerMode: false,
+      centerPadding: '15px',
+      slidesToShow: 2
+    }
+  },
+  {
+    breakpoint: 768,
+    settings: {
+      arrows: false,
+      centerMode: false,
+      centerPadding: '0px',
+      slidesToShow: 2
+    }
+  },
+  {
+    breakpoint: 480,
+    settings: {
+      arrows: false,
+      centerMode: true,
+      centerPadding: '10px',
+      slidesToShow: 1
+    }
+  }
+]
+  });
+
   /* all slider start */
   // $(".expo_bike_slider").not('.slick-initialized').slick()
   $(".expo_bike_slider").slick({

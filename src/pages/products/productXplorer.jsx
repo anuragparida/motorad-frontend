@@ -242,11 +242,10 @@ const ProductXplorer = (props) => {
                             <div class="col-lg-4 col-8">
                                 <div class="product_menu_setclr">
                                     <ul className="colorselect">
-                                        <li><p>Select Color</p></li>
-
+                                        {/* <li><p>Select Color</p></li> */}
                                         {products.map(prod => (
                                             <li>
-                                                <label class="chck">
+                                                <label class="chck" style={{ paddingLeft : 'unset' }}>
                                                     <input type="radio" checked={prod.id === productID} onChange={() => {
                                                         setProductID(prod.id);
                                                     }} />

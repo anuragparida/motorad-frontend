@@ -369,12 +369,14 @@ const BookRide = (props) => {
                   <div class="col-lg-6">
                     <div class="form-group">
                       {
-                        (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
+                        (subdomain == '' || subdomain == 'india') ?
                           <label for="">Your Contact (+91)</label>
                         : (subdomain == 'uae') ?  
                           <label for="">Your Contact (+971)</label>
                         : (subdomain == 'japan') ?  
                           <label for="">Your Contact (+81)</label>    
+                        : (subdomain == 'nepal') ?  
+                          <label for="">Your Contact (+977)</label>      
                         :
                           <label for="">Your Contact (+91)</label>
                       }  
