@@ -89,8 +89,7 @@ const BookRide = (props) => {
     AOS.init();
     if(city)
     loadStores(city);
-    let sub = ''
-    sub = localStorage.getItem('subDomain');
+    let sub = localStorage.getItem('subDomain');
     setSubdomain(sub);
     loadProducts()
   }, [city,country]);
