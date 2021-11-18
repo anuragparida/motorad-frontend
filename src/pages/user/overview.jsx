@@ -18,6 +18,8 @@ const Overview = (props) => {
   const [loader, setLoader] = useState("");
   const [stars, setStars] = useState(5);
 
+  const domain = localStorage.getItem('subDomain');   
+
   const loadOrders = async () => {
     if(!isLoggedIn()){
       window.location.href = "/login";
@@ -27,6 +29,8 @@ const Overview = (props) => {
       .post(server + "/api/order/my-orders", {}, config)
       .then((rsp) => {
         console.log(rsp);
+        console.log("payload");
+        console.log(rsp.data.payload)
         setOrders(rsp.data.payload);
       })
       .catch((err) => {
@@ -72,6 +76,15 @@ const Overview = (props) => {
     }
   }
 
+  const convertDate =  (warrantyDate) => {
+    let warranty = warrantyDate.split("-");
+    var year  = parseInt(warranty[0]) + parseInt(1);
+    var month = warranty[1];
+    var day   = warranty[2];
+    var date  = year+'-'+month+'-'+day;
+    return date;
+  }
+
   useEffect(()=>{
     loadOrders();
     loadUser();
@@ -112,7 +125,7 @@ const Overview = (props) => {
           <div class="col-lg-12">
             <div class="accnt_pro_head">
               <h2>Welcome <span>{user.name ? user.name : "User"}</span></h2>
-            </div>
+            </div> 
           </div>
         </div>
         <div class="row">
@@ -165,7 +178,11 @@ const Overview = (props) => {
                   <div class="col-lg-3">
                     <div class="cycle_details_top text-center">
                       <p>Warranty Valid Upto</p>
-                      <h6>API</h6>
+                      <h6>
+                      { 
+                        convertDate(order.created_at.split("T")[0])
+                        // order.created_at.split("T")[0]
+                      }</h6>
                     </div>
                     <div class="cycle_details_btm text-left">
                       <p>Carrier</p>
@@ -184,7 +201,18 @@ const Overview = (props) => {
                   <div class="col-lg-3">
                     <div class="cycle_details_top text-center">
                       <p>TOTAL</p>
-                      <h6>₹ {order.price}</h6>
+                      <h6>{
+                                (domain == 'india') ?
+                                  '₹ '
+                                : (domain == 'uae') ?
+                                  'AED '
+                                : (domain == 'japan') ?
+                                  'YEN '
+                                : (domain == 'nepal') ?
+                                  'NPR '
+                                :
+                                  ''      
+                              } {order.price}</h6>
                     </div>
                     <div class="cycle_details_btm text-center">
                       <p>Date of Delivery</p>

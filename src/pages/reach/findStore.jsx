@@ -153,6 +153,7 @@ const FindStore = (props) => {
                 <div class="form-group">
                   <label for="">Enter State</label>
                   <select name="state" class="form-control" required onChange={changeState}>
+                    <option value="">Select State</option>
                     {
                       Object.keys(cities).map(x=><option value={x}>{x}</option>)
                     }
