@@ -31,7 +31,8 @@ const ProductXplorer = (props) => {
     const [country, setCountry] = useState(true);
     const [productPrice, setProductPrice] = useState({
         glyder: "",
-        xplorer: ""
+        xplorer: "",
+        dolphin: ""
     });
     const [allProducts, setAllProducts] = useState([]);
 
@@ -159,6 +160,8 @@ const ProductXplorer = (props) => {
                         ...productPrice,
                         xplorer: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("xplorer"))[0].price,
                         glyder: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("glyder"))[0].price,
+                        dolphin: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("dolphin"))[0].price,
+
                     })
                 }
                 else {
@@ -245,7 +248,7 @@ const ProductXplorer = (props) => {
                                         {/* <li><p>Select Color</p></li> */}
                                         {products.map(prod => (
                                             <li>
-                                                <label class="chck" style={{ paddingLeft : 'unset' }}>
+                                                <label class="chck" style={{ paddingLeft: 'unset' }}>
                                                     <input type="radio" checked={prod.id === productID} onChange={() => {
                                                         setProductID(prod.id);
                                                     }} />
@@ -296,25 +299,25 @@ const ProductXplorer = (props) => {
                                                 products.find(prod => prod.id === productID) ?
                                                 // console.log(products.find(prod => prod.id === productID).banner)
                                                 <img
-                                                    src={products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-Black.png' ?'images/Japan/XPLORER/xplorer-colors/Xplorer-Black.png':
-                                                    products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-Green.png' ?"images/Japan/XPLORER/xplorer-colors/Xplorer-Green.png":
-                                                    products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-Red.png' ?"images/Japan/XPLORER/xplorer-colors/Xplorer-Red.png":
-                                                    products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-White.png' ?"images/Japan/XPLORER/xplorer-colors/Xplorer-White.png":
-                                                    products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-Yellow.png' ?"images/Japan/XPLORER/xplorer-colors/Xplorer-Yellow.png":
-                                                    "images/Japan/XPLORER/xplorer-colors/Xplorer-Black.png"
-                                                }
+                                                    src={products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-Black.png' ? 'images/Japan/XPLORER/xplorer-colors/Xplorer-Black.png' :
+                                                        products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-Green.png' ? "images/Japan/XPLORER/xplorer-colors/Xplorer-Green.png" :
+                                                            products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-Red.png' ? "images/Japan/XPLORER/xplorer-colors/Xplorer-Red.png" :
+                                                                products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-White.png' ? "images/Japan/XPLORER/xplorer-colors/Xplorer-White.png" :
+                                                                    products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-Yellow.png' ? "images/Japan/XPLORER/xplorer-colors/Xplorer-Yellow.png" :
+                                                                        "images/Japan/XPLORER/xplorer-colors/Xplorer-Black.png"
+                                                    }
                                                     alt="a"
                                                     class="img-fluid"
                                                 />
                                                 :
                                                 <img
-                                                src="images/Japan/XPLORER/Top-Part/Xplorer-Black.png"
-                                                alt="a"
-                                                class="img-fluid"
-                                            />
-                                                
+                                                    src="images/Japan/XPLORER/Top-Part/Xplorer-Black.png"
+                                                    alt="a"
+                                                    class="img-fluid"
+                                                />
+
                                         }
-                                  
+
 
                                     </div>
                                     {/* <div class="product_hero_txt" style={{ "display": "none" }}>
@@ -1516,12 +1519,14 @@ const ProductXplorer = (props) => {
 
                                         <tr>
                                             <td>YEN {productPrice.glyder.toLocaleString()}</td>
-                                            {allProducts.
-                                                filter(prod => prod.name.toLowerCase().includes("glyder")).map(prod => (
+                                            <td>
+                                                {allProducts.
+                                                    filter(prod => prod.name.toLowerCase().includes("glyder")).map(prod => (
 
-                                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
+                                                        <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
-                                                ))}
+                                                    ))}
+                                            </td>
                                         </tr>
                                     </table>
                                     <div class="explore_bttn row mx-auto">
@@ -1564,8 +1569,15 @@ const ProductXplorer = (props) => {
                                             <td>Colors</td>
                                         </tr>
                                         <tr>
-                                            <td>AED 4,599</td>
-                                            <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{ "color": "#10B068" }}></i></td>
+                                            <td>AED {productPrice.dolphin.toLocaleString()}</td>
+                                            <td>
+                                                {allProducts.
+                                                    filter(prod => prod.name.toLowerCase().includes("dolphin")).map(prod => (
+
+                                                        <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
+
+                                                    ))}
+                                            </td>
                                         </tr>
                                     </table>
                                     <div class="explore_bttn row mx-auto">
