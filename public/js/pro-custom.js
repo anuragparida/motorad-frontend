@@ -3,15 +3,17 @@ $(function(){
     $('.expo_bike_slider').slick({
       infinite: true,
       slidesToShow: 3,
+      autoplay: true,
       slidesToScroll: 1,
         responsive: [
   {
       breakpoint: 992,
       settings: {
+        autoplay:true,
         arrows: false,
         centerMode: false,
         centerPadding: '15px',
-        slidesToShow: 2
+        slidesToShow: 2,
       }
     },
     {

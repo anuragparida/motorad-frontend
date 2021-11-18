@@ -1574,7 +1574,7 @@ const Landing = (props) => {
                             </div>
                         </div>
                         : (subdomain == 'uae') ?
-                            <div class="row expo_bike_slider_uae">
+                            <div class="row expo_bike_slider">
                                 <div class="col-lg-3">
                                     <Link to="/trex">
                                         <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
@@ -1782,7 +1782,7 @@ const Landing = (props) => {
                                 </div>
                             </div>
                             : (subdomain == 'japan') ?
-                                    <div class="row expo_bike_slider_uae">
+                                    <div class="row expo_bike_slider">
 
                                         <div class="col-lg-4">
                                             <Link to="/xplorer">
