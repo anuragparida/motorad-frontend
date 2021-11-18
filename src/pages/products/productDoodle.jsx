@@ -259,7 +259,7 @@ const ProductDOODLE = (props) => {
                     <li><i class="fa fa-star-o"></i></li>
                     <li><i class="fa fa-star-o"></i></li>
                     <li><i class="fa fa-star-o"></i></li> */}
-                    <li><span>(1351+)</span></li>
+                    {/* <li><span>(1351+)</span></li> */}
                   </ul>
                 </div>
               </div>
