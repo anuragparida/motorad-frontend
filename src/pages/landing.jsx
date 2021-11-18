@@ -25,7 +25,9 @@ const Landing = (props) => {
         energ: "",
         trible: "",
         glyder: "",
-        xplorer: ""
+        xplorer: "",
+        dolphin: ""
+
     });
 
     const loadProducts = async () => {
@@ -80,6 +82,8 @@ const Landing = (props) => {
                             ...productPrice,
                             xplorer: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("xplorer"))[0].price,
                             glyder: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("glyder"))[0].price,
+                            dolphin: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("dolphin"))[0].price,
+
                         })
                     }
 
@@ -1869,12 +1873,14 @@ const Landing = (props) => {
 
                                                         <tr>
                                                             <td>YEN {productPrice.glyder.toLocaleString()}</td>
+                                                            <td>
                                                             {products.
                                                                 filter(prod => prod.name.toLowerCase().includes("glyder")).map(prod => (
 
                                                                     <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                                 ))}
+                                                                </td>
                                                         </tr>
                                                     </table>
                                                     <div class="explore_bttn row mx-auto">
@@ -1917,8 +1923,15 @@ const Landing = (props) => {
                                                             <td>Colors</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>AED 4,599</td>
-                                                            <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{ "color": "#10B068" }}></i></td>
+                                                            <td>YEN {productPrice.dolphin.toLocaleString()}</td>
+                                                            <td>
+                                                            {products.
+                                                                filter(prod => prod.name.toLowerCase().includes("dolphin")).map(prod => (
+
+                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
+
+                                                                ))}
+                                                                </td>
                                                         </tr>
                                                     </table>
                                                     <div class="explore_bttn row mx-auto">

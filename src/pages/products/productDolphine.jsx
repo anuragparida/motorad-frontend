@@ -168,7 +168,7 @@ const ProductDolphin = (props) => {
                         ...productPrice,
                         xplorer: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("xplorer"))[0].price,
                         glyder: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("glyder"))[0].price,
-                        // dolphin: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("dolphin"))[0].price,
+                        dolphin: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("dolphin"))[0].price,
 
                     })
                 }
@@ -1574,7 +1574,14 @@ const ProductDolphin = (props) => {
                                         </tr>
                                         <tr>
                                             <td>YEN {productPrice.dolphin.toLocaleString()}</td>
-                                            <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{ "color": "#10B068" }}></i></td>
+                                            <td>
+                                                {allProducts.
+                                                    filter(prod => prod.name.toLowerCase().includes("dolphin")).map(prod => (
+
+                                                        <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
+
+                                                    ))}
+                                            </td>
                                         </tr>
                                     </table>
                                     <div class="explore_bttn row mx-auto">
