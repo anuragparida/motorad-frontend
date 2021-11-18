@@ -473,7 +473,7 @@ const ProductGlyder = (props) => {
                                         data-aos-duration="2000"
                                     >
                                         <img
-                                            src="images/trex/11zon_resized.jpg"
+                                            src="images/Showcase/Japan/Glyder/Glyder_R_FOOTER.jpg"
                                             alt="a"
                                             class="img-fluid"
                                         />
@@ -484,7 +484,7 @@ const ProductGlyder = (props) => {
                                         data-aos-duration="2000"
                                     >
                                         <img
-                                            src="images/trex/11zon_resized_2.jpg"
+                                            src="images/Showcase/Japan/Glyder/Glyder_W_02.jpg"
                                             alt="a"
                                             class="img-fluid"
                                         />
@@ -497,7 +497,7 @@ const ProductGlyder = (props) => {
                                         data-aos-duration="2000"
                                     >
                                         <img
-                                            src="images/trex/11zon_resized_5.jpg"
+                                            src="images/Showcase/Japan/Glyder/Glyder_R_02.jpg"
                                             alt="a"
                                             class="img-fluid"
                                         />
@@ -508,7 +508,7 @@ const ProductGlyder = (props) => {
                                         data-aos-duration="2000"
                                     >
                                         <img
-                                            src="images/trex/11zon_resized_3.jpg"
+                                            src="images/Showcase/Japan/Glyder/Glyder_W_03.jpg"
                                             alt="a"
                                             class="img-fluid"
                                         />
@@ -519,7 +519,7 @@ const ProductGlyder = (props) => {
                                         data-aos-duration="2000"
                                     >
                                         <img
-                                            src="images/trex/11zon_resized_4.jpg"
+                                            src="images/Showcase/Japan/Glyder/Glyder_W_04.jpg"
                                             alt="a"
                                             class="img-fluid"
                                         />
@@ -532,7 +532,7 @@ const ProductGlyder = (props) => {
                                         data-aos-duration="2000"
                                     >
                                         <img
-                                            src="images/trex/11zon_resized.jpg"
+                                            src="images/Showcase/Japan/Glyder/Glyder_R_FOOTER.jpg"
                                             alt="a"
                                             class="img-fluid"
                                         />
@@ -543,7 +543,7 @@ const ProductGlyder = (props) => {
                                         data-aos-duration="2000"
                                     >
                                         <img
-                                            src="images/trex/11zon_resized_2.jpg"
+                                            src="images/Showcase/Japan/Glyder/Glyder_W_02.jpg"
                                             alt="a"
                                             class="img-fluid"
                                         />
@@ -556,7 +556,7 @@ const ProductGlyder = (props) => {
                                         data-aos-duration="2000"
                                     >
                                         <img
-                                            src="images/trex/11zon_resized_6.jpg"
+                                            src="images/Showcase/Japan/Glyder/Glyder_G_06.jpg"
                                             alt="a"
                                             class="img-fluid"
                                         />
@@ -566,7 +566,7 @@ const ProductGlyder = (props) => {
                                         data-aos="fade-up"
                                         data-aos-duration="2000"
                                     >
-                                        <img src="images/trex/11zon_resized_7.jpg" alt="a" class="img-fluid" />
+                                        <img src="images/Showcase/Japan/Glyder/Glyder_R_06.jpg" alt="a" class="img-fluid" />
                                     </div>
                                     <div
                                         class="glory_lng_ttx"
@@ -1559,7 +1559,7 @@ const ProductGlyder = (props) => {
                             </Link>
                         </div>
                         <div class="col-lg-4">
-                            <Link to="/xplorer">
+                            <Link to="/dolphine">
                                 <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
                                     <img src="images/Japan/Bottom-Bikes/Dolphin.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
@@ -1597,7 +1597,7 @@ const ProductGlyder = (props) => {
                                         </tr>
                                     </table>
                                     <div class="explore_bttn row mx-auto">
-                                        <Link to="/xplorer">今すぐ購入</Link>
+                                        <Link to="/dolphine">今すぐ購入</Link>
                                     </div>
                                 </div>
                             </Link>

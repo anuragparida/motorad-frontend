@@ -1887,7 +1887,7 @@ const Landing = (props) => {
                                             </Link>
                                         </div>
                                         <div class="col-lg-4">
-                                            <Link to="/xplorer">
+                                            <Link to="/dolphine">
                                                 <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
                                                     <img src="images/Japan/Bottom-Bikes/Dolphin.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
@@ -1925,7 +1925,7 @@ const Landing = (props) => {
                                                         </tr>
                                                     </table>
                                                     <div class="explore_bttn row mx-auto">
-                                                        <Link to="/xplorer">今すぐ購入</Link>
+                                                        <Link to="/dolphine">今すぐ購入</Link>
                                                     </div>
                                                 </div>
                                             </Link>

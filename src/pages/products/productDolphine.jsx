@@ -32,7 +32,7 @@ const ProductDolphin = (props) => {
     const [productPrice, setProductPrice] = useState({
         glyder: "",
         xplorer: "",
-        dolphin : ""
+        dolphin: ""
     });
     const [allProducts, setAllProducts] = useState([]);
 
@@ -151,6 +151,14 @@ const ProductDolphin = (props) => {
                 console.log(rsp);
                 const filteredRsp = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("dolphin"));
                 const allProducts = rsp.data.payload;
+                setProductPrice({
+                    ...productPrice,
+                    xplorer: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("xplorer"))[0].price,
+                    glyder: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("glyder"))[0].price,
+                    // dolphin: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("dolphin"))[0].price,
+                    dolphin: 25000,
+
+                })
                 setAllProducts(allProducts)
                 if (filteredRsp.length > 0) {
                     console.log(filteredRsp);
@@ -160,13 +168,14 @@ const ProductDolphin = (props) => {
                         ...productPrice,
                         xplorer: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("xplorer"))[0].price,
                         glyder: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("glyder"))[0].price,
-                        dolphin: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("dolphin"))[0].price,
+                        // dolphin: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("dolphin"))[0].price,
+
                     })
                 }
                 else {
                     //   setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
                     //   setProductID(1);
-                    alert("Products not set correctly. Please Contact Admin.");
+                    // alert("Products not set correctly. Please Contact Admin.");
                 }
             })
             .catch((err) => {
@@ -299,22 +308,22 @@ const ProductDolphin = (props) => {
                                                 products.find(prod => prod.id === productID) ?
                                                 // console.log(products.find(prod => prod.id === productID).banner)
                                                 <img
-                                                    src={products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-Black.png' ?'images/Japan/XPLORER/xplorer-colors/Xplorer-Black.png':
-                                                    products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-Green.png' ?"images/Japan/XPLORER/xplorer-colors/Xplorer-Green.png":
-                                                    "images/Japan/DOLPHIN/Top-Part/Dolphin-Blue.png"
-                                                }
+                                                    src={products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-Black.png' ? 'images/Japan/XPLORER/xplorer-colors/Xplorer-Black.png' :
+                                                        products.find(prod => prod.id === productID).banner == '/uploads/product_banner/Xplorer-Green.png' ? "images/Japan/XPLORER/xplorer-colors/Xplorer-Green.png" :
+                                                            "images/Japan/DOLPHIN/Top-Part/Dolphin-Blue.png"
+                                                    }
                                                     alt="a"
                                                     class="img-fluid"
                                                 />
                                                 :
                                                 <img
-                                                src="images/Japan/DOLPHIN/Top-Part/Dolphin-Blue.png"
-                                                alt="a"
-                                                class="img-fluid"
-                                            />
-                                                
+                                                    src="images/Japan/DOLPHIN/Top-Part/Dolphin-Blue.png"
+                                                    alt="a"
+                                                    class="img-fluid"
+                                                />
+
                                         }
-                                  
+
 
                                     </div>
                                     {/* <div class="product_hero_txt" style={{ "display": "none" }}>
@@ -491,7 +500,7 @@ const ProductDolphin = (props) => {
                                         data-aos-duration="2000"
                                     >
                                         <img
-                                            src="images/trex/11zon_resized_2.jpg"
+                                            src="images/Showcase/Japan/Dolphin/DolphineFooter.jpg"
                                             alt="a"
                                             class="img-fluid"
                                         />
@@ -515,7 +524,7 @@ const ProductDolphin = (props) => {
                                         data-aos-duration="2000"
                                     >
                                         <img
-                                            src="images/trex/11zon_resized_3.jpg"
+                                            src="images/Showcase/Japan/Dolphin/Dolphine_O_06.jpg"
                                             alt="a"
                                             class="img-fluid"
                                         />
@@ -526,7 +535,7 @@ const ProductDolphin = (props) => {
                                         data-aos-duration="2000"
                                     >
                                         <img
-                                            src="images/trex/11zon_resized_4.jpg"
+                                            src="images/Showcase/Japan/Dolphin/DolphinBlue_06.jpg"
                                             alt="a"
                                             class="img-fluid"
                                         />
@@ -539,7 +548,7 @@ const ProductDolphin = (props) => {
                                         data-aos-duration="2000"
                                     >
                                         <img
-                                            src="images/trex/11zon_resized.jpg"
+                                            src="images/Showcase/Japan/Dolphin/Dolphin_Blue_05.jpg"
                                             alt="a"
                                             class="img-fluid"
                                         />
@@ -550,7 +559,7 @@ const ProductDolphin = (props) => {
                                         data-aos-duration="2000"
                                     >
                                         <img
-                                            src="images/trex/11zon_resized_2.jpg"
+                                            src="images/Showcase/Japan/Dolphin/DolphinBlue_07.jpg"
                                             alt="a"
                                             class="img-fluid"
                                         />
@@ -573,7 +582,7 @@ const ProductDolphin = (props) => {
                                         data-aos="fade-up"
                                         data-aos-duration="2000"
                                     >
-                                        <img src="images/trex/11zon_resized_7.jpg" alt="a" class="img-fluid" />
+                                        <img src="images/Showcase/Japan/Dolphin/DolphinBlue_02.jpg" alt="a" class="img-fluid" />
                                     </div>
                                     <div
                                         class="glory_lng_ttx"
@@ -1531,7 +1540,7 @@ const ProductDolphin = (props) => {
                             </Link>
                         </div>
                         <div class="col-lg-4">
-                            <Link to="/xplorer">
+                            <Link to="/dolphine">
                                 <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
                                     <img src="images/Japan/Bottom-Bikes/Dolphin.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
@@ -1564,12 +1573,12 @@ const ProductDolphin = (props) => {
                                             <td>Colors</td>
                                         </tr>
                                         <tr>
-                                            <td>AED 4,599</td>
+                                            <td>YEN {productPrice.dolphin.toLocaleString()}</td>
                                             <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{ "color": "#10B068" }}></i></td>
                                         </tr>
                                     </table>
                                     <div class="explore_bttn row mx-auto">
-                                        <Link to="/xplorer">今すぐ購入</Link>
+                                        <Link to="/dolphine">今すぐ購入</Link>
                                     </div>
                                 </div>
                             </Link>
