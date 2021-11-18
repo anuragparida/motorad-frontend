@@ -491,7 +491,7 @@ const BookRide = (props) => {
                                                     {products.
                                                         filter(prod => prod.name.toLowerCase().includes("t-rex")).map(prod => (
 
-                                                            <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                            <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                         ))}
                                                 </td>
@@ -537,12 +537,12 @@ const BookRide = (props) => {
                                                 <td>Colors</td>
                                             </tr>
                                             <tr>
-                                                <td>Rs{productPrice.emx.toLocaleString()}</td>
+                                                <td>Rs {productPrice.emx.toLocaleString()}</td>
                                                 <td>
                                                     {products.
                                                         filter(prod => prod.name.toLowerCase().includes("emx")).map(prod => (
 
-                                                            <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                            <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                         ))}
                                                 </td>
@@ -593,7 +593,7 @@ const BookRide = (props) => {
                                                     {products.
                                                         filter(prod => prod.name.toLowerCase().includes("doodle")).map(prod => (
 
-                                                            <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                            <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                         ))}
                                                 </td>
@@ -607,7 +607,6 @@ const BookRide = (props) => {
                             </div>
                         </div>
                         : (subdomain == 'uae') ?
-                            // <>
                                 <div class="row expo_bike_slider_uae">
                                     <div class="col-lg-3">
                                         <Link to="/trex">
@@ -648,7 +647,7 @@ const BookRide = (props) => {
                                                             {products.
                                                                 filter(prod => prod.name.toLowerCase().includes("t-rex")).map(prod => (
 
-                                                                  <i class="fa fa-circle" style={{ "color": prod.color }}></i> 
+                                                                  <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i> 
 
                                                                 ))}
                                                         </td>
@@ -699,7 +698,7 @@ const BookRide = (props) => {
                                                             {products.
                                                                 filter(prod => prod.name.toLowerCase().includes("ener g")).map(prod => (
 
-                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                                 ))}
                                                         </td>
@@ -750,7 +749,7 @@ const BookRide = (props) => {
                                                             {products.
                                                                 filter(prod => prod.name.toLowerCase().includes("doodle")).map(prod => (
 
-                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                                 ))}
                                                         </td>
@@ -802,7 +801,7 @@ const BookRide = (props) => {
                                                             {products.
                                                                 filter(prod => prod.name.toLowerCase().includes("trible")).map(prod => (
 
-                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                                 ))}
                                                         </td>
@@ -815,9 +814,9 @@ const BookRide = (props) => {
                                         </Link>
                                     </div>
                                 </div>
-                            // </>
+                    
                             : (subdomain == 'japan') ?
-                                <>
+                             
                                     <div class="row expo_bike_slider_uae">
 
                                         <div class="col-lg-4">
@@ -860,7 +859,7 @@ const BookRide = (props) => {
                                                                 {products.
                                                                     filter(prod => prod.name.toLowerCase().includes("xplorer")).map(prod => (
 
-                                                                        <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                                        <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                                     ))}
                                                             </td>
@@ -912,7 +911,7 @@ const BookRide = (props) => {
                                                             {products.
                                                                 filter(prod => prod.name.toLowerCase().includes("glyder")).map(prod => (
 
-                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}></i>
+                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                                 ))}
                                                         </tr>
@@ -968,7 +967,7 @@ const BookRide = (props) => {
                                             </Link>
                                         </div>
                                     </div>
-                                </>
+                            
                                 :
                                 <div class="row  expo_bike_slider">
                                     <div class="col-lg-4">
