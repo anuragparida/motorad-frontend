@@ -131,7 +131,7 @@ const FindStore = (props) => {
                             <p>
                               <span>Add:</span> {x.address}
                             </p>
-                            <p><span>Mob:</span> {"ADD CONTACT TO API"}</p>
+                            <p><span>Mob:</span> {x.contact}</p>
                           </div>
                         </div>
                       </div>
