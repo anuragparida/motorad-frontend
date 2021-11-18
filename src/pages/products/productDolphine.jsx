@@ -229,11 +229,11 @@ const ProductDolphin = (props) => {
                                 <div class="peoduct_menu_lft">
                                     <h6>DOLPHIN</h6>
                                     <ul class="d-none d-lg-block">
+                                        {/* <li><i class="fa fa-star-o"></i></li>
                                         <li><i class="fa fa-star-o"></i></li>
                                         <li><i class="fa fa-star-o"></i></li>
                                         <li><i class="fa fa-star-o"></i></li>
-                                        <li><i class="fa fa-star-o"></i></li>
-                                        <li><i class="fa fa-star-o"></i></li>
+                                        <li><i class="fa fa-star-o"></i></li> */}
                                         <li><span>(1351+)</span></li>
                                     </ul>
                                 </div>

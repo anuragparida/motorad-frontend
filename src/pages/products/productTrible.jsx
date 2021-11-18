@@ -232,13 +232,13 @@ const ProductTrible = (props) => {
             <div class="row">
               <div class="col-lg-3 col-4">
                 <div class="peoduct_menu_lft">
-                  <h6>ENER - G</h6>
+                  <h6>TRIBLR</h6>
                   <ul class="d-none d-lg-block">
+                    {/* <li><i class="fa fa-star-o"></i></li>
                     <li><i class="fa fa-star-o"></i></li>
                     <li><i class="fa fa-star-o"></i></li>
                     <li><i class="fa fa-star-o"></i></li>
-                    <li><i class="fa fa-star-o"></i></li>
-                    <li><i class="fa fa-star-o"></i></li>
+                    <li><i class="fa fa-star-o"></i></li> */}
                     <li><span>(1351+)</span></li>
                   </ul>
                 </div>
