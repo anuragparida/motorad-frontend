@@ -8,7 +8,7 @@ import { Carousel } from 'react-responsive-carousel';
 import axios from "axios";
 import { server, config, checkAccess } from "../env";
 import WhattsApp from "../components/WhattsApp";
-import Slider from "react-slick";
+// import Slider from "react-slick";
 
 // import Slider from "react-slick";
 
