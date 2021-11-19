@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import { VideoScroll } from 'react-video-scroll'
+import ProductSlider from "../../components/ProductSlider";
 
 
 let images = [0, 1, 2, 3, 4];
@@ -1419,7 +1420,7 @@ const ProductXplorer = (props) => {
                     </div>
                 </div>
             </section>
-            <section class="explore_ebike_sec">
+            <section class="explore_ebike_sec d-none">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
@@ -1590,6 +1591,9 @@ const ProductXplorer = (props) => {
                     </div>
                 </div>
             </section>
+
+            <ProductSlider />         
+
             <Footer />
             <div class="book_ride_sticky d-lg-none">
                 <div class="d-flex">
