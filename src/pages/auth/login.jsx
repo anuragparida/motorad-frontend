@@ -65,7 +65,7 @@ const Login = (props) => {
         setLoader("");
         if (err.response.status === 422) {
           if (err.response.data.payload.is_email_verified === 0) {
-            this.props.history.push("/verifyEmail");
+            this.props.history.push("/verify");
           }
         }
       }
@@ -213,7 +213,7 @@ const Login = (props) => {
                 <div class="form-group">
                   <div class="d-flex justify-content-between">
                     <label for="">Your Password</label>
-                    <a href="#">Forgot Password?</a>
+                    <a href="/forgotpass">Forgot Password?</a>
                   </div>
                   <input
                     type="password"
