@@ -2010,7 +2010,7 @@ const ProductDOODLE = (props) => {
         </div>
       </section>
 
-      <ProductSlider />
+      <ProductSlider country={country} />
       <Footer />
       <div class="book_ride_sticky d-lg-none">
         <div class="d-flex">
