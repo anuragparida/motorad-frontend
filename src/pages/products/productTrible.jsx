@@ -400,27 +400,28 @@ const ProductTrible = (props) => {
             </div>
           </section>
           :
-          <section class="product_vdo_sec" id="feat_sec">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="app">
-                    <div id="bound-two" class="scroll-bound">
-                      <div class="content">
-                        <video id="v0" tabindex="0" autobuffer muted preload>
-                          <source
-                            src="images/uae/TRIBLE/Trible-Mobile.mp4"
-                            type="video/mp4"
-                            class="d-lg-none"
-                          />
-                        </video>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          ''
+          // <section class="product_vdo_sec" id="feat_sec">
+          //   <div class="container">
+          //     <div class="row">
+          //       <div class="col-lg-12">
+          //         <div class="app">
+          //           <div id="bound-two" class="scroll-bound">
+          //             <div class="content">
+          //               <video id="v0" tabindex="0" autobuffer muted preload>
+          //                 <source
+          //                   src="images/uae/TRIBLE/Trible-Mobile.mp4"
+          //                   type="video/mp4"
+          //                   class="d-lg-none"
+          //                 />
+          //               </video>
+          //             </div>
+          //           </div>
+          //         </div>
+          //       </div>
+          //     </div>
+          //   </div>
+          // </section>
       }
 
 
