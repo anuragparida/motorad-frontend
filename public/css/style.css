@@ -3231,7 +3231,7 @@ img {
 
 .image_4 {
   z-index: 4;
-  background-image: url("../images/Web_E.png");
+  background-image: url("../images/Web-E.png");
 }
 
 .image_emx_0 {
@@ -3655,3 +3655,8 @@ img {
 /* .slick-slide {
   width: 100% !important;
 } */
+
+
+.bike_explore_wrap img {
+  width: 185px !important;
+}

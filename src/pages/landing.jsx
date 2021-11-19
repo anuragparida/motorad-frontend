@@ -8,6 +8,7 @@ import { Carousel } from 'react-responsive-carousel';
 import axios from "axios";
 import { server, config, checkAccess } from "../env";
 import WhattsApp from "../components/WhattsApp";
+import ProductSlider from "../components/ProductSlider";
 // import Slider from "react-slick";
 
 // import Slider from "react-slick";
@@ -1445,7 +1446,7 @@ const Landing = (props) => {
                     </div>
                 </div>
             </section>
-            <section class="explore_ebike_sec">
+            <section class="explore_ebike_sec d-none">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
@@ -2118,6 +2119,8 @@ const Landing = (props) => {
                     }
                 </div>
             </section>
+
+            <ProductSlider />
 
             <Footer />
             {/* <WhattsApp/> */}

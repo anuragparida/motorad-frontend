@@ -6,6 +6,7 @@ import axios from "axios";
 import { server, config, checkAccess } from "../env";
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
+import ProductSlider  from '../components/ProductSlider'
 
 const BookRide = (props) => {
 
@@ -448,7 +449,7 @@ const BookRide = (props) => {
                 </div>
             </section>
 
-            <section class="explore_ebike_sec">
+            <section class="explore_ebike_sec d-none">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
@@ -1119,6 +1120,8 @@ const BookRide = (props) => {
                     }
                 </div>
             </section>
+
+            <ProductSlider />
 
             <Footer />
         </>
