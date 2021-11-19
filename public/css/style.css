@@ -3638,24 +3638,7 @@ img {
 
 .slick-arrow {
   display: none !important;
-} 
-
-/* .slick-prev:before {
-  content: "<";
-  color: red;
-  font-size: 30px;
 }
-
-.slick-next:before {
-  content: ">";
-  color: red;
-  font-size: 30px;
-} */
-
-/* .slick-slide {
-  width: 100% !important;
-} */
-
 
 .bike_explore_wrap img {
   width: 185px !important;
