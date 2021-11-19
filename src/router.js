@@ -35,7 +35,7 @@ import ProductTrible from "./pages/products/productTrible";
 import ProductXplorer from "./pages/products/productXplorer";
 import ProductGlyder from "./pages/products/productGlyder";
 import ProductDolphin from "./pages/products/productDolphine";
-
+import OrderSuccess from "./pages/orderSuccess";
 
 export default function Router() {
   return (
@@ -45,7 +45,7 @@ export default function Router() {
       <Switch>
         {/* <Route path="/settings" component={Settings} />
             <Route path="/orders" component={Order} /> */}
-         <Route path="/trible" component={ProductTrible} />
+        <Route path="/trible" component={ProductTrible} />
         <Route path="/login" component={Login} />
         <Route path="/facebook/auth" component={facebookAuth} />
         <Route path="/signup" component={Signup} />
@@ -78,10 +78,9 @@ export default function Router() {
         <Route path="/privacy" component={Privacy} />
         <Route path="/book" component={BookRide} />
         <Route path="/cart" component={Cart} />
+        <Route path="/order-success" component={OrderSuccess} />
         <Route path="/dolphine" component={ProductDolphin} />
         <Route path="/" component={Landing} />
-        
-
       </Switch>
     </BrowserRouter>
   );

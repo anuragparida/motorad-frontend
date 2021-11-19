@@ -320,7 +320,7 @@ const Cart = (props) => {
                 venenatis vitae molestie vel, dapibus nec libero.
               </p> */}
               <div class="ordr_placed_btnns">
-                <a href="index.html">Go to HomePage</a>
+                <a href="/">Go to HomePage</a>
               </div>
             </div>
           </div>
