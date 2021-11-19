@@ -20,7 +20,7 @@ export default function ProductSlider(props) {
         dolphin: ""
     });
 
-    let settingsIndia,settingsUAE,settingsJapan;
+    let settingsIndia, settingsUAE, settingsJapan;
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Phone/i.test(navigator.userAgent)
     ) {
         settingsIndia = {
@@ -41,7 +41,7 @@ export default function ProductSlider(props) {
             dots: true,
             infinite: false,
             speed: 500,
-            slidesToShow: 3,
+            slidesToShow: 1,
             slidesToScroll: 1
         };
     } else {
@@ -56,7 +56,7 @@ export default function ProductSlider(props) {
             dots: true,
             infinite: false,
             speed: 500,
-            slidesToShow: 4,
+            slidesToShow: 3,
             slidesToScroll: 1
         };
         settingsJapan = {
@@ -68,7 +68,7 @@ export default function ProductSlider(props) {
         };
     }
 
-    
+
     const loadProducts = async () => {
         let domain = localStorage.getItem('subDomain');
         let server;
@@ -148,7 +148,7 @@ export default function ProductSlider(props) {
 
     return (
         <div style={{ width: "100%" }} >
-             {/* <Slider {...settings}>
+            {/* <Slider {...settings}>
       <div>
         <h3>1</h3>
       </div>
@@ -177,13 +177,168 @@ export default function ProductSlider(props) {
                             </div>
                         </div>
                     </div>
-                    
-                        {(subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
+
+                    {(subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
+                        <Slider {...settingsIndia}>
                             <div>
-                                <Slider {...settingsIndia}>
+                                <Link to="/trex">
+                                    <div class="bike_explore_wrap" >
+                                        <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
+
+                                        <h3 className="carousal_box_title">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+
+                                        <h5>FEATURES</h5>
+                                        <table>
+                                            <tr>
+                                                <td>RANGE</td>
+                                                <td>50+ Kms</td>
+                                            </tr>
+                                            <tr>
+                                                <td>SPEED (MAX)</td>
+                                                <td>25Km/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>BRAKES</td>
+                                                <td>Dual Disc</td>
+                                            </tr>
+                                            <tr>
+                                                <td>BATTERY</td>
+                                                <td>36 Volts</td>
+                                            </tr>
+                                            <tr>
+                                                <td>CAPACITY</td>
+                                                <td>7.5 Ah</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Starting From</td>
+                                                <td>Colors</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Rs {productPrice.trex.toLocaleString()}</td>
+                                                <td>
+                                                    {allproducts.
+                                                        filter(prod => prod.name.toLowerCase().includes("t-rex")).map(prod => (
+
+                                                            <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
+
+                                                        ))}
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div class="explore_bttn row mx-auto">
+                                            <Link to="/trex">Buy Now</Link>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+                            <div>
+                                <Link to="/emx">
+                                    <div class="bike_explore_wrap" >
+                                        <img src="images/bicycle_3.png" alt="a" class="img-fluid" />
+
+                                        <h3 className="carousal_box_title">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+
+                                        <h5>FEATURES</h5>
+                                        <table>
+                                            <tr>
+                                                <td>RANGE</td>
+                                                <td>65+ Kms</td>
+                                            </tr>
+                                            <tr>
+                                                <td>SPEED (MAX)</td>
+                                                <td>25Km/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>BRAKES</td>
+                                                <td>Dual Disc</td>
+                                            </tr>
+                                            <tr>
+                                                <td>BATTERY</td>
+                                                <td>36 Volts</td>
+                                            </tr>
+                                            <tr>
+                                                <td>CAPACITY</td>
+                                                <td>10.4 Ah</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Starting From</td>
+                                                <td>Colors</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Rs {productPrice.emx.toLocaleString()}</td>
+                                                <td>
+                                                    {allproducts.
+                                                        filter(prod => prod.name.toLowerCase().includes("emx")).map(prod => (
+
+                                                            <i class="fa fa-circle" style={{ "color": prod.color }}>  &nbsp;</i>
+
+                                                        ))}
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div class="explore_bttn row mx-auto">
+                                            <Link to="/emx">Buy Now</Link>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+                            <div>
+                                <Link to="/doodle">
+                                    <div class="bike_explore_wrap" >
+                                        <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
+
+                                        <h3 className="carousal_box_title">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+
+                                        <h5>FEATURES</h5>
+                                        <table>
+                                            <tr>
+                                                <td>RANGE</td>
+                                                <td>55+ Kms</td>
+                                            </tr>
+                                            <tr>
+                                                <td>SPEED (MAX)</td>
+                                                <td>25Km/hr</td>
+                                            </tr>
+                                            <tr>
+                                                <td>BRAKES</td>
+                                                <td>Dual Disc</td>
+                                            </tr>
+                                            <tr>
+                                                <td>BATTERY</td>
+                                                <td>36 Volts</td>
+                                            </tr>
+                                            <tr>
+                                                <td>CAPACITY</td>
+                                                <td>10 Ah</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Starting From</td>
+                                                <td>Colors</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Rs {productPrice.doodle.toLocaleString()}</td>
+                                                <td>
+                                                    {allproducts.
+                                                        filter(prod => prod.name.toLowerCase().includes("doodle")).map(prod => (
+
+                                                            <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
+
+                                                        ))}
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div class="explore_bttn row mx-auto">
+                                            <Link to="/doodle">Buy Now</Link>
+                                        </div>
+                                    </div>
+                                </Link>
+                            </div>
+                        </Slider>
+                        : (subdomain == 'uae') ?
+                            <Slider {...settingsUAE}>
                                 <div>
                                     <Link to="/trex">
-                                        <div class="bike_explore_wrap" >
+                                        <div class="bike_explore_wrap">
                                             <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
 
                                             <h3 className="carousal_box_title">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
@@ -215,7 +370,7 @@ export default function ProductSlider(props) {
                                                     <td>Colors</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Rs {productPrice.trex.toLocaleString()}</td>
+                                                    <td>AED {productPrice.trex.toLocaleString()}</td>
                                                     <td>
                                                         {allproducts.
                                                             filter(prod => prod.name.toLowerCase().includes("t-rex")).map(prod => (
@@ -233,17 +388,17 @@ export default function ProductSlider(props) {
                                     </Link>
                                 </div>
                                 <div>
-                                    <Link to="/emx">
-                                        <div class="bike_explore_wrap" >
-                                            <img src="images/bicycle_3.png" alt="a" class="img-fluid" />
+                                    <Link to="/energ">
+                                        <div class="bike_explore_wrap">
+                                            <img src="images/uae/Ener-G.png" alt="a" class="img-fluid" />
 
-                                            <h3 className="carousal_box_title">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+                                            <h3 className="carousal_box_title">ENER G <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
                                             <h5>FEATURES</h5>
                                             <table>
                                                 <tr>
                                                     <td>RANGE</td>
-                                                    <td>65+ Kms</td>
+                                                    <td>110+ Kms</td>
                                                 </tr>
                                                 <tr>
                                                     <td>SPEED (MAX)</td>
@@ -255,37 +410,37 @@ export default function ProductSlider(props) {
                                                 </tr>
                                                 <tr>
                                                     <td>BATTERY</td>
-                                                    <td>36 Volts</td>
+                                                    <td>48 Volts</td>
                                                 </tr>
                                                 <tr>
                                                     <td>CAPACITY</td>
-                                                    <td>10.4 Ah</td>
+                                                    <td>20 Ah</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Starting From</td>
                                                     <td>Colors</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Rs {productPrice.emx.toLocaleString()}</td>
+                                                    <td>AED {productPrice.energ.toLocaleString()}</td>
                                                     <td>
                                                         {allproducts.
-                                                            filter(prod => prod.name.toLowerCase().includes("emx")).map(prod => (
+                                                            filter(prod => prod.name.toLowerCase().includes("ener g")).map(prod => (
 
-                                                                <i class="fa fa-circle" style={{ "color": prod.color }}>  &nbsp;</i>
+                                                                <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                             ))}
                                                     </td>
                                                 </tr>
                                             </table>
                                             <div class="explore_bttn row mx-auto">
-                                                <Link to="/emx">Buy Now</Link>
+                                                <Link to="/energ">Buy Now</Link>
                                             </div>
                                         </div>
                                     </Link>
                                 </div>
                                 <div>
                                     <Link to="/doodle">
-                                        <div class="bike_explore_wrap" >
+                                        <div class="bike_explore_wrap">
                                             <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
 
                                             <h3 className="carousal_box_title">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
@@ -317,7 +472,7 @@ export default function ProductSlider(props) {
                                                     <td>Colors</td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Rs {productPrice.doodle.toLocaleString()}</td>
+                                                    <td>AED {productPrice.doodle.toLocaleString()}</td>
                                                     <td>
                                                         {allproducts.
                                                             filter(prod => prod.name.toLowerCase().includes("doodle")).map(prod => (
@@ -334,74 +489,74 @@ export default function ProductSlider(props) {
                                         </div>
                                     </Link>
                                 </div>
-                                </Slider>
-                            </div>
-                            : (subdomain == 'uae') ?
                                 <div>
-                                    <Slider {...settingsUAE}>
-                                    <div>
-                                        <Link to="/trex">
-                                            <div class="bike_explore_wrap">
-                                                <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
+                                    <Link to="/trible">
+                                        <div class="bike_explore_wrap">
+                                            <img src="images/uae/Trible.png" alt="a" class="img-fluid" />
 
-                                                <h3 className="carousal_box_title">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+                                            <h3 className="carousal_box_title">TRIBLE
+                                                <img src="images/arw_rgt.svg" alt="a" class="img-fluid" />
+                                            </h3>
+                                            <h5>FEATURES</h5>
+                                            <table>
+                                                <tr>
+                                                    <td>RANGE</td>
+                                                    <td>50+ Kms</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>SPEED (MAX)</td>
+                                                    <td>25Km/hr</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>BRAKES</td>
+                                                    <td>Dual Disc</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>BATTERY</td>
+                                                    <td>36 Volts</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>CAPACITY</td>
+                                                    <td>7.5 Ah</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Starting From</td>
+                                                    <td>Colors</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>AED {productPrice.trible.toLocaleString()}</td>
+                                                    <td>
+                                                        {allproducts.
+                                                            filter(prod => prod.name.toLowerCase().includes("trible")).map(prod => (
 
-                                                <h5>FEATURES</h5>
-                                                <table>
-                                                    <tr>
-                                                        <td>RANGE</td>
-                                                        <td>50+ Kms</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>SPEED (MAX)</td>
-                                                        <td>25Km/hr</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>BRAKES</td>
-                                                        <td>Dual Disc</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>BATTERY</td>
-                                                        <td>36 Volts</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>CAPACITY</td>
-                                                        <td>7.5 Ah</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Starting From</td>
-                                                        <td>Colors</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>AED {productPrice.trex.toLocaleString()}</td>
-                                                        <td>
-                                                            {allproducts.
-                                                                filter(prod => prod.name.toLowerCase().includes("t-rex")).map(prod => (
+                                                                <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
-                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
-
-                                                                ))}
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <div class="explore_bttn row mx-auto">
-                                                    <Link to="/trex">Buy Now</Link>
-                                                </div>
+                                                            ))}
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            <div class="explore_bttn row mx-auto">
+                                                <Link to="/trible">Buy Now</Link>
                                             </div>
-                                        </Link>
-                                    </div>
-                                    <div>
-                                        <Link to="/energ">
-                                            <div class="bike_explore_wrap">
-                                                <img src="images/uae/Ener-G.png" alt="a" class="img-fluid" />
+                                        </div>
+                                    </Link>
+                                </div>
+                            </Slider>
 
-                                                <h3 className="carousal_box_title">ENER G <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+                            : (subdomain == 'japan') ?
+                                <Slider {...settingsJapan}>
+                                    <div>
+                                        <Link to="/xplorer">
+                                            <div class="bike_explore_wrap" >
+                                                <img src="images/Japan/Bottom-Bikes/Xplorer.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
+
+                                                <h3>XPLORER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
                                                 <h5>FEATURES</h5>
                                                 <table>
                                                     <tr>
                                                         <td>RANGE</td>
-                                                        <td>110+ Kms</td>
+                                                        <td>120 Kms</td>
                                                     </tr>
                                                     <tr>
                                                         <td>SPEED (MAX)</td>
@@ -409,7 +564,7 @@ export default function ProductSlider(props) {
                                                     </tr>
                                                     <tr>
                                                         <td>BRAKES</td>
-                                                        <td>Dual Disc</td>
+                                                        <td>Mechanic Disc Brake</td>
                                                     </tr>
                                                     <tr>
                                                         <td>BATTERY</td>
@@ -417,17 +572,18 @@ export default function ProductSlider(props) {
                                                     </tr>
                                                     <tr>
                                                         <td>CAPACITY</td>
-                                                        <td>20 Ah</td>
+                                                        <td>15 Ah</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Starting From</td>
                                                         <td>Colors</td>
                                                     </tr>
+
                                                     <tr>
-                                                        <td>AED {productPrice.energ.toLocaleString()}</td>
+                                                        <td>YEN {productPrice.xplorer.toLocaleString()}</td>
                                                         <td>
                                                             {allproducts.
-                                                                filter(prod => prod.name.toLowerCase().includes("ener g")).map(prod => (
+                                                                filter(prod => prod.name.toLowerCase().includes("xplorer")).map(prod => (
 
                                                                     <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
@@ -436,23 +592,23 @@ export default function ProductSlider(props) {
                                                     </tr>
                                                 </table>
                                                 <div class="explore_bttn row mx-auto">
-                                                    <Link to="/energ">Buy Now</Link>
+                                                    <Link to="/xplorer">今すぐ購入</Link>
                                                 </div>
                                             </div>
                                         </Link>
                                     </div>
                                     <div>
-                                        <Link to="/doodle">
-                                            <div class="bike_explore_wrap">
-                                                <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
+                                        <Link to="/glyder">
+                                            <div class="bike_explore_wrap" >
+                                                <img src="images/Japan/Bottom-Bikes/Glyder.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
-                                                <h3 className="carousal_box_title">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+                                                <h3>GLYDER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
                                                 <h5>FEATURES</h5>
                                                 <table>
                                                     <tr>
                                                         <td>RANGE</td>
-                                                        <td>55+ Kms</td>
+                                                        <td>80 Kms</td>
                                                     </tr>
                                                     <tr>
                                                         <td>SPEED (MAX)</td>
@@ -460,7 +616,8 @@ export default function ProductSlider(props) {
                                                     </tr>
                                                     <tr>
                                                         <td>BRAKES</td>
-                                                        <td>Dual Disc</td>
+                                                        <td>Mechanic Disc Brake <small>JAK F&R</small></td>
+
                                                     </tr>
                                                     <tr>
                                                         <td>BATTERY</td>
@@ -468,17 +625,18 @@ export default function ProductSlider(props) {
                                                     </tr>
                                                     <tr>
                                                         <td>CAPACITY</td>
-                                                        <td>10 Ah</td>
+                                                        <td>14 Ah</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Starting From</td>
                                                         <td>Colors</td>
                                                     </tr>
+
                                                     <tr>
-                                                        <td>AED {productPrice.doodle.toLocaleString()}</td>
+                                                        <td>YEN {productPrice.glyder.toLocaleString()}</td>
                                                         <td>
                                                             {allproducts.
-                                                                filter(prod => prod.name.toLowerCase().includes("doodle")).map(prod => (
+                                                                filter(prod => prod.name.toLowerCase().includes("glyder")).map(prod => (
 
                                                                     <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
@@ -487,24 +645,23 @@ export default function ProductSlider(props) {
                                                     </tr>
                                                 </table>
                                                 <div class="explore_bttn row mx-auto">
-                                                    <Link to="/doodle">Buy Now</Link>
+                                                    <Link to="/glyder">今すぐ購入</Link>
                                                 </div>
                                             </div>
                                         </Link>
                                     </div>
                                     <div>
-                                        <Link to="/trible">
-                                            <div class="bike_explore_wrap">
-                                                <img src="images/uae/Trible.png" alt="a" class="img-fluid" />
+                                        <Link to="/dolphine">
+                                            <div class="bike_explore_wrap" >
+                                                <img src="images/Japan/Bottom-Bikes/Dolphin.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
-                                                <h3 className="carousal_box_title">TRIBLE
-                                                    <img src="images/arw_rgt.svg" alt="a" class="img-fluid" />
-                                                </h3>
+                                                <h3>DOLPHIN <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+
                                                 <h5>FEATURES</h5>
                                                 <table>
                                                     <tr>
                                                         <td>RANGE</td>
-                                                        <td>50+ Kms</td>
+                                                        <td>45+ Kms</td>
                                                     </tr>
                                                     <tr>
                                                         <td>SPEED (MAX)</td>
@@ -527,10 +684,10 @@ export default function ProductSlider(props) {
                                                         <td>Colors</td>
                                                     </tr>
                                                     <tr>
-                                                        <td>AED {productPrice.trible.toLocaleString()}</td>
+                                                        <td>YEN {productPrice.dolphin.toLocaleString()}</td>
                                                         <td>
                                                             {allproducts.
-                                                                filter(prod => prod.name.toLowerCase().includes("trible")).map(prod => (
+                                                                filter(prod => prod.name.toLowerCase().includes("dolphin")).map(prod => (
 
                                                                     <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
@@ -539,181 +696,20 @@ export default function ProductSlider(props) {
                                                     </tr>
                                                 </table>
                                                 <div class="explore_bttn row mx-auto">
-                                                    <Link to="/trible">Buy Now</Link>
+                                                    <Link to="/dolphine">今すぐ購入</Link>
                                                 </div>
                                             </div>
                                         </Link>
                                     </div>
-                                     </Slider> 
-                                </div>
-                                : (subdomain == 'japan') ?
-                                    <div class="row expo_bike_slider">
-
-                                        <div class="col-lg-4">
-                                            <Link to="/xplorer">
-                                                <div class="bike_explore_wrap" >
-                                                    <img src="images/Japan/Bottom-Bikes/Xplorer.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
-
-                                                    <h3>XPLORER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
-
-                                                    <h5>FEATURES</h5>
-                                                    <table>
-                                                        <tr>
-                                                            <td>RANGE</td>
-                                                            <td>120 Kms</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>SPEED (MAX)</td>
-                                                            <td>25Km/hr</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BRAKES</td>
-                                                            <td>Mechanic Disc Brake</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BATTERY</td>
-                                                            <td>48 Volts</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>CAPACITY</td>
-                                                            <td>15 Ah</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Starting From</td>
-                                                            <td>Colors</td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td>YEN {productPrice.xplorer.toLocaleString()}</td>
-                                                            <td>
-                                                                {allproducts.
-                                                                    filter(prod => prod.name.toLowerCase().includes("xplorer")).map(prod => (
-
-                                                                        <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
-
-                                                                    ))}
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <div class="explore_bttn row mx-auto">
-                                                        <Link to="/xplorer">今すぐ購入</Link>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <Link to="/glyder">
-                                                <div class="bike_explore_wrap" >
-                                                    <img src="images/Japan/Bottom-Bikes/Glyder.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
-
-                                                    <h3>GLYDER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
-
-                                                    <h5>FEATURES</h5>
-                                                    <table>
-                                                        <tr>
-                                                            <td>RANGE</td>
-                                                            <td>80 Kms</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>SPEED (MAX)</td>
-                                                            <td>25Km/hr</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BRAKES</td>
-                                                            <td>Mechanic Disc Brake <small>JAK F&R</small></td>
-
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BATTERY</td>
-                                                            <td>36 Volts</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>CAPACITY</td>
-                                                            <td>14 Ah</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Starting From</td>
-                                                            <td>Colors</td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td>YEN {productPrice.glyder.toLocaleString()}</td>
-                                                            <td>
-                                                                {allproducts.
-                                                                    filter(prod => prod.name.toLowerCase().includes("glyder")).map(prod => (
-
-                                                                        <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
-
-                                                                    ))}
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <div class="explore_bttn row mx-auto">
-                                                        <Link to="/glyder">今すぐ購入</Link>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <Link to="/dolphine">
-                                                <div class="bike_explore_wrap" >
-                                                    <img src="images/Japan/Bottom-Bikes/Dolphin.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
-
-                                                    <h3>DOLPHIN <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
-
-                                                    <h5>FEATURES</h5>
-                                                    <table>
-                                                        <tr>
-                                                            <td>RANGE</td>
-                                                            <td>45+ Kms</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>SPEED (MAX)</td>
-                                                            <td>25Km/hr</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BRAKES</td>
-                                                            <td>Dual Disc</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BATTERY</td>
-                                                            <td>36 Volts</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>CAPACITY</td>
-                                                            <td>7.5 Ah</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Starting From</td>
-                                                            <td>Colors</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>YEN {productPrice.dolphin.toLocaleString()}</td>
-                                                            <td>
-                                                                {allproducts.
-                                                                    filter(prod => prod.name.toLowerCase().includes("dolphin")).map(prod => (
-
-                                                                        <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
-
-                                                                    ))}
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <div class="explore_bttn row mx-auto">
-                                                        <Link to="/dolphine">今すぐ購入</Link>
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                        </div>
-                                    </div>
-                                    :
-                                    <div class="row  expo_bike_slider">
-                                        <div class="col-lg-4">
+                                </Slider>
+                                : (subdomain == 'nepal') ?
+                                    <Slider {...settingsIndia}>
+                                        <div>
                                             <Link to="/trex">
                                                 <div class="bike_explore_wrap" >
                                                     <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
 
-                                                    <h3>T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+                                                    <h3 className="carousal_box_title">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
                                                     <h5>FEATURES</h5>
                                                     <table>
@@ -742,8 +738,15 @@ export default function ProductSlider(props) {
                                                             <td>Colors</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Rs 37,142</td>
-                                                            <td><i class="fa fa-circle"></i> <i class="fa fa-circle"></i></td>
+                                                            <td>Rs {productPrice.trex.toLocaleString()}</td>
+                                                            <td>
+                                                                {allproducts.
+                                                                    filter(prod => prod.name.toLowerCase().includes("t-rex")).map(prod => (
+
+                                                                        <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
+
+                                                                    ))}
+                                                            </td>
                                                         </tr>
                                                     </table>
                                                     <div class="explore_bttn row mx-auto">
@@ -752,12 +755,12 @@ export default function ProductSlider(props) {
                                                 </div>
                                             </Link>
                                         </div>
-                                        <div class="col-lg-4">
+                                        <div>
                                             <Link to="/emx">
                                                 <div class="bike_explore_wrap" >
                                                     <img src="images/bicycle_3.png" alt="a" class="img-fluid" />
 
-                                                    <h3>EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+                                                    <h3 className="carousal_box_title">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
                                                     <h5>FEATURES</h5>
                                                     <table>
@@ -786,8 +789,15 @@ export default function ProductSlider(props) {
                                                             <td>Colors</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Rs 52,380</td>
-                                                            <td><i class="fa fa-circle" style={{ "color": "#DBFF00" }}></i></td>
+                                                            <td>Rs {productPrice.emx.toLocaleString()}</td>
+                                                            <td>
+                                                                {allproducts.
+                                                                    filter(prod => prod.name.toLowerCase().includes("emx")).map(prod => (
+
+                                                                        <i class="fa fa-circle" style={{ "color": prod.color }}>  &nbsp;</i>
+
+                                                                    ))}
+                                                            </td>
                                                         </tr>
                                                     </table>
                                                     <div class="explore_bttn row mx-auto">
@@ -796,12 +806,12 @@ export default function ProductSlider(props) {
                                                 </div>
                                             </Link>
                                         </div>
-                                        <div class="col-lg-4">
-                                            <Link to="/trex">
+                                        <div>
+                                            <Link to="/doodle">
                                                 <div class="bike_explore_wrap" >
                                                     <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
 
-                                                    <h3>DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+                                                    <h3 className="carousal_box_title">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
                                                     <h5>FEATURES</h5>
                                                     <table>
@@ -830,8 +840,15 @@ export default function ProductSlider(props) {
                                                             <td>Colors</td>
                                                         </tr>
                                                         <tr>
-                                                            <td>Rs 76,190</td>
-                                                            <td><i class="fa fa-circle text-dark"></i> <i class="fa fa-circle" style={{ "color": "#10B068" }}></i></td>
+                                                            <td>Rs {productPrice.doodle.toLocaleString()}</td>
+                                                            <td>
+                                                                {allproducts.
+                                                                    filter(prod => prod.name.toLowerCase().includes("doodle")).map(prod => (
+
+                                                                        <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
+
+                                                                    ))}
+                                                            </td>
                                                         </tr>
                                                     </table>
                                                     <div class="explore_bttn row mx-auto">
@@ -840,10 +857,11 @@ export default function ProductSlider(props) {
                                                 </div>
                                             </Link>
                                         </div>
-                                    </div>
-                        }
+                                    </Slider>
+                                    : ''
+                    }
 
-                        
+
 
                 </div>
             </section>
