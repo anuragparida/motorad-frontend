@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel'
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+//import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import { server, config, checkAccess } from "../env";
-
-
+import Slider from "react-slick";
 
 export default function ProductSlider(props) {
     const [subdomain, setSubdomain] = useState("");
@@ -19,8 +18,57 @@ export default function ProductSlider(props) {
         glyder: "",
         xplorer: "",
         dolphin: ""
-
     });
+
+    let settingsIndia,settingsUAE,settingsJapan;
+    if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Phone/i.test(navigator.userAgent)
+    ) {
+        settingsIndia = {
+            dots: true,
+            infinite: false,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1
+        };
+        settingsUAE = {
+            dots: true,
+            infinite: false,
+            speed: 500,
+            slidesToShow: 1,
+            slidesToScroll: 1
+        };
+        settingsJapan = {
+            dots: true,
+            infinite: false,
+            speed: 500,
+            slidesToShow: 3,
+            slidesToScroll: 1
+        };
+    } else {
+        settingsIndia = {
+            dots: true,
+            infinite: false,
+            speed: 500,
+            slidesToShow: 3,
+            slidesToScroll: 1
+        };
+        settingsUAE = {
+            dots: true,
+            infinite: false,
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 1
+        };
+        settingsJapan = {
+            dots: true,
+            infinite: false,
+            speed: 500,
+            slidesToShow: 4,
+            slidesToScroll: 1
+        };
+    }
+
+    
     const loadProducts = async () => {
         let domain = localStorage.getItem('subDomain');
         let server;
@@ -100,9 +148,28 @@ export default function ProductSlider(props) {
 
     return (
         <div style={{ width: "100%" }} >
-
-            <section class="explore_ebike_sec" style={{ width: "100%", paddingRight: "0px", paddingLeft: "0px" }}>
-                <div class="container" style={{ width: "100%", paddingRight: "0px", paddingLeft: "0px" }}>
+             {/* <Slider {...settings}>
+      <div>
+        <h3>1</h3>
+      </div>
+      <div>
+        <h3>2</h3>
+      </div>
+      <div>
+        <h3>3</h3>
+      </div>
+      <div>
+        <h3>4</h3>
+      </div>
+      <div>
+        <h3>5</h3>
+      </div>
+      <div>
+        <h3>6</h3>
+      </div>
+    </Slider> */}
+            <section class="explore_ebike_sec">
+                <div class="container">
                     <div class="">
                         <div class="col-12">
                             <div class="expo_ebike_headin text-left">
@@ -110,24 +177,11 @@ export default function ProductSlider(props) {
                             </div>
                         </div>
                     </div>
-
-                    <Carousel width="100%"
-                        showArrows={false}
-                        showStatus={false}
-                        showIndicators={false}
-                        showThumbs={false}
-                        axis="horizontal"
-                        autoFocus={false}
-                        autoPlay={false}
-                        interval={10000000}
-                        emulateTouch={true}
-                        preventMovementUntilSwipeScrollTolerance={true}
-                        swipeScrollTolerance={15}
-                    >
-
+                    
                         {(subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
-                            <div class="row  expo_bike_slider">
-                                <div class="col-lg-4">
+                            <div>
+                                <Slider {...settingsIndia}>
+                                <div>
                                     <Link to="/trex">
                                         <div class="bike_explore_wrap" >
                                             <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
@@ -178,7 +232,7 @@ export default function ProductSlider(props) {
                                         </div>
                                     </Link>
                                 </div>
-                                <div class="col-lg-4">
+                                <div>
                                     <Link to="/emx">
                                         <div class="bike_explore_wrap" >
                                             <img src="images/bicycle_3.png" alt="a" class="img-fluid" />
@@ -229,7 +283,7 @@ export default function ProductSlider(props) {
                                         </div>
                                     </Link>
                                 </div>
-                                <div class="col-lg-4">
+                                <div>
                                     <Link to="/doodle">
                                         <div class="bike_explore_wrap" >
                                             <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
@@ -280,11 +334,12 @@ export default function ProductSlider(props) {
                                         </div>
                                     </Link>
                                 </div>
+                                </Slider>
                             </div>
                             : (subdomain == 'uae') ?
-                                <div class="row expo_bike_slider">
-
-                                    <div class="col-lg-3">
+                                <div>
+                                    <Slider {...settingsUAE}>
+                                    <div>
                                         <Link to="/trex">
                                             <div class="bike_explore_wrap">
                                                 <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
@@ -335,7 +390,7 @@ export default function ProductSlider(props) {
                                             </div>
                                         </Link>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div>
                                         <Link to="/energ">
                                             <div class="bike_explore_wrap">
                                                 <img src="images/uae/Ener-G.png" alt="a" class="img-fluid" />
@@ -386,7 +441,7 @@ export default function ProductSlider(props) {
                                             </div>
                                         </Link>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div>
                                         <Link to="/doodle">
                                             <div class="bike_explore_wrap">
                                                 <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
@@ -437,7 +492,7 @@ export default function ProductSlider(props) {
                                             </div>
                                         </Link>
                                     </div>
-                                    <div class="col-lg-3">
+                                    <div>
                                         <Link to="/trible">
                                             <div class="bike_explore_wrap">
                                                 <img src="images/uae/Trible.png" alt="a" class="img-fluid" />
@@ -489,7 +544,7 @@ export default function ProductSlider(props) {
                                             </div>
                                         </Link>
                                     </div>
-                                    {/* </Slider> */}
+                                     </Slider> 
                                 </div>
                                 : (subdomain == 'japan') ?
                                     <div class="row expo_bike_slider">
@@ -787,7 +842,8 @@ export default function ProductSlider(props) {
                                         </div>
                                     </div>
                         }
-                    </Carousel>
+
+                        
 
                 </div>
             </section>
