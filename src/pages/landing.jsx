@@ -8,7 +8,7 @@ import { Carousel } from 'react-responsive-carousel';
 import axios from "axios";
 import { server, config, checkAccess } from "../env";
 import WhattsApp from "../components/WhattsApp";
-import Slider from "react-slick";
+// import Slider from "react-slick";
 
 // import Slider from "react-slick";
 
@@ -187,8 +187,8 @@ const Landing = (props) => {
                                             </>
                                             : (subdomain == 'japan') ?
                                                 <>
-                                                    <Link to="/dolphin"><h3 class="text-outline text-outline-hover" data-text="DOLPHIN">DOLPHIN</h3></Link>
                                                     <Link to="/xplorer"><h3 class="text-outline text-outline-hover" data-text="XPLORER">XPLORER</h3></Link>
+                                                    <Link to="/dolphin"><h3 class="text-outline text-outline-hover" data-text="DOLPHIN">DOLPHIN</h3></Link>
                                                     <Link to="/glyder"><h3 class="text-outline text-outline-hover" data-text="GLYDER">GLYDER</h3></Link>
                                                 </>
                                                 :
@@ -291,17 +291,17 @@ const Landing = (props) => {
                                                     <img src="images/Japan/Solo-Bikes-3D/Glyder.gif" alt="a" class="img-fluid w-100" />
                                                 </div>
                                                 <div class="home_hero_bike_title">
-                                                    <h3 class="text-outline text-outline-hover" data-text="Glyder">Glyder</h3>
+                                                    <h3 class="text-outline text-outline-hover" data-text="GLYDER">GLYDER</h3>
                                                 </div>
                                             </div>
-                                            {/* <div class="col-12">
+                                            <div class="col-12">
                                                 <div class="moobile_cycle">
-                                                    <img src="images/T-REX.gif" alt="a" class="img-fluid w-100" />
+                                                    <img src="images/Japan/Solo-Bikes-3D/Dolphin.gif" alt="a" class="img-fluid w-100" />
                                                 </div>
                                                 <div class="home_hero_bike_title">
-                                                    <h3 class="text-outline text-outline-hover" data-text="T-REX">T-REX</h3>
+                                                    <h3 class="text-outline text-outline-hover" data-text="DOLPHIN">DOLPHIN</h3>
                                                 </div>
-                                            </div> */}
+                                            </div>      
                                         </>
                                         :
                                         <>
@@ -1417,7 +1417,7 @@ const Landing = (props) => {
 
                             </div>
                         </div>
-                        <div class="col-lg-12">
+                        <div class="col-lg-12" style={{ display : 'none' }}>
                             <div class="all_brandss" data-aos="zoom-in-up" data-aos-duration="2000">
                                 <a href="#">
                                     <img src="images/carnbike.svg" alt="a" class="img-fluid" />
