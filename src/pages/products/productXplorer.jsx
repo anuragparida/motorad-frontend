@@ -392,46 +392,46 @@ const ProductXplorer = (props) => {
                             </div>
                         </div>
                     </section>
-                    :
-                    <section class="product_vdo_sec" id="feat_sec">
+                    :""
+                    // <section class="product_vdo_sec" id="feat_sec">
 
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="app">
-                                        <div id="bound-two" class="scroll-bound">
-                                            <div class="content">
-                                                <video id="v0" tabindex="0" autobuffer muted preload>
-                                                    <source
-                                                        src="images/Japan/XPLORER/Xplorer-Mobile.mp4"
-                                                        type="video/mp4"
-                                                        class="d-lg-none"
-                                                    />
-                                                </video>
-                                                {/* <VideoScroll
-                                                    onLoad={props =>
-                                                        setStyles(props.wrapperEl, props.videoEl, props.playbackRate)
-                                                    }
-                                                    playbackRate={200}
-                                                    style={{ position: 'relative' }}
-                                                    >
-                                                    <video
-                                                        tabIndex="0"
-                                                        autobuffer="autobuffer"
-                                                        preload="preload"
-                                                        style={{ width: '100%', objectFit: 'contain' }}
-                                                        playsInline
-                                                    >
-                                                        <source type="video/mp4" src="images/uae/ENERG/EnerG-Mobile.mp4" />
-                                                    </video>
-                                                </VideoScroll> */}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                    //     <div class="container">
+                    //         <div class="row">
+                    //             <div class="col-lg-12">
+                    //                 <div class="app">
+                    //                     <div id="bound-two" class="scroll-bound">
+                    //                         <div class="content">
+                    //                             <video id="v0" tabindex="0" autobuffer muted preload>
+                    //                                 <source
+                    //                                     src="images/Japan/XPLORER/Xplorer-Mobile.mp4"
+                    //                                     type="video/mp4"
+                    //                                     class="d-lg-none"
+                    //                                 />
+                    //                             </video>
+                    //                             {/* <VideoScroll
+                    //                                 onLoad={props =>
+                    //                                     setStyles(props.wrapperEl, props.videoEl, props.playbackRate)
+                    //                                 }
+                    //                                 playbackRate={200}
+                    //                                 style={{ position: 'relative' }}
+                    //                                 >
+                    //                                 <video
+                    //                                     tabIndex="0"
+                    //                                     autobuffer="autobuffer"
+                    //                                     preload="preload"
+                    //                                     style={{ width: '100%', objectFit: 'contain' }}
+                    //                                     playsInline
+                    //                                 >
+                    //                                     <source type="video/mp4" src="images/uae/ENERG/EnerG-Mobile.mp4" />
+                    //                                 </video>
+                    //                             </VideoScroll> */}
+                    //                         </div>
+                    //                     </div>
+                    //                 </div>
+                    //             </div>
+                    //         </div>
+                    //     </div>
+                    // </section>
 
             }
 
