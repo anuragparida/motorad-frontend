@@ -494,3 +494,7 @@
 @media (min-width: 1200px) {
 
 }
+
+.bike_explore_wrap img {
+    width: 185px !important;
+}

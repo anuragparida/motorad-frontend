@@ -1743,3 +1743,16 @@ svg text {
 .product_vdo_sec video {
   width: 100%;
 }
+.explore_ebike_sec tr td:first-child{
+  text-align: left;
+}
+.carousal_box_title{
+  display: flex;
+  text-align: left;
+  align-items: center;
+}
+.carousal_box_title img{
+  height: 20px !important;
+  width: 20px !important;
+  margin-left: 5px;
+}

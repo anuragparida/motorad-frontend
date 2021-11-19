@@ -35,6 +35,8 @@ import ProductTrible from "./pages/products/productTrible";
 import ProductXplorer from "./pages/products/productXplorer";
 import ProductGlyder from "./pages/products/productGlyder";
 import ProductDolphin from "./pages/products/productDolphine";
+import Test from "./pages/products/TestProduct";
+
 import OrderSuccess from "./pages/orderSuccess";
 
 export default function Router() {
@@ -55,6 +57,7 @@ export default function Router() {
         <Route path="/account" component={Account} />
         <Route path="/overview" component={Overview} />
         <Route path="/emx" component={ProductEMX} />
+        <Route path="/test" component={Test} />
         <Route path="/trex" component={ProductTREX} />
         <Route path="/xplorer" component={ProductXplorer} />
         <Route path="/glyder" component={ProductGlyder} />

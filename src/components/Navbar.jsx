@@ -114,11 +114,11 @@ const Navbar = (props) => {
         let indiaflag = "images/india-flag.png";
         let japanflag = "images/japan.png";
         let nepalflag = "images/nepal.png";
-
+ 
         let full = window.location.host
         let parts = full.split('.')
         let sub = parts[0];    
-        sub = 'japan';
+        sub = 'uae';    
         if(sub == 'uae') {
             localStorage.setItem('subDomain', "uae")
             let getsub = localStorage.getItem('subDomain');

@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
+import ProductSlider from "../../components/ProductSlider";
 
 
 let images = [0, 1, 2, 3, 4];
@@ -399,27 +400,28 @@ const ProductTrible = (props) => {
             </div>
           </section>
           :
-          <section class="product_vdo_sec" id="feat_sec">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="app">
-                    <div id="bound-two" class="scroll-bound">
-                      <div class="content">
-                        <video id="v0" tabindex="0" autobuffer muted preload>
-                          <source
-                            src="images/uae/TRIBLE/Trible-Mobile.mp4"
-                            type="video/mp4"
-                            class="d-lg-none"
-                          />
-                        </video>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          ''
+          // <section class="product_vdo_sec" id="feat_sec">
+          //   <div class="container">
+          //     <div class="row">
+          //       <div class="col-lg-12">
+          //         <div class="app">
+          //           <div id="bound-two" class="scroll-bound">
+          //             <div class="content">
+          //               <video id="v0" tabindex="0" autobuffer muted preload>
+          //                 <source
+          //                   src="images/uae/TRIBLE/Trible-Mobile.mp4"
+          //                   type="video/mp4"
+          //                   class="d-lg-none"
+          //                 />
+          //               </video>
+          //             </div>
+          //           </div>
+          //         </div>
+          //       </div>
+          //     </div>
+          //   </div>
+          // </section>
       }
 
 
@@ -1433,7 +1435,7 @@ const ProductTrible = (props) => {
           </div>
         </div>
       </section>
-      <section class="explore_ebike_sec">
+      <section class="explore_ebike_sec d-none">
         <div class="container">
           <div class="row">
             <div class="col-12">
@@ -2018,6 +2020,11 @@ const ProductTrible = (props) => {
           }
         </div>
       </section>
+      
+      <ProductSlider />
+
+      
+      
       <Footer />
       <div class="book_ride_sticky d-lg-none">
         <div class="d-flex">

@@ -3231,7 +3231,7 @@ img {
 
 .image_4 {
   z-index: 4;
-  background-image: url("../images/Web_E.png");
+  background-image: url("../images/Web-E.png");
 }
 
 .image_emx_0 {
@@ -3638,20 +3638,8 @@ img {
 
 .slick-arrow {
   display: none !important;
-} 
-
-/* .slick-prev:before {
-  content: "<";
-  color: red;
-  font-size: 30px;
 }
 
-.slick-next:before {
-  content: ">";
-  color: red;
-  font-size: 30px;
-} */
-
-/* .slick-slide {
-  width: 100% !important;
-} */
+.bike_explore_wrap img {
+  width: 185px !important;
+}
