@@ -2,17 +2,22 @@ import React, {useState} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
-import { Link } from 'react-router-dom';
 import { server } from "../../env";
-import Cookies from "js-cookie";
 import axios from "axios";
+import Alert from './../../components/Alert';
+import Loader from './../../components/Loader';
 
 const VerifyOTP = (props) => {
-  const [country, setCountry] = useState(true); 
+  const [country, setCountry] = useState(true);
+  const [message, setMessage] = useState("");
+  const [loader, setLoader] = useState("");
+  const [email, setEmail] = useState("");
 
   const verifyOtp = async (e) => {
 
     e.preventDefault();
+
+    setLoader(<Loader/>);
 
     var params = Array.from(e.target.elements)
       .filter((el) => el.name)
@@ -20,23 +25,42 @@ const VerifyOTP = (props) => {
     localStorage.setItem("email", e.target.email.value);
 
     axios
-    .post(server + "/api/user/login", params)
+    .post(server + "/api/user/confirm", params)
     .then((rsp) => {
       console.log(rsp);
-      Cookies.set("token", rsp.data.payload.token);
-      Cookies.set("tokenDate", new Date());
-
-      window.location.href = "/";
+      setMessage(<Alert className="success" message={rsp.data.message} />);
+      setLoader("");
+      window.location.href = "/login";
     })
     .catch((err) => {
       console.log(err.response);
-      if (err.response) {
-        if (err.response.status === 422) {
-          if (err.response.data.payload.is_email_verified === 0) {
-            this.props.history.push("/verifyEmail");
-          }
-        }
-      }
+      setMessage(<Alert className="danger" message={err.response.data.message} />);
+      setLoader("");
+    });
+
+  }
+
+  const resendOTP = async () => {
+
+    setLoader(<Loader/>);
+
+    if (!email) {
+      setMessage(<Alert className="warning" message={"Please enter email and then click Resend OTP."} />);
+      setLoader("");
+      return;
+    }
+
+    axios
+    .post(server + "/api/user/resend-otp", {"email": email})
+    .then((rsp) => {
+      console.log(rsp);
+      setMessage(<Alert className="success" message={rsp.data.message} />);
+      setLoader("");
+    })
+    .catch((err) => {
+      console.log(err.response);
+      setMessage(<Alert className="danger" message={err.response.data.message} />);
+      setLoader("");
     });
 
   }
@@ -58,23 +82,37 @@ const VerifyOTP = (props) => {
                   to your registerd email address.
                 </p>
               </div>
-              <form>
+              <form onSubmit={verifyOtp}>
+                {message}
+              <div class="form-group">
+                  <label for="">Email</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter your Email"
+                    name="email"
+                    required
+                    onChange={(e)=>setEmail(e.target.value)}
+                  />
+                </div>
                 <div class="form-group">
                   <label for="">OTP</label>
                   <input
                     type="text"
                     class="form-control"
                     placeholder="Enter OTP"
+                    name="otp"
+                    required
                   />
                 </div>
 
                 <div class="form-group">
-                  <button type="submit" class="btn btn_submit">Submit</button>
+                  <button type="submit" class="btn btn_submit">Submit {loader}</button>
                 </div>
               </form>
             </div>
             <div class="login_links">
-              <p>Didn't Receive OTP <a href="#">Resend OTP </a></p>
+              <p>Didn't Receive OTP <a href="javascript:void(0)" onClick={resendOTP}>Resend OTP </a></p>
             </div>
           </div>
         </div>

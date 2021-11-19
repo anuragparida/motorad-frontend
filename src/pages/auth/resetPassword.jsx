@@ -2,41 +2,47 @@ import React, {useState} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
-import { Link } from 'react-router-dom';
 import { server } from "../../env";
-import Cookies from "js-cookie";
 import axios from "axios";
+import Alert from './../../components/Alert';
+import Loader from './../../components/Loader';
 
 const ResetPassword = (props) => {
-  const [country, setCountry] = useState(true); 
+  const [country, setCountry] = useState(true);
+  const [message, setMessage] = useState("");
+  const [loader, setLoader] = useState("");
 
   const resetPass = async (e) => {
 
     e.preventDefault();
+
+    setLoader(<Loader/>);
 
     var params = Array.from(e.target.elements)
       .filter((el) => el.name)
       .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
     localStorage.setItem("email", e.target.email.value);
 
+    if (params.password !== params.repassword) {
+      setMessage(<Alert className="warning" message={"Passwords don't match. Please try again."} />);
+      setLoader("");
+      return;
+    }
+
+    delete params.repassword;
+
     axios
-    .post(server + "/api/user/login", params)
+    .post(server + "/api/user/reset", params)
     .then((rsp) => {
       console.log(rsp);
-      Cookies.set("token", rsp.data.payload.token);
-      Cookies.set("tokenDate", new Date());
-
-      window.location.href = "/";
+      setMessage(<Alert className="success" message={rsp.data.message} />);
+      setLoader("");
+      window.location.href = "/login";
     })
     .catch((err) => {
       console.log(err.response);
-      if (err.response) {
-        if (err.response.status === 422) {
-          if (err.response.data.payload.is_email_verified === 0) {
-            this.props.history.push("/verifyEmail");
-          }
-        }
-      }
+      setMessage(<Alert className="danger" message={err.response.data.message} />);
+      setLoader("");
     });
 
   }
@@ -53,23 +59,47 @@ const ResetPassword = (props) => {
               <div class="signup_frm_head">
                 <img src="images/em-img.png" alt="EM" class="img-fluid" />
                 <h5>Reset Password</h5>
-                <p>Enter your New Password<br /></p>
+                <p>Enter your Email, New Password and OTP<br /></p>
               </div>
-              <form>
+              <form onSubmit={resetPass}>
                 <div class="form-group">
-                  <label for="">New Password</label>
+                  <label for="">Email</label>
                   <input
                     type="text"
                     class="form-control"
+                    placeholder="Enter your Email"
+                    name="email"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="">OTP</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Enter OTP"
+                    name="otp"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="">New Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
                     placeholder="Enter New Password"
+                    name="password"
+                    required
                   />
                 </div>
                 <div class="form-group">
                   <label for="">Confirm New Password</label>
                   <input
-                    type="text"
+                    type="password"
                     class="form-control"
                     placeholder="Re-Enter New Password"
+                    name="repassword"
+                    required
                   />
                 </div>
 

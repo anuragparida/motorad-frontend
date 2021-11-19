@@ -45,7 +45,7 @@ const Signup = (props) => {
         console.log(rsp);
         setMessage(<Alert className="success" message={rsp.data.message} />);
         setLoader("");
-        window.location.href = "/login"; //CHANGE THIS
+        window.location.href = "/verify"; //CHANGE THIS
       })
       .catch((error) => {
         setMessage(<Alert className="danger" message={error.response.data.message} />);
