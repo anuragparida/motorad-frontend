@@ -25,7 +25,7 @@ export default function ProductSlider(props) {
     ) {
         settingsIndia = {
             dots: true,
-            infinite: false,
+            infinite: true,
             speed: 500,
             slidesToShow: 1,
             slidesToScroll: 1,
@@ -74,10 +74,11 @@ export default function ProductSlider(props) {
             dots: true,
             infinite: false,
             speed: 500,
-            slidesToShow: 4,
+            slidesToShow: 3,
             slidesToScroll: 1,
             autoplaySpeed: 1000,
             autoplay: true,
+            adaptiveHeight: true,
         };
     }
 
@@ -193,7 +194,7 @@ export default function ProductSlider(props) {
 
                     {(subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
                         <Slider {...settingsIndia}>
-                            <div>
+                            <div className="india_slick"> 
                                 <Link to="/trex">
                                     <div class="bike_explore_wrap" >
                                         <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
@@ -244,7 +245,7 @@ export default function ProductSlider(props) {
                                     </div>
                                 </Link>
                             </div>
-                            <div>
+                            <div className="india_slick">
                                 <Link to="/emx">
                                     <div class="bike_explore_wrap" >
                                         <img src="images/bicycle_3.png" alt="a" class="img-fluid" />
@@ -295,7 +296,7 @@ export default function ProductSlider(props) {
                                     </div>
                                 </Link>
                             </div>
-                            <div>
+                            <div className="india_slick">
                                 <Link to="/doodle">
                                     <div class="bike_explore_wrap" >
                                         <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
@@ -353,9 +354,7 @@ export default function ProductSlider(props) {
                                     <Link to="/trex">
                                         <div class="bike_explore_wrap">
                                             <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
-
                                             <h3 className="carousal_box_title">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
-
                                             <h5>FEATURES</h5>
                                             <table>
                                                 <tr>
@@ -562,9 +561,7 @@ export default function ProductSlider(props) {
                                         <Link to="/xplorer">
                                             <div class="bike_explore_wrap" >
                                                 <img src="images/Japan/Bottom-Bikes/Xplorer.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
-
                                                 <h3 className="carousal_box_title">XPLORER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
-
                                                 <h5>FEATURES</h5>
                                                 <table>
                                                     <tr>
@@ -629,8 +626,7 @@ export default function ProductSlider(props) {
                                                     </tr>
                                                     <tr>
                                                         <td>BRAKES</td>
-                                                        <td>Mechanic Disc Brake <small>JAK F&R</small></td>
-
+                                                        <td>Mechanic Disc Brake</td>
                                                     </tr>
                                                     <tr>
                                                         <td>BATTERY</td>
