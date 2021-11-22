@@ -91,13 +91,13 @@ const Navbar = (props) => {
     }
     const getCountry = (e) => {
         if (e.target.firstElementChild.alt == 'uae') {
-            document.location.href = 'https://uae.emotorad.in/';
+            document.location.href = 'https://uae.emotorad.com/';
         } else if (e.target.firstElementChild.alt == 'india') {
-            document.location.href = 'https://emotorad.in/';
+            document.location.href = 'https://emotorad.com/';
         } else if (e.target.firstElementChild.alt == 'japan') {
-            document.location.href = 'https://japan.emotorad.in/';
+            document.location.href = 'https://japan.emotorad.com/';
         } else if (e.target.firstElementChild.alt == 'nepal') {
-            document.location.href = 'https://nepal.emotorad.in/';
+            document.location.href = 'https://nepal.emotorad.com/';
         }
         localStorage.setItem('subDomain', e.target.firstElementChild.alt);
         localStorage.setItem('countryflag', e.target.firstElementChild.src);
@@ -119,7 +119,7 @@ const Navbar = (props) => {
         let full = window.location.host
         let parts = full.split('.')
         let sub = parts[0];    
-        //sub = 'japan';           
+        //sub = 'japan';               
         if(sub == 'uae') {
             localStorage.setItem('subDomain', "uae")
             let getsub = localStorage.getItem('subDomain');
