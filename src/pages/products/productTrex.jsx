@@ -42,12 +42,12 @@ const ProductTREX = (props) => {
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": "T-rex",
-    "image": "https://emotorad.in/images/3D-Renders/T-Rex-Mobile-FFMpeg.mp4",
+    "image": "https://emotorad.com/images/3D-Renders/T-Rex-Mobile-FFMpeg.mp4",
     "description": "Get the best and fastest mountain electric bike - T-Rex by Emotorad. EMI starts from INR 1999/mo. Get your FREE Test Ride Now",
     "brand": "EMotorad",
     "offers": {
       "@type": "Offer",
-      "url": "https://emotorad.in/trex",
+      "url": "https://emotorad.com/trex",
       "priceCurrency": "INR",
       "price": "36999"
     },
@@ -370,7 +370,7 @@ const ProductTREX = (props) => {
                       products.length > 0 &&
                         products.find(prod => prod.id === productID) ?
                         <img
-                          src={"https://uae-api.emotorad.in/" + products.find(prod => prod.id === productID).banner}
+                          src={"https://uae-api.emotorad.com/" + products.find(prod => prod.id === productID).banner}
                           // src= {"/uploads/product_banner/t-rex-red.png" ? "images/t-rex-hero-red.png" : "images/t-rex-hero-yellow.png"}
                           alt="a"
                           class="img-fluid"

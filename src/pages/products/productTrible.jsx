@@ -314,7 +314,7 @@ const ProductTrible = (props) => {
                       products.length > 0 &&
                         products.find(prod => prod.id === productID) ?
                         <img
-                          src={"https://uae-api.emotorad.in/" + products.find(prod => prod.id === productID).banner}
+                          src={"https://uae-api.emotorad.com/" + products.find(prod => prod.id === productID).banner}
                           alt="a"
                           class="img-fluid"
                         />
