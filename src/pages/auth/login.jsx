@@ -63,11 +63,6 @@ const Login = (props) => {
       if (err.response) {
         setMessage(<Alert className="danger" message={err.response.data.message} />);
         setLoader("");
-        if (err.response.status === 422) {
-          if (err.response.data.payload.is_email_verified === 0) {
-            this.props.history.push("/verify");
-          }
-        }
       }
     });
 
