@@ -103,6 +103,7 @@ const Navbar = (props) => {
         localStorage.setItem('countryflag', e.target.firstElementChild.src);
 
         let sub = localStorage.getItem('subDomain');
+        //sub = 'uae';
         setSubdomain(sub);
         props.setCountry(!props.country)
         setcountryName(e.target.firstElementChild.alt.toUpperCase())

@@ -28,21 +28,27 @@ export default function ProductSlider(props) {
             infinite: false,
             speed: 500,
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            autoplaySpeed: 1000,
+            autoplay: true,
         };
         settingsUAE = {
             dots: true,
             infinite: false,
             speed: 500,
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            autoplaySpeed: 1000,
+            autoplay: true,
         };
         settingsJapan = {
             dots: true,
             infinite: false,
             speed: 500,
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            autoplaySpeed: 1000,
+            autoplay: true,
         };
     } else {
         settingsIndia = {
@@ -50,21 +56,28 @@ export default function ProductSlider(props) {
             infinite: false,
             speed: 500,
             slidesToShow: 3,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            autoplaySpeed: 1000,
+            autoplay: true,
         };
         settingsUAE = {
             dots: true,
             infinite: false,
             speed: 500,
+            autoplaySpeed: 1000,
             slidesToShow: 3,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            adaptiveHeight: true,
+            autoplay: true,
         };
         settingsJapan = {
             dots: true,
             infinite: false,
             speed: 500,
             slidesToShow: 4,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            autoplaySpeed: 1000,
+            autoplay: true,
         };
     }
 
@@ -336,7 +349,7 @@ export default function ProductSlider(props) {
                         </Slider>
                         : (subdomain == 'uae') ?
                             <Slider {...settingsUAE}>
-                                <div>
+                                <div className="">
                                     <Link to="/trex">
                                         <div class="bike_explore_wrap">
                                             <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
@@ -387,7 +400,7 @@ export default function ProductSlider(props) {
                                         </div>
                                     </Link>
                                 </div>
-                                <div>
+                                <div className="">
                                     <Link to="/energ">
                                         <div class="bike_explore_wrap">
                                             <img src="images/uae/Ener-G.png" alt="a" class="img-fluid" />
@@ -438,7 +451,7 @@ export default function ProductSlider(props) {
                                         </div>
                                     </Link>
                                 </div>
-                                <div>
+                                <div className="">
                                     <Link to="/doodle">
                                         <div class="bike_explore_wrap">
                                             <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
@@ -489,7 +502,7 @@ export default function ProductSlider(props) {
                                         </div>
                                     </Link>
                                 </div>
-                                <div>
+                                <div className="">
                                     <Link to="/trible">
                                         <div class="bike_explore_wrap">
                                             <img src="images/uae/Trible.png" alt="a" class="img-fluid" />
