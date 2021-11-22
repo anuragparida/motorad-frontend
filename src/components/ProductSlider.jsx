@@ -563,7 +563,7 @@ export default function ProductSlider(props) {
                                             <div class="bike_explore_wrap" >
                                                 <img src="images/Japan/Bottom-Bikes/Xplorer.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
-                                                <h3>XPLORER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+                                                <h3 className="carousal_box_title">XPLORER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
                                                 <h5>FEATURES</h5>
                                                 <table>
@@ -615,7 +615,7 @@ export default function ProductSlider(props) {
                                             <div class="bike_explore_wrap" >
                                                 <img src="images/Japan/Bottom-Bikes/Glyder.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
-                                                <h3>GLYDER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+                                                <h3 className="carousal_box_title">GLYDER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
                                                 <h5>FEATURES</h5>
                                                 <table>
@@ -668,7 +668,7 @@ export default function ProductSlider(props) {
                                             <div class="bike_explore_wrap" >
                                                 <img src="images/Japan/Bottom-Bikes/Dolphin.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
-                                                <h3>DOLPHIN <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+                                                <h3 className="carousal_box_title">DOLPHIN <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
                                                 <h5>FEATURES</h5>
                                                 <table>
