@@ -3643,3 +3643,12 @@ img {
 .bike_explore_wrap img {
   width: 185px !important;
 }
+
+.explore_ebike_sec .slick-slide {
+  margin: 0 27px;
+  width: 21% !important ;
+}
+
+.explore_ebike_sec .slick-list {
+  margin: 0 -27px;
+}
