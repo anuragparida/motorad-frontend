@@ -43,7 +43,7 @@ const Cart = (props) => {
         .then((rsp) => {
           console.log(rsp);
           const orderPayload = rsp.data.payload;
-          if (server === 'https://api.emotorad.in') {
+          if (server === 'https://api.emotorad.com') {
               const options = {
               key: '',
               name: "EMotorad",
@@ -81,7 +81,7 @@ const Cart = (props) => {
             };
             const rzp1 = new window.Razorpay(options);
             rzp1.open();
-          } else if (server === "https://uae-api.emotorad.in") {
+          } else if (server === "https://uae-api.emotorad.com") {
             document.body.innerHTML += orderPayload.formbody;
             document.getElementById('nonseamless').submit();
           }

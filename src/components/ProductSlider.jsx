@@ -87,13 +87,13 @@ export default function ProductSlider(props) {
         let domain = localStorage.getItem('subDomain');
         let server;
         if (domain == 'nepal' || domain == 'india' || domain == '') {
-            server = 'https://api.emotorad.in';
+            server = 'https://api.emotorad.com';
         } else if (domain == 'uae') {
-            server = 'https://uae-api.emotorad.in';
+            server = 'https://uae-api.emotorad.com';
         } else if (domain == 'japan') {
-            server = 'https://japan-api.emotorad.in';
+            server = 'https://japan-api.emotorad.com';
         } else {
-            server = 'https://api.emotorad.in';
+            server = 'https://api.emotorad.com';
         }
         await axios
             .get(server + "/api/product/read", config)

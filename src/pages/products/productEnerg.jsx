@@ -213,13 +213,6 @@ const ProductEnerg = (props) => {
     }
 
     const updateCart = async (payload) => {
-        let domain = localStorage.getItem('subDomain');
-        let server;
-        if (domain == 'nepal' || domain == 'india' || domain == '') {
-            server = 'https://api.emotorad.in';
-        } else if (domain == 'uae') {
-            server = 'https://uae-api.emotorad.in';
-        }
         const params = {
             "id": productID,
         };
@@ -324,7 +317,7 @@ const ProductEnerg = (props) => {
                                             products.length > 0 &&
                                                 products.find(prod => prod.id === productID) ?
                                                 <img
-                                                    src={"https://uae-api.emotorad.in/" + products.find(prod => prod.id === productID).banner}
+                                                    src={"https://uae-api.emotorad.com/" + products.find(prod => prod.id === productID).banner}
                                                     alt="a"
                                                     class="img-fluid"
                                                 />

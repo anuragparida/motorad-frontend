@@ -42,7 +42,7 @@ const Navbar = (props) => {
         "@context": "https://schema.org/",
         "@type": "WebSite",
         "name": "Emotorad",
-        "url": "https://emotorad.in/",
+        "url": "https://emotorad.com/",
         "potentialAction": {
             "@type": "SearchAction",
             "target": "{search_term_string}",
@@ -55,7 +55,7 @@ const Navbar = (props) => {
         "@type": "Organization",
         "name": "Emotorad",
         "url": "https://www.emotorad.com/",
-        "logo": "https://emotorad.in/images/logo-main.svg"
+        "logo": "https://emotorad.com/images/logo-main.svg"
     }
 
 
@@ -119,7 +119,7 @@ const Navbar = (props) => {
         let full = window.location.host
         let parts = full.split('.')
         let sub = parts[0];    
-        //sub = 'japan';               
+        //sub = 'uae';               
         if(sub == 'uae') {
             localStorage.setItem('subDomain', "uae")
             let getsub = localStorage.getItem('subDomain');
@@ -281,7 +281,7 @@ const Navbar = (props) => {
                                             <Link to="/community">{subdomain == "japan" ? "コミュニティ" : "Community"}</Link>
                                         </li>
                                         <li>
-                                            <a href="https://blog.emotorad.in/" target="blank">{subdomain == "japan" ? "ブログ" : "Blogs"}</a>
+                                            <a href="https://blog.emotorad.com/" target="blank">{subdomain == "japan" ? "ブログ" : "Blogs"}</a>
                                         </li>
                                     </ul>
                                 </li>
