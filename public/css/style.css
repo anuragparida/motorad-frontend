@@ -3644,11 +3644,14 @@ img {
   width: 185px !important;
 }
 
-.explore_ebike_sec .slick-slide {
-  margin: 0 27px;
-  width: 21% !important ;
+@media only screen and (min-width: 768px) {
+  .explore_ebike_sec .slick-slide {
+    margin: 0 27px;
+    width: 21% !important ;
+  }
+  
+  .explore_ebike_sec .slick-list {
+    margin: 0 -27px;
+  }
 }
 
-.explore_ebike_sec .slick-list {
-  margin: 0 -27px;
-}
