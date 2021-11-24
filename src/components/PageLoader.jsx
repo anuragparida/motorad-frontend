@@ -1,22 +1,24 @@
 import { Backdrop, CircularProgress } from '@material-ui/core';
 import LinearProgress from '@mui/material/LinearProgress';
+import ReactLoading from "react-loading";
 
 
 export default function PageLoader(props) {
   return (
     <>
-      {props.loader ? <LinearProgress color="success" style={{ zIndex: "99999999" }} />
-        :
-        ""}
+       
+    {props.loader ? 
+      <div className="page_loader"></div>:""
+    }
 
 
-      <Backdrop
-        sx={{ background: "", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      {/* <Backdrop
+        sx={{ background: "white",color:"#10b068" ,zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={props.loader}
       >
-        {/* <CircularProgress color="inherit" /> */}
+        <CircularProgress color="inherit" />
 
-      </Backdrop>
+      </Backdrop> */}
     </>
   );
 }
