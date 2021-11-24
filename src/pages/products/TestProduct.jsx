@@ -1049,7 +1049,7 @@ const Test = () => {
    
             <ProductSlider  setCountry={setCountry} country={country}/>
      
-            <Footer />
+            <Footer setCountry={setCountry} country={country} />
 
             <div class="book_ride_sticky d-lg-none">
                 <div class="d-flex">

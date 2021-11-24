@@ -36,6 +36,8 @@ const ProductGlyder = (props) => {
         dolphin:""
     });
     const [allProducts, setAllProducts] = useState([]);
+    const [loader, setLoader] = useState(false);
+
 
 
 
@@ -87,10 +89,12 @@ const ProductGlyder = (props) => {
     }, []);
 
     useEffect(() => {
+        (async () => {
+        setLoader(true)
         AOS.init();
-        loadProducts();
-        loadPincodes();
-        loadReviews();
+        await loadProducts();
+        await loadPincodes();
+        await loadReviews();
         window.enterView({
             selector: "section",
             enter: function (el) {
@@ -130,6 +134,8 @@ const ProductGlyder = (props) => {
         // setSubdomain(sub);
         sub = localStorage.getItem('subDomain');
         setSubdomain(sub);
+        setLoader(false)
+    })()
     }, [country]);
 
     const loadPincodes = async () => {
@@ -1618,8 +1624,8 @@ const ProductGlyder = (props) => {
                 </div>
             </section>
 
-            <ProductSlider />
-            <Footer />
+            <ProductSlider setCountry={setCountry} country={country} />
+            <Footer setCountry={setCountry} country={country} />
             <div class="book_ride_sticky d-lg-none">
                 <div class="d-flex">
 

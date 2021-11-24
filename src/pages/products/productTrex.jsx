@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import ProductSlider from "../../components/ProductSlider";
+import PageLoader from "../../components/PageLoader";
 
 
 let images = [0, 1, 2, 3, 4];
@@ -37,6 +38,8 @@ const ProductTREX = (props) => {
     energ: "",
     trible: "",
   });
+  const [loader, setLoader] = useState(false);
+
 
   const articleStructuredData = {
     "@context": "https://schema.org/",
@@ -109,10 +112,12 @@ const ProductTREX = (props) => {
   }, []);
 
   useEffect(() => {
+    (async () => {
+      setLoader(true)
     AOS.init();
-    loadProducts();
-    loadPincodes();
-    loadReviews();
+    await loadProducts();
+    await loadPincodes();
+    await loadReviews();
     window.enterView({
       selector: "section",
       enter: function (el) {
@@ -146,6 +151,8 @@ const ProductTREX = (props) => {
     let sub = parts[0]
     sub = localStorage.getItem('subDomain');
     setSubdomain(sub);
+    setLoader(false)
+  })()
   }, [country]);
 
   const loadPincodes = async () => {
@@ -251,6 +258,7 @@ const ProductTREX = (props) => {
 
   return (
     <>
+    <PageLoader loader={loader}/>
       <Navbar setCountry={setCountry} country={country}>
         {
           (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
@@ -2064,11 +2072,11 @@ const ProductTREX = (props) => {
       </section>
 
 
-      <ProductSlider />
+      <ProductSlider setCountry={setCountry} country={country} />
 
 
 
-      <Footer />
+      <Footer setCountry={setCountry} country={country} />
       <div class="book_ride_sticky d-lg-none">
         <div class="d-flex">
 

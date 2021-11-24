@@ -236,7 +236,7 @@ const Partner = (props) => {
     }
     
 
-    <Footer/>
+    <Footer setCountry={setCountry} country={country}/>
     </>
   );
 }

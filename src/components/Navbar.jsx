@@ -4,7 +4,6 @@ import axios from "axios";
 import { server, config, checkAccess } from "../env";
 import isLoggedIn from './../utils/checkLogin';
 import Cookies from 'js-cookie';
-import PageLoader from "./PageLoader";
 
 const Navbar = (props) => {
 
@@ -126,26 +125,34 @@ const Navbar = (props) => {
             setSubdomain(getsub);
             setcountryName(getsub.toUpperCase())
             setcountryflag(uaeflag)
+            props.setCountry(!props.country)
         } else if (sub == 'japan') {
             localStorage.setItem('subDomain', "japan")
             let getsub = localStorage.getItem('subDomain');
             setSubdomain(getsub);
             setcountryName(getsub.toUpperCase())
             setcountryflag(japanflag)
+            props.setCountry(!props.country)
         } else if (sub == 'nepal') {
             localStorage.setItem('subDomain', "nepal")
             let getsub = localStorage.getItem('subDomain');
             setSubdomain(getsub);
             setcountryName(getsub.toUpperCase())
             setcountryflag(nepalflag)
+            props.setCountry(!props.country)
         } else {
             localStorage.setItem('subDomain', "india")
             let getsub = localStorage.getItem('subDomain');
             setSubdomain(getsub);
             setcountryName(getsub.toUpperCase())
             setcountryflag(indiaflag)
+            props.setCountry(!props.country)
         }
 
+    }
+
+    const reloadHome = () => {
+        document.location.href = '/';
     }
 
     useEffect(() => {
@@ -173,7 +180,6 @@ const Navbar = (props) => {
 
     return (
         <div class="navbar_static">
-            {/* <PageLoader loading={loading}/> */}
             {
                 (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
                     <script type="application/ld+json">
@@ -235,7 +241,7 @@ const Navbar = (props) => {
                         <div class="collapse navbar-collapse d-none d-lg-block" id="navbarNav">
                             <ul class="navbar-nav mr-auto custm_scrl">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0)"><Link to="/">HOME</Link></a>
+                                    <a class="nav-link" onClick={reloadHome}><Link>HOME</Link></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="javascript:void(0)" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">{subdomain == 'japan' ? 'バイク' : 'THE BIKES'}</a>

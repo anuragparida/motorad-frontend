@@ -227,7 +227,7 @@ const Contact = (props) => {
     }
     
 
-    <Footer/>
+    <Footer setCountry={setCountry} country={country}/>
     </>
   );
 }

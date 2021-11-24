@@ -158,7 +158,7 @@ const Careers = (props) => {
       </div>
     </section>
 
-    <Footer/>
+    <Footer setCountry={setCountry} country={country}/>
     
     <section class="modal_section">
       <div id="exampleModal" class="modal fade" tabindex="-1">

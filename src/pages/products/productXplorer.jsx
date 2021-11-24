@@ -14,6 +14,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import { VideoScroll } from 'react-video-scroll'
 import ProductSlider from "../../components/ProductSlider";
+import PageLoader from "../../components/PageLoader";
 
 
 let images = [0, 1, 2, 3, 4];
@@ -35,6 +36,8 @@ const ProductXplorer = (props) => {
         xplorer: "",
         dolphin: ""
     });
+    const [loader, setLoader] = useState(false);
+
     const [allProducts, setAllProducts] = useState([]);
 
 
@@ -87,10 +90,12 @@ const ProductXplorer = (props) => {
     }, []);
 
     useEffect(() => {
+        (async () => {
+            setLoader(true)
         AOS.init();
-        loadProducts();
-        loadPincodes();
-        loadReviews();
+        await  loadProducts();
+        await loadPincodes();
+        await loadReviews();
         window.enterView({
             selector: "section",
             enter: function (el) {
@@ -130,6 +135,8 @@ const ProductXplorer = (props) => {
         // setSubdomain(sub);
         sub = localStorage.getItem('subDomain');
         setSubdomain(sub);
+        setLoader(false)
+    })()
     }, [country]);
 
     const loadPincodes = async () => {
@@ -214,6 +221,7 @@ const ProductXplorer = (props) => {
 
     return (
         <>
+        <PageLoader loader={loader}/>
             <Navbar setCountry={setCountry} country={country}>
                 <section class="product_menu_sec">
                     <div class="container">
@@ -1592,9 +1600,9 @@ const ProductXplorer = (props) => {
                 </div>
             </section>
 
-            <ProductSlider />         
+            <ProductSlider setCountry={setCountry} country={country} />         
 
-            <Footer />
+            <Footer setCountry={setCountry} country={country} />
             <div class="book_ride_sticky d-lg-none">
                 <div class="d-flex">
 
