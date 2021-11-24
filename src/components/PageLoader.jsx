@@ -1,6 +1,3 @@
-import { Backdrop, CircularProgress } from '@material-ui/core';
-import LinearProgress from '@mui/material/LinearProgress';
-import ReactLoading from "react-loading";
 
 
 export default function PageLoader(props) {

@@ -118,7 +118,7 @@ const Navbar = (props) => {
         let full = window.location.host
         let parts = full.split('.')
         let sub = parts[0];    
-        sub = 'uae';               
+        //sub = 'uae';               
         if(sub == 'uae') {
             localStorage.setItem('subDomain', "uae")
             let getsub = localStorage.getItem('subDomain');
