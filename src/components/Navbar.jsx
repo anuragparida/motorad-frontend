@@ -119,7 +119,7 @@ const Navbar = (props) => {
         let full = window.location.host
         let parts = full.split('.')
         let sub = parts[0];    
-        //sub = 'uae';               
+        sub = 'uae';               
         if(sub == 'uae') {
             localStorage.setItem('subDomain', "uae")
             let getsub = localStorage.getItem('subDomain');
@@ -146,6 +146,10 @@ const Navbar = (props) => {
             setcountryflag(indiaflag)
         }
 
+    }
+
+    const reloadHome = () => {
+        document.location.href = '/';
     }
 
     useEffect(() => {
@@ -235,7 +239,7 @@ const Navbar = (props) => {
                         <div class="collapse navbar-collapse d-none d-lg-block" id="navbarNav">
                             <ul class="navbar-nav mr-auto custm_scrl">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="javascript:void(0)"><Link to="/">HOME</Link></a>
+                                    <a class="nav-link" onClick={reloadHome}><Link>HOME</Link></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="javascript:void(0)" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">{subdomain == 'japan' ? 'バイク' : 'THE BIKES'}</a>
