@@ -9,6 +9,58 @@ import ProductSlider from "../../components/ProductSlider";
 
 const Test = () => {
     const [country, setCountry] = useState(true);
+    let bound,video;
+
+    const scrollVideo = ()=>{
+        console.log(video.duration);
+        if(video.duration) {
+            const distanceFromTop = window.scrollY + bound.getBoundingClientRect().top;
+            const rawPercentScrolled = (window.scrollY - distanceFromTop) / (bound.scrollHeight - window.innerHeight);
+            const percentScrolled = Math.min(Math.max(rawPercentScrolled, 0), 1);
+            
+            video.currentTime = video.duration * percentScrolled;
+        }    
+        requestAnimationFrame(scrollVideo);
+    }
+
+    const registerVideo = () => {
+        bound = document.querySelector("#innerVideo");
+        video = document.querySelector("#v0");   
+        requestAnimationFrame(scrollVideo);
+    }
+
+    const checkScroll = () => {
+        var videos = document.getElementById("v0");
+        var fraction = 0; // Play when 80% of the player is visible.
+
+        var video = videos;
+        var x = video.offsetLeft, y = video.offsetTop, w = video.offsetWidth, h = video.offsetHeight, r = x + w, //right
+            b = y + h, //bottom
+            visibleX, visibleY, visible;
+
+            visibleX = Math.max(0, Math.min(w, window.pageXOffset + window.innerWidth - x, r - window.pageXOffset));
+            visibleY = Math.max(0, Math.min(h, window.pageYOffset + window.innerHeight - y, b - window.pageYOffset));
+
+            visible = visibleX * visibleY / (w * h);
+
+            console.log("width"+video.offsetWidth);
+            console.log("visible"+visible);
+
+            if (visible > fraction) {
+                video.play();
+            } else {
+                video.pause();
+            }
+    }
+
+    useEffect(() => {
+        //window.addEventListener('scroll', checkScroll, false);
+        //window.addEventListener('resize', checkScroll, false);
+        registerVideo();
+    }, [])
+
+    
+
     return (
         <>
             <Navbar  setCountry={setCountry} country={country}>
@@ -140,14 +192,20 @@ const Test = () => {
             </div>
 
 
-            {/* <section class="product_vdo_sec" id="feat_sec">
+            <section class="product_vdo_sec" id="feat_sec">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="app">
                                 <div id="bound-two" class="scroll-bound">
-                                    <div class="content">
-                                        <video id="v0" tabindex="0" autobuffer muted preload>
+                                    
+                                    <div id="innerVideo" className="content" dangerouslySetInnerHTML={{
+                                            __html: `<video id="v0" tabindex="0" autobuffer  muted preload>
+                                                
+                                                <source src=images/3D-Renders/Doodle-Mobile-FFMpeg.mp4 type="video/mp4"  class="d-lg-none" />
+                                                </video>`,
+                                    }} /> 
+                                        {/* <video id="v0" tabindex="0" autobuffer muted preload>
                                             <source
                                                 src="images/3D-Renders/T-Rex-Full-FFMpeg.mp4"
                                                 type="video/mp4"
@@ -157,14 +215,13 @@ const Test = () => {
                                                 type="video/mp4"
                                                 class="d-lg-none"
                                             />
-                                        </video>
-                                    </div>
+                                        </video> */}
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section> */}
+            </section>
 
 
 
