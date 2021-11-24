@@ -653,7 +653,7 @@ const Cart = (props) => {
     </>
   }
     
-    <Footer/>
+    <Footer setCountry={setCountry} country={country}/>
     <section class="modal_section_2">
       <div
         class="modal fade"

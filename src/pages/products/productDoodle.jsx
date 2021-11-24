@@ -9,10 +9,12 @@ import isLoggedIn from './../../utils/checkLogin';
 // import ScriptTag from 'react-script-tag';
 import classnames from "classnames";
 import { Link } from 'react-router-dom';
-
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import ProductSlider from "../../components/ProductSlider";
+import PageLoader from "../../components/PageLoader";
+
+
 
 let images = [0, 1, 2, 3, 4];
 
@@ -34,6 +36,9 @@ const ProductDOODLE = (props) => {
     trible: "",
   });
   const [allProducts, setAllProducts] = useState([]);
+  const [loader, setLoader] = useState(false);
+
+
 
   const articleStructuredData = {
     "@context": "https://schema.org/",
@@ -100,10 +105,13 @@ const ProductDOODLE = (props) => {
   }, []);
 
   useEffect(() => {
+    (async () => {
+    
+    setLoader(true)
     AOS.init();
-    loadProducts();
-    loadPincodes();
-    loadReviews();
+   await loadProducts();
+   await  loadPincodes();
+   await loadReviews();
     window.enterView({
       selector: "section",
       enter: function (el) {
@@ -137,6 +145,8 @@ const ProductDOODLE = (props) => {
     // sub = 'uae';
     sub = localStorage.getItem('subDomain');
     setSubdomain(sub);
+    setLoader(false)
+  })()
   }, [!country]);
 
   const loadPincodes = async () => {
@@ -153,6 +163,7 @@ const ProductDOODLE = (props) => {
   }
 
   const loadProducts = async () => {
+    // setLoader(true)
     await axios
       .get(server + "/api/product/read", config)
       .then((rsp) => {
@@ -186,9 +197,12 @@ const ProductDOODLE = (props) => {
               emx: 0,
             })
           }
+          // setLoader(false)
+
 
         }
         else {
+          // setLoader(false)
           //   setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
           //   setProductID(1);
           alert("Products not set correctly. Please Contact Admin.");
@@ -237,6 +251,8 @@ const ProductDOODLE = (props) => {
 
   return (
     <>
+
+      <PageLoader loader={loader} />
       <Navbar setCountry={setCountry} country={country}>
 
         {
@@ -432,28 +448,28 @@ const ProductDOODLE = (props) => {
               </div>
             </div>
           </section>
-          :""
-          // <section class="product_vdo_sec" id="feat_sec">
-          //   <div class="container">
-          //     <div class="row">
-          //       <div class="col-lg-12">
-          //         <div class="app">
-          //           <div id="bound-two" class="scroll-bound">
-          //             <div class="content">
-          //               <video id="v0" tabindex="0" autobuffer muted preload>
-          //                 <source
-          //                   src="images/3D-Renders/Doodle-Mobile-FFMpeg.mp4"
-          //                   type="video/mp4"
-          //                   class="d-lg-none"
-          //                 />
-          //               </video>
-          //             </div>
-          //           </div>
-          //         </div>
-          //       </div>
-          //     </div>
-          //   </div>
-          // </section>
+          : ""
+        // <section class="product_vdo_sec" id="feat_sec">
+        //   <div class="container">
+        //     <div class="row">
+        //       <div class="col-lg-12">
+        //         <div class="app">
+        //           <div id="bound-two" class="scroll-bound">
+        //             <div class="content">
+        //               <video id="v0" tabindex="0" autobuffer muted preload>
+        //                 <source
+        //                   src="images/3D-Renders/Doodle-Mobile-FFMpeg.mp4"
+        //                   type="video/mp4"
+        //                   class="d-lg-none"
+        //                 />
+        //               </video>
+        //             </div>
+        //           </div>
+        //         </div>
+        //       </div>
+        //     </div>
+        //   </div>
+        // </section>
       }
 
       {/* <section class="product_vdo_sec" id="feat_sec" style={{ display: 'none' }}>
@@ -2011,19 +2027,19 @@ const ProductDOODLE = (props) => {
       </section>
 
       <ProductSlider country={country} />
-      <Footer />
+      <Footer setCountry={setCountry} country={country} />
       <div class="book_ride_sticky d-lg-none">
         <div class="d-flex">
 
-          <a href="javascript:void(0)" onClick={addToCart}><p>   
-                {
-            (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
-              'Rs '
-              : (subdomain == 'uae') ?
-                'AED '
-                :
+          <a href="javascript:void(0)" onClick={addToCart}><p>
+            {
+              (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
                 'Rs '
-          } {productPrice.doodle.toLocaleString()}</p> BUY NOW</a>
+                : (subdomain == 'uae') ?
+                  'AED '
+                  :
+                  'Rs '
+            } {productPrice.doodle.toLocaleString()}</p> BUY NOW</a>
         </div>
       </div>
       <a href="#" class="back-top-btn d-none d-lg-block">

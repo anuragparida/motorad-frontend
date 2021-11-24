@@ -13,6 +13,7 @@ import { Link } from 'react-router-dom';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import ProductSlider from "../../components/ProductSlider";
+import PageLoader from "../../components/PageLoader";
 
 
 let images = [0, 1, 2, 3, 4];
@@ -37,6 +38,8 @@ const ProductTrible = (props) => {
     energ: "",
     trible: "",
   });
+  const [loader, setLoader] = useState(false);
+
 
 
   const [visibleImagesMap, setVisibleImagesMap] = useState(
@@ -86,10 +89,12 @@ const ProductTrible = (props) => {
   }, []);
 
   useEffect(() => {
+    (async () => {
+      setLoader(true)
     AOS.init();
-    loadProducts();
-    loadPincodes();
-    loadReviews();
+   await loadProducts();
+   await  loadPincodes();
+   await  loadReviews();
     window.enterView({
       selector: "section",
       enter: function (el) {
@@ -124,6 +129,8 @@ const ProductTrible = (props) => {
     // setSubdomain(sub);
     sub = localStorage.getItem('subDomain');
     setSubdomain(sub);
+    setLoader(false)
+  })()
   }, [country]);
 
   const loadPincodes = async () => {
@@ -227,6 +234,7 @@ const ProductTrible = (props) => {
 
   return (
     <>
+    <PageLoader loader={loader}/>
       <Navbar setCountry={setCountry} country={country}>
         <section class="product_menu_sec">
           <div class="container">
@@ -2021,11 +2029,11 @@ const ProductTrible = (props) => {
         </div>
       </section>
       
-      <ProductSlider />
+      <ProductSlider setCountry={setCountry} country={country} />
 
       
       
-      <Footer />
+      <Footer setCountry={setCountry} country={country} />
       <div class="book_ride_sticky d-lg-none">
         <div class="d-flex">
 

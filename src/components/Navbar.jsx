@@ -4,7 +4,6 @@ import axios from "axios";
 import { server, config, checkAccess } from "../env";
 import isLoggedIn from './../utils/checkLogin';
 import Cookies from 'js-cookie';
-import PageLoader from "./PageLoader";
 
 const Navbar = (props) => {
 
@@ -126,24 +125,28 @@ const Navbar = (props) => {
             setSubdomain(getsub);
             setcountryName(getsub.toUpperCase())
             setcountryflag(uaeflag)
+            props.setCountry(!props.country)
         } else if (sub == 'japan') {
             localStorage.setItem('subDomain', "japan")
             let getsub = localStorage.getItem('subDomain');
             setSubdomain(getsub);
             setcountryName(getsub.toUpperCase())
             setcountryflag(japanflag)
+            props.setCountry(!props.country)
         } else if (sub == 'nepal') {
             localStorage.setItem('subDomain', "nepal")
             let getsub = localStorage.getItem('subDomain');
             setSubdomain(getsub);
             setcountryName(getsub.toUpperCase())
             setcountryflag(nepalflag)
+            props.setCountry(!props.country)
         } else {
             localStorage.setItem('subDomain', "india")
             let getsub = localStorage.getItem('subDomain');
             setSubdomain(getsub);
             setcountryName(getsub.toUpperCase())
             setcountryflag(indiaflag)
+            props.setCountry(!props.country)
         }
 
     }
@@ -177,7 +180,6 @@ const Navbar = (props) => {
 
     return (
         <div class="navbar_static">
-            {/* <PageLoader loading={loading}/> */}
             {
                 (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
                     <script type="application/ld+json">
