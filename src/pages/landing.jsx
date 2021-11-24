@@ -105,7 +105,7 @@ const Landing = (props) => {
             // sub = 'uae';
             sub = localStorage.getItem('subDomain');
             setSubdomain(sub);
-            setLoader(false)
+            //setLoader(false)
         })()
 
 
