@@ -35,7 +35,7 @@ const OrderSuccess = (props) => {
       </div>
     </section>
     
-    <Footer/>
+    <Footer setCountry={setCountry} country={country}/>
     </>
   );
 }

@@ -597,7 +597,7 @@ const AllProducts = (props) => {
         </div>
       </div>
     </section>
-    <Footer/>
+    <Footer setCountry={setCountry} country={country}/>
     </>
   );
 }

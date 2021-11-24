@@ -7,6 +7,7 @@ import { server, config, checkAccess } from "../env";
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import ProductSlider  from '../components/ProductSlider'
+import PageLoader from "../components/PageLoader";
 
 const BookRide = (props) => {
 
@@ -30,6 +31,7 @@ const BookRide = (props) => {
     });
 
     const [bike, setBike] = useState('');
+    const [loader, setLoader] = useState(false);
 
     const loadProducts = async () => {
         console.log(server)
@@ -90,12 +92,16 @@ const BookRide = (props) => {
     }
 
     useEffect(() => {
-        //AOS.init();
+        (async () => {
+            setLoader(true)
+        AOS.init();
         if (city)
             loadStores(city);
         let sub = localStorage.getItem('subDomain');
         setSubdomain(sub);
-        loadProducts()
+       await loadProducts()
+        setLoader(false)
+    })()
     }, [city, country]);
 
     useEffect(() => {
@@ -194,6 +200,7 @@ const BookRide = (props) => {
 
     return (
         <>
+        <PageLoader loader={loader} />
             <Navbar setCountry={setCountry} country={country} />
             <MobileNavbar />
             <section class="emi_hero_section">
@@ -1121,9 +1128,9 @@ const BookRide = (props) => {
                 </div>
             </section>
 
-            <ProductSlider />
+            <ProductSlider setCountry={setCountry} country={country} />
 
-            <Footer />
+            <Footer setCountry={setCountry} country={country} />
         </>
     );
 }

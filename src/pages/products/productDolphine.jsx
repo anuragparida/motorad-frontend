@@ -14,6 +14,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import { VideoScroll } from 'react-video-scroll'
 import ProductSlider from "../../components/ProductSlider";
+import PageLoader from "../../components/PageLoader";
 
 
 let images = [0, 1, 2, 3, 4];
@@ -36,6 +37,8 @@ const ProductDolphin = (props) => {
         dolphin: ""
     });
     const [allProducts, setAllProducts] = useState([]);
+    const [loader, setLoader] = useState(false);
+
 
 
 
@@ -87,49 +90,53 @@ const ProductDolphin = (props) => {
     }, []);
 
     useEffect(() => {
-        AOS.init();
-        loadProducts();
-        loadPincodes();
-        loadReviews();
-        window.enterView({
-            selector: "section",
-            enter: function (el) {
-                el.classList.add("entered");
-            },
-        });
+        (async () => {
+            setLoader(true)
+            AOS.init();
+            await loadProducts();
+            await loadPincodes();
+            await loadReviews();
+            window.enterView({
+                selector: "section",
+                enter: function (el) {
+                    el.classList.add("entered");
+                },
+            });
 
-        var frameNumber = 0,
-            playbackConst = 100,
-            vid = document.getElementById("v0");
-        function scrollPlay() {
-            var frameNumber = window.pageYOffset / playbackConst;
-            // console.log(vid);
-            if (vid != null) {
-                vid.currentTime = frameNumber;
-                window.requestAnimationFrame(scrollPlay);
+            var frameNumber = 0,
+                playbackConst = 100,
+                vid = document.getElementById("v0");
+            function scrollPlay() {
+                var frameNumber = window.pageYOffset / playbackConst;
+                // console.log(vid);
+                if (vid != null) {
+                    vid.currentTime = frameNumber;
+                    window.requestAnimationFrame(scrollPlay);
+                }
             }
-        }
-        window.requestAnimationFrame(scrollPlay);
+            window.requestAnimationFrame(scrollPlay);
 
-        if (
-            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Phone/i.test(
-                navigator.userAgent
-            )
-        ) {
-            setDeviceType("Mobile");
-        } else {
-            setDeviceType("Desktop");
-        }
+            if (
+                /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Windows Phone/i.test(
+                    navigator.userAgent
+                )
+            ) {
+                setDeviceType("Mobile");
+            } else {
+                setDeviceType("Desktop");
+            }
 
-        let full = window.location.host
-        let parts = full.split('.')
-        let sub = parts[0]
-        // if(sub == 'http://localhost:3000') {
-        //     sub = '';
-        // }
-        // setSubdomain(sub);
-        sub = localStorage.getItem('subDomain');
-        setSubdomain(sub);
+            let full = window.location.host
+            let parts = full.split('.')
+            let sub = parts[0]
+            // if(sub == 'http://localhost:3000') {
+            //     sub = '';
+            // }
+            // setSubdomain(sub);
+            sub = localStorage.getItem('subDomain');
+            setSubdomain(sub);
+            setLoader(false)
+        })()
     }, [country]);
 
     const loadPincodes = async () => {
@@ -222,6 +229,7 @@ const ProductDolphin = (props) => {
 
     return (
         <>
+            <PageLoader loader={loader} />
             <Navbar setCountry={setCountry} country={country}>
                 <section class="product_menu_sec">
                     <div class="container">
@@ -398,46 +406,46 @@ const ProductDolphin = (props) => {
                             </div>
                         </div>
                     </section>
-                    :""
-                    // <section class="product_vdo_sec" id="feat_sec">
+                    : ""
+                // <section class="product_vdo_sec" id="feat_sec">
 
-                    //     <div class="container">
-                    //         <div class="row">
-                    //             <div class="col-lg-12">
-                    //                 <div class="app">
-                    //                     <div id="bound-two" class="scroll-bound">
-                    //                         <div class="content">
-                    //                             <video id="v0" tabindex="0" autobuffer muted preload>
-                    //                                 <source
-                    //                                     src="images/Japan/XPLORER/Xplorer-Mobile.mp4"
-                    //                                     type="video/mp4"
-                    //                                     class="d-lg-none"
-                    //                                 />
-                    //                             </video>
-                    //                             {/* <VideoScroll
-                    //                                 onLoad={props =>
-                    //                                     setStyles(props.wrapperEl, props.videoEl, props.playbackRate)
-                    //                                 }
-                    //                                 playbackRate={200}
-                    //                                 style={{ position: 'relative' }}
-                    //                                 >
-                    //                                 <video
-                    //                                     tabIndex="0"
-                    //                                     autobuffer="autobuffer"
-                    //                                     preload="preload"
-                    //                                     style={{ width: '100%', objectFit: 'contain' }}
-                    //                                     playsInline
-                    //                                 >
-                    //                                     <source type="video/mp4" src="images/uae/ENERG/EnerG-Mobile.mp4" />
-                    //                                 </video>
-                    //                             </VideoScroll> */}
-                    //                         </div>
-                    //                     </div>
-                    //                 </div>
-                    //             </div>
-                    //         </div>
-                    //     </div>
-                    // </section>
+                //     <div class="container">
+                //         <div class="row">
+                //             <div class="col-lg-12">
+                //                 <div class="app">
+                //                     <div id="bound-two" class="scroll-bound">
+                //                         <div class="content">
+                //                             <video id="v0" tabindex="0" autobuffer muted preload>
+                //                                 <source
+                //                                     src="images/Japan/XPLORER/Xplorer-Mobile.mp4"
+                //                                     type="video/mp4"
+                //                                     class="d-lg-none"
+                //                                 />
+                //                             </video>
+                //                             {/* <VideoScroll
+                //                                 onLoad={props =>
+                //                                     setStyles(props.wrapperEl, props.videoEl, props.playbackRate)
+                //                                 }
+                //                                 playbackRate={200}
+                //                                 style={{ position: 'relative' }}
+                //                                 >
+                //                                 <video
+                //                                     tabIndex="0"
+                //                                     autobuffer="autobuffer"
+                //                                     preload="preload"
+                //                                     style={{ width: '100%', objectFit: 'contain' }}
+                //                                     playsInline
+                //                                 >
+                //                                     <source type="video/mp4" src="images/uae/ENERG/EnerG-Mobile.mp4" />
+                //                                 </video>
+                //                             </VideoScroll> */}
+                //                         </div>
+                //                     </div>
+                //                 </div>
+                //             </div>
+                //         </div>
+                //     </div>
+                // </section>
 
             }
 
@@ -1596,9 +1604,9 @@ const ProductDolphin = (props) => {
                 </div>
             </section>
 
-            <ProductSlider />
+            <ProductSlider setCountry={setCountry} country={country} />
 
-            <Footer />
+            <Footer setCountry={setCountry} country={country} />
             <div class="book_ride_sticky d-lg-none">
                 <div class="d-flex">
 

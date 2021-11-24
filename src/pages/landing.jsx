@@ -9,6 +9,8 @@ import axios from "axios";
 import { server, config, checkAccess } from "../env";
 import WhattsApp from "../components/WhattsApp";
 import ProductSlider from "../components/ProductSlider";
+import PageLoader from "../components/PageLoader";
+
 // import Slider from "react-slick";
 
 // import Slider from "react-slick";
@@ -20,6 +22,7 @@ const Landing = (props) => {
     const [country, setCountry] = useState(true);
     const [products, setProducts] = useState([]);
     const [productID, setProductID] = useState("");
+    const [loader, setLoader] = useState(true);
     const [productPrice, setProductPrice] = useState({
         trex: "",
         emx: "",
@@ -34,6 +37,7 @@ const Landing = (props) => {
 
     const loadProducts = async () => {
         console.log(server)
+        // setLoader(true)
         await axios
             .get(server + "/api/product/read", config)
             .then((rsp) => {
@@ -76,9 +80,10 @@ const Landing = (props) => {
 
                         })
                     }
-
+                    // setLoader(false);
                 }
                 else {
+                    // setLoader(false);
                     //   setProducts([{color: "green", id: 1}, {color: "black", id: 2}])
                     //   setProductID(1);
                     alert("Products not set correctly. Please Contact Admin.");
@@ -89,15 +94,21 @@ const Landing = (props) => {
                 console.error(err);
             });
     }
-    useEffect(() => {
-        AOS.init();
-        loadProducts()
-        let full = window.location.host
-        let parts = full.split('.')
-        let sub = parts[0]
-        // sub = 'uae';
-        sub = localStorage.getItem('subDomain');
-        setSubdomain(sub);
+    useEffect( () => {
+        (async () => {
+            setLoader(true)
+            AOS.init();
+            await loadProducts()
+            let full = window.location.host
+            let parts = full.split('.')
+            let sub = parts[0]
+            // sub = 'uae';
+            sub = localStorage.getItem('subDomain');
+            setSubdomain(sub);
+            setLoader(false)
+        })()
+
+
         // setSubdomain(sub);
 
     }, [country]);
@@ -111,35 +122,36 @@ const Landing = (props) => {
         slidesToScroll: 4,
         initialSlide: 0,
         responsive: [
-          {
-            breakpoint: 1024,
-            settings: {
-              slidesToShow: 3,
-              slidesToScroll: 3,
-              infinite: true,
-              dots: true
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
             }
-          },
-          {
-            breakpoint: 600,
-            settings: {
-              slidesToShow: 2,
-              slidesToScroll: 2,
-              initialSlide: 2
-            }
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1
-            }
-          }
         ]
-      };
+    };
 
     return (
         <>
+            <PageLoader loader={loader} />
             <Navbar setCountry={setCountry} country={country} />
             <MobileNavbar />
 
@@ -290,7 +302,7 @@ const Landing = (props) => {
                                                 <div class="home_hero_bike_title">
                                                     <h3 class="text-outline text-outline-hover" data-text="DOLPHIN">DOLPHIN</h3>
                                                 </div>
-                                            </div>      
+                                            </div>
                                         </>
                                         :
                                         <>
@@ -1353,7 +1365,7 @@ const Landing = (props) => {
                                 <div class="media">
                                     <div class="media-body">
                                         <h6>Awarded <span>Most <br /> Admirable EV Brand</span> 2021</h6>
-                                    </div>    
+                                    </div>
                                     <img src="images/trophy_icon.svg" alt="a" class="img-fluid" />
                                 </div>
                             </div>
@@ -1406,7 +1418,7 @@ const Landing = (props) => {
 
                             </div>
                         </div>
-                        <div class="col-lg-12" style={{ display : 'none' }}>
+                        <div class="col-lg-12" style={{ display: 'none' }}>
                             <div class="all_brandss" data-aos="zoom-in-up" data-aos-duration="2000">
                                 <a href="#">
                                     <img src="images/carnbike.svg" alt="a" class="img-fluid" />
@@ -1535,7 +1547,7 @@ const Landing = (props) => {
                                                     {products.
                                                         filter(prod => prod.name.toLowerCase().includes("emx")).map(prod => (
 
-                                                          <i class="fa fa-circle" style={{ "color": prod.color }}>  &nbsp;</i>
+                                                            <i class="fa fa-circle" style={{ "color": prod.color }}>  &nbsp;</i>
 
                                                         ))}
                                                 </td>
@@ -1601,7 +1613,7 @@ const Landing = (props) => {
                         </div>
                         : (subdomain == 'uae') ?
                             <div class="row expo_bike_slider">
-                    
+
                                 <div class="col-lg-3">
                                     <Link to="/trex">
                                         <div class="bike_explore_wrap">
@@ -1808,167 +1820,167 @@ const Landing = (props) => {
                                     </Link>
                                 </div>
                                 {/* </Slider> */}
-                            </div>   
+                            </div>
                             : (subdomain == 'japan') ?
-                                    <div class="row expo_bike_slider">
+                                <div class="row expo_bike_slider">
 
-                                        <div class="col-lg-4">
-                                            <Link to="/xplorer">
-                                                <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                                                    <img src="images/Japan/Bottom-Bikes/Xplorer.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
+                                    <div class="col-lg-4">
+                                        <Link to="/xplorer">
+                                            <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                                                <img src="images/Japan/Bottom-Bikes/Xplorer.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
-                                                    <h3>XPLORER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+                                                <h3>XPLORER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
-                                                    <h5>FEATURES</h5>
-                                                    <table>
-                                                        <tr>
-                                                            <td>RANGE</td>
-                                                            <td>120 Kms</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>SPEED (MAX)</td>
-                                                            <td>25Km/hr</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BRAKES</td>
-                                                            <td>Mechanic Disc Brake</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BATTERY</td>
-                                                            <td>48 Volts</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>CAPACITY</td>
-                                                            <td>15 Ah</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Starting From</td>
-                                                            <td>Colors</td>
-                                                        </tr>
+                                                <h5>FEATURES</h5>
+                                                <table>
+                                                    <tr>
+                                                        <td>RANGE</td>
+                                                        <td>120 Kms</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>SPEED (MAX)</td>
+                                                        <td>25Km/hr</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BRAKES</td>
+                                                        <td>Mechanic Disc Brake</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BATTERY</td>
+                                                        <td>48 Volts</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>CAPACITY</td>
+                                                        <td>15 Ah</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Starting From</td>
+                                                        <td>Colors</td>
+                                                    </tr>
 
-                                                        <tr>
-                                                            <td>YEN {productPrice.xplorer.toLocaleString()}</td>
-                                                            <td>
-                                                                {products.
-                                                                    filter(prod => prod.name.toLowerCase().includes("xplorer")).map(prod => (
+                                                    <tr>
+                                                        <td>YEN {productPrice.xplorer.toLocaleString()}</td>
+                                                        <td>
+                                                            {products.
+                                                                filter(prod => prod.name.toLowerCase().includes("xplorer")).map(prod => (
 
-                                                                        <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
+                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
-                                                                    ))}
-                                                            </td>
-                                                        </tr>
-                                                    </table>
-                                                    <div class="explore_bttn row mx-auto">
-                                                        <Link to="/xplorer">今すぐ購入</Link>
-                                                    </div>
+                                                                ))}
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <div class="explore_bttn row mx-auto">
+                                                    <Link to="/xplorer">今すぐ購入</Link>
                                                 </div>
-                                            </Link>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <Link to="/glyder">
-                                                <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                                                    <img src="images/Japan/Bottom-Bikes/Glyder.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
+                                            </div>
+                                        </Link>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <Link to="/glyder">
+                                            <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                                                <img src="images/Japan/Bottom-Bikes/Glyder.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
-                                                    <h3>GLYDER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+                                                <h3>GLYDER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
-                                                    <h5>FEATURES</h5>
-                                                    <table>
-                                                        <tr>
-                                                            <td>RANGE</td>
-                                                            <td>80 Kms</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>SPEED (MAX)</td>
-                                                            <td>25Km/hr</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BRAKES</td>
-                                                            <td>Mechanic Disc Brake <small>JAK F&R</small></td>
+                                                <h5>FEATURES</h5>
+                                                <table>
+                                                    <tr>
+                                                        <td>RANGE</td>
+                                                        <td>80 Kms</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>SPEED (MAX)</td>
+                                                        <td>25Km/hr</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BRAKES</td>
+                                                        <td>Mechanic Disc Brake <small>JAK F&R</small></td>
 
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BATTERY</td>
-                                                            <td>36 Volts</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>CAPACITY</td>
-                                                            <td>14 Ah</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Starting From</td>
-                                                            <td>Colors</td>
-                                                        </tr>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BATTERY</td>
+                                                        <td>36 Volts</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>CAPACITY</td>
+                                                        <td>14 Ah</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Starting From</td>
+                                                        <td>Colors</td>
+                                                    </tr>
 
-                                                        <tr>
-                                                            <td>YEN {productPrice.glyder.toLocaleString()}</td>
-                                                            <td>
+                                                    <tr>
+                                                        <td>YEN {productPrice.glyder.toLocaleString()}</td>
+                                                        <td>
                                                             {products.
                                                                 filter(prod => prod.name.toLowerCase().includes("glyder")).map(prod => (
 
                                                                     <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                                 ))}
-                                                                </td>
-                                                        </tr>
-                                                    </table>
-                                                    <div class="explore_bttn row mx-auto">
-                                                        <Link to="/glyder">今すぐ購入</Link>
-                                                    </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <div class="explore_bttn row mx-auto">
+                                                    <Link to="/glyder">今すぐ購入</Link>
                                                 </div>
-                                            </Link>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <Link to="/dolphine">
-                                                <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
-                                                    <img src="images/Japan/Bottom-Bikes/Dolphin.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
+                                            </div>
+                                        </Link>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <Link to="/dolphine">
+                                            <div class="bike_explore_wrap" data-aos="zoom-in-up" data-aos-duration="2000">
+                                                <img src="images/Japan/Bottom-Bikes/Dolphin.png" alt="a" class="img-fluid" style={{ width: "185px" }} />
 
-                                                    <h3>DOLPHIN <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
+                                                <h3>DOLPHIN <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></h3>
 
-                                                    <h5>FEATURES</h5>
-                                                    <table>
-                                                        <tr>
-                                                            <td>RANGE</td>
-                                                            <td>45+ Kms</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>SPEED (MAX)</td>
-                                                            <td>25Km/hr</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BRAKES</td>
-                                                            <td>Dual Disc</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>BATTERY</td>
-                                                            <td>36 Volts</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>CAPACITY</td>
-                                                            <td>7.5 Ah</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>Starting From</td>
-                                                            <td>Colors</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td>YEN {productPrice.dolphin.toLocaleString()}</td>
-                                                            <td>
+                                                <h5>FEATURES</h5>
+                                                <table>
+                                                    <tr>
+                                                        <td>RANGE</td>
+                                                        <td>45+ Kms</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>SPEED (MAX)</td>
+                                                        <td>25Km/hr</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BRAKES</td>
+                                                        <td>Dual Disc</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>BATTERY</td>
+                                                        <td>36 Volts</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>CAPACITY</td>
+                                                        <td>7.5 Ah</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Starting From</td>
+                                                        <td>Colors</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>YEN {productPrice.dolphin.toLocaleString()}</td>
+                                                        <td>
                                                             {products.
                                                                 filter(prod => prod.name.toLowerCase().includes("dolphin")).map(prod => (
 
                                                                     <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
 
                                                                 ))}
-                                                                </td>
-                                                        </tr>
-                                                    </table>
-                                                    <div class="explore_bttn row mx-auto">
-                                                        <Link to="/dolphine">今すぐ購入</Link>
-                                                    </div>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                                <div class="explore_bttn row mx-auto">
+                                                    <Link to="/dolphine">今すぐ購入</Link>
                                                 </div>
-                                            </Link>
-                                        </div>
+                                            </div>
+                                        </Link>
                                     </div>
+                                </div>
                                 :
                                 <div class="row  expo_bike_slider">
                                     <div class="col-lg-4">
@@ -2108,9 +2120,9 @@ const Landing = (props) => {
                 </div>
             </section>
 
-            <ProductSlider />
+            <ProductSlider setCountry={setCountry} country={country} />
 
-            <Footer />
+            <Footer setCountry={setCountry} country={country} />
             {/* <WhattsApp/> */}
             <div class="book_ride_sticky d-lg-none">
                 <a href="/book">BOOK A TEST RIDE</a>
