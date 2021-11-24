@@ -151,7 +151,7 @@ const Landing = (props) => {
 
     return (
         <>
-            <PageLoader loader={loader} />
+            <PageLoader loader={loader}  />
             <Navbar setCountry={setCountry} country={country} />
             <MobileNavbar />
 
