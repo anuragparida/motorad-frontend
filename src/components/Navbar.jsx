@@ -118,35 +118,35 @@ const Navbar = (props) => {
         let full = window.location.host
         let parts = full.split('.')
         let sub = parts[0];    
-        //sub = 'uae';               
+        //sub = 'uae';                  
         if(sub == 'uae') {
             localStorage.setItem('subDomain', "uae")
             let getsub = localStorage.getItem('subDomain');
             setSubdomain(getsub);
             setcountryName(getsub.toUpperCase())
             setcountryflag(uaeflag)
-            props.setCountry(!props.country)
+            //props.setCountry(!props.country)
         } else if (sub == 'japan') {
             localStorage.setItem('subDomain', "japan")
             let getsub = localStorage.getItem('subDomain');
             setSubdomain(getsub);
             setcountryName(getsub.toUpperCase())
             setcountryflag(japanflag)
-            props.setCountry(!props.country)
+            //props.setCountry(!props.country)
         } else if (sub == 'nepal') {
             localStorage.setItem('subDomain', "nepal")
             let getsub = localStorage.getItem('subDomain');
             setSubdomain(getsub);
             setcountryName(getsub.toUpperCase())
             setcountryflag(nepalflag)
-            props.setCountry(!props.country)
+            //props.setCountry(!props.country)
         } else {
             localStorage.setItem('subDomain', "india")
             let getsub = localStorage.getItem('subDomain');
             setSubdomain(getsub);
             setcountryName(getsub.toUpperCase())
             setcountryflag(indiaflag)
-            props.setCountry(!props.country)
+            //props.setCountry(!props.country)
         }
 
     }
