@@ -19,20 +19,38 @@ const Warranty = (props) => {
     formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
   }
 
+  const domain = localStorage.getItem('subDomain');
+
   const loadProducts = async() => {
     await axios
       .get(server + "/api/product/read")
       .then((rsp) => {
         console.log(rsp);
-        const filteredDoodle = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"));
-        const filteredEmx = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"));
-        const filteredTrex = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"));
-        if (filteredTrex.length > 0 && filteredEmx.length > 0 && filteredDoodle.length > 0) {
-          console.log("filter", filteredDoodle, filteredEmx, filteredTrex);
-          setProducts([filteredTrex[0].id, filteredEmx[0].id, filteredDoodle[0].id]);
-        }
-        else {
-          alert("Products not set correctly. Please Contact Admin.");
+        if (domain == 'nepal' || domain == 'india' || domain == '') {
+            const filteredDoodle = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"));
+            const filteredEmx = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"));
+            const filteredTrex = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"));
+            if (filteredTrex.length > 0 && filteredEmx.length > 0 && filteredDoodle.length > 0) {
+            console.log("filter", filteredDoodle, filteredEmx, filteredTrex);
+            setProducts([filteredTrex[0].id, filteredEmx[0].id, filteredDoodle[0].id]);
+            }
+        } else if (domain == 'uae') {
+            const filteredTrex = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"));
+            const filteredTrible = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("trible"));
+            const filteredDoodle = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"));
+            const filteredEnerg = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("ener g"));
+            if (filteredTrex.length > 0 && filteredTrible.length > 0 && filteredDoodle.length > 0 && filteredEnerg.length > 0) {
+                console.log("filter", filteredDoodle, filteredTrex, filteredTrible, filteredEnerg);
+                setProducts([filteredTrex[0].id, filteredTrible[0].id, filteredDoodle[0].id], filteredEnerg[0].id);
+            }
+        } else if (domain == 'japan') {
+            const filteredXplorer = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("xplorer"));
+            const filteredGlyder = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("glyder"));
+            const filteredDolphin = rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("dolphin"));
+            if (filteredXplorer.length > 0 && filteredGlyder.length > 0 && filteredDolphin.length > 0) {
+                console.log("filter", filteredXplorer, filteredGlyder, filteredDolphin);
+                setProducts([filteredXplorer[0].id, filteredGlyder[0].id, filteredDolphin[0].id]);
+            }
         }
       })
       .catch((err) => {
@@ -62,7 +80,13 @@ const Warranty = (props) => {
       .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
 
       params.dealerType = dealerType;
-      params.bike = params.bike === "trex" ? products[0] : params.bike === "emx" ? products[1] : products[2];
+      if (domain == 'nepal' || domain == 'india' || domain == '') {
+        params.bike = params.bike === "trex" ? products[0] : params.bike === "emx" ? products[1] : products[2];
+      } else if (domain == 'uae') {
+        params.bike = params.bike === "TREX" ? products[0] : params.bike === "TRIBLE" ? products[1] ? products[0] : params.bike === "DOODLE" : products[3];
+      } else if (domain == 'japan') {
+        params.bike = params.bike === "XPLORER" ? products[0] : params.bike === "GLYDER" ? products[1] : products[2];
+      }
 
       delete params.invoice;
 
@@ -184,9 +208,29 @@ const Warranty = (props) => {
                                      <div class="form-group">
                                          <label for="">Select A Bike</label>
                                          <select name="bike" class="form-control" required>
-                                             <option value="trex">T-REX</option>
-                                             <option value="emx">EMX</option>
-                                             <option value="doodle">DOODLE</option>
+                                            { 
+                                                (domain == 'nepal' || domain == 'india' || domain == '') ?
+                                                    <>
+                                                        <option value="trex">T-REX</option>
+                                                        <option value="emx">EMX</option>
+                                                        <option value="doodle">DOODLE</option>
+                                                    </>
+                                                : (domain == 'uae') ?    
+                                                    <>
+                                                        <option value="TREX">TREX</option>
+                                                        <option value="ENERG">ENERG</option>
+                                                        <option value="DOODLE">DOODLE</option>
+                                                        <option value="TRIBLE">TRIBLE</option>
+                                                    </>
+                                                : (domain == 'japan') ?        
+                                                    <>
+                                                        <option value="XPLORER">XPLORER</option>
+                                                        <option value="GLYDER">GLYDER</option>
+                                                        <option value="DOLPHIN">DOLPHIN</option>
+                                                    </>
+                                                :
+                                                ''    
+                                            }
                                          </select>
                                      </div>
                                 </div>
@@ -243,7 +287,8 @@ const Warranty = (props) => {
                                     <div class="col-lg-6">
                                         <div class="form-group">
                                             <label for="">Select Store</label>
-                                            <select name="dealerName" id="" class="form-control" defaultValue="Balaji">
+                                            <select name="dealerName" id="" class="form-control" defaultValue="">
+                                                <option value="">Select Store</option>
                                                 {
                                                 ["Amazon", "Flipkart"].map(x=><option value={x}>{x}</option>)
                                                 }

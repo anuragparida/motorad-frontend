@@ -488,9 +488,8 @@ export default function ProductSlider(props) {
                                                     <td>
                                                         {allproducts.
                                                             filter(prod => prod.name.toLowerCase().includes("doodle")).map(prod => (
-
-                                                                <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
-
+                                                                // <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
+                                                                <span class="dot" id={prod.color} style={{ "backgroundColor": prod.color == 'light-green' ? 'green' : prod.color ,"display":"inline-block","padding":"7px","margin": '2px',"borderColor":prod.color == 'light-green' ? 'green' : prod.color }}>&nbsp;</span>
                                                             ))}
                                                     </td>
                                                 </tr>
@@ -595,7 +594,8 @@ export default function ProductSlider(props) {
                                                             {allproducts.
                                                                 filter(prod => prod.name.toLowerCase().includes("xplorer")).map(prod => (
 
-                                                                    <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
+                                                                    // <i class="fa fa-circle" style={{ "color": prod.color }}>&nbsp;</i>
+                                                                    <span class="dot" id={prod.color} style={{ "backgroundColor": prod.color == 'light-green' ? 'green' : prod.color ,"display":"inline-block","padding":"7px","margin": '2px',"borderColor":prod.color == 'white' ? 'black' : prod.color }}>&nbsp;</span>
 
                                                                 ))}
                                                         </td>

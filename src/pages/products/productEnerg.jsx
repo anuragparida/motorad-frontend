@@ -236,6 +236,14 @@ const ProductEnerg = (props) => {
             });
     }
 
+    const changeColor = (id) => {
+        if(id == 5) {
+            document.getElementsByClassName("checkmark").className = "whitechecked";
+        } else {
+            document.getElementsByClassName("checkmark").className = 'checkmark';
+        }
+    }
+
     return (
         <>
             <PageLoader loader={loader} />
@@ -277,15 +285,15 @@ const ProductEnerg = (props) => {
                                             <li>
                                                 <label class="chck">
                                                     <input type="radio" checked={prod.id === productID} onChange={() => {
-                                                        setProductID(prod.id);
-                                                    }} />
-                                                    <span class="checkmark" style={{ "background": prod.color }}></span>
+                                                        setProductID(prod.id); changeColor(prod.id);
+                                                    }} />    
+                                                    <span class="checkmark whitechecked" style={{ "background": prod.color }}></span>
                                                 </label>
                                             </li>
                                         ))}
 
                                         <li class="d-none d-lg-block">
-                                            <h6>AED 3,599</h6>
+                                            <h6>AED {productPrice.energ.toLocaleString()}</h6>
                                         </li>
                                         <li class="d-none d-lg-block">
                                             <h6>{products.length > 0 && <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>}</h6>
@@ -1338,6 +1346,7 @@ const ProductEnerg = (props) => {
 
                 </div>
             </section>
+            
             <section class="shiping_section" id="ship_sec">
                 <div class="container">
                     <div class="row">
@@ -1359,23 +1368,28 @@ const ProductEnerg = (props) => {
 
                                 <h5>DELIVERY OPTIONS</h5>
 
-                                <form action="">
-                                    <div class="form-group">
-                                        <input
-                                            type="text"
-                                            class="form-control"
-                                            placeholder="Enter Pincode"
-                                            id="pincode_inp"
-                                        />
-                                        <a href="javascript:void(0)" onClick={() => {
-                                            if (pincodes.includes(document.getElementById("pincode_inp").value)) {
-                                                setDelivery(true)
-                                            } else {
-                                                setDelivery(false)
-                                            }
-                                        }}>CHECK</a>
-                                    </div>
-                                </form>
+                                { 
+                                    (subdomain == 'india')  ?
+                                        <form action="">
+                                            <div class="form-group">
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="Enter Pincode"
+                                                    id="pincode_inp"
+                                                />
+                                                <a href="javascript:void(0)" onClick={() => {
+                                                    if (pincodes.includes(document.getElementById("pincode_inp").value)) {
+                                                        setDelivery(true)
+                                                    } else {
+                                                        setDelivery(false)
+                                                    }
+                                                }}>CHECK</a>
+                                            </div>
+                                        </form>
+                                    :
+                                    ''
+                                }    
                                 <div class="shiping_day">
                                     <h6>
                                         <img
@@ -1384,7 +1398,7 @@ const ProductEnerg = (props) => {
                                             class="img-fluid"
                                         />{
                                             delivery ?
-                                                <><span>Free Delivery:</span> 8 to 10 working days</>
+                                                <><span>Free Delivery:</span> 2 to 3 working days</>
                                                 :
                                                 <><span>Unfortunately,</span> we don't deliver to your location</>
                                         }
@@ -1408,19 +1422,34 @@ const ProductEnerg = (props) => {
                                             src="images/ticket_icon.svg"
                                             alt="a"
                                             class="img-fluid"
-                                        />No Cost EMI Available,
-                                        <span style={{ "color": "#10b068" }}>Starts From Rs. 6189/Month</span>
+                                        />
+                                        { 
+                                            (subdomain == 'india')  ?
+                                                <>
+                                                No Cost EMI Available,
+                                                <span style={{ "color": "#10b068" }}>Starts From Rs. 6189/Month</span>
+                                                </>
+                                            :'EMI Available'
+                                        }    
                                     </h6>
-                                    <a href="/emi"
-                                    >EXPLORE EMI OPTIONS
-                                        <img src="images/arw_rgt.svg" alt="a" class="img-fluid"
-                                        /></a>
+                                    { 
+                                            (subdomain == 'india')  ?
+                                                <>
+                                                    <a href="/emi">EXPLORE EMI OPTIONS
+                                                        <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/>
+                                                    </a>
+                                                </>   
+                                            :
+                                            ''     
+                                    }            
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
+
             <section class="order_now_sec" style={{ "background-image": "url(images/trex/trexL.jpg)" }}>
                 <div class="container">
                     <div class="row">
