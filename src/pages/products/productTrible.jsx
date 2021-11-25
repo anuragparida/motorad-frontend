@@ -1340,89 +1340,109 @@ const ProductTrible = (props) => {
 
         </div>
       </section>
+      
       <section class="shiping_section" id="ship_sec">
-        <div class="container">
-          <div class="row">
-            <div class="col-12">
-              <div class="shiping_head">
-                <h3>SHIPPING</h3>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="shiping_lft_wrap">
-                <p>
-                  *Increased shipping demand nationwide may cause delays in
-                  tracking updates from delivery partners and delays in shipping
-                  hubs. Shipping estimates may slightly delayed beyond the normal
-                  timelines.
-                </p>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="shiping_head">
+                                <h3>SHIPPING</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="shiping_lft_wrap">
+                                <p>
+                                    *Increased shipping demand nationwide may cause delays in
+                                    tracking updates from delivery partners and delays in shipping
+                                    hubs. Shipping estimates may slightly delayed beyond the normal
+                                    timelines.
+                                </p>
 
-                <h5>DELIVERY OPTIONS</h5>
+                                <h5>DELIVERY OPTIONS</h5>
 
-                <form action="">
-                  <div class="form-group">
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Enter Pincode"
-                      id="pincode_inp"
-                    />
-                    <a href="javascript:void(0)" onClick={() => {
-                      if (pincodes.includes(document.getElementById("pincode_inp").value)) {
-                        setDelivery(true)
-                      } else {
-                        setDelivery(false)
-                      }
-                    }}>CHECK</a>
-                  </div>
-                </form>
-                <div class="shiping_day">
-                  <h6>
-                    <img
-                      src="images/clock_ic.svg"
-                      alt="a"
-                      class="img-fluid"
-                    />{
-                      delivery ?
-                        <><span>Free Delivery:</span> 8 to 10 working days</>
-                        :
-                        <><span>Unfortunately,</span> we don't deliver to your location</>
-                    }
-                  </h6>
+                                { 
+                                    (subdomain == 'india')  ?
+                                        <form action="">
+                                            <div class="form-group">
+                                                <input
+                                                    type="text"
+                                                    class="form-control"
+                                                    placeholder="Enter Pincode"
+                                                    id="pincode_inp"
+                                                />
+                                                <a href="javascript:void(0)" onClick={() => {
+                                                    if (pincodes.includes(document.getElementById("pincode_inp").value)) {
+                                                        setDelivery(true)
+                                                    } else {
+                                                        setDelivery(false)
+                                                    }
+                                                }}>CHECK</a>
+                                            </div>
+                                        </form>
+                                    :
+                                    ''
+                                }    
+                                <div class="shiping_day">
+                                    <h6>
+                                        <img
+                                            src="images/clock_ic.svg"
+                                            alt="a"
+                                            class="img-fluid"
+                                        />{
+                                            delivery ?
+                                                <><span>Free Delivery:</span> 2 to 3 working days</>
+                                                :
+                                                <><span>Unfortunately,</span> we don't deliver to your location</>
+                                        }
+                                    </h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="shiping_lft_wrap">
+                                <p>
+                                    Delivery time is dependent on your distance from Pune (our
+                                    warehouse location). We typically ship within 48 hours depending
+                                    upon the shipping conditions across India
+                                </p>
+
+                                <h5>BUY ON EMI</h5>
+
+                                <div class="shiping_day">
+                                    <h6>
+                                        <img
+                                            src="images/ticket_icon.svg"
+                                            alt="a"
+                                            class="img-fluid"
+                                        />
+                                        { 
+                                            (subdomain == 'india')  ?
+                                                <>
+                                                No Cost EMI Available,
+                                                <span style={{ "color": "#10b068" }}>Starts From Rs. 6189/Month</span>
+                                                </>
+                                            :'EMI Available'
+                                        }    
+                                    </h6>
+                                    { 
+                                            (subdomain == 'india')  ?
+                                                <>
+                                                    <a href="/emi">EXPLORE EMI OPTIONS
+                                                        <img src="images/arw_rgt.svg" alt="a" class="img-fluid"/>
+                                                    </a>
+                                                </>   
+                                            :
+                                            ''     
+                                    }            
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="shiping_lft_wrap">
-                <p>
-                  Delivery time is dependent on your distance from Pune (our
-                  warehouse location). We typically ship within 48 hours depending
-                  upon the shipping conditions across India
-                </p>
+            </section>    
 
-                <h5>BUY ON EMI</h5>
-
-                <div class="shiping_day">
-                  <h6>
-                    <img
-                      src="images/ticket_icon.svg"
-                      alt="a"
-                      class="img-fluid"
-                    />No Cost EMI Available,
-                    <span style={{ "color": "#10b068" }}>Starts From Rs. 6189/Month</span>
-                  </h6>
-                  <a href="/emi"
-                  >EXPLORE EMI OPTIONS
-                    <img src="images/arw_rgt.svg" alt="a" class="img-fluid"
-                    /></a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
       <section class="order_now_sec" style={{ "background-image": "url(images/trex/trexL.jpg)" }}>
         <div class="container">
           <div class="row">

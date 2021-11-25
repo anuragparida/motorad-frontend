@@ -2,9 +2,12 @@ import React, {useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import { server, config, checkAccess } from "../env";
+import isLoggedIn from './../utils/checkLogin';
+import Cookies from 'js-cookie';
 
 const MobileNavbar = (props) => {
   const [links, setLinks] = useState({});
+  const [logged, setLogged] = useState(false);
   let subdomain = localStorage.getItem('subDomain');
   const loadLinks = async() => {
     await axios
@@ -19,8 +22,14 @@ const MobileNavbar = (props) => {
       });
   }
 
+  const logout = () => {
+    Cookies.remove("token");
+    window.location.reload();
+  }
+
   useEffect(() => {
     loadLinks();
+    setLogged(isLoggedIn());
   }, []);
 
   return(
@@ -30,6 +39,9 @@ const MobileNavbar = (props) => {
        </div>
         <div class="mobile_main_mnu">
             <ul>
+                <li>
+                    <a href="/">Home</a>
+                </li>
                 <li>
                     <a href="javascript:void(0)" data-toggle="collapse" data-target="#collapseExamplea" aria-expanded="false" aria-controls="collapseExamplea">THE BIKES</a>
                     <ul class="mobile_submnu collapse" id="collapseExamplea">
@@ -82,7 +94,7 @@ const MobileNavbar = (props) => {
                 <li><a href="javascript:void(0)" data-toggle="collapse" data-target="#collapseExampleaaa" aria-expanded="false" aria-controls="collapseExampleaaa">EM WORLD</a>
                 <ul class="mobile_submnu collapse" id="collapseExampleaaa">
                         <li><Link to="/community">Community</Link></li>
-                        <li><Link to="#">Blogs</Link></li>
+                        <li><Link to="https://blog.emotorad.com/">Blogs</Link></li>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0)" data-toggle="collapse" data-target="#collapseExampleaaaa" aria-expanded="false" aria-controls="collapseExampleaaaa">REACH US</a>
@@ -107,6 +119,32 @@ const MobileNavbar = (props) => {
                          </li>
                     </ul>
                 </li>
+                <li>
+                    <a href="/cart">Cart</a>
+                </li>
+                {
+                        logged ?
+                            <>
+                                <li>
+                                    <a href="/overview">Overview</a>
+                                </li>
+                                <li>
+                                    <a href="/account">Settings</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)" onClick={logout}>Logout</a>
+                                </li>
+                            </>
+                            :
+                        <>                            
+                        <li>
+                            <Link to="/signup">{subdomain == 'japan' ? "サインアップ " : "Sign Up"}</Link>
+                        </li>
+                        <li>
+                            <Link to="/login">{subdomain == 'japan' ? "ログインする" : "Log In"}</Link>
+                        </li>
+                        </>                            
+                }           
             </ul>
         </div>
         
@@ -126,7 +164,7 @@ const MobileNavbar = (props) => {
          
          <div class="mobile_ftr">
              <ul>
-                 <li><Link to="/tos">Terms &amp; Conditions</Link></li>
+                 <li><Link to="/terms">Terms &amp; Conditions</Link></li>
                  <li><Link to="/privacy">Privacy Policy</Link></li>
                  <li><Link to="/cookies">Cookie Policy</Link></li>
              </ul>

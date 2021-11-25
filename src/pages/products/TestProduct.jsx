@@ -1031,7 +1031,7 @@ const Test = () => {
 
                                 <h5>DELIVERY OPTIONS</h5>
 
-                                <form action="">
+                                <form action="" style={{ display : 'none' }}>
                                     <div class="form-group">
                                         <input
                                             type="text"
@@ -1047,7 +1047,7 @@ const Test = () => {
                                             src="images/clock_ic.svg"
                                             alt="a"
                                             class="img-fluid"
-                                        /><span>Free Delivery:</span> 8 to 10 working days
+                                        /><span>Free Delivery:</span> 2 to 3 working days
                                     </h6>
                                 </div>
                             </div>

@@ -85,7 +85,7 @@ const About = (props) => {
                 </a>
               </div>
               <h6>
-                FOUNDER
+                Founder & MD  
               </h6>
               <div class="article">
                 <p class="mb-0">

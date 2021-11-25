@@ -3670,3 +3670,9 @@ img {
 	background: url('../images/resize_cycle.gif') 50% 50% no-repeat rgb(249, 249, 249); 
   /* Spinner-5.gif */
 }
+
+
+.whitechecked::after {
+  border: solid black !important;
+  border-width: 0 3px 3px 0 !important;;
+}
