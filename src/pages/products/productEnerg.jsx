@@ -15,6 +15,7 @@ import { Carousel } from 'react-responsive-carousel';
 import { VideoScroll } from 'react-video-scroll'
 import ProductSlider from "../../components/ProductSlider";
 import PageLoader from "../../components/PageLoader";
+import {Helmet} from "react-helmet";
 
 
 let images = [0, 1, 2, 3, 4];
@@ -40,6 +41,31 @@ const ProductEnerg = (props) => {
     });
     const [allProducts, setAllProducts] = useState([]);
     const [loader, setLoader] = useState(false);
+
+    const EnergySEO = {
+        "@context": "https://schema.org/", 
+        "@type": "Product", 
+        "name": "ENER-G",
+        "image": "https://uae.emotorad.in/images/uae/ENERG/Top-Part/White.png",
+        "description": "Designed to last for miles, Ener-G can keep going when others have given up. Packed with everything you need, this long range, dual-seater moped suits your different needs.",
+        "brand": "EMotorad",
+        "offers": {
+          "@type": "Offer",
+          "url": "https://uae.emotorad.in/energ",
+          "priceCurrency": "AED",
+          "price": "3,599",
+          "availability": "https://schema.org/InStock",
+          "itemCondition": "https://schema.org/NewCondition"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "bestRating": "5",
+          "worstRating": "1",
+          "ratingCount": "1500"
+        }
+      }
+      
 
 
 
@@ -246,6 +272,11 @@ const ProductEnerg = (props) => {
 
     return (
         <>
+            <Helmet>
+                <script type="application/ld+json">
+                    {JSON.stringify(EnergySEO)}
+                </script>
+            </Helmet>
             <PageLoader loader={loader} />
             <Navbar setCountry={setCountry} country={country}>
                 <section class="product_menu_sec">
@@ -616,7 +647,7 @@ const ProductEnerg = (props) => {
                                             <br />Experience the bike in real <br />
                                             life.
                                         </p>
-                                        <a href="#">TEST RIDE</a>
+                                        <a href="/book">TEST RIDE</a>
                                     </div>
                                 </div>
                             </div>

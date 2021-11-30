@@ -13,7 +13,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import ProductSlider from "../../components/ProductSlider";
 import PageLoader from "../../components/PageLoader";
-
+import {Helmet} from "react-helmet";
 
 
 let images = [0, 1, 2, 3, 4];
@@ -37,32 +37,82 @@ const ProductDOODLE = (props) => {
   });
   const [allProducts, setAllProducts] = useState([]);
   const [loader, setLoader] = useState(false);
+  let articleStructuredData;
 
-
-
-  const articleStructuredData = {
-    "@context": "https://schema.org/",
-    "@type": "Product",
-    "name": "Doodle",
-    "image": "https://emotorad.com/images/Doodle-Black.png",
-    "description": "Best in Class Foldable Electric Bike Its small size might make you think this is a fun little ride, but the Doodle has power to spare when you are in the mood for adventure. And when you don’t, you can fold it away. From sandy beaches to city roads, this bike has the oomph and the portability that will tempt you to take it with you wherever you may go.",
-    "brand": "EMotorad",
-    "offers": {
-      "@type": "Offer",
-      "url": "https://emotorad.com/doodle",
-      "priceCurrency": "INR",
-      "price": "76000",
-      "availability": "https://schema.org/InStock",
-      "itemCondition": "https://schema.org/NewCondition"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "bestRating": "5",
-      "worstRating": "1",
-      "ratingCount": "1500"
+  if(localStorage.getItem('subDomain') == 'india') {
+    articleStructuredData = {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Doodle",
+      "image": "https://emotorad.com/images/Doodle-Black.png",
+      "description": "Best in Class Foldable Electric Bike Its small size might make you think this is a fun little ride, but the Doodle has power to spare when you are in the mood for adventure. And when you don’t, you can fold it away. From sandy beaches to city roads, this bike has the oomph and the portability that will tempt you to take it with you wherever you may go.",
+      "brand": "EMotorad",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://emotorad.com/doodle",
+        "priceCurrency": "INR",
+        "price": "76000",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "1500"
+      }
+    }
+  } else if(localStorage.getItem('subDomain') == 'uae') {
+    articleStructuredData = {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Doodle",
+      "image": "https://uae.emotorad.com/images/Doodle-Black.png",
+      "description": "Best in Class Foldable Electric Bike Its small size might make you think this is a fun little ride, but the Doodle has power to spare when you are in the mood for adventure. And when you don’t, you can fold it away. From sandy beaches to city roads, this bike has the oomph and the portability that will tempt you to take it with you wherever you may go.",
+      "brand": "EMotorad",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://uae.emotorad.com/doodle",
+        "priceCurrency": "AED",
+        "price": "76000",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "1500"
+      }
+    }
+  } else if(localStorage.getItem('subDomain') == 'nepal') {
+    articleStructuredData = {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "Doodle",
+      "image": "https://emotorad.com/images/Doodle-Black.png",
+      "description": "Best in Class Foldable Electric Bike Its small size might make you think this is a fun little ride, but the Doodle has power to spare when you are in the mood for adventure. And when you don’t, you can fold it away. From sandy beaches to city roads, this bike has the oomph and the portability that will tempt you to take it with you wherever you may go.",
+      "brand": "EMotorad",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://emotorad.com/doodle",
+        "priceCurrency": "INR",
+        "price": "76000",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "1500"
+      }
     }
   }
+  
 
   const [visibleImagesMap, setVisibleImagesMap] = useState(
     images.reduce((map, image) => {
@@ -254,15 +304,12 @@ const ProductDOODLE = (props) => {
 
       <PageLoader loader={loader} />
       <Navbar setCountry={setCountry} country={country}>
-
-        {
-          (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
-            <script type="application/ld+json">
-              {JSON.stringify(articleStructuredData)}
-            </script>
-            :
-            ''
-        }
+            
+      <Helmet>
+        <script type="application/ld+json">
+          {JSON.stringify(articleStructuredData)}
+        </script>
+      </Helmet>
 
         <section class="product_menu_sec">
           <div class="container">
@@ -359,7 +406,7 @@ const ProductDOODLE = (props) => {
                         products.length > 0 &&
                           products.find(prod => prod.id === productID) ?
                           <img
-                            src={products.find(prod => prod.id === productID).banner === "/uploads/product_banner/doodle-pulse-black.png" ? "images/Doodle-Black.png" : "images/Doodle-Green.png"}
+                            src={products.find(prod => prod.id === productID).color === "green" ?  "images/Doodle-Green.png" : "images/Doodle-Black.png" }
                             alt="a"
                             class="img-fluid"
                           />
@@ -1418,7 +1465,7 @@ const ProductDOODLE = (props) => {
                                             (subdomain == 'india')  ?
                                                 <>
                                                 No Cost EMI Available,
-                                                <span style={{ "color": "#10b068" }}>Starts From Rs. 6189/Month</span>
+                                                <span style={{ "color": "#10b068" }}>Starts From Rs. 6650/Month</span>
                                                 </>
                                             :'EMI Available'
                                         }    

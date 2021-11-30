@@ -14,6 +14,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import { VideoScroll } from 'react-video-scroll'
 import ProductSlider from "../../components/ProductSlider";
+import {Helmet} from "react-helmet";
 
 
 let images = [0, 1, 2, 3, 4];
@@ -38,6 +39,28 @@ const ProductGlyder = (props) => {
     const [allProducts, setAllProducts] = useState([]);
     const [loader, setLoader] = useState(false);
 
+    const GlyderSEO = {
+        "@context": "https://schema.org/", 
+        "@type": "Product", 
+        "name": "GLYDER",
+        "image": "https://japan.emotorad.in/images/Japan/GLYDER/Top-Part/Glyder-White.png",
+        "description": "A lightweight, portable, folding e-bike, Glyder is your companion on your commute or an exciting adventure. Ride further and more often with a power-assisted ride to transform your daily travel experience. When you get there, fold it up in an instant into a compact package that is small enough to fit in a car or store it safely at home or work.",
+        "brand": "EMotorad",
+        "offers": {
+          "@type": "Offer",	
+          "url": "https://japan.emotorad.in/glyder",
+          "priceCurrency": "YEN",
+          "availability": "https://schema.org/InStock",
+          "itemCondition": "https://schema.org/NewCondition"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "bestRating": "5",
+          "worstRating": "1",
+          "ratingCount": "1500"
+        }
+      }
 
 
 
@@ -220,6 +243,11 @@ const ProductGlyder = (props) => {
 
     return (
         <>
+            <Helmet>
+                <script type="application/ld+json">
+                    {JSON.stringify(GlyderSEO)}
+                </script>
+            </Helmet>
             <Navbar setCountry={setCountry} country={country}>
                 <section class="product_menu_sec">
                     <div class="container">
@@ -589,7 +617,7 @@ const ProductGlyder = (props) => {
                                             <br />Experience the bike in real <br />
                                             life.
                                         </p>
-                                        <a href="#">TEST RIDE</a>
+                                        <a href="/book">TEST RIDE</a>
                                     </div>
                                 </div>
                             </div>
