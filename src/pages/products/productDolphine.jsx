@@ -388,7 +388,7 @@ const ProductDolphin = (props) => {
                     <div class="row">
                         <div class="col-12">
                             <p>
-                                It may be a small, fun ride, but Dolphin has power to spare when you are in the mood for adventure. And when you don’t, you can fold it away. From sandy beaches to city roads, this e-bike has the oomph and the portability that will tempt you to take it with you wherever you may go.
+                            Dolphin lies at the intersection of technology and design. A streamlined tri folding design, it provides the convenience to store it anywhere. It's lightweight and versatile frame makes it accessible to riders of all ages and body types, and at its heart is the power to swoop through the streets on a comfortable, smooth ride.
                             </p>
 
                             <a href="#"
@@ -511,14 +511,9 @@ const ProductDolphin = (props) => {
                                         data-aos-duration="2000"
                                     >
                                         <h6 className="galleryTitle">GALLERY</h6>
-                                        <h3>
-                                            IN ALL <br />
-                                            ITS GLORY
+                                        <h3>Graceful<br />Lightning
                                         </h3>
-                                        <p>
-                                            Even as you hit the slopes, stay centred with absolute
-                                            control on a ride adapted just for you.
-                                        </p>
+                                        <p>Beauty and innovation come together as Dolphin takes to the streets and connects the past to the present.</p>
                                     </div>
                                     <div
                                         class="glory_img mt-5 pt-3 d-none d-lg-block"
@@ -626,11 +621,10 @@ const ProductDolphin = (props) => {
                                         data-aos="fade-up"
                                         data-aos-duration="2000"
                                     >
-                                        <p>
-                                            The TREX lets you make <br />
-                                            the most of the mountain br bike. <br />
-                                            <br />Experience the bike in real <br />
-                                            life.
+                                        <p>Dolphin’s curves provide stability, 
+                                            strength and <br />  a forward motion effect. <br />
+                                            Experience the fusion of design 
+                                            and technology <br /> in Dolphin.
                                         </p>
                                         <a href="/book">TEST RIDE</a>
                                     </div>

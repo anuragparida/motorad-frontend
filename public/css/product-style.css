@@ -1756,3 +1756,8 @@ svg text {
   width: 20px !important;
   margin-left: 5px;
 }
+
+.assurance_drop_dwn_bottom::before {
+  top: 170px !important;
+  box-shadow: 2px -1px 2px rgba(0, 0, 0, 0.25) !important;
+}

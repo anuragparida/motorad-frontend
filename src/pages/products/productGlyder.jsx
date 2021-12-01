@@ -496,14 +496,10 @@ const ProductGlyder = (props) => {
                                         data-aos-duration="2000"
                                     >
                                         <h6 className="galleryTitle">GALLERY</h6>
-                                        <h3>
-                                            IN ALL <br />
-                                            ITS GLORY
+                                        <h3>Ultra<br />
+                                        Compact
                                         </h3>
-                                        <p>
-                                            Even as you hit the slopes, stay centred with absolute
-                                            control on a ride adapted just for you.
-                                        </p>
+                                        <p>Stylish and appealing, the serene Glyder is your companion on your commute or an exciting adventure.</p>
                                     </div>
                                     <div
                                         class="glory_img mt-5 pt-3 d-none d-lg-block"
@@ -612,10 +608,8 @@ const ProductGlyder = (props) => {
                                         data-aos-duration="2000"
                                     >
                                         <p>
-                                            The TREX lets you make <br />
-                                            the most of the mountain br bike. <br />
-                                            <br />Experience the bike in real <br />
-                                            life.
+                                            Glyder is your daily <br /> transportation solution <br />
+                                            A perfect ride for <br /> the city slicker in you
                                         </p>
                                         <a href="/book">TEST RIDE</a>
                                     </div>
