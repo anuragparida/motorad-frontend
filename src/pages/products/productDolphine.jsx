@@ -15,7 +15,7 @@ import { Carousel } from 'react-responsive-carousel';
 import { VideoScroll } from 'react-video-scroll'
 import ProductSlider from "../../components/ProductSlider";
 import PageLoader from "../../components/PageLoader";
-
+import {Helmet} from "react-helmet";
 
 let images = [0, 1, 2, 3, 4];
 
@@ -39,6 +39,29 @@ const ProductDolphin = (props) => {
     const [allProducts, setAllProducts] = useState([]);
     const [loader, setLoader] = useState(false);
 
+
+    const DolphineSEO = {
+        "@context": "https://schema.org/", 
+        "@type": "Product", 
+        "name": "Dolphin",
+        "image": "https://japan.emotorad.in/images/Japan/DOLPHIN/Top-Part/Dolphin-Blue.png",
+        "description": "It may be a small, fun ride, but Dolphin has power to spare when you are in the mood for adventure. And when you don’t, you can fold it away. From sandy beaches to city roads, this e-bike has the oomph and the portability that will tempt you to take it with you wherever you may go.",
+        "brand": "EMotorad",
+        "offers": {
+            "@type": "Offer",	
+            "url": "https://japan.emotorad.in/dolphine",
+            "priceCurrency": "YEN",
+            "availability": "https://schema.org/InStock",
+            "itemCondition": "https://schema.org/NewCondition"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": "1500"
+        }
+    }
 
 
 
@@ -230,6 +253,11 @@ const ProductDolphin = (props) => {
     return (
         <>
             <PageLoader loader={loader} />
+            <Helmet>
+                <script type="application/ld+json">
+                    {JSON.stringify(DolphineSEO)}
+                </script>
+            </Helmet>    
             <Navbar setCountry={setCountry} country={country}>
                 <section class="product_menu_sec">
                     <div class="container">
@@ -604,7 +632,7 @@ const ProductDolphin = (props) => {
                                             <br />Experience the bike in real <br />
                                             life.
                                         </p>
-                                        <a href="#">TEST RIDE</a>
+                                        <a href="/book">TEST RIDE</a>
                                     </div>
                                 </div>
                             </div>

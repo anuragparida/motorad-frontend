@@ -88,6 +88,16 @@ const Warranty = (props) => {
         params.bike = params.bike === "XPLORER" ? products[0] : params.bike === "GLYDER" ? products[1] : products[2];
       }
 
+      if (domain == 'india' || domain == '') {
+        params.contact = "+91" + params.contact;
+      } else if (domain == 'uae') {
+        params.contact = "+971" + params.contact;
+      } else if (domain == 'japan') {
+        params.contact = "+81" + params.contact;
+      } else if (domain == 'nepal') {
+        params.contact = "+977" + params.contact;
+      }
+
       delete params.invoice;
 
       console.log(params);
@@ -248,7 +258,7 @@ const Warranty = (props) => {
                                 </div>
                                 <div class="col-lg-6">
                                      <div class="form-group">
-                                         <label for="">Your Contact</label>
+                                         <label for="">Your Contact ({domain === "nepal" ? "+977" : domain === "uae" ? "+971" : domain === "japan" ? "+81" : "+91"})</label>
                                          <input type="number" class="form-control" name="contact" placeholder="Enter Contact Number" required/>
                                      </div>
                                 </div>
@@ -290,7 +300,7 @@ const Warranty = (props) => {
                                             <select name="dealerName" id="" class="form-control" defaultValue="">
                                                 <option value="">Select Store</option>
                                                 {
-                                                ["Amazon", "Flipkart"].map(x=><option value={x}>{x}</option>)
+                                                ["EM Offlicail Website","Amazon", "Flipkart","Blive","CMB","EWheeler"].map(x=><option value={x}>{x}</option>)
                                                 }
                                             </select>
                                         </div>

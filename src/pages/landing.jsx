@@ -95,22 +95,15 @@ const Landing = (props) => {
             });
     }
     useEffect(() => {
+        let sub = localStorage.getItem('subDomain');
+        setSubdomain(sub);
         (async () => {
             setLoader(true)
             AOS.init();
-            await loadProducts()
-            let full = window.location.host
-            let parts = full.split('.')
-            let sub = parts[0]
-            // sub = 'uae';
-            sub = localStorage.getItem('subDomain');
-            setSubdomain(sub);
+            await loadProducts()    
             setLoader(false)
         })()
-
-
-        // setSubdomain(sub);
-
+        
     }, [country]);
 
 
@@ -1220,22 +1213,33 @@ const Landing = (props) => {
                     </section>
                     <section class="customer_stories_sec">
                         <div class="container">
+                            {subdomain != 'japan' ?
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="customer_stories_head">
-                                        {subdomain == 'japan' ?
-                                            <h2>オンラインレビュー</h2> :
-                                            <h2>Online<br /> <span>Reviews</span></h2>
-                                        }
+                                        <h2>Online<br /> <span>Reviews</span></h2>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="customer_stories_head">
-                                        <p>{subdomain == 'japan' ? "購入する前にオンラインで自転車をチェックしてみませんか？わかりました。これらは、何千ものオンラインレビューから特別に選ばれたいくつかのストーリーです。" :
-                                            "Want to check out our bikes online before you buy? We get it. These are a few specially picked videos from thousands of online reviews."}</p>
+                                        <p>Want to check out our bikes online before you buy? We get it. These are a few specially picked videos from thousands of online reviews.</p>
                                     </div>
                                 </div>
                             </div>
+                            : 
+                            <div class="row" style={{ display : 'none' }}>  
+                                <div class="col-lg-6">
+                                    <div class="customer_stories_head">
+                                        <h2>オンラインレビュー</h2> 
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="customer_stories_head">
+                                        <p>購入する前にオンラインで自転車をチェックしてみませんか？わかりました。これらは、何千ものオンラインレビューから特別に選ばれたいくつかのストーリーです。</p>
+                                    </div>
+                                </div>
+                            </div>
+                            }
                             <div class="row">
                                 <div class="col-lg-12" data-aos="zoom-in-up" data-aos-duration="2000">
                                     <img src="images/angle_rgt.svg" alt="a" class="img-fluid slidPrv" />
@@ -1251,26 +1255,36 @@ const Landing = (props) => {
                                                 </a>
                                             </div>
                                         </div>
-                                        <div class="video_play_wrap">
-                                            <div class="main_vdo_thumb">
-                                                <img src="images/slide_2.png" alt="a" class="img-fluid" />
-                                            </div>
-                                            <div class="vdo_play_icon">
-                                                <a class="venobox" data-vbtype="video" href="https://www.youtube.com/watch?v=irBxHBnJbIg">
-                                                    <img src="images/vdo_play_icon.svg" alt="a" class="img-fluid" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                        <div class="video_play_wrap">
-                                            <div class="main_vdo_thumb">
-                                                <img src="images/slide_3.png" alt="a" class="img-fluid" />
-                                            </div>
-                                            <div class="vdo_play_icon">
-                                                <a class="venobox" data-vbtype="video" href="https://www.youtube.com/watch?v=dsNDkCaAMDI">
-                                                    <img src="images/vdo_play_icon.svg" alt="a" class="img-fluid" />
-                                                </a>
-                                            </div>
-                                        </div>
+                                        {
+                                            (subdomain == 'india' || subdomain == 'nepal') ?
+                                                <div class="video_play_wrap">
+                                                    <div class="main_vdo_thumb">
+                                                        <img src="images/slide_2.png" alt="a" class="img-fluid" />
+                                                    </div>
+                                                    <div class="vdo_play_icon">
+                                                        <a class="venobox" data-vbtype="video" href="https://www.youtube.com/watch?v=irBxHBnJbIg">
+                                                            <img src="images/vdo_play_icon.svg" alt="a" class="img-fluid" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            :
+                                            ''    
+                                        }
+                                        {
+                                            (subdomain == 'india' || subdomain == 'nepal') ?
+                                                <div class="video_play_wrap">
+                                                    <div class="main_vdo_thumb">
+                                                        <img src="images/slide_3.png" alt="a" class="img-fluid" />
+                                                    </div>
+                                                    <div class="vdo_play_icon">
+                                                        <a class="venobox" data-vbtype="video" href="https://www.youtube.com/watch?v=dsNDkCaAMDI">
+                                                            <img src="images/vdo_play_icon.svg" alt="a" class="img-fluid" />
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            :
+                                            ''
+                                        }    
                                         <div class="video_play_wrap">
                                             <div class="main_vdo_thumb">
                                                 <img src="images/slide_4.png" alt="a" class="img-fluid" />

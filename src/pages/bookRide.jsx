@@ -33,6 +33,8 @@ const BookRide = (props) => {
     const [bike, setBike] = useState('');
     const [loader, setLoader] = useState(false);
 
+    const domain = localStorage.getItem('subDomain');
+
     const loadProducts = async () => {
         console.log(server)
         await axios
@@ -183,6 +185,16 @@ const BookRide = (props) => {
         var params = Array.from(e.target.elements)
             .filter((el) => el.name)
             .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
+
+            if (domain == 'india' || domain == '') {
+                params.contact = "+91" + params.contact;
+              } else if (domain == 'uae') {
+                params.contact = "+971" + params.contact;
+              } else if (domain == 'japan') {
+                params.contact = "+81" + params.contact;
+              } else if (domain == 'nepal') {
+                params.contact = "+977" + params.contact;
+              }
 
         axios
             .post(server + "/api/ride/book", params)
@@ -383,18 +395,7 @@ const BookRide = (props) => {
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <div class="form-group">
-                                                            {
-                                                                (subdomain == '' || subdomain == 'india') ?
-                                                                    <label for="">Your Contact (+91)</label>
-                                                                    : (subdomain == 'uae') ?
-                                                                        <label for="">Your Contact (+971)</label>
-                                                                        : (subdomain == 'japan') ?
-                                                                            <label for="">Your Contact (+81)</label>
-                                                                            : (subdomain == 'nepal') ?
-                                                                                <label for="">Your Contact (+977)</label>
-                                                                                :
-                                                                                <label for="">Your Contact (+91)</label>
-                                                            }
+                                                        <label for="">Your Contact ({domain === "nepal" ? "+977" : domain === "uae" ? "+971" : domain === "japan" ? "+81" : "+91"})</label>
                                                             <input
                                                                 type="number"
                                                                 class="form-control"

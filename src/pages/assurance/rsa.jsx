@@ -19,6 +19,8 @@ const RSA = (props) => {
   const [rsaFaq, setRsaFaq] = useState([]);
   const [partOne, setPartOne] = useState({});
 
+  const domain = localStorage.getItem('subDomain');
+
   const loadFAQ = async () => {
     await axios
     .get(server + "/api/faq/read")
@@ -56,6 +58,16 @@ const RSA = (props) => {
       .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
 
     let params = {...partOne, ...params2}
+
+    if (domain == 'india' || domain == '') {
+      params.contact = "+91" + params.contact;
+    } else if (domain == 'uae') {
+      params.contact = "+971" + params.contact;
+    } else if (domain == 'japan') {
+      params.contact = "+81" + params.contact;
+    } else if (domain == 'nepal') {
+      params.contact = "+977" + params.contact;
+    }
 
     params.type = "rsa"
 
@@ -377,9 +389,7 @@ const RSA = (props) => {
                       </div>
                       <div class="col-lg-6">
                         <div class="form-group">
-                          <label for="">
-                            Your Contact
-                          </label>
+                        <label for="">Your Contact ({domain === "nepal" ? "+977" : domain === "uae" ? "+971" : domain === "japan" ? "+81" : "+91"})</label>
                           <input class="form-control" type="number" placeholder="Enter your contact" name="contact" required/>
                         </div>
                       </div>

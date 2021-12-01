@@ -4,6 +4,7 @@ import axios from "axios";
 import { server, config, checkAccess } from "../env";
 import isLoggedIn from './../utils/checkLogin';
 import Cookies from 'js-cookie';
+import {Helmet} from "react-helmet";
 
 const Navbar = (props) => {
 
@@ -49,12 +50,56 @@ const Navbar = (props) => {
         }
     }
 
+    const websiteJapanSEO = {
+        "@context": "https://schema.org/",
+        "@type": "WebSite",
+        "name": "Emotorad",
+        "url": "https://japan.emotorad.com/",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+
+    const websiteUAESEO = {
+        "@context": "https://schema.org/",
+        "@type": "WebSite",
+        "name": "Emotorad",
+        "url": "https://uae.emotorad.com/",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+
+    const websiteNepalSEO = {
+        "@context": "https://schema.org/",
+        "@type": "WebSite",
+        "name": "Emotorad",
+        "url": "https://nepal.emotorad.com/",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "{search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+
     const organizationSEO = {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Emotorad",
         "url": "https://www.emotorad.com/",
         "logo": "https://emotorad.com/images/logo-main.svg"
+    }
+
+    const organizationUAESEO = {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Emotorad",
+        "url": "https://uae.emotorad.com/",
+        "logo": "https://uae.emotorad.com/images/logo-main.svg"
     }
 
 
@@ -118,35 +163,31 @@ const Navbar = (props) => {
         let full = window.location.host
         let parts = full.split('.')
         let sub = parts[0];    
-        //sub = 'uae';                  
+        //sub = 'japan';                  
         if(sub == 'uae') {
             localStorage.setItem('subDomain', "uae")
             let getsub = localStorage.getItem('subDomain');
             setSubdomain(getsub);
             setcountryName(getsub.toUpperCase())
             setcountryflag(uaeflag)
-            //props.setCountry(!props.country)
         } else if (sub == 'japan') {
             localStorage.setItem('subDomain', "japan")
             let getsub = localStorage.getItem('subDomain');
             setSubdomain(getsub);
             setcountryName(getsub.toUpperCase())
             setcountryflag(japanflag)
-            //props.setCountry(!props.country)
         } else if (sub == 'nepal') {
             localStorage.setItem('subDomain', "nepal")
             let getsub = localStorage.getItem('subDomain');
             setSubdomain(getsub);
             setcountryName(getsub.toUpperCase())
             setcountryflag(nepalflag)
-            //props.setCountry(!props.country)
         } else {
             localStorage.setItem('subDomain', "india")
             let getsub = localStorage.getItem('subDomain');
             setSubdomain(getsub);
             setcountryName(getsub.toUpperCase())
             setcountryflag(indiaflag)
-            //props.setCountry(!props.country)
         }
 
     }
@@ -161,19 +202,9 @@ const Navbar = (props) => {
         if (isLoggedIn()) {
             checkCart();
         }
-        // setTimeout(() => {
-        //     setloading(true)
-        // }, 2000);
-        // console.log("domiain is " + subdomain)
         let full = window.location.host
         let parts = full.split('.')
         let sub = parts[0]
-        // let getsub = localStorage.getItem('subDomain');
-        // let getflag = localStorage.getItem('countryflag') ? localStorage.getItem('countryflag') :"images/india-flag.png";
-        // sub = getsub ? getsub : localStorage.setItem('subDomain', "uae")
-        // setSubdomain("uae");
-        // setcountryName(sub?sub.toUpperCase():"UAE")
-        // setcountryflag(getflag)
         defaultCountry()
     }, [loading]);
 
@@ -181,15 +212,121 @@ const Navbar = (props) => {
     return (
         <div class="navbar_static">
             {
-                (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
-                    <script type="application/ld+json">
-                        {JSON.stringify(reviewSEO)}
-                        {JSON.stringify(webpageSEO)}
-                        {JSON.stringify(websiteSEO)}
-                        {JSON.stringify(organizationSEO)}
-                    </script>
-                    :
-                    ''
+                (subdomain == 'india') ?
+                    <Helmet>
+                        <script type="application/ld+json">
+                            {JSON.stringify(reviewSEO)}
+                        </script>
+                        <script type="application/ld+json">
+                            {JSON.stringify(webpageSEO)}
+                        </script>
+                        <script type="application/ld+json">
+                            {JSON.stringify(websiteSEO)}
+                        </script>
+                        <script type="application/ld+json">
+                            {JSON.stringify(organizationSEO)}
+                        </script>
+                        
+                        <script
+                        dangerouslySetInnerHTML={{ __html: `
+                        !function(f,b,e,v,n,t,s)
+                        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                        n.queue=[];t=b.createElement(e);t.async=!0;
+                        t.src=v;s=b.getElementsByTagName(e)[0];
+                        s.parentNode.insertBefore(t,s)}(window, document,'script',
+                        'https://connect.facebook.net/en_US/fbevents.js');
+                        fbq('init', '1034452493992700');
+                        fbq('track', 'PageView');`
+                        }}
+                        />
+                        <noscript>{`<img height="1" width="1" style="display:none"
+                        src="https://www.facebook.com/tr?id=1034452493992700&ev=PageView&noscript=1"
+                        />`}</noscript>
+                    </Helmet>
+                : (subdomain == 'uae') ?
+                    <Helmet>
+                        <script type="application/ld+json">
+                            {JSON.stringify(websiteUAESEO)}
+                        </script>
+                        <script type="application/ld+json">
+                            {JSON.stringify(organizationUAESEO)}
+                        </script>
+                        <script
+                        dangerouslySetInnerHTML={{ __html: `
+                        !function(f,b,e,v,n,t,s)
+                        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                        n.queue=[];t=b.createElement(e);t.async=!0;
+                        t.src=v;s=b.getElementsByTagName(e)[0];
+                        s.parentNode.insertBefore(t,s)}(window, document,'script',
+                        'https://connect.facebook.net/en_US/fbevents.js');
+                        fbq('init', '598631247954691');
+                        fbq('track', 'PageView');`
+                        }}
+                        />
+                        <noscript>{`<img height="1" width="1" style="display:none"
+                        src="https://www.facebook.com/tr?id=598631247954691&ev=PageView&noscript=1"
+                        />`}</noscript>
+                    </Helmet>
+                : (subdomain == 'japan') ?
+                    <Helmet>
+                        <script type="application/ld+json">
+                            {JSON.stringify(websiteJapanSEO)}
+                        </script>
+                        <script
+                        dangerouslySetInnerHTML={{ __html: `
+                        !function(f,b,e,v,n,t,s)
+                        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                        n.queue=[];t=b.createElement(e);t.async=!0;
+                        t.src=v;s=b.getElementsByTagName(e)[0];
+                        s.parentNode.insertBefore(t,s)}(window, document,'script',
+                        'https://connect.facebook.net/en_US/fbevents.js');
+                        fbq('init', '264188729053706');
+                        fbq('track', 'PageView');`
+                        }}
+                        />
+                        <noscript>{`<img height="1" width="1" style="display:none"
+                        src="https://www.facebook.com/tr?id=264188729053706&ev=PageView&noscript=1"
+                        />`}</noscript>
+                    </Helmet>        
+                : (subdomain == 'nepal') ?
+                    <Helmet>
+                        <script type="application/ld+json">
+                            {JSON.stringify(reviewSEO)}
+                        </script>
+                        <script type="application/ld+json">
+                            {JSON.stringify(webpageSEO)}
+                        </script>
+                        <script type="application/ld+json">
+                            {JSON.stringify(websiteSEO)}
+                        </script>
+                        <script type="application/ld+json">
+                            {JSON.stringify(organizationSEO)}
+                        </script>
+                        <script
+                        dangerouslySetInnerHTML={{ __html: `
+                        !function(f,b,e,v,n,t,s)
+                        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                        n.queue=[];t=b.createElement(e);t.async=!0;
+                        t.src=v;s=b.getElementsByTagName(e)[0];
+                        s.parentNode.insertBefore(t,s)}(window, document,'script',
+                        'https://connect.facebook.net/en_US/fbevents.js');
+                        fbq('init', '3068496336696715');
+                        fbq('track', 'PageView');`
+                        }}
+                        />
+                        <noscript>{`<img height="1" width="1" style="display:none"
+                        src="https://www.facebook.com/tr?id=3068496336696715&ev=PageView&noscript=1"
+                        />`}</noscript>
+                    </Helmet>    
+                : ''    
             }
             <header class="header_social_sec">
                 <div class="container-fluid">
@@ -212,7 +349,7 @@ const Navbar = (props) => {
                                 <ul>
                                     <li>
 
-                                        <a href="javascript:void(0)"><img src={countryflag} alt="a" class="img-fluid" /> {countryName}</a>
+                                        <a href="javascript:void(0)"><img src={countryflag} alt="a" class="img-fluid" /> {countryName} <i class="fa fa-caret-down"></i></a>
                                         <ul class="assurance_drop_dwn_5">
                                             <li onClick={(e) => getCountry(e)}><a href="javascript:void(0)"><img src="images/india-flag.png" alt="india" class="img-fluid" />India</a></li>
                                             <li onClick={(e) => getCountry(e)} ><a href="javascript:void(0)"><img src="images/uae.png" alt="uae" class="img-fluid" />UAE</a></li>
