@@ -403,7 +403,7 @@ const ProductEnerg = (props) => {
                     <div class="row">
                         <div class="col-12">
                             <p>
-                                Designed to last for miles, Ener-G can keep going when others have given up. Packed with everything you need, this long range, dual-seater moped suits your different needs.
+                            Designed to last for miles, ENER-G can keep going when others have given up. Packed with everything you need, this long-range, 2-seater mini scooter is a perfect motorcycle replacement that you can ride all day. With this one e-bike, you can do anything you want, handle your daily tasks and any type of riding that comes your way. This moped-style utility bike possesses cargo and passenger features with a large headlight, indicators and an 8" LCD display.
                             </p>
 
                             <a href="#"
@@ -527,12 +527,12 @@ const ProductEnerg = (props) => {
                                     >
                                         <h6 className="galleryTitle">GALLERY</h6>
                                         <h3>
-                                            IN ALL <br />
-                                            ITS GLORY
+                                        Beauty in <br />
+                                        Functionality
                                         </h3>
                                         <p>
-                                            Even as you hit the slopes, stay centred with absolute
-                                            control on a ride adapted just for you.
+                                        The ideal solution for your requirements, ENER-G packs some 
+                                        serious utility to suit your needs.
                                         </p>
                                     </div>
                                     <div
@@ -642,10 +642,10 @@ const ProductEnerg = (props) => {
                                         data-aos-duration="2000"
                                     >
                                         <p>
-                                            The TREX lets you make <br />
-                                            the most of the mountain br bike. <br />
-                                            <br />Experience the bike in real <br />
-                                            life.
+                                            ENER-G is a workhorse in <br /> 
+                                            a small package A delivery vehicle a <br /> 
+                                            two-seater mini-scooter <br />
+                                            and much more <br />
                                         </p>
                                         <a href="/book">TEST RIDE</a>
                                     </div>

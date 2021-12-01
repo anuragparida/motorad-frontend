@@ -469,11 +469,7 @@ const ProductTREX = (props) => {
           <div class="row">
             <div class="col-12">
               <p>
-                The T-REX lets you make the most of the mountain bike. Now, you
-                can go further and climb higher with our powerful motor, intuitive
-                controls and lightweight, yet rigid frames. Every part has been
-                designed to seamlessly integrate into a truly magnificent
-                experience as you explore the trails.
+                T-Rex lets you make the most of the mountain bike. Now, you can go further and climb higher with our powerful motor, intuitive controls and lightweight, yet rigid frames. Every part has been designed to seamlessly integrate into a truly magnificent experience as you explore the trails.
               </p>
 
               <a href="#"
@@ -716,9 +712,10 @@ const ProductTREX = (props) => {
                     data-aos-duration="2000"
                   >
                     <p>
-                      The TREX lets you make <br />
-                      the most of the mountain br bike. <br />
-                      <br />Experience the bike in real life.
+                      TREX lets you make<br />
+                      the most of the mountain bike.<br />
+                      <br />Experience the power of an e-bike in real Life.
+
                     </p>
                     <a href="/book">TEST RIDE</a>
                   </div>

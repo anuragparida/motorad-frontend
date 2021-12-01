@@ -383,7 +383,7 @@ const ProductXplorer = (props) => {
                     <div class="row">
                         <div class="col-12">
                             <p>
-                                It may be a small, fun ride, but Xplorer has power to spare when you are in the mood for adventure. And when you don’t, you can fold it away. From sandy beaches to city roads, this e-bike has the oomph and the portability that will tempt you to take it with you wherever you may go.
+                                Your weekend rides just got better with the foldable Xplorer. Its size might make it seem like a fun little ride, but Xplorer has power to spare when you are in the mood for adventure. Fold the SUV of e-bikes in the back of your car and get away with the ideal dune cruiser. From sandy beaches to city roads, this e-bike has the oomph and portability to tempt you into taking it wherever you may go.
                             </p>
 
                             <a href="#"
@@ -507,12 +507,11 @@ const ProductXplorer = (props) => {
                                     >
                                         <h6 className="galleryTitle">GALLERY</h6>
                                         <h3>
-                                            IN ALL <br />
-                                            ITS GLORY
+                                            The Ultimate<br />
+                                            Eye-Catcher
                                         </h3>
                                         <p>
-                                            Even as you hit the slopes, stay centred with absolute
-                                            control on a ride adapted just for you.
+                                            Foldable, reliable and comfortable take form in the trifecta of perfection that is Xplorer.
                                         </p>
                                     </div>
                                     <div
@@ -622,10 +621,9 @@ const ProductXplorer = (props) => {
                                         data-aos-duration="2000"
                                     >
                                         <p>
-                                            The TREX lets you make <br />
-                                            the most of the mountain br bike. <br />
-                                            <br />Experience the bike in real <br />
-                                            life.
+                                        Xplorer is your partner <br /> on any adventure.
+                                        Experience the power of an e-bike in real 
+                                        Life.
                                         </p>
                                         <a href="/book">TEST RIDE</a>
                                     </div>
@@ -1656,7 +1654,6 @@ const ProductXplorer = (props) => {
             <Footer setCountry={setCountry} country={country} />
             <div class="book_ride_sticky d-lg-none">
                 <div class="d-flex">
-
                     <a href="javascript:void(0)" onClick={addToCart}><p>YEN {productPrice.xplorer.toLocaleString()}</p> BUY NOW</a>
                 </div>
                 <a href="#" class="back-top-btn d-none d-lg-block">

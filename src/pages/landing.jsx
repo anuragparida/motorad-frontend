@@ -348,7 +348,7 @@ const Landing = (props) => {
                                                             <div class="row">
                                                                 <div class="col-lg-6">
                                                                     <div class="dual_suspension_txt">
-                                                                        <h3>The Fat-Tyre <span>SUV</span> of EBikes</h3>
+                                                                        <h3>The Fat-Tyre <span>SUV</span> of E-Bikes</h3>
                                                                         <p>Say hello to adventure with the foldable Doodle. Its size might make it seem like a fun little ride, but Doodle has power to spare when you are in the mood for adventure. Fold the SUV of e-bikes in the back of your car and get away with the ideal dune cruiser. From sandy beaches to city roads, this e-bike has the oomph and portability to tempt you into taking it wherever you may go.</p>
                                                                     </div>
                                                                     <div class="row">
@@ -403,10 +403,20 @@ const Landing = (props) => {
 
                                                             <div class="row">
                                                                 <div class="col-lg-6">
-                                                                    <div class="dual_suspension_txt">
-                                                                        <h3>The Beast For <span>All Terrains</span></h3>
-                                                                        <p>Make adventure your friend as you master the trails on T-Rex with the power and build to navigate any road you wish to roam. Now, you can go further and climb higher with our powerful motor, intuitive controls and lightweight, yet rigid frames. Designed for all terrains, each part is designed to seamlessly integrate into the best possible ride.</p>
-                                                                    </div>
+                                                                    {
+                                                                        (subdomain == 'india') ?
+                                                                        <div class="dual_suspension_txt">
+                                                                            <h3>The Beast For <span>All Terrains</span></h3>
+                                                                            <p>Make adventure your friend as you master the trails on T-Rex with the power and build to navigate any road you wish to roam. Now, you can go further and climb higher with our powerful motor, intuitive controls and lightweight, yet rigid frames. Designed for all terrains, each part is designed to seamlessly integrate into the best possible ride.</p>
+                                                                        </div>
+                                                                        : (subdomain == 'nepal' || subdomain == 'uae') ?
+                                                                        <div class="dual_suspension_txt">
+                                                                            <h3>Designed For <span>All Terrains</span></h3>
+                                                                            <p>Make adventure your friend as you master the trails on T-Rex with the power and build to navigate any road you wish to roam. Now, you can go further and climb higher with our powerful motor, intuitive controls and lightweight, yet rigid frames. Designed for all terrains, each part is designed to seamlessly integrate into the best possible ride.</p>
+                                                                        </div>
+                                                                        : ''
+                                                                    }
+                                                                    
                                                                     <div class="row">
                                                                         <div class="col-lg-10">
                                                                             <div class="row">
@@ -459,11 +469,19 @@ const Landing = (props) => {
 
                                                             <div class="row">
                                                                 <div class="col-lg-6">
-                                                                    <div class="dual_suspension_txt">
-                                                                        <h3>India’s First <span>Dual Suspension</span> E-Bike</h3>
-
-                                                                        <p>Whether you are commuting to the office, exploring local streets or climbing the hills, EMX is the ideal mobility partner. Traverse across the landscape without any fuss or effort.  India’s first dual suspension e-bike, EMX is designed for the city, uneven roads and the slopes.</p>
-                                                                    </div>
+                                                                    {
+                                                                        (subdomain == 'india') ?
+                                                                        <div class="dual_suspension_txt">
+                                                                            <h3>India’s First <span>Dual Suspension</span> E-Bike</h3>
+                                                                            <p>Whether you are commuting to the office, exploring local streets or climbing the hills, EMX is the ideal mobility partner. Traverse across the landscape without any fuss or effort.  India’s first dual suspension e-bike, EMX is designed for the city, uneven roads and the slopes.</p>    
+                                                                        </div>
+                                                                        : (subdomain == 'nepal') ?
+                                                                        <div class="dual_suspension_txt">
+                                                                            <h3>The <span>Dual Suspension</span> Beast</h3>
+                                                                            <p>Whether you are commuting to the office, exploring local streets or climbing the hills, EMX is the ideal mobility partner. Traverse across the landscape without any fuss or effort.  India’s first dual suspension e-bike, EMX is designed for the city, uneven roads and the slopes.</p>    
+                                                                        </div>
+                                                                        : ''
+                                                                    }                                                                    
                                                                     <div class="row">
                                                                         <div class="col-lg-10">
                                                                             <div class="row">
@@ -520,9 +538,8 @@ const Landing = (props) => {
                                                                 <div class="row">
                                                                     <div class="col-lg-6">
                                                                         <div class="dual_suspension_txt">
-                                                                            <h3>The <span>SUV</span> of EBikes <span>Doodle</span></h3>
-
-                                                                            <p>Best in Class Foldable Electric Bike Its small size might make you think this is a fun little ride, but the Doodle has power to spare when you are in the mood for adventure. And when you don’t, you can fold it away. From sandy beaches to city roads, this bike has the oomph and the portability that will tempt you to take it with you wherever you may go. </p>
+                                                                            <h3>The <span>Fat-Tyre</span> SUV of <span>E-Bikes</span></h3>
+                                                                            <p>Say hello to adventure with the foldable Doodle. Its size might make it seem like a fun little ride, but Doodle has power to spare when you are in the mood for adventure. Fold the SUV of e-bikes in the back of your car and get away with the ideal dune cruiser. From sandy beaches to city roads, this e-bike has the oomph and portability to tempt you into taking it wherever you may go. </p>
                                                                         </div>
                                                                         <div class="row">
                                                                             <div class="col-lg-10">
@@ -634,8 +651,7 @@ const Landing = (props) => {
                                                                 <div class="row">
                                                                     <div class="col-lg-6">
                                                                         <div class="dual_suspension_txt">
-                                                                            <h3>India’s First <span>Dual Suspension</span> TRIBLE</h3>
-
+                                                                            <h3>Travel <span>Anywhere With</span> TRIBLE</h3>
                                                                             <p>A lightweight tri-folding eBike, the Trible is your compion for your commute or an exciting adventure. Ride further and more often with a power-assisted ride or store it compactly and safely at home or work.</p>
                                                                         </div>
                                                                         <div class="row">
@@ -691,8 +707,7 @@ const Landing = (props) => {
                                                                 <div class="row">
                                                                     <div class="col-lg-6">
                                                                         <div class="dual_suspension_txt">
-                                                                            <h3>India’s First <span>Dual Suspension</span> ENER-G</h3>
-
+                                                                            <h3>Transforming <span>Delivery</span> Commute</h3>
                                                                             <p>Designed to last for miles, Ener-G can keep going when others have given up. Packed with everything you need, this long range, dual-seater moped suits your different needs.</p>
                                                                         </div>
                                                                         <div class="row">
@@ -751,9 +766,8 @@ const Landing = (props) => {
                                                                     <div class="row">
                                                                         <div class="col-lg-6">
                                                                             <div class="dual_suspension_txt">
-                                                                                <h3>japan's First <span>E-Bike</span> GLYDER </h3>
-
-                                                                                <p>A lightweight, portable, folding e-bike, Glyder is your companion on your commute or an exciting adventure. Ride further and more often with a power-assisted ride to transform your daily travel experience. When you get there, fold it up in an instant into a compact package that is small enough to fit in a car or store it safely at home or work. The aluminium 6061 frame gives it strength while keeping the weight light so that you can carry it anywhere you travel. </p>
+                                                                                <h3>Freedom on <span>Two Wheels with</span> GLYDER </h3>
+                                                                                <p>A lightweight, portable, folding e-bike, Glyder is your companion on your commute or an exciting adventure. Ride further and more often with a power-assisted ride to transform your daily travel experience.</p>
                                                                             </div>
                                                                             <div class="row">
                                                                                 <div class="col-lg-10">
@@ -865,9 +879,8 @@ const Landing = (props) => {
                                                                     <div class="row">
                                                                         <div class="col-lg-6">
                                                                             <div class="dual_suspension_txt">
-                                                                                <h3>japan's First <span>E-Bike</span> DOLPHIN </h3>
-
-                                                                                <p>A lightweight, portable, folding e-bike, Glyder is your companion on your commute or an exciting adventure. Ride further and more often with a power-assisted ride to transform your daily travel experience. When you get there, fold it up in an instant into a compact package that is small enough to fit in a car or store it safely at home or work. The aluminium 6061 frame gives it strength while keeping the weight light so that you can carry it anywhere you travel. </p>
+                                                                                <h3>Beauty <span>in</span> Motion</h3>
+                                                                                <p>Dolphin takes everything that makes riding a two-wheeler and makes it easier. A streamlined tri folding design, it provides the convenience to store it anywhere. Functional, comfortable and undeniably stylish, Dolphin is the quickest way for you to get around.</p>
                                                                             </div>
                                                                             <div class="row">
                                                                                 <div class="col-lg-10">

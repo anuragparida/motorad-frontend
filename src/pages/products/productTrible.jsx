@@ -390,7 +390,7 @@ const ProductTrible = (props) => {
           <div class="row">
             <div class="col-12">
               <p>
-                Designed to last for miles, Ener-G can keep going when others have given up. Packed with everything you need, this long range, dual-seater moped suits your different needs.
+              A lightweight, portable, tri-folding e-bike, Trible is your companion on your commute or an exciting adventure. Ride further and more often with a power-assisted ride to transform your daily travel experience. When you get there, fold it up in an instant into an incredibly compact package that is small enough to fit in a car or store it safely at home or work. The aluminium 6061 frame gives it strength while keeping the weight light so that you can carry it on the metro, or roll it behind you.
               </p>
 
               <a href="#"
@@ -495,12 +495,11 @@ const ProductTrible = (props) => {
                   >
                     <h6 className="galleryTitle">GALLERY</h6>
                     <h3>
-                      IN ALL <br />
-                      ITS GLORY
+                      Ultra <br />
+                      Compact
                     </h3>
                     <p>
-                      Even as you hit the slopes, stay centred with absolute
-                      control on a ride adapted just for you.
+                      Stylish and appealing, the delightful Trible is your companion on your commute or an exciting adventure.
                     </p>
                   </div>
                   <div
@@ -610,10 +609,8 @@ const ProductTrible = (props) => {
                     data-aos-duration="2000"
                   >
                     <p>
-                      The TREX lets you make <br />
-                      the most of the mountain br bike. <br />
-                      <br />Experience the bike in real <br />
-                      life.
+                      Trible is your daily <br /> transportation solution <br />
+                      A perfect ride for the <br /> city slicker in you
                     </p>
                     <a href="/book">TEST RIDE</a>
                   </div>
