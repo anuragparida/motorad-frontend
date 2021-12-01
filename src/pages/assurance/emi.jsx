@@ -25,6 +25,8 @@ const EMI = (props) => {
   const [bike, setBike] = useState('emx');
   const [emi, setEmi] = useState([]);
 
+  const domain = localStorage.getItem('subDomain');
+
   const scrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
   }
@@ -38,6 +40,16 @@ const EMI = (props) => {
       .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
 
     params.bike = bike;
+
+    if (domain == 'india' || domain == '') {
+      params.contact = "+91" + params.contact;
+    } else if (domain == 'uae') {
+      params.contact = "+971" + params.contact;
+    } else if (domain == 'japan') {
+      params.contact = "+81" + params.contact;
+    } else if (domain == 'nepal') {
+      params.contact = "+977" + params.contact;
+    }
 
     axios
     .post(server + "/api/emi/contact/create", params)
@@ -228,9 +240,7 @@ const EMI = (props) => {
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label for="">
-                        Your Contact Number
-                      </label>
+                    <label for="">Your Contact ({domain === "nepal" ? "+977" : domain === "uae" ? "+971" : domain === "japan" ? "+81" : "+91"})</label>
                       <input class="form-control" type="number" placeholder="Enter Contact Number" name="contact" required />
                     </div>
                   </div>

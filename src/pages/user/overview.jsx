@@ -31,7 +31,7 @@ const Overview = (props) => {
           console.log(rsp);
           console.log("payload");
           console.log(rsp.data.payload)
-          setOrders(rsp.data.payload);
+          setOrders(rsp.data.payload.filter(order => order.status === 1));
         })
         .catch((err) => {
           checkAccess(err);

@@ -8,7 +8,9 @@ import axios from "axios";
 const Community = (props) => {
 
   const [sendSuccess, setSendSuccess] = useState(false);
-  const [country, setCountry] = useState(true); 
+  const [country, setCountry] = useState(true);
+
+  const domain = localStorage.getItem('subDomain');
 
 
   const createCommunity = async (e) => {
@@ -18,6 +20,16 @@ const Community = (props) => {
     var params = Array.from(e.target.elements)
       .filter((el) => el.name)
       .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
+
+      if (domain == 'india' || domain == '') {
+        params.contact = "+91" + params.contact;
+      } else if (domain == 'uae') {
+        params.contact = "+971" + params.contact;
+      } else if (domain == 'japan') {
+        params.contact = "+81" + params.contact;
+      } else if (domain == 'nepal') {
+        params.contact = "+977" + params.contact;
+      }
 
     axios
     .post(server + "/api/community/create", params)
@@ -130,9 +142,7 @@ const Community = (props) => {
                   </div>
                   <div class="col-lg-6">
                     <div class="form-group">
-                      <label for="">
-                        Your Contact Number
-                      </label>
+                    <label for="">Your Contact ({domain === "nepal" ? "+977" : domain === "uae" ? "+971" : domain === "japan" ? "+81" : "+91"})</label>
                       <input class="form-control" type="number" placeholder="Enter Contact Number" name="contact" required/>
                     </div>
                   </div>
