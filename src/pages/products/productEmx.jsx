@@ -14,6 +14,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import ProductSlider from "../../components/ProductSlider";
 import PageLoader from "../../components/PageLoader";
+import {Helmet} from "react-helmet";
 
 let images = [0, 1, 2, 3, 4];
 
@@ -69,29 +70,56 @@ const ProductEMX = (props) => {
 
   const [subdomain, setSubdomain] = useState("");
 
-  const articleStructuredData = {
-    "@context": "https://schema.org/",
-    "@type": "Product",
-    "name": "EMX",
-    "image": "https://emotorad.com/images/EMX-Hero.png",
-    "description": "City riding is now a breeze as you traverse across town without any fuss or effort. The EMX is designed for the city; traffic, uneven roads and slopes included. India’s first dual suspension e-cycle, the dual-suspension of the EMX ensures that you will have a cushion ride and the power to cruise.",
-    "brand": "EMotorad",
-    "offers": {
-      "@type": "Offer",
-      "url": "https://emotorad.com/emx",
-      "priceCurrency": "INR",
-      "price": "52371",
-      "availability": "https://schema.org/InStock",
-      "itemCondition": "https://schema.org/NewCondition"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "bestRating": "5",
-      "worstRating": "1",
-      "ratingCount": "1500"
+  let articleStructuredData;
+  if(localStorage.getItem('subDomain') == 'india') {
+    articleStructuredData = {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "EMX",
+      "image": "https://emotorad.com/images/EMX-Hero.png",
+      "description": "City riding is now a breeze as you traverse across town without any fuss or effort. The EMX is designed for the city; traffic, uneven roads and slopes included. India’s first dual suspension e-cycle, the dual-suspension of the EMX ensures that you will have a cushion ride and the power to cruise.",
+      "brand": "EMotorad",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://emotorad.com/emx",
+        "priceCurrency": "INR",
+        "price": "52371",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "1500"
+      }
+    }
+  } else if(localStorage.getItem('subDomain') == 'uae') {
+    articleStructuredData = {
+      "@context": "https://schema.org/", 
+      "@type": "Product", 
+      "name": "EMX",
+      "image": "https://nepal.emotorad.in/images/EMX-Hero.png",
+      "description": "City riding is now a breeze as you traverse across town without any fuss or effort. The EMX is designed for the city; traffic, uneven roads and slopes included. India’s first dual suspension e-cycle, the dual-suspension of the EMX ensures that you will have a cushion ride and the power to cruise.",
+      "brand": "EMotorad",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://nepal.emotorad.in/emx",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "itemCondition": "https://schema.org/NewCondition"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "1500"
+      }
     }
   }
+  
 
   const [visibleImagesMap, setVisibleImagesMap] = useState(
     images.reduce((map, image) => {
@@ -257,14 +285,11 @@ const ProductEMX = (props) => {
       <PageLoader loader={loader} />
       <Navbar setCountry={setCountry} country={country}>
 
-        {
-          (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
+        <Helmet>
             <script type="application/ld+json">
               {JSON.stringify(articleStructuredData)}
             </script>
-            :
-            ''
-        }
+        </Helmet>    
 
         <section class="product_menu_sec">
           <div class="container">
@@ -1161,7 +1186,7 @@ const ProductEMX = (props) => {
                                             (subdomain == 'india')  ?
                                                 <>
                                                 No Cost EMI Available,
-                                                <span style={{ "color": "#10b068" }}>Starts From Rs. 6189/Month</span>
+                                                <span style={{ "color": "#10b068" }}>Starts From Rs. 4583/Month</span>
                                                 </>
                                             :'EMI Available'
                                         }    

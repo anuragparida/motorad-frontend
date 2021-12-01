@@ -14,7 +14,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import ProductSlider from "../../components/ProductSlider";
 import PageLoader from "../../components/PageLoader";
-
+import {Helmet} from "react-helmet";
 
 let images = [0, 1, 2, 3, 4];
 
@@ -39,6 +39,29 @@ const ProductTrible = (props) => {
     trible: "",
   });
   const [loader, setLoader] = useState(false);
+
+  const TribleSEO = {
+    "@context": "https://schema.org/", 
+    "@type": "Product", 
+    "name": "Trible",
+    "image": "https://uae.emotorad.in/images/uae/TRIBLE/Top-Part/Yellow.png",
+    "description": "The Trible is your compion for your commute or an exciting adventure. Ride further and more often with a power-assisted ride or store it compactly and safely at home or work.",
+    "brand": "EMotorad",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://uae.emotorad.in/trible",
+      "priceCurrency": "AED",
+      "availability": "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "1500"
+    }
+  }
 
 
 
@@ -234,6 +257,11 @@ const ProductTrible = (props) => {
 
   return (
     <>
+    <Helmet>
+        <script type="application/ld+json">
+            {JSON.stringify(TribleSEO)}
+        </script>
+    </Helmet>
     <PageLoader loader={loader}/>
       <Navbar setCountry={setCountry} country={country}>
         <section class="product_menu_sec">
@@ -587,7 +615,7 @@ const ProductTrible = (props) => {
                       <br />Experience the bike in real <br />
                       life.
                     </p>
-                    <a href="#">TEST RIDE</a>
+                    <a href="/book">TEST RIDE</a>
                   </div>
                 </div>
               </div>

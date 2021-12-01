@@ -300,7 +300,7 @@ const Warranty = (props) => {
                                             <select name="dealerName" id="" class="form-control" defaultValue="">
                                                 <option value="">Select Store</option>
                                                 {
-                                                ["Amazon", "Flipkart"].map(x=><option value={x}>{x}</option>)
+                                                ["EM Offlicail Website","Amazon", "Flipkart","Blive","CMB","EWheeler"].map(x=><option value={x}>{x}</option>)
                                                 }
                                             </select>
                                         </div>

@@ -15,6 +15,7 @@ import { Carousel } from 'react-responsive-carousel';
 import { VideoScroll } from 'react-video-scroll'
 import ProductSlider from "../../components/ProductSlider";
 import PageLoader from "../../components/PageLoader";
+import {Helmet} from "react-helmet";
 
 
 let images = [0, 1, 2, 3, 4];
@@ -39,6 +40,29 @@ const ProductXplorer = (props) => {
     const [loader, setLoader] = useState(false);
 
     const [allProducts, setAllProducts] = useState([]);
+
+    const XplorerSEO = {
+        "@context": "https://schema.org/", 
+        "@type": "Product", 
+        "name": "Xplorer",
+        "image": "https://japan.emotorad.in/images/Japan/XPLORER/Top-Part/Xplorer-Black.png",
+        "description": "It may be a small, fun ride, but Xplorer has power to spare when you are in the mood for adventure. And when you don’t, you can fold it away. From sandy beaches to city roads, this e-bike has the oomph and the portability that will tempt you to take it with you wherever you may go.",
+        "brand": "EMotorad",
+        "offers": {
+          "@type": "Offer",
+          "url": "https://japan.emotorad.in/xplorer",
+          "priceCurrency": "YEN",
+          "availability": "https://schema.org/InStock",
+          "itemCondition": "https://schema.org/NewCondition"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "5",
+          "bestRating": "5",
+          "worstRating": "1",
+          "ratingCount": "1500"
+        }
+      }
 
 
 
@@ -221,6 +245,11 @@ const ProductXplorer = (props) => {
 
     return (
         <>
+        <Helmet>
+            <script type="application/ld+json">
+                {JSON.stringify(XplorerSEO)}
+            </script>
+        </Helmet>
         <PageLoader loader={loader}/>
             <Navbar setCountry={setCountry} country={country}>
                 <section class="product_menu_sec">
@@ -598,7 +627,7 @@ const ProductXplorer = (props) => {
                                             <br />Experience the bike in real <br />
                                             life.
                                         </p>
-                                        <a href="#">TEST RIDE</a>
+                                        <a href="/book">TEST RIDE</a>
                                     </div>
                                 </div>
                             </div>

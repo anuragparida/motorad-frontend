@@ -14,6 +14,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a lo
 import { Carousel } from 'react-responsive-carousel';
 import ProductSlider from "../../components/ProductSlider";
 import PageLoader from "../../components/PageLoader";
+import {Helmet} from "react-helmet";
 
 
 let images = [0, 1, 2, 3, 4];
@@ -39,29 +40,75 @@ const ProductTREX = (props) => {
     trible: "",
   });
   const [loader, setLoader] = useState(false);
+  let articleStructuredData;
 
-
-  const articleStructuredData = {
-    "@context": "https://schema.org/",
-    "@type": "Product",
-    "name": "T-rex",
-    "image": "https://emotorad.com/images/3D-Renders/T-Rex-Mobile-FFMpeg.mp4",
-    "description": "Get the best and fastest mountain electric bike - T-Rex by Emotorad. EMI starts from INR 1999/mo. Get your FREE Test Ride Now",
-    "brand": "EMotorad",
-    "offers": {
-      "@type": "Offer",
-      "url": "https://emotorad.com/trex",
-      "priceCurrency": "INR",
-      "price": "36999"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5",
-      "bestRating": "5",
-      "worstRating": "1",
-      "ratingCount": "1500"
+  if(localStorage.getItem('subDomain') == 'india') {
+    articleStructuredData = {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "T-rex",
+      "image": "https://emotorad.com/images/3D-Renders/T-Rex-Mobile-FFMpeg.mp4",
+      "description": "Get the best and fastest mountain electric bike - T-Rex by Emotorad. EMI starts from INR 1999/mo. Get your FREE Test Ride Now",
+      "brand": "EMotorad",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://emotorad.com/trex",
+        "priceCurrency": "INR",
+        "price": "36999"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "1500"
+      }
+    }
+  } else if(localStorage.getItem('subDomain') == 'uae') {
+    articleStructuredData = {
+      "@context": "https://schema.org/", 
+      "@type": "Product", 
+      "name": "T-rex",
+      "image": "https://uae.emotorad.in/images/t-rex-red.png",
+      "description": "Get the best and fastest mountain electric bike - T-Rex by Emotorad. EMI starts from INR 1999/mo. Get your FREE Test Ride Now",
+      "brand": "EMotorad",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://uae.emotorad.in/trex",
+        "priceCurrency": "AED",
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "1500"
+      }
+    }
+  } else if(localStorage.getItem('subDomain') == 'nepal') {
+    articleStructuredData = {
+      "@context": "https://schema.org/",
+      "@type": "Product",
+      "name": "T-rex",
+      "image": "https://emotorad.com/images/3D-Renders/T-Rex-Mobile-FFMpeg.mp4",
+      "description": "Get the best and fastest mountain electric bike - T-Rex by Emotorad. EMI starts from INR 1999/mo. Get your FREE Test Ride Now",
+      "brand": "EMotorad",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://nepal.emotorad.com/trex",
+        "priceCurrency": "INR",
+        "price": "36999"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "1500"
+      }
     }
   }
+  
 
 
 
@@ -258,6 +305,11 @@ const ProductTREX = (props) => {
 
   return (
     <>
+    <Helmet>
+        <script type="application/ld+json">
+            {JSON.stringify(articleStructuredData)}
+        </script>
+    </Helmet>
     <PageLoader loader={loader}/>
       <Navbar setCountry={setCountry} country={country}>
         {
@@ -668,7 +720,7 @@ const ProductTREX = (props) => {
                       the most of the mountain br bike. <br />
                       <br />Experience the bike in real life.
                     </p>
-                    <a href="#">TEST RIDE</a>
+                    <a href="/book">TEST RIDE</a>
                   </div>
                 </div>
               </div>
@@ -1461,7 +1513,7 @@ const ProductTREX = (props) => {
                                             (subdomain == 'india')  ?
                                                 <>
                                                 No Cost EMI Available,
-                                                <span style={{ "color": "#10b068" }}>Starts From Rs. 6189/Month</span>
+                                                <span style={{ "color": "#10b068" }}>Starts From Rs. 3250/Month</span>
                                                 </>
                                             :'EMI Available'
                                         }    

@@ -164,7 +164,7 @@ const Footer = (props) => {
                         <div class="col-lg-8 ordr_2">
                             <div class="ftr_btm_lft">
                                 <ul>
-                                    <li><Link to="#"><img src={countryflag} alt="a" class="img-fluid" /> {countryName}</Link>
+                                    <li><Link to="#"><img src={countryflag} alt="a" class="img-fluid" /> {countryName} <i class="fa fa-caret-down"></i></Link>
                                         <ul class="assurance_drop_dwn_5">
                                             {/* <li><Link to="#"><img src="images/india-flag.png" alt="a" class="img-fluid" /> India</Link></li>
                                             <li><Link to="#"><img src="images/uae.png" alt="a" class="img-fluid" /> UAE</Link></li>
