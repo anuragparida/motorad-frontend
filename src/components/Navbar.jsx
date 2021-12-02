@@ -526,19 +526,19 @@ const Navbar = (props) => {
                                     <div class="col-lg-3">
                                         <div class="bog_drop_wraps">
                                             <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
-                                            <Link to="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                            <a href="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="bog_drop_wraps">
                                             <img src="images/bicycle_3.png" alt="a" class="img-fluid" />
-                                            <Link to="/emx">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                            <a href="/emx">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="bog_drop_wraps">
                                             <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
-                                            <Link to="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                            <a href="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                         </div>
                                     </div>
                                 </>
@@ -547,25 +547,25 @@ const Navbar = (props) => {
                                         <div class="col-lg-3">
                                             <div class="bog_drop_wraps">
                                                 <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
-                                                <Link to="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                                <a href="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="bog_drop_wraps">
                                                 <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
-                                                <Link to="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                                <a href="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="bog_drop_wraps">
                                                 <img src="images/uae/Ener-G.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
-                                                <Link to="/energ">ENER G <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                                <a href="/energ">ENER G <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="bog_drop_wraps">
                                                 <img src="images/uae/Trible.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
-                                                <Link to="/trible">TRIBLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                                <a href="/trible">TRIBLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                             </div>
                                         </div>
                                     </>
@@ -574,19 +574,19 @@ const Navbar = (props) => {
                                             <div class="col-lg-3">
                                                 <div class="bog_drop_wraps">
                                                     <img src="images/Japan/XPLORER/Xplorer-pulse-black.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
-                                                    <Link to="/xplorer">XPLORER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                                    <a href="/xplorer">XPLORER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3">
                                                 <div class="bog_drop_wraps">
                                                     <img src="images/Japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
-                                                    <Link to="/glyder">GLYDER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                                    <a href="/glyder">GLYDER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3">
                                                 <div class="bog_drop_wraps">
                                                     <img src="images/Japan/DOLPHIN/BottomPart-BlinkingPoints/Dolphin-Pulse-part.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
-                                                    <Link to="/dolphine">DOLPHIN <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                                    <a href="/dolphine">DOLPHIN <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                                 </div>
                                             </div>
                                         </>
@@ -595,19 +595,19 @@ const Navbar = (props) => {
                                             <div class="col-lg-3">
                                                 <div class="bog_drop_wraps">
                                                     <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
-                                                    <Link to="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                                    <a href="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3">
                                                 <div class="bog_drop_wraps">
                                                     <img src="images/bicycle_3.png" alt="a" class="img-fluid" />
-                                                    <Link to="/emx">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                                    <a href="/emx">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3">
                                                 <div class="bog_drop_wraps">
                                                     <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
-                                                    <Link to="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                                    <a href="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                                 </div>
                                             </div>
                                         </>
