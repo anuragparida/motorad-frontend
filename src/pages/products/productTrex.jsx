@@ -306,6 +306,8 @@ const ProductTREX = (props) => {
   return (
     <>
     <Helmet>
+        <title>T-Rex | Best Electric Mountain Bike - Emotorad</title>  
+        <meta name="description" content="Get the best electric mountain bike - T-Rex by Emotorad. EMI starts from INR 1999/mo. Get your FREE Test Ride Now" />
         <script type="application/ld+json">
             {JSON.stringify(articleStructuredData)}
         </script>
@@ -417,13 +419,13 @@ const ProductTREX = (props) => {
                           // src={"https://uae-api.emotorad.in/" + products.find(prod => prod.id === productID).banner ==='' }
                           src={products.find(prod => prod.id === productID).color === "red" ? "images/t-rex-hero-red.png" : "images/t-rex-hero-yellow.png"}
                           // src= {"/uploads/product_banner/t-rex-red.png" ? "images/t-rex-hero-red.png" : "images/t-rex-hero-yellow.png"}
-                          alt="a"
+                          alt="EMotorad T-rex"
                           class="img-fluid"
                         />
                         :
                         <img
                           src="images/t-rex-hero-red.png"
-                          alt="a"
+                          alt="EMotorad T-rex"
                           class="img-fluid"
                         />
                       :
@@ -432,12 +434,12 @@ const ProductTREX = (props) => {
                         <img
                           src={"https://uae-api.emotorad.com/" + products.find(prod => prod.id === productID).banner}
                           // src= {"/uploads/product_banner/t-rex-red.png" ? "images/t-rex-hero-red.png" : "images/t-rex-hero-yellow.png"}
-                          alt="a"
+                          alt="EMotorad T-rex"
                           class="img-fluid"
                         /> :
                         <img
                           src="images/t-rex-hero-red.png"
-                          alt="a"
+                          alt="EMotorad T-rex"
                           class="img-fluid"
                         />
 
@@ -760,7 +762,7 @@ const ProductTREX = (props) => {
                   data-aos="fade-up"
                   data-aos-duration="2000"
                 >
-                  <img src="images/t-rex-red.png" alt="a" class="img-fluid" />
+                  <img src="images/t-rex-red.png" alt="EMotorad T-rex" class="img-fluid" />
                   {/* <div class="spe_dot_1 d-none d-lg-block">
                     <div class="dot">
                       <div class="dot-pulse"></div>
@@ -882,7 +884,7 @@ const ProductTREX = (props) => {
                   data-aos="fade-up"
                   data-aos-duration="2000"
                 >
-                  <img src="images/t-rex-yellow.png" alt="a" class="img-fluid" />
+                  <img src="images/t-rex-yellow.png" alt="EMotorad T-rex" class="img-fluid" />
                   {/* <div class="spe_dot_1 d-none d-lg-block">
                     <div class="dot">
                       <div class="dot-pulse"></div>

@@ -286,6 +286,8 @@ const ProductEMX = (props) => {
       <Navbar setCountry={setCountry} country={country}>
 
         <Helmet>
+            <title>Emx | Best Online Electric Bicycles - Emotorad</title>  
+            <meta name="description" content="EMX by Emotorad provides you the complete experience of riding an electric bike with its amazing features. Book your best online electric bicycles test ride now!" />
             <script type="application/ld+json">
               {JSON.stringify(articleStructuredData)}
             </script>
@@ -371,7 +373,7 @@ const ProductEMX = (props) => {
 
                 <div class="hero_pro_img">
                   <div class="product_hero_txts">
-                    <img src="images/EMX-Hero.png" alt="a" class="img-fluid" />
+                    <img src="images/EMX-Hero.png" alt="EMotorad EMX" class="img-fluid" />
                   </div>
                 </div>
 
@@ -380,7 +382,7 @@ const ProductEMX = (props) => {
             <div class="col-12">
               <div class="pr_hero_btm d-none d-lg-block">
                 <a href="#feat_sec">
-                  <img src="images/mouse_icon.svg" alt="a" class="img-fluid" />
+                  <img src="images/mouse_icon.svg" alt="EMotorad EMX" class="img-fluid" />
                 </a>
               </div>
             </div>

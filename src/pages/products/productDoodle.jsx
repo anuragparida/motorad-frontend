@@ -300,12 +300,13 @@ const ProductDOODLE = (props) => {
   }
 
   return (
-    <>
-
+    <>      
       <PageLoader loader={loader} />
       <Navbar setCountry={setCountry} country={country}>
             
       <Helmet>
+        <title>Doodle | Buy Best Foldable Electric Bike Online - Emotorad</title>  
+        <meta name="description" content="Doodle by Emotorad provides you amazing features with a foldable electric bike. Enjoy the ride with the premium quality Doodle and buy best foldable electic bike online." />
         <script type="application/ld+json">
           {JSON.stringify(articleStructuredData)}
         </script>
@@ -407,13 +408,13 @@ const ProductDOODLE = (props) => {
                           products.find(prod => prod.id === productID) ?
                           <img
                             src={products.find(prod => prod.id === productID).color === "green" ?  "images/Doodle-Green.png" : "images/Doodle-Black.png" }
-                            alt="a"
+                            alt="EMotorad Doodle"
                             class="img-fluid"
                           />
                           :
                           <img
                             src="images/Doodle-Green.png"
-                            alt="a"
+                            alt="EMotorad Doodle"
                             class="img-fluid"
                           />
                         : (subdomain == 'uae') ?
@@ -421,13 +422,13 @@ const ProductDOODLE = (props) => {
                             products.find(prod => prod.id === productID) ?
                             <img
                               src={products.find(prod => prod.id === productID).banner === "/uploads/product_banner/Doodle-Black.png" ? "images/Doodle-Black.png" : "images/Doodle-Green.png"}
-                              alt="a"
+                              alt="EMotorad Doodle"
                               class="img-fluid"
                             />
                             :
                             <img
                               src="images/Doodle-Green.png"
-                              alt="a"
+                              alt="EMotorad Doodle"
                               class="img-fluid"
                             />
                           : ""

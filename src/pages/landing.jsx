@@ -10,7 +10,7 @@ import { server, config, checkAccess } from "../env";
 import WhattsApp from "../components/WhattsApp";
 import ProductSlider from "../components/ProductSlider";
 import PageLoader from "../components/PageLoader";
-
+import {Helmet} from "react-helmet";
 // import Slider from "react-slick";
 
 // import Slider from "react-slick";
@@ -144,7 +144,10 @@ const Landing = (props) => {
 
     return (
         <>
-          
+                    <Helmet>
+                        <title>Buy Electric Bicycle | Buy Online Electric Bike - EMotorad</title>
+                        <meta name="description" content="Emotorad offers high tech, reliable, and fast electric cycles with premium quality. Now book electric bicycle & buy online electric bike with Emotorad at best price." />
+                    </Helmet>    
                     <PageLoader loader={loader} style={{zIndex:"99999999"}}/>
                     <Navbar setCountry={setCountry} country={country} />
                     <MobileNavbar />
@@ -156,13 +159,13 @@ const Landing = (props) => {
                                     <div class="home_hero_bike_wrap">
                                         {
                                             (subdomain == '' || subdomain == "india" || subdomain == 'nepal') ?
-                                                <img src="images/Top-Landing-India.gif" alt="a" class="img-fluid w-100" />
+                                                <img src="images/Top-Landing-India.gif" alt="EMotorad Bicycle" class="img-fluid w-100" />
                                                 : (subdomain == 'uae') ?
-                                                    <img src="images/uae/Main-hero-UAE.gif" alt="a" class="img-fluid w-100" />
+                                                    <img src="images/uae/Main-hero-UAE.gif" alt="EMotorad Bicycle" class="img-fluid w-100" />
                                                     : (subdomain == 'japan') ?
-                                                        <img src="images/Japan/Top-Part/Hero-Main.gif" alt="a" class="img-fluid w-100" />
+                                                        <img src="images/Japan/Top-Part/Hero-Main.gif" alt="EMotorad Bicycle" class="img-fluid w-100" />
                                                         :
-                                                        <img src="images/manin-hero-img.gif" alt="a" class="img-fluid w-100" />
+                                                        <img src="images/manin-hero-img.gif" alt="EMotorad Bicycle" class="img-fluid w-100" />
                                         }
                                     </div>
                                     <div class="home_hero_bike_title">
