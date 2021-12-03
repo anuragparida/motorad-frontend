@@ -243,7 +243,7 @@ const ProductXplorer = (props) => {
             });
     }
 
-    return (
+    return ( 
         <>
         <Helmet>
             <script type="application/ld+json">
