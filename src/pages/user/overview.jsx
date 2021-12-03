@@ -29,8 +29,6 @@ const Overview = (props) => {
         .post(server + "/api/order/my-orders", {}, config)
         .then((rsp) => {
           console.log(rsp);
-          console.log("payload");
-          console.log(rsp.data.payload)
           setOrders(rsp.data.payload.filter(order => order.status === 1));
         })
         .catch((err) => {
@@ -141,7 +139,6 @@ const Overview = (props) => {
                 orders.length > 0 ?
                   orders.map(order => (
                     order.products.map(product => (
-                        product.status == '1' ?
                       <div class="warenty_actv_box_wrap">
                         <div class="bicycle_img">
                           <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
@@ -247,8 +244,6 @@ const Overview = (props) => {
                           >
                         </div>
                       </div>
-                      :
-                      ''
                     ))
 
                   ))
