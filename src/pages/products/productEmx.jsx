@@ -423,14 +423,26 @@ const ProductEMX = (props) => {
                   <div className="app">
                     <div className="sticky">
                       <div className="frame">
-                        {images.map((image) => (
-                          <div className={classnames("image imageRotate", `image_emx_${image}`, {
-                            image_visible: visibleImagesMap[image]
-                          })}
-                            key={image}
-                            id={"image_" + image}
-                          />
-                        ))}
+                        {
+                          (localStorage.getItem('subDomain') == 'india') ?
+                            images.map((image) => (
+                            <div className={classnames("image imageRotate", `image_emx_${image}`, {
+                              image_visible: visibleImagesMap[image]
+                            })}
+                              key={image}
+                              id={"image_" + image}
+                            />
+                            ))
+                          :
+                            images.map((image) => (
+                            <div className={classnames("image imageRotate", `image_emx_nepal_${image}`, {
+                              image_visible: visibleImagesMap[image]
+                            })}
+                              key={image}
+                              id={"image_" + image}
+                            />
+                            ))
+                        }
                       </div>
                     </div>
                   </div>

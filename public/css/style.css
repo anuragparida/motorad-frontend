@@ -3234,6 +3234,71 @@ img {
   background-image: url("../images/Web-E.png");
 }
 
+
+
+
+
+
+
+.image_nepal_0 {
+  z-index: 0;
+  background-image: url("../images/Nepal/T-REX/Web-A.png");
+}
+
+.image_nepal_1 {
+  z-index: 1;
+  background-image: url("../images/Nepal/T-EX/Web-B.png");
+}
+
+.image_nepal_2 {
+  z-index: 2;
+  background-image: url("../images/Nepal/T-REX/Web-C.png");
+}
+
+.image_nepal_3 {
+  z-index: 3;
+  background-image: url("../images/Nepal/T-REX/Web-D.png");
+}
+
+.image_nepal_4 {
+  z-index: 4;
+  background-image: url("../images/Nepal/T-REX/Web-E.png");
+}
+
+
+
+
+.image_uae_0 {
+  z-index: 0;
+  background-image: url("../images/uae/T-REX/Web-A.png");
+}
+
+.image_uae_1 {
+  z-index: 1;
+  background-image: url("../images/uae/T-EX/Web-B.png");
+}
+
+.image_uae_2 {
+  z-index: 2;
+  background-image: url("../images/uae/T-REX/Web-C.png");
+}
+
+.image_uae_3 {
+  z-index: 3;
+  background-image: url("../images/uae/T-REX/Web-D.png");
+}
+
+.image_uae_4 {
+  z-index: 4;
+  background-image: url("../images/uae/T-REX/Web-E.png");
+}
+
+
+
+
+
+
+
 .image_emx_0 {
   z-index: 0;
   background-image: url("../images/EMX/Web-A.png");
@@ -3259,6 +3324,45 @@ img {
   background-image: url("../images/EMX/Web-E.png");
 }
 
+
+
+
+
+
+
+
+.image_emx_nepal_0 {
+  z-index: 0;
+  background-image: url("../images/Nepal/EMX/Web-A.png");
+}
+
+.image_emx_nepal_1 {
+  z-index: 1;
+  background-image: url("../images/Nepal/EMX/Web-B.png");
+}
+
+.image_emx_nepal_2 {
+  z-index: 2;
+  background-image: url("../images/Nepal/EMX/Web-C.png");
+}
+
+.image_emx_nepal_3 {
+  z-index: 3;
+  background-image: url("../images/Nepal/EMX/Web-D.png");
+}
+
+.image_emx_nepal_4 {
+  z-index: 4;
+  background-image: url("../images/Nepal/EMX/Web-E.png");
+}
+
+
+
+
+
+
+
+
 .image_doodle_0 {
   z-index: 0;
   background-image: url("../images/Doodle/Web-A.png");
@@ -3283,6 +3387,80 @@ img {
   z-index: 4;
   background-image: url("../images/Doodle/Web-E.png");
 }
+
+
+
+
+
+
+.image_uae_doodle_0 {
+  z-index: 0;
+  background-image: url("../images/uae/DOODLE/Web-A.png");
+}
+
+.image_uae_doodle_1 {
+  z-index: 1;
+  background-image: url("../images/uae/DOODLE/Web-B.png");
+}
+
+.image_uae_doodle_2 {
+  z-index: 2;
+  background-image: url("../images/uae/DOODLE/Web-C.png");
+}
+
+.image_uae_doodle_3 {
+  z-index: 3;
+  background-image: url("../images/uae/DOODLE/Web-D.png");
+}
+
+.image_uae_doodle_4 {
+  z-index: 4;
+  background-image: url("../images/uae/DOODLE/Web-E.png");
+}
+
+
+
+
+
+
+.image_doodle_nepal_0 {
+  z-index: 0;
+  background-image: url("../images/Nepal/DOODLE/Web-A.png");
+}
+
+.image_doodle_nepal_1 {
+  z-index: 1;
+  background-image: url("../images/Nepal/DOODLE/Web-B.png");
+}
+
+.image_doodle_nepal_2 {
+  z-index: 2;
+  background-image: url("../images/Nepal/DOODLE/Web-C.png");
+}
+
+.image_doodle_nepal_3 {
+  z-index: 3;
+  background-image: url("../images/Nepal/DOODLE/Web-D.png");
+}
+
+.image_doodle_nepal_4 {
+  z-index: 4;
+  background-image: url("../images/Nepal/DOODLE/Web-E.png");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .image_energ_0 {
   z-index: 0;
   background-image: url("../images/uae/ENERG/Web-A.png");

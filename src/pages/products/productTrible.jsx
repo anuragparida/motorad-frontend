@@ -338,7 +338,7 @@ const ProductTrible = (props) => {
                     <text text-anchor="middle" x="50%" y="50%">TRIBLE</text>
                   </svg>
                   <img
-                    src="images/the_best.png"
+                    src="images/uae/TRIBLE/ULTRA_COMPACT.png"
                     alt="a"
                     class="img-fluid intro"
                   />

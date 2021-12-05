@@ -352,7 +352,7 @@ const ProductEnerg = (props) => {
                                         <text text-anchor="middle" x="50%" y="50%">ENER-G</text>
                                     </svg>
                                     <img
-                                        src="images/the_best.png"
+                                        src="images/uae/ENERG/SERIOUS_UTILITY.png"
                                         alt="a"
                                         class="img-fluid intro"
                                     />

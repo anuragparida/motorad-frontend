@@ -500,15 +500,38 @@ const ProductTREX = (props) => {
                         key={image}
                       />
                     ))} */}
-                        {images.map((image) => (
-                          <div className={classnames("image imageRotate", `image_${image}`, {
-                            image_visible: visibleImagesMap[image]
-                          })}
-                            key={image}
-                            id={"image_" + image}
-                          // style={{backgroundPosition: 'calc(100% + 30px) calc(100% + 30px);' }}
-                          />
-                        ))}
+                        {
+                          (localStorage.getItem('subDomain') == 'india') ?
+                            images.map((image) => (
+                              <div className={classnames("image imageRotate", `image_${image}`, {
+                                image_visible: visibleImagesMap[image]
+                              })}
+                                key={image}
+                                id={"image_" + image}
+                              // style={{backgroundPosition: 'calc(100% + 30px) calc(100% + 30px);' }}
+                              />
+                            )) 
+                            : (localStorage.getItem('subDomain') == 'uae') ?
+                            images.map((image) => (
+                              <div className={classnames("image imageRotate", `image_uae_${image}`, {
+                                image_visible: visibleImagesMap[image]
+                              })}
+                                key={image}
+                                id={"image_" + image}
+                              // style={{backgroundPosition: 'calc(100% + 30px) calc(100% + 30px);' }}
+                              />
+                            ))
+                            :
+                            images.map((image) => (
+                              <div className={classnames("image imageRotate", `image_nepal_${image}`, {
+                                image_visible: visibleImagesMap[image]
+                              })}
+                                key={image}
+                                id={"image_" + image}
+                              // style={{backgroundPosition: 'calc(100% + 30px) calc(100% + 30px);' }}
+                              />
+                            ))
+                        }
                       </div>
                     </div>
                   </div>

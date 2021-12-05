@@ -1,5 +1,4 @@
 (function () {
-    return false;
     var scriptURL = 'https://sdks.shopifycdn.com/buy-button/latest/buy-button-storefront.min.js';
     if (window.ShopifyBuy) {
       if (window.ShopifyBuy.UI) {
@@ -18,11 +17,16 @@
       script.onload = ShopifyBuyInit;
     }
     function ShopifyBuyInit() {
+      //return false; 
       var client = ShopifyBuy.buildClient({
         domain: 'emotorad.myshopify.com',
         storefrontAccessToken: '30d6ccbc02723e616059bb371989487f',
       });
       ShopifyBuy.UI.onReady(client).then(function (ui) {
+        var a = document.getElementById("product-component-1636981282593");
+        if(!a) {
+          return false;
+        }
         ui.createComponent('product', {
           id: '7449124569332',
             variantId: '42060691538164',

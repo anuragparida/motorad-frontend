@@ -332,7 +332,7 @@ const ProductDolphin = (props) => {
                                         <text text-anchor="middle" x="50%" y="50%">DOLPHIN</text>
                                     </svg>
                                     <img
-                                        src="images/the_best.png"
+                                        src="images/ART_ON_WHEELS.png"
                                         alt="a"
                                         class="img-fluid intro"
                                     />

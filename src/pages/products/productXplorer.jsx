@@ -250,7 +250,7 @@ const ProductXplorer = (props) => {
                 {JSON.stringify(XplorerSEO)}
             </script>
         </Helmet>
-        {/* <div id='product-component-1636981282593'></div> */}
+        
         <PageLoader loader={loader}/>
             <Navbar setCountry={setCountry} country={country}>
                 <section class="product_menu_sec">
@@ -300,7 +300,14 @@ const ProductXplorer = (props) => {
                                             <h6>YEN {productPrice.xplorer.toLocaleString()}</h6>
                                         </li>
                                         <li class="d-none d-lg-block">
-                                            <h6>{products.length > 0 && <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>}</h6>
+                                            {/* <h6>{products.length > 0 && <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>}</h6> */}
+                                            {
+                                                (productID == '2') ?
+                                                    <div id='product-component-1636981282593'></div> 
+                                                :
+                                                ''        
+                                            }
+                                            
                                         </li>
                                     </ul>
                                 </div>
@@ -325,7 +332,7 @@ const ProductXplorer = (props) => {
                                         <text text-anchor="middle" x="50%" y="50%">XPLORER</text>
                                     </svg>
                                     <img
-                                        src="images/the_best.png"
+                                        src="images/THE_ADVENTURER.png"
                                         alt="a"
                                         class="img-fluid intro"
                                     />

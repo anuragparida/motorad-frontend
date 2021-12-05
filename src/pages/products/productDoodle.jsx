@@ -481,14 +481,35 @@ const ProductDOODLE = (props) => {
                   <div className="app">
                     <div className="sticky">
                       <div className="frame">
-                        {images.map((image) => (
-                          <div className={classnames("image imageRotate", `image_doodle_${image}`, {
-                            image_visible: visibleImagesMap[image]
-                          })}
-                            key={image}
-                            id={"image_" + image}
-                          />
-                        ))}
+                        {
+                          (localStorage.getItem('subDomain') == 'india') ?
+                            images.map((image) => (
+                            <div className={classnames("image imageRotate", `image_doodle_${image}`, {
+                              image_visible: visibleImagesMap[image]
+                            })}
+                              key={image}
+                              id={"image_" + image}
+                            />
+                            ))
+                          : (localStorage.getItem('subDomain') == 'uae') ?
+                            images.map((image) => (
+                            <div className={classnames("image imageRotate", `image_uae_doodle_${image}`, {
+                              image_visible: visibleImagesMap[image]
+                            })}
+                              key={image}
+                              id={"image_" + image}
+                            />
+                            ))
+                          :
+                            images.map((image) => (
+                            <div className={classnames("image imageRotate", `image_doodle_nepal_${image}`, {
+                              image_visible: visibleImagesMap[image]
+                            })}
+                              key={image}
+                              id={"image_" + image}
+                            />
+                            ))
+                        }
                       </div>
                     </div>
                   </div>
