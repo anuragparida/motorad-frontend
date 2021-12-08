@@ -110,7 +110,7 @@ const ProductTREX = (props) => {
   }
   
 
-
+    
 
   const [visibleImagesMap, setVisibleImagesMap] = useState(
     images.reduce((map, image) => {
@@ -314,14 +314,6 @@ const ProductTREX = (props) => {
     </Helmet>
     <PageLoader loader={loader}/>
       <Navbar setCountry={setCountry} country={country}>
-        {
-          (subdomain == '' || subdomain == 'india' || subdomain == 'nepal') ?
-            <script type="application/ld+json">
-              {JSON.stringify(articleStructuredData)}
-            </script>
-            :
-            ''
-        }
         <section class="product_menu_sec">
           <div class="container">
             <div class="row">
@@ -779,7 +771,8 @@ const ProductTREX = (props) => {
                   THE CORE
                 </h4>
               </div>
-              <div class="product_spe_slider">
+              <div class=""> 
+              {/* product_spe_slider */}
                 <div
                   class="product_specific_img"
                   data-aos="fade-up"
@@ -907,7 +900,7 @@ const ProductTREX = (props) => {
                   data-aos="fade-up"
                   data-aos-duration="2000"
                 >
-                  <img src="images/t-rex-yellow.png" alt="EMotorad T-rex" class="img-fluid" />
+                  <img src="images/t-rex-yellow.png" id="test_123" alt="EMotorad T-rex" class="img-fluid" />
                   {/* <div class="spe_dot_1 d-none d-lg-block">
                     <div class="dot">
                       <div class="dot-pulse"></div>

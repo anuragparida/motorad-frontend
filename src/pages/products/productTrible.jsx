@@ -631,7 +631,8 @@ const ProductTrible = (props) => {
                   THE CORE
                 </h4>
               </div>
-              <div class="product_spe_slider">
+              <div class="">
+              {/* product_spe_slider */}
                 <div
                   class="product_specific_img"
                   data-aos="fade-up"

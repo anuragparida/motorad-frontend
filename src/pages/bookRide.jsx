@@ -8,8 +8,10 @@ import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import ProductSlider  from '../components/ProductSlider'
 import PageLoader from "../components/PageLoader";
+import { useHistory } from 'react-router-dom';
 
 const BookRide = (props) => {
+    const history = useHistory();
 
     const [bookSuccess, setBookSuccess] = useState(false);
     const [city, setCity] = useState("");
@@ -200,7 +202,8 @@ const BookRide = (props) => {
             .post(server + "/api/ride/book", params)
             .then((rsp) => {
                 // console.log(rsp);
-                setBookSuccess(true)
+                //setBookSuccess(true)
+                history.push("/book-success");
             })
             .catch((err) => {
                 // console.log(err.response);

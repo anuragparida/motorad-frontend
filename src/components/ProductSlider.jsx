@@ -86,12 +86,14 @@ export default function ProductSlider(props) {
     const loadProducts = async () => {
         let domain = localStorage.getItem('subDomain');
         let server;
-        if (domain == 'nepal' || domain == 'india' || domain == '') {
+        if (domain == 'india' || domain == '') {
             server = 'https://api.emotorad.com';
         } else if (domain == 'uae') {
             server = 'https://uae-api.emotorad.com';
         } else if (domain == 'japan') {
             server = 'https://japan-api.emotorad.com';
+        } else if(domain == 'nepal') {
+            server = 'https://nepal-api.emotorad.com';
         } else {
             server = 'https://api.emotorad.com';
         }

@@ -38,6 +38,7 @@ import ProductDolphin from "./pages/products/productDolphine";
 import Test from "./pages/products/TestProduct";
 
 import OrderSuccess from "./pages/orderSuccess";
+import BookSuccess from "./pages/bookrideSuccess";
 
 export default function Router() {
   return (
@@ -82,6 +83,7 @@ export default function Router() {
         <Route path="/book" component={BookRide} />
         <Route path="/cart" component={Cart} />
         <Route path="/order-success" component={OrderSuccess} />
+        <Route path="/book-success" component={BookSuccess} />
         <Route path="/dolphine" component={ProductDolphin} />
         <Route path="/" component={Landing} />
       </Switch>

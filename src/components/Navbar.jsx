@@ -163,7 +163,7 @@ const Navbar = (props) => {
         let full = window.location.host
         let parts = full.split('.')
         let sub = parts[0];    
-        //sub = 'uae';    
+        //sub = 'japan';    
         if(sub == 'uae') {
             localStorage.setItem('subDomain', "uae")
             let getsub = localStorage.getItem('subDomain');
@@ -360,7 +360,7 @@ const Navbar = (props) => {
                                     <li><a href="mailtocontactus@emotorad.com:">{subdomain == 'japan' ? 'connect_japan@emotorad.com' : "contactus@emotorad.com"}</a></li>
                                     <li><a href="#">
                                         {
-                                          (subdomain == 'japan') ? '+81 90 3683 8540' 
+                                          (subdomain == 'japan') ? '+81 50 5375 7475' 
                                           : (subdomain == 'uae') ? '+971 4876 4777' 
                                           : (subdomain == 'india') ? "+91-8686050590"
                                           : "+91-8686050590"
