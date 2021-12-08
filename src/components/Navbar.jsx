@@ -163,7 +163,7 @@ const Navbar = (props) => {
         let full = window.location.host
         let parts = full.split('.')
         let sub = parts[0];    
-        //sub = 'japan';    
+        sub = 'india';    
         if(sub == 'uae') {
             localStorage.setItem('subDomain', "uae")
             let getsub = localStorage.getItem('subDomain');
@@ -226,6 +226,16 @@ const Navbar = (props) => {
                         <script type="application/ld+json">
                             {JSON.stringify(organizationSEO)}
                         </script>
+
+                        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-180929846-1"></script>
+                        <script>
+                            {`
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+                            gtag('config', 'UA-180929846-1');
+                            `}
+                        </script>
                         
                         <script
                         dangerouslySetInnerHTML={{ __html: `
@@ -253,6 +263,17 @@ const Navbar = (props) => {
                         <script type="application/ld+json">
                             {JSON.stringify(organizationUAESEO)}
                         </script>
+
+                        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7733F902PJ"></script>
+                        <script>
+                            {`
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+                            gtag('config', 'G-7733F902PJ');
+                            `}
+                        </script>
+
                         <script
                         dangerouslySetInnerHTML={{ __html: `
                         !function(f,b,e,v,n,t,s)
@@ -276,6 +297,17 @@ const Navbar = (props) => {
                         <script type="application/ld+json">
                             {JSON.stringify(websiteJapanSEO)}
                         </script>
+
+                        <script async src="https://www.googletagmanager.com/gtag/js?id=G-SN141VWQ4E"></script>
+                        <script>
+                            {`
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+                            gtag('config', 'G-SN141VWQ4E');
+                            `}
+                        </script>
+
                         <script
                         dangerouslySetInnerHTML={{ __html: `
                         !function(f,b,e,v,n,t,s)
@@ -308,6 +340,17 @@ const Navbar = (props) => {
                         <script type="application/ld+json">
                             {JSON.stringify(organizationSEO)}
                         </script>
+
+                        <script async src="https://www.googletagmanager.com/gtag/js?id=G-58X0X08KBY"></script>
+                        <script>
+                            {`
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+                            gtag('config', 'G-58X0X08KBY');
+                            `}    
+                        </script>
+
                         <script
                         dangerouslySetInnerHTML={{ __html: `
                         !function(f,b,e,v,n,t,s)
