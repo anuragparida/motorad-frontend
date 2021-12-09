@@ -18,8 +18,7 @@ const BookSuccess = (props) => {
             <div class="order_placed_wrap">
               <img src="images/big_check.svg" alt="a" class="img-fluid" />
               <h3>
-                Your Test Book Ride is <br />
-                placed Successfully.
+                Your Test Ride has been <br /> booked successfully
               </h3>
               {/* <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
