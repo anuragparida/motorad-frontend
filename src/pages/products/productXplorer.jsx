@@ -303,7 +303,7 @@ const ProductXplorer = (props) => {
                                             {/* <h6>{products.length > 0 && <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>}</h6> */}
                                             {
                                                 (productID == '2') ?
-                                                    <div id='product-component-1636981282593'></div> 
+                                                    '' //<div id='product-component-1639054990993'></div>
                                                 :
                                                 ''        
                                             }
