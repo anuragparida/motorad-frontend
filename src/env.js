@@ -1,26 +1,26 @@
 const Cookies = require("js-cookie");
 let domain = localStorage.getItem("subDomain");
 let server;
-if (domain != 'uae' || domain != 'neapl' || domain != 'japan' || domain != '') {
+if (domain != "uae" || domain != "nepal" || domain != "japan" || domain != "") {
   let full = window.location.host;
-  let parts = full.split('.')
-  let sub = parts[0]; 
+  let parts = full.split(".");
+  let sub = parts[0];
+  // sub = "india";
   domain = sub;
   //alert(domain);
-  if(full == 'emotorad.com' || full == 'www.emotorad.com') {
-    domain = 'india';
+  if (full == "emotorad.com" || full == "www.emotorad.com") {
+    domain = "india";
   }
 }
 
-
-if (domain == 'india' || domain == '') {
-  server = 'https://api.emotorad.com';
-} else if(domain == 'nepal') {
-  server = 'https://nepal-api.emotorad.com';
-} else if (domain == 'uae') {
-  server = 'https://uae-api.emotorad.com';
-} else if (domain == 'japan') {
-  server = 'https://japan-api.emotorad.com';
+if (domain == "india" || domain == "") {
+  server = "https://api.emotorad.com";
+} else if (domain == "nepal") {
+  server = "https://nepal-api.emotorad.com";
+} else if (domain == "uae") {
+  server = "https://uae-api.emotorad.com";
+} else if (domain == "japan") {
+  server = "https://japan-api.emotorad.com";
 }
 
 module.exports = {
