@@ -10,6 +10,7 @@ import ProductSlider  from '../components/ProductSlider'
 import PageLoader from "../components/PageLoader";
 import { useHistory } from 'react-router-dom';
 
+
 const BookRide = (props) => {
     const history = useHistory();
 

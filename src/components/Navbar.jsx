@@ -163,7 +163,7 @@ const Navbar = (props) => {
         let full = window.location.host
         let parts = full.split('.')
         let sub = parts[0];    
-        //sub = 'india';    
+        //sub = 'uae';    
         if(sub == 'uae') {    
             localStorage.setItem('subDomain', "uae")
             let getsub = localStorage.getItem('subDomain');
@@ -553,19 +553,19 @@ const Navbar = (props) => {
                                     <div class="col-lg-3">
                                         <div class="bog_drop_wraps">
                                             <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
-                                            <a href="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
+                                            <Link to="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="bog_drop_wraps">
                                             <img src="images/bicycle_3.png" alt="a" class="img-fluid" />
-                                            <a href="/emx">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
+                                            <Link to="/emx">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="bog_drop_wraps">
                                             <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
-                                            <a href="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
+                                            <Link to="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
                                         </div>
                                     </div>
                                 </>
@@ -574,25 +574,25 @@ const Navbar = (props) => {
                                         <div class="col-lg-3">
                                             <div class="bog_drop_wraps">
                                                 <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
-                                                <a href="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
+                                                <Link to="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="bog_drop_wraps">
                                                 <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
-                                                <a href="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
+                                                <Link to="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="bog_drop_wraps">
                                                 <img src="images/uae/Ener-G.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
-                                                <a href="/energ">ENER G <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
+                                                <Link to="/energ">ENER G <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="bog_drop_wraps">
                                                 <img src="images/uae/Trible.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
-                                                <a href="/trible">TRIBLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
+                                                <Link to="/trible">TRIBLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
                                             </div>
                                         </div>
                                     </>
@@ -601,19 +601,19 @@ const Navbar = (props) => {
                                             <div class="col-lg-3">
                                                 <div class="bog_drop_wraps">
                                                     <img src="images/Japan/XPLORER/Xplorer-pulse-black.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
-                                                    <a href="/xplorer">XPLORER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
+                                                    <Link to="/xplorer">XPLORER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3">
                                                 <div class="bog_drop_wraps">
                                                     <img src="images/Japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
-                                                    <a href="/glyder">GLYDER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
+                                                    <Link to="/glyder">GLYDER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3">
                                                 <div class="bog_drop_wraps">
                                                     <img src="images/Japan/DOLPHIN/BottomPart-BlinkingPoints/Dolphin-Pulse-part.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
-                                                    <a href="/dolphine">DOLPHIN <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
+                                                    <Link to="/dolphine">DOLPHIN <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
                                                 </div>
                                             </div>
                                         </>
@@ -622,19 +622,19 @@ const Navbar = (props) => {
                                             <div class="col-lg-3">
                                                 <div class="bog_drop_wraps">
                                                     <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
-                                                    <a href="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
+                                                    <Link to="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3">
                                                 <div class="bog_drop_wraps">
                                                     <img src="images/bicycle_3.png" alt="a" class="img-fluid" />
-                                                    <a href="/emx">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
+                                                    <Link to="/emx">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3">
                                                 <div class="bog_drop_wraps">
                                                     <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
-                                                    <a href="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
+                                                    <Link to="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
                                                 </div>
                                             </div>
                                         </>

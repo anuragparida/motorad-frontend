@@ -1,6 +1,13 @@
 const Cookies = require("js-cookie");
 let domain = localStorage.getItem("subDomain");
 let server;
+if (domain != 'uae' || domain != 'neapl' || domain != 'japan' || domain != '') {
+  let full =  window.location.host;
+  let parts = full.split('.')
+  let sub = parts[0]; 
+  domain = sub;
+}
+
 
 if (domain == 'india' || domain == '') {
   server = 'https://api.emotorad.com';

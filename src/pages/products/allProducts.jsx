@@ -2,14 +2,49 @@ import React,{useState,useEffect} from "react";
 import Navbar from './../../components/Navbar';
 import MobileNavbar from './../../components/MobileNavbar';
 import Footer from './../../components/Footer';
+import { server, config, checkAccess } from "../../env";
+import axios from "axios";
 
 const AllProducts = (props) => {
   const [subdomain, setSubdomain] = useState("");
   const [country, setCountry] = useState(true);
+  const [products, setProducts] = useState([]);
+
+  const loadProducts = async() => {
+    await axios
+      .get(server + "/api/product/read", config)
+      .then((rsp) => {
+        console.log(rsp);
+        setProducts(rsp.data.payload);
+        window.cartSliderInit(Math.min(4, rsp.data.payload.filter(prod=>prod.type==="accessory").length));
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
+  }
+
+  const addToCart = async (id) => {
+    const params = {
+      "id": id
+    };
+    await axios
+      .post(server + "/api/cart/add", params, config)
+      .then((rsp) => {
+        console.log(rsp.data); //CHANGE THIS
+        window.location.href = "/cart";
+      })
+      .catch((err) => {
+        checkAccess(err);
+        console.error(err);
+      });
+  }
+
   useEffect(() => {
     let sub = ""
     sub = localStorage.getItem('subDomain');
     setSubdomain(sub);
+    loadProducts();
   }, [country]);
 
 
@@ -504,7 +539,7 @@ const AllProducts = (props) => {
       </section>
     }
 
-    <section class="product_list_section">
+    <section class="product_list_section" style={{ display : 'none' }}>
       <div class="container">
         <div class="row">
           <div class="col-12">
@@ -514,7 +549,7 @@ const AllProducts = (props) => {
           </div>
           <div class="col-lg-12">
             <div class="pro_arw_icons">
-              <img
+              <img 
                 src="images/angl_lft.png"
                 alt="a"
                 class="img-fluid slidPrv_2"
@@ -597,6 +632,55 @@ const AllProducts = (props) => {
         </div>
       </div>
     </section>
+
+
+    <section class="product_list_section cart_product_sec">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="product_list_head">
+                <h5>You Might Be Interested In</h5>
+              </div>
+            </div>
+            <div class="col-lg-12">
+            <div class="pro_arw_icons">
+              <img
+                src="images/angl_lft.png"
+                alt="a"
+                class="img-fluid slidPrv_2"
+              />
+              <img
+                src="images/angl_rgt.png"
+                alt="a"
+                class="img-fluid slidNext_2"
+              />
+            </div>
+          </div>
+          </div>
+          
+          <div class="row product_slidess">
+            {
+              products.filter(prod=>prod.type==="accessory").map(prod=>(
+                <div class="col-lg-3">
+                  <div class="products_wrap">
+                    <img src={`${server}${prod.banner}`} alt="a" class="img-fluid" />
+                    <div class="d-flex justify-content-between">
+                      <h6>{prod.name}</h6>
+                      <h6>₹ {prod.price}</h6>
+                    </div>
+                    <a href="javascript:void(0)" onClick={()=>{
+                      addToCart(prod.id)
+                    }}
+                      ><img src="images/cart_icon.svg" alt="a" class="img-fluid" />
+                      Add to Cart</a
+                    >
+                  </div>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </section>
     <Footer setCountry={setCountry} country={country}/>
     </>
   );
