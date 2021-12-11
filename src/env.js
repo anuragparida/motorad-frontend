@@ -7,7 +7,7 @@ if (domain != 'uae' || domain != 'neapl' || domain != 'japan' || domain != '') {
   let sub = parts[0]; 
   domain = sub;
   //alert(domain);
-  if(domain == 'emotorad') {
+  if(full == 'emotorad.com' || full == 'www.emotorad.com') {
     domain = 'india';
   }
 }
