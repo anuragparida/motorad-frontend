@@ -1201,7 +1201,7 @@ const ProductDOODLE = (props) => {
                   <div class="technical_specific_box">
                     <h6>Suspension</h6>
                     <p>
-                      Front with 60 mm <br />
+                      Front with 40 mm <br />
                       travel and lock-out
                     </p>
                   </div>
@@ -1215,7 +1215,7 @@ const ProductDOODLE = (props) => {
                   <div class="technical_specific_box">
                     <h6>Tyres</h6>
                     <p>
-                      20" x 4.0" <br />
+                      20" x 4.0" Tyres <br />
                       Kenda*
                     </p>
                   </div>
@@ -1237,7 +1237,7 @@ const ProductDOODLE = (props) => {
                     <h6>Saddle</h6>
                     <p>
                       Double-stitched <br />
-                      PU hydrodyme <br />
+                      PU hydrodyne <br />
                       soft cushion saddle
                     </p>
                   </div>
@@ -1333,14 +1333,14 @@ const ProductDOODLE = (props) => {
                     <p>LED head and <br /> rear lamps <br /> withintegrated horn
                     </p>
                   </div>
-                  <div class="technical_specific_box">
+                  {/* <div class="technical_specific_box">
                     <h6>Rider weight</h6>
                     <p>Up to 120Kg</p>
                   </div>
                   <div class="technical_specific_box">
                     <h6>Rider height</h6>
                     <p>4'10" to 6'4"</p>
-                  </div>
+                  </div> */}
                   <div class="technical_specific_box mr-0">
                     <div style={{ display: 'none' }}>
                       <h6>Display</h6>

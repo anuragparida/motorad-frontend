@@ -1254,7 +1254,7 @@ const ProductTREX = (props) => {
                     <h6>Tyres</h6>
                     <p>
                       26" x 2.0" <br />
-                      Chanyoung*
+                      Chaoyang*
                     </p>
                   </div>
                   <div class="technical_specific_box mr-0">
@@ -1275,7 +1275,7 @@ const ProductTREX = (props) => {
                     <h6>Saddle</h6>
                     <p>
                       Double-stitched <br />
-                      PU hydrodyme <br />
+                      PU hydrodyne <br />
                       soft cushion saddle
                     </p>
                   </div>
@@ -1376,14 +1376,14 @@ const ProductTREX = (props) => {
                       with integrated <br /> horn
                     </p>
                   </div>
-                  <div class="technical_specific_box">
+                  {/* <div class="technical_specific_box">
                     <h6>Rider weight</h6>
                     <p>Up to 120Kg</p>
                   </div>
                   <div class="technical_specific_box">
                     <h6>Rider height</h6>
                     <p>5' to 5'9"</p>
-                  </div>
+                  </div> */}
                   <div class="technical_specific_box mr-0">
                     <div style={{ display: 'none' }}>
                       <h6>Display</h6>

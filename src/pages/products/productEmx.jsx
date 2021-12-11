@@ -917,8 +917,9 @@ const ProductEMX = (props) => {
                   <div class="technical_specific_box">
                     <h6>Dual Suspension</h6>
                     <p>
-                      Front & Back with 100 mm <br />
-                      travel and lock-out
+                      Front with 100 mm <br />
+                      travel and lock-out <br />
+                      Back with 20 mm travel
                     </p>
                   </div>
                   <div class="technical_specific_box">
@@ -932,7 +933,7 @@ const ProductEMX = (props) => {
                     <h6>Tyres</h6>
                     <p>
                       27.5" x 2.0" CST <br />
-                      Jack Rabbit Tyres*
+                      All Terrain Tyres*
                     </p>
                   </div>
                   <div class="technical_specific_box mr-0">
@@ -953,7 +954,7 @@ const ProductEMX = (props) => {
                     <h6>Saddle</h6>
                     <p>
                       Double-stitched <br />
-                      PU hydrodyme <br />
+                      PU hydrodyne <br />
                       soft cushion saddle
                     </p>
                   </div>
@@ -1049,14 +1050,14 @@ const ProductEMX = (props) => {
                     <p>LED head and rear <br /> lamps with <br /> integrated horn
                     </p>
                   </div>
-                  <div class="technical_specific_box">
+                  {/* <div class="technical_specific_box">
                     <h6>Rider weight</h6>
                     <p>Up to 120Kg</p>
                   </div>
                   <div class="technical_specific_box">
                     <h6>Rider height</h6>
                     <p>5'2" to 6'2"</p>
-                  </div>
+                  </div> */}
                   <div class="technical_specific_box mr-0">
                     <div style={{ display: 'none' }}>
                       <h6>Display</h6>
