@@ -119,6 +119,7 @@ const BookRide = (props) => {
             .then((rsp) => {
                 // console.log(rsp);
                 setCities(rsp.data.payload.cities);
+                loadStores(rsp.data.payload.cities[0] || "");
             })
             .catch((err) => {
                 // console.log(err.response);
@@ -416,7 +417,6 @@ const BookRide = (props) => {
                                                             <select name="city" class="form-control" required onChange={e => setCity(e.target.value)}>
                                                                 {
                                                                     <>
-                                                                        <option value="">Select City</option>
                                                                         {
                                                                             cities.map(x => <option value={x}>{x}</option>)
                                                                         }
