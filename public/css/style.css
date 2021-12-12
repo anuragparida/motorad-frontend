@@ -44,6 +44,7 @@ a:hover {
 a.disabled {
   pointer-events: none;
   cursor: default;
+  background-color: lightgray;
 }
 img {
   vertical-align: middle;
