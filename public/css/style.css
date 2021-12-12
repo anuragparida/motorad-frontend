@@ -41,6 +41,10 @@ a:hover {
   color: #000;
   text-decoration: none;
 }
+a.disabled {
+  pointer-events: none;
+  cursor: default;
+}
 img {
   vertical-align: middle;
 }
@@ -3234,12 +3238,6 @@ img {
   background-image: url("../images/Web-E.png");
 }
 
-
-
-
-
-
-
 .image_nepal_0 {
   z-index: 0;
   background-image: url("../images/Nepal/T-REX/Web-A.png");
@@ -3264,9 +3262,6 @@ img {
   z-index: 4;
   background-image: url("../images/Nepal/T-REX/Web-E.png");
 }
-
-
-
 
 .image_uae_0 {
   z-index: 0;
@@ -3293,12 +3288,6 @@ img {
   background-image: url("../images/uae/T-REX/Web-E.png");
 }
 
-
-
-
-
-
-
 .image_emx_0 {
   z-index: 0;
   background-image: url("../images/EMX/Web-A.png");
@@ -3323,13 +3312,6 @@ img {
   z-index: 4;
   background-image: url("../images/EMX/Web-E.png");
 }
-
-
-
-
-
-
-
 
 .image_emx_nepal_0 {
   z-index: 0;
@@ -3356,13 +3338,6 @@ img {
   background-image: url("../images/Nepal/EMX/Web-E.png");
 }
 
-
-
-
-
-
-
-
 .image_doodle_0 {
   z-index: 0;
   background-image: url("../images/Doodle/Web-A.png");
@@ -3387,11 +3362,6 @@ img {
   z-index: 4;
   background-image: url("../images/Doodle/Web-E.png");
 }
-
-
-
-
-
 
 .image_uae_doodle_0 {
   z-index: 0;
@@ -3418,11 +3388,6 @@ img {
   background-image: url("../images/uae/DOODLE/Web-E.png");
 }
 
-
-
-
-
-
 .image_doodle_nepal_0 {
   z-index: 0;
   background-image: url("../images/Nepal/DOODLE/Web-A.png");
@@ -3447,19 +3412,6 @@ img {
   z-index: 4;
   background-image: url("../images/Nepal/DOODLE/Web-E.png");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .image_energ_0 {
   z-index: 0;
@@ -3503,11 +3455,6 @@ img {
   background-image: url("../images/Japan/XPLORER/Web-E.png");
 }
 
-
-
-
-
-
 .image_dolphin_0 {
   z-index: 0;
   background-image: url("../images/Japan/DOLPHIN/Web-A.png");
@@ -3528,10 +3475,6 @@ img {
   z-index: 0;
   background-image: url("../images/Japan/DOLPHIN/Web-E.png");
 }
-
-
-
-
 
 .image_glyder_0 {
   z-index: 0;
@@ -3822,7 +3765,7 @@ img {
   width: 185px !important;
 }
 
- @media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
   /* .explore_ebike_sec .slick-slide {
     margin: 0 27px !important;
     width: 21% !important;  
@@ -3835,24 +3778,23 @@ img {
     padding: 20px !important;
     margin: 20px !important;
   }
-} 
+}
 .page_loader {
-	position: fixed;
-	opacity: 0.8899999;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	z-index: 99999999999999999999999999999999999999999999999999999999;
-	/* background: url('//upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Phi_fenomeni.gif/50px-Phi_fenomeni.gif') 50% 50% no-repeat rgb(249, 249, 249); */
-	background: url('../images/loadr.gif') 50% 50% no-repeat rgb(249, 249, 249); 
+  position: fixed;
+  opacity: 0.8899999;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 99999999999999999999999999999999999999999999999999999999;
+  /* background: url('//upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Phi_fenomeni.gif/50px-Phi_fenomeni.gif') 50% 50% no-repeat rgb(249, 249, 249); */
+  background: url("../images/loadr.gif") 50% 50% no-repeat rgb(249, 249, 249);
   /* Spinner-5.gif */
 }
 
-
 .whitechecked::after {
   border: solid black !important;
-  border-width: 0 3px 3px 0 !important;;
+  border-width: 0 3px 3px 0 !important;
 }
 
 @media only screen and (max-width: 768px) {

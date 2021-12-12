@@ -27,6 +27,7 @@ const ProductXplorer = (props) => {
     const [pincodes, setPincodes] = useState([]);
     const [reviews, setReviews] = useState([]);
     const [products, setProducts] = useState([]);
+    const [currProduct, setCurrProduct] = useState({});
     const [productID, setProductID] = useState("");
     const [deviceType, setDeviceType] = useState("");
     const [delivery, setDelivery] = useState(true);
@@ -290,6 +291,7 @@ const ProductXplorer = (props) => {
                                                 <label class="chck" style={{ paddingLeft: 'unset' }}>
                                                     <input type="radio" checked={prod.id === productID} onChange={() => {
                                                         setProductID(prod.id);
+                                                        setCurrProduct(prod);
                                                     }} />
                                                     <span class="checkmark" style={{ "background": prod.color }}></span>
                                                 </label>
@@ -300,7 +302,7 @@ const ProductXplorer = (props) => {
                                             <h6>YEN {productPrice.xplorer.toLocaleString()}</h6>
                                         </li>
                                         <li class="d-none d-lg-block">
-                                            {/* <h6>{products.length > 0 && <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>}</h6> */}
+                                            {/* <h6>{products.length > 0 && <a href="javascript:void(0)" onClick={addToCart} class={currProduct.stock ? "" : "disabled"} >{currProduct.stock ? "BUY NOW" : "Out of Stock"}</a>}</h6> */}
                                             {
                                                 (productID == '2') ?
                                                     '' //<div id='product-component-1639054990993'></div>
