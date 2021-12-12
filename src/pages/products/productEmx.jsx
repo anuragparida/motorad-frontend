@@ -227,6 +227,7 @@ const ProductEMX = (props) => {
           // console.log(filteredRsp);
           setProducts(filteredRsp);
           setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"))[0].id);
+          setCurrProduct(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("emx"))[0]);
           setProductPrice({
             ...productPrice,
             trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,

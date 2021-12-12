@@ -189,6 +189,7 @@ const ProductXplorer = (props) => {
                     console.log(filteredRsp);
                     setProducts(filteredRsp);
                     setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("xplorer"))[0].id);
+                    setCurrProduct(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("xplorer"))[0]);
                     setProductPrice({
                         ...productPrice,
                         xplorer: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("xplorer"))[0].price,

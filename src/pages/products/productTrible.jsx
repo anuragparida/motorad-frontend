@@ -184,7 +184,8 @@ const ProductTrible = (props) => {
           if (domain == 'nepal' || domain == 'india' || domain == '') {
             console.log(filteredRsp);
             setProducts(filteredRsp);
-            setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].id);
+            setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("trible"))[0].id);
+            setCurrProduct(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("trible"))[0]);
             setProductPrice({
               ...productPrice,
               trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
@@ -195,7 +196,8 @@ const ProductTrible = (props) => {
             })
           } else if (domain == 'uae') {
             setProducts(filteredRsp);
-            setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].id);
+            setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("trible"))[0].id);
+            setCurrProduct(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("trible"))[0]);
             setProductPrice({
               ...productPrice,
               trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
