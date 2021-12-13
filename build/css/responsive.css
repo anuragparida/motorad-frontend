@@ -1,0 +1,500 @@
+/* Extra small devices (portrait phones, less than 576px) */ 
+@media(min-width: 320px) and (max-width: 575px) {    
+    .header_social_sec .header_social_icons{
+        display: none;
+    }
+    .header_rgt_links{
+        text-align: center;
+    }
+    .header_rgt_links ul li a {
+        margin-left: 3px;
+        padding-right: 5px;
+    }
+    .navbar-light .navbar-toggler{
+        border-color: transparent;
+    }
+    .navbar-light .navbar-toggler:focus{
+        outline: inherit;
+    }
+    .navbar-light .navbar-toggler span{
+        font-size: 30px;
+        color: #10B068;
+    }
+    .nav_section,
+    .header_social_sec{
+        border-bottom: 3px solid rgba(16, 176, 104, 0.24);
+    }
+    .emi_hero_txt{
+        padding-top: 30px;
+    }
+    .emi_hero_txt h2 {
+        font-size: 30px!important;
+        line-height: 40px!important;
+    }
+    .emi_hero_img{
+        position: inherit;
+    }
+    .emi_hero_txt .hero_btn a:last-child{
+        margin-left: 5px;
+    }
+    .emi_hero_txt .hero_btn a:last-child,
+    .emi_hero_txt .hero_btn a:first-child {
+        font-size: 14px;
+        padding: 12px 20px;
+    }
+    .insuarence_txt_wrap p,
+    .emi_hero_txt p{
+        font-size: 14px;
+        line-height: 21px;
+    }
+    .emi_hero_btm_sec{
+        padding-top: 0;
+    }
+    .suspension_wrap,
+    .rsa_hero_btm_wrapp{
+        padding: 10px;
+    }
+    .suspension_wrap p, .rsa_hero_btm_wrapp p{
+        font-size: 12px;
+        line-height: 19px;
+    }
+    .rsa_hero_btm_head h5 {
+        font-size: 20px;
+        line-height: 30px;
+    }
+    .ftr_links{
+        margin-top: 30px;
+    }
+    .ordr_1{
+        order: 1;
+    }
+    .ordr_2{
+        order: 2;
+    }
+    .header_social_icons ul{
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .ftr_btm_lft ul{
+        text-align: center;
+    }
+    .ftr_btm_lft ul li a {
+        font-size: 12px;
+        padding-right: 3px;
+        margin-right: 4px;
+    }
+    .product_hero_txt h3,
+    .accnt_pro_head h2,
+    .aboutus_head_txt h3,
+    .feat_head_txt h3,
+    .customer_stories_head h2,
+    .dual_suspension_txt h3{
+        font-size: 30px;
+        line-height: 42px;
+    }
+    .dual_suspension_txt p{
+        font-size: 14px;
+        line-height: 21px;
+    }
+    .product_hero_txt h3 {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    .product_hero_txt h3 br,
+    .feat_img,
+    .feat_head_txt .media,
+    .customer_stories_head p,
+    .dual_suspension_txt p br{
+        display: none;
+    }
+    .main_vdo_thumb img{
+        height: 220px;
+    }
+    .slidPrv_2,
+    .slidPrv,
+    .slidNext_2,
+    .slidNext{
+        display: none;
+    }
+    .slider_btm_allss img{
+        height: 55px;
+    }
+    .brand_wrap_boxs{
+        padding: 12px;
+        min-height: 162px;
+    }
+    .brand_wrap_boxs p{
+        font-size: 12px;
+        line-height: 19px;
+    }
+    .all_brandss{
+        flex-wrap: wrap;
+        justify-content: center;;
+    }
+    .all_brandss a img{
+        width: 100%;
+    }
+    .all_brandss a{
+        flex: 0 1 calc(28% - 8px)
+    }
+    .product_hero_txt h3,
+    .product_hero_txt h5{
+        font-size: 16px;
+        line-height: 21px;
+    }
+    .expo_ebike_headin h5{
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .test_ride_frm .d-flex{
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        -o-flex-direction: column;
+        flex-direction: column;
+    }
+    .dedicated_team_head_txt{
+        margin-top: 0;
+        margin-top: 15px;
+    }
+    .expert_team_wrap{
+        margin-bottom: 26px;
+    }
+    .expert_team_wrap img{
+        width: 100%;
+    }
+    .profile_setting_wrap{
+        padding: 10px;
+    }
+    .modal_section_2 .modal-content, .modal_section .modal-content{
+        padding: 0;
+    }
+    .all_products_hero_bgs .emi_hero_img{
+        display: none;
+    }
+    .all_products_hero_bgs .emi_hero_txt{
+        padding-top: 10px;
+    }
+    .pro_bttns{
+        margin-top: 15px;
+    }
+    .product_list_section{
+        padding-top: 0;
+    }
+    .product_list_head h5{
+        font-size: 20px;
+        line-height: 32px;
+    }
+    .emi_hero_img{
+        display: none;
+    }
+    .faq_headd p br,
+    .contact_map_txt p br,
+    .comminty_hero_head p,
+    .career_head p br,
+    .emi_hero_txt p br{
+        display: none;
+    }
+    .faq_headd p,
+    .contact_map_txt p,
+    .career_head p{
+        font-size: 14px;
+        line-height: 21px;
+    }
+    .faq_headd h3,
+    .tos_head_wrap h2,
+    .contact_map_txt h3,
+    .comminty_hero_head h3,
+    .career_head h3{
+        font-size: 30px;
+        line-height: 42px;
+    }
+    .career_jobs_wrap, .career_fltr_jobs{
+        margin-bottom: 25px;
+    }
+    .cart_product_feature table tr td h5,
+    .career_jobs_wrap .d-flex h5 {
+        font-size: 12px;
+        line-height: 18px;
+    }
+    .accnt_submit_modal {
+        text-align: center!important;
+    }
+    .cart_product_feature tr td{
+        padding: 0!important;
+        padding-top: 10px!important;
+        padding-bottom: 10px!important;
+    }
+    .cart_product_sec .products_wrap{
+        margin-bottom: 25px;
+    }
+    .comminty_hero_head{
+        margin-bottom: 10px;
+    }
+    .tos_txt_wrap p{
+        font-size: 14px;
+        line-height: 21px;
+    }
+    .emi_hero_btm_wrapp{
+        margin-bottom: 25px;
+        margin-top: 20px;
+    }
+    .emi_partner_section{
+        padding-top: 10px;
+    }
+    .emi_plan_head h6{
+        font-size: 18px;
+        line-height: 27px;
+    }
+    .signup_frm_wrap,
+    .find_store_txt_wrap{
+        margin-bottom: 15px;
+        padding: 20px;
+    }
+    .signup_frm_head a{
+        width: 100%;
+        font-size: 14px;
+        padding: 14px 30px;
+    }
+    .order_placed_wrap{
+        padding: 25px;
+    }
+    .test_ride_succes_wrap h5,
+    .order_placed_wrap h3{
+        font-size: 22px;
+        line-height: 32px;
+    }
+    .order_placed_wrap p{
+        font-size: 14px;
+        line-height: 21px;
+    }
+    .suspension_bttns a:first-child, .ordr_placed_btnns a:first-child {
+        font-size: 12px;
+        padding: 13px 15px;
+        margin-right: 5px;
+    }
+    .suspension_bttns a:last-child, .ordr_placed_btnns a:last-child {
+        font-size: 13px;
+        padding: 13px 10px;
+        margin-left: 0px;
+    }
+    .suspension_wrap h6, .rsa_hero_btm_wrapp h6{
+        font-size: 14px;
+    }
+    .warenty_actv_box_wrap{
+        padding: 12px;
+    }
+    .reviews_boxs_wrap .media,
+    .warenty_actv_box_wrap{
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        -o-flex-direction: column;
+        flex-direction: column;
+        -ms-align-items: flex-start;
+        align-items: flex-start;
+    }
+    .cycle_details_btm,
+    .cycle_details_top {
+        text-align: left!important;
+    }
+    .warentty_bttns{
+        width: 100%;
+    }
+    .reviews_boxs_wrap .media img{
+        margin-right: 0;
+        margin-bottom: 25px;
+    }
+    .warenty_purchased span {
+        font-size: 13px;
+        padding: 11px 17px;
+    }
+    .plan_submit_btn {
+        margin-top: 20px;
+        text-align: left!important;
+    }
+    .warenty_suc_btn a{
+        font-size: 14px;
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 12px;
+        margin-left: 0!important;
+    }
+    .mobile_menu_wrap{
+        background: #10B068;
+        width: 0%;
+        min-height: 100%;
+        margin-left: auto;
+        position: fixed;
+        z-index: 9999;
+        right: 0;
+        top: 0;
+        transition: 0.5s;
+    }
+    .mobile_main_mnu{
+        padding: 20px;
+    }
+    .mobile_main_mnu ul li a{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 24px;
+        color: #FFFFFF;
+        display: block;
+        margin-bottom: 12px;
+    }
+    .mobile_main_mnu ul li:nth-child(2) a{
+        border-bottom: 1px solid #fff;
+        width: 60%;
+        padding-bottom: 12px;
+    }
+    .mobile_main_mnu ul li ul li a{
+        border: none!important;
+        padding-bottom: 0!important;
+    }
+    .mobile_main_mnu ul li ul{
+        margin-bottom: 15px;
+    }
+    .mobile_social_icons{
+        margin-top: 100px;
+    }
+    .mobile_social_icons ul {
+         display: -webkit-flex;
+         display: -moz-flex;
+         display: -ms-flex;
+         display: -o-flex;
+         display: flex;
+        -ms-align-items: center;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .mobile_social_icons ul li a{
+        display: block;
+    }
+    .mobile_social_icons ul li a i{
+        color: #fff;
+        font-size: 17px;
+    }
+    .mobile_ftr ul li a{
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 21px;
+        font-feature-settings: 'liga' off;
+        color: rgba(255, 255, 255, 0.76);
+        display: block;
+        margin-top: 10px;
+    }
+    .mobile_social_icons{
+        padding-left: 30px;
+        padding-top: 30px;
+        margin-top: 120px;
+    }
+    .mobile_ftr{
+        padding-left: 30px;
+    }
+    .mobile_social_icons ul li{
+        margin-right: 25px;
+    }
+    .nav_close{
+        padding-left: 30px;
+        padding-top: 30px;
+    }
+    .nav_close i{
+        font-size: 30px;
+        color: #fff;
+    }
+    .mobile_submnu li a{
+        font-style: normal;
+        font-weight: 400!important;
+        font-size: 12px!important;
+        line-height: 25px!important;
+        color: rgba(255, 255, 255, 0.81)!important;
+        margin-bottom: 5px!important;
+    }
+    .mobile_submnu ul li a[data-toggle="collapse"][aria-expanded="true"]{
+        color: #000!important;
+    }
+    .mobile_submnu a img{
+        width: 60px;
+        margin-right: 12px;
+    }
+    .book_ride_sticky{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+    .book_ride_sticky a{
+        width: 100%;
+        padding: 14px 30px;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 27px;
+        font-feature-settings: 'liga' off;
+        color: #fff;
+        transition: all linear .2s;
+        background: #10B068;
+        border-radius: 0px;
+        display: block;
+        border: 2px solid #10B068;
+        text-align: center;
+    }
+    .book_ride_sticky a:hover{
+        background: #fff;
+        color: #10B068;
+    }
+    .mobile_bikee_selectt{
+        background: rgba(26, 26, 26, 0.05);
+        padding: 15px;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        -ms-align-items: center;
+        align-items: center;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 149.75%;
+        color: #10B068;
+        margin-top: 15px;
+    }
+    .mobile_bikee_selectt img{
+        margin-left: 25px;
+        width: 120px;
+    }
+    .home_hero_txt img:first-child{
+        width: 160px;
+    }
+    .mt_50{
+        margin-top: -80px;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767px) {
+      
+}
+
+/* Medium devices (tablets, 768px and up) */ 
+@media (min-width: 768px) and (max-width: 991px) {
+    
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+       
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+
+}
+
+.bike_explore_wrap img {
+    width: 185px !important;
+}

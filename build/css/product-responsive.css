@@ -1,0 +1,284 @@
+/* Extra small devices (portrait phones, less than 576px) */ 
+@media(min-width: 320px) and (max-width: 575px) {    
+    .header_social_sec .header_social_icons{
+        display: none;
+    }
+    .header_rgt_links{
+        text-align: center;
+    }
+    .header_rgt_links ul li a {
+        margin-left: 3px;
+        padding-right: 5px;
+    }
+    .navbar-light .navbar-toggler{
+        border-color: transparent;
+    }
+    .navbar-light .navbar-toggler:focus{
+        outline: inherit;
+    }
+    .navbar-light .navbar-toggler span{
+        font-size: 30px;
+        color: #10B068;
+    }
+    .nav_section,
+    .header_social_sec{
+        border-bottom: 3px solid rgba(16, 176, 104, 0.24);
+    }
+    
+    .ftr_links{
+        margin-top: 30px;
+    }
+    .ordr_1{
+        order: 1;
+    }
+    .ordr_2{
+        order: 2;
+    }
+    .header_social_icons ul{
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .ftr_btm_lft ul{
+        text-align: center;
+    }
+    .ftr_btm_lft ul li a {
+        font-size: 12px;
+        padding-right: 3px;
+        margin-right: 4px;
+    }
+    .mobile_menu_wrap{
+        background: #10B068;
+        width: 0%;
+        min-height: 100%;
+        margin-left: auto;
+        position: fixed;
+        z-index: 9999;
+        right: 0;
+        top: 0;
+        transition: 0.5s;
+    }
+    .mobile_main_mnu{
+        padding: 20px;
+    }
+    .mobile_main_mnu ul li a{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 24px;
+        color: #FFFFFF;
+        display: block;
+        margin-bottom: 12px;
+    }
+    .mobile_main_mnu ul li:nth-child(2) a{
+        border-bottom: 1px solid #fff;
+        width: 60%;
+        padding-bottom: 12px;
+    }
+    .mobile_main_mnu ul li ul li a{
+        border: none!important;
+        padding-bottom: 0!important;
+    }
+    .mobile_main_mnu ul li ul{
+        margin-bottom: 15px;
+    }
+    .mobile_social_icons{
+        margin-top: 100px;
+    }
+    .mobile_social_icons ul {
+         display: -webkit-flex;
+         display: -moz-flex;
+         display: -ms-flex;
+         display: -o-flex;
+         display: flex;
+        -ms-align-items: center;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .mobile_social_icons ul li a{
+        display: block;
+    }
+    .mobile_social_icons ul li a i{
+        color: #fff;
+        font-size: 17px;
+    }
+    .mobile_ftr ul li a{
+        font-style: normal;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 21px;
+        font-feature-settings: 'liga' off;
+        color: rgba(255, 255, 255, 0.76);
+        display: block;
+        margin-top: 10px;
+    }
+    .mobile_social_icons{
+        padding-left: 30px;
+        padding-top: 30px;
+        margin-top: 120px;
+    }
+    .mobile_ftr{
+        padding-left: 30px;
+    }
+    .mobile_social_icons ul li{
+        margin-right: 25px;
+    }
+    .nav_close{
+        padding-left: 30px;
+        padding-top: 30px;
+    }
+    .nav_close i{
+        font-size: 30px;
+        color: #fff;
+    }
+    .mobile_submnu li a{
+        font-style: normal;
+        font-weight: 400!important;
+        font-size: 12px!important;
+        line-height: 25px!important;
+        color: rgba(255, 255, 255, 0.81)!important;
+        margin-bottom: 5px!important;
+    }
+    .mobile_submnu ul li a[data-toggle="collapse"][aria-expanded="true"]{
+        color: #000!important;
+    }
+    .mobile_submnu a img{
+        width: 60px;
+        margin-right: 12px;
+    }
+    
+    /* product page css start */
+    .product_hero_sec{
+        padding-top: 0;
+        background-position: top center;
+    }
+    .product_hero_txt{
+        padding-top: 40px;
+    }
+    .product_hero_txt img{
+        width: 80%;
+    }
+    .product_hero_btm p{
+        width: 100%;
+    }
+    .product_specific{
+        margin-left: 0;
+    }
+    .product_specific h4{
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .product_specific_img{
+        top: -30px;
+    }
+    .block_wrapp{
+         padding: 10px;   
+        margin-bottom: 25px;
+    }
+    .block_wrapp h6{
+        font-size: 13px;
+    }
+    .technical_specific_box p,
+    .block_wrapp p{
+        font-size: 12px;
+        line-height: 18px;
+    }
+    .technical_specific_box p br,
+    .block_wrapp br{
+        display: none;
+    }
+    .order_now_txt_wrap{
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        -ms-flex-direction: column;
+        -o-flex-direction: column;
+        flex-direction: column;
+    }
+    .order_now_txt_wrap h6{
+        font-size: 17px;
+    }
+    .technical_specific_box h6,
+    .technicalspe_head h5{
+        font-size: 14px;
+    }
+    .ordr_nw_lft{
+        width: 80%;
+    }
+    .technical_d_flex{
+        flex-wrap: wrap;
+    }
+    .technical_specific_box{
+         flex: 0 0 30%;
+    }
+    .shiping_day h6{
+        display: block;
+        font-size: 15px;
+    }
+    .order_now_sec{
+        padding-top: 200px;
+        background-position: top center;
+    }
+    .explore_ebike_sec{
+        padding-top: 30px;
+    }
+    .customer_rev_wapp {
+        padding: 15px;
+        min-height: 345px;
+    }
+    .customer_rev_wapp p{
+        font-size: 14px;
+        line-height: 21px;
+    }
+    .customer_rev_wapp .d-flex span,
+    .customer_rev_wapp .d-flex h6{
+        font-size: 12px;
+    }
+    .product_menu_setclr{
+        margin-top: 4px;
+    }
+    .peoduct_menu_lft{
+        margin-top: 2px;
+    }
+    /* product page css end */
+    .intro {
+        right: 0;
+        bottom: 70px;
+        width: 124px;
+    }
+    .the_best {
+        left: 23px;
+        top: 13px;
+        width: 127px;
+    }
+    .pro_hero_txts_big{
+        top: 40px;
+    }
+    .product_hero_txt{
+        padding-top: 0;
+    }
+    .product_vdo_sec .scroll-bound {
+        height: 1400vh;
+    }
+    
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767px) {
+      
+}
+
+/* Medium devices (tablets, 768px and up) */ 
+@media (min-width: 768px) and (max-width: 991px) {
+    
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+       
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1600px) {
+    .product_vdo_sec .scroll-bound {
+        height: 1100vh;
+    }
+}
