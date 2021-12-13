@@ -438,12 +438,12 @@ const Navbar = (props) => {
                                     <a class="nav-link drp_dwn_clk" href="javascript:void(0)">{subdomain == 'japan' ? 'ご購入者の方へ' : 'ASSURANCE'}</a>
                                     <ul class="assurance_drop_dwn">
                                         <li>
-                                            <Link to="/warranty">{subdomain == 'japan' ? '保証を有効にする' : 'Activate Warranty'}</Link>
+                                            <a href="/warranty">{subdomain == 'japan' ? '保証を有効にする' : 'Activate Warranty'}</a>
                                         </li>
                                         {
                                             (subdomain == 'india' || subdomain == '') ?
                                                 <li>
-                                                    <Link to="/insurance">{subdomain == 'japan' ? '保 険' : 'Insurance'}</Link>
+                                                    <a href="/insurance">{subdomain == 'japan' ? '保 険' : 'Insurance'}</a>
                                                 </li>
                                                 :
                                                 ''
@@ -451,7 +451,7 @@ const Navbar = (props) => {
                                         {
                                             (subdomain == 'india' || subdomain == '') ?
                                                 <li>
-                                                    <Link to="/rsa">{subdomain == 'japan' ? '道端での援助' : 'Roadside Assistance'}</Link>
+                                                    <a href="/rsa">{subdomain == 'japan' ? '道端での援助' : 'Roadside Assistance'}</a>
                                                 </li>
                                                 :
                                                 ''
@@ -459,11 +459,11 @@ const Navbar = (props) => {
                                         {
                                             (subdomain == 'india' || subdomain == '') ?
                                                 <li>
-                                                    <Link to="/emi">EMI</Link>
+                                                    <a href="/emi">EMI</a>
                                                 </li>
                                                 : ""}
                                         <li>
-                                            <Link to="/buysmart">{subdomain == 'japan' ? 'スマートに購入' : 'Buy Smart'}</Link>
+                                            <a href="/buysmart">{subdomain == 'japan' ? 'スマートに購入' : 'Buy Smart'}</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -472,7 +472,7 @@ const Navbar = (props) => {
 
                                     <ul class="assurance_drop_dwn_2">
                                         <li>
-                                            <Link to="/community">{subdomain == "japan" ? "コミュニティ" : "Community"}</Link>
+                                            <a href="/community">{subdomain == "japan" ? "コミュニティ" : "Community"}</a>
                                         </li>
                                         <li>
                                             <a href="https://blog.emotorad.com/" target="blank">{subdomain == "japan" ? "ブログ" : "Blogs"}</a>
@@ -484,22 +484,22 @@ const Navbar = (props) => {
 
                                     <ul class="assurance_drop_dwn_3">
                                         <li>
-                                            <Link to="/about">{subdomain == 'japan' ? "私たちに関しては" : "About Us"}</Link>
+                                            <a href="/about">{subdomain == 'japan' ? "私たちに関しては" : "About Us"}</a>
                                         </li>
                                         <li>
-                                            <Link to="/faq">FAQs</Link>
+                                            <a href="/faq">FAQs</a>
                                         </li>
                                         <li>
-                                            <Link to="/partner">{subdomain == 'japan' ? "私たちとパートナー" : "Partner with Us"}</Link>
+                                            <a href="/partner">{subdomain == 'japan' ? "私たちとパートナー" : "Partner with Us"}</a>
                                         </li>
                                         <li>
-                                            <Link to="/store">{subdomain == 'japan' ? "お店を探す" : "Find a Store"}</Link>
+                                            <a href="/store">{subdomain == 'japan' ? "お店を探す" : "Find a Store"}</a>
                                         </li>
                                         <li>
-                                            <Link to="/careers">{subdomain == 'japan' ? "キャリア" : "Careers"}</Link>
+                                            <a href="/careers">{subdomain == 'japan' ? "キャリア" : "Careers"}</a>
                                         </li>
                                         <li>
-                                            <Link to="/contact">{subdomain == 'japan' ? "お問い合わせ" : "Contact Us"}</Link>
+                                            <a href="/contact">{subdomain == 'japan' ? "お問い合わせ" : "Contact Us"}</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -534,10 +534,10 @@ const Navbar = (props) => {
                                                     :
                                                     <>
                                                         <li>
-                                                            <Link to="/signup">{subdomain == 'japan' ? "サインアップ " : "Sign Up"}</Link>
+                                                            <a href="/signup">{subdomain == 'japan' ? "サインアップ " : "Sign Up"}</a>
                                                         </li>
                                                         <li>
-                                                            <Link to="/login">{subdomain == 'japan' ? "ログインする" : "Log In"}</Link>
+                                                            <a href="/login">{subdomain == 'japan' ? "ログインする" : "Log In"}</a>
                                                         </li>
                                                     </>
                                             }
@@ -569,19 +569,19 @@ const Navbar = (props) => {
                                     <div class="col-lg-3">
                                         <div class="bog_drop_wraps">
                                             <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
-                                            <Link to="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                            <a href="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="bog_drop_wraps">
                                             <img src="images/bicycle_3.png" alt="a" class="img-fluid" />
-                                            <Link to="/emx">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                            <a href="/emx">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                         </div>
                                     </div>
                                     <div class="col-lg-3">
                                         <div class="bog_drop_wraps">
                                             <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
-                                            <Link to="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                            <a href="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                         </div>
                                     </div>
                                 </>
@@ -590,25 +590,25 @@ const Navbar = (props) => {
                                         <div class="col-lg-3">
                                             <div class="bog_drop_wraps">
                                                 <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
-                                                <Link to="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                                <a href="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="bog_drop_wraps">
                                                 <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
-                                                <Link to="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                                <a href="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="bog_drop_wraps">
                                                 <img src="images/uae/Ener-G.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
-                                                <Link to="/energ">ENER G <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                                <a href="/energ">ENER G <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                             </div>
                                         </div>
                                         <div class="col-lg-3">
                                             <div class="bog_drop_wraps">
                                                 <img src="images/uae/Trible.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
-                                                <Link to="/trible">TRIBLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                                <a href="/trible">TRIBLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                             </div>
                                         </div>
                                     </>
@@ -617,19 +617,19 @@ const Navbar = (props) => {
                                             <div class="col-lg-3">
                                                 <div class="bog_drop_wraps">
                                                     <img src="images/Japan/XPLORER/Xplorer-pulse-black.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
-                                                    <Link to="/xplorer">XPLORER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                                    <a href="/xplorer">XPLORER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3">
                                                 <div class="bog_drop_wraps">
                                                     <img src="images/Japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
-                                                    <Link to="/glyder">GLYDER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                                    <a href="/glyder">GLYDER <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3">
                                                 <div class="bog_drop_wraps">
                                                     <img src="images/Japan/DOLPHIN/BottomPart-BlinkingPoints/Dolphin-Pulse-part.png" alt="a" class="img-fluid" style={{ height: '139px' }} />
-                                                    <Link to="/dolphine">DOLPHIN <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                                    <a href="/dolphine">DOLPHIN <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                                 </div>
                                             </div>
                                         </>
@@ -638,19 +638,19 @@ const Navbar = (props) => {
                                             <div class="col-lg-3">
                                                 <div class="bog_drop_wraps">
                                                     <img src="images/cycle_warenty.png" alt="a" class="img-fluid" />
-                                                    <Link to="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                                    <a href="/trex">T-REX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3">
                                                 <div class="bog_drop_wraps">
                                                     <img src="images/bicycle_3.png" alt="a" class="img-fluid" />
-                                                    <Link to="/emx">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                                    <a href="/emx">EMX <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                                 </div>
                                             </div>
                                             <div class="col-lg-3">
                                                 <div class="bog_drop_wraps">
                                                     <img src="images/bicycle_2.png" alt="a" class="img-fluid" />
-                                                    <Link to="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></Link>
+                                                    <a href="/doodle">DOODLE <img src="images/arw_rgt.svg" alt="a" class="img-fluid" /></a>
                                                 </div>
                                             </div>
                                         </>

@@ -48,24 +48,24 @@ const MobileNavbar = (props) => {
                         {
                             (subdomain == 'india' || subdomain == '' || subdomain == 'nepal') ?
                             <>
-                                <li><Link to="/trex"><img src="images/sm1.png" alt="a" class="img-fluid"/>T- REX</Link></li>
-                                <li><Link to="/emx"><img src="images/sm2.png" alt="a" class="img-fluid"/>EMX</Link></li>
-                                <li><Link to="/doodle"><img src="images/sm3.png" alt="a" class="img-fluid"/>DOODLE</Link></li>
+                                <li><a href="/trex"><img src="images/sm1.png" alt="a" class="img-fluid"/>T- REX</a></li>
+                                <li><a href="/emx"><img src="images/sm2.png" alt="a" class="img-fluid"/>EMX</a></li>
+                                <li><a href="/doodle"><img src="images/sm3.png" alt="a" class="img-fluid"/>DOODLE</a></li>
                             </>
                             :(subdomain == 'uae') ?
                                 <>
-                                    <li><Link to="/trex"><img src="images/sm1.png" alt="a" class="img-fluid"/>T- REX</Link></li>
-                                    <li><Link to="/enrg"><img src="images/uae/ENERG/White-Pulse.png" alt="a" class="img-fluid"/>ENERG</Link></li>
-                                    <li><Link to="/doodle"><img src="images/sm3.png" alt="a" class="img-fluid"/>DOODLE</Link></li>
-                                    <li><Link to="/trible"><img src="images/uae/TRIBLE/Blue-Pulse.png" alt="a" class="img-fluid"/>TRIBLE</Link></li>
+                                    <li><a href="/trex"><img src="images/sm1.png" alt="a" class="img-fluid"/>T- REX</a></li>
+                                    <li><a href="/enrg"><img src="images/uae/ENERG/White-Pulse.png" alt="a" class="img-fluid"/>ENERG</a></li>
+                                    <li><a href="/doodle"><img src="images/sm3.png" alt="a" class="img-fluid"/>DOODLE</a></li>
+                                    <li><a href="/trible"><img src="images/uae/TRIBLE/Blue-Pulse.png" alt="a" class="img-fluid"/>TRIBLE</a></li>
                                 </>
                             :(subdomain == 'japan') ?
                             <>
-                                <li><Link to="/dolphine"><img src="images/Japan/DOLPHIN/BottomPart-BlinkingPoints/Dolphin-Pulse-part.png" alt="a" class="img-fluid"/>DOLPHIN</Link></li>
-                                <li style={{ display:'none' }}><Link to="/dolphin"><img src="images/Japan/DOLPHIN/BottomPart-BlinkingPoints/Dolphin-Pulse-part.png" alt="a" class="img-fluid"/>DOLPHIN</Link></li>
+                                <li><a href="/dolphine"><img src="images/Japan/DOLPHIN/BottomPart-BlinkingPoints/Dolphin-Pulse-part.png" alt="a" class="img-fluid"/>DOLPHIN</a></li>
+                                <li style={{ display:'none' }}><a href="/dolphin"><img src="images/Japan/DOLPHIN/BottomPart-BlinkingPoints/Dolphin-Pulse-part.png" alt="a" class="img-fluid"/>DOLPHIN</a></li>
                                 {/* <li><Link to="/dolphin"><img src="images/Japan/DOLPHIN/BottomPart-BlinkingPoints/Dolphin-Pulse-part.png" alt="a" class="img-fluid"/>DOLPHIN</Link></li> */}
-                                <li><Link to="/xplorer"><img src="images/Japan/XPLORER/Bottom Part-BlinkingPoints/Xplorer-pulse-black.png" alt="a" class="img-fluid"/>XPLORER </Link></li>
-                                <li><Link to="/glyder"><img src="images/Japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid"/>GLYDER</Link></li>
+                                <li><a href="/xplorer"><img src="images/Japan/XPLORER/Bottom Part-BlinkingPoints/Xplorer-pulse-black.png" alt="a" class="img-fluid"/>XPLORER </a></li>
+                                <li><a href="/glyder"><img src="images/Japan/GLYDER/Glyder-pulse-black.png" alt="a" class="img-fluid"/>GLYDER</a></li>
                             </>    
                             :
                             ''    
@@ -77,45 +77,45 @@ const MobileNavbar = (props) => {
                 <li><a href="javascript:void(0)" data-toggle="collapse" data-target="#collapseExampleaa" aria-expanded="false" aria-controls="collapseExampleaa">ASSURANCE</a>
                 
                     <ul class="mobile_submnu collapse" id="collapseExampleaa">
-                        <li><Link to="/warranty">Activate Warranty</Link></li>
+                        <li><a href="/warranty">Activate Warranty</a></li>
                         {
                                 (subdomain == 'india' || subdomain == '') ?
                                 <>
-                                    <li><Link to="/insurance">Insurance</Link></li>
-                                    <li><Link to="/rsa">RSA</Link></li>
-                                    <li><Link to="/emi">EMI</Link></li>
+                                    <li><a href="/insurance">Insurance</a></li>
+                                    <li><a href="/rsa">RSA</a></li>
+                                    <li><a href="/emi">EMI</a></li>
                                 </>
                                 :
                                 ''
                         }
-                        <li><Link to="/buysmart">Buy Smart</Link></li>
+                        <li><a href="/buysmart">Buy Smart</a></li>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0)" data-toggle="collapse" data-target="#collapseExampleaaa" aria-expanded="false" aria-controls="collapseExampleaaa">EM WORLD</a>
                 <ul class="mobile_submnu collapse" id="collapseExampleaaa">
-                        <li><Link to="/community">Community</Link></li>
-                        <li><Link to="https://blog.emotorad.com/">Blogs</Link></li>
+                        <li><a href="/community">Community</a></li>
+                        <li><a href="https://blog.emotorad.com/">Blogs</a></li>
                     </ul>
                 </li>
                 <li><a href="javascript:void(0)" data-toggle="collapse" data-target="#collapseExampleaaaa" aria-expanded="false" aria-controls="collapseExampleaaaa">REACH US</a>
                     <ul class="mobile_submnu collapse" id="collapseExampleaaaa">
                         <li>
-                             <Link to="/about">About Us</Link>
+                             <a href="/about">About Us</a>
                          </li>
                          <li>
-                             <Link to="/faq">FAQs</Link>
+                             <a href="/faq">FAQs</a>
                          </li>
                          <li>
-                             <Link to="/partner">Partner with Us</Link>
+                             <a href="/partner">Partner with Us</a>
                          </li>
                          <li>
-                             <Link to="/store">Find a Store</Link>
+                             <a href="/store">Find a Store</a>
                          </li>
                          <li>
-                             <Link to="/careers">Careers</Link>
+                             <a href="/careers">Careers</a>
                          </li>
                          <li>
-                             <Link to="/contact">Contact Us</Link>
+                             <a href="/contact">Contact Us</a>
                          </li>
                     </ul>
                 </li>
@@ -138,10 +138,10 @@ const MobileNavbar = (props) => {
                             :
                         <>                            
                         <li>
-                            <Link to="/signup">{subdomain == 'japan' ? "サインアップ " : "Sign Up"}</Link>
+                            <a href="/signup">{subdomain == 'japan' ? "サインアップ " : "Sign Up"}</a>
                         </li>
                         <li>
-                            <Link to="/login">{subdomain == 'japan' ? "ログインする" : "Log In"}</Link>
+                            <a href="/login">{subdomain == 'japan' ? "ログインする" : "Log In"}</a>
                         </li>
                         </>                            
                 }           
@@ -164,9 +164,9 @@ const MobileNavbar = (props) => {
          
          <div class="mobile_ftr">
              <ul>
-                 <li><Link to="/terms">Terms &amp; Conditions</Link></li>
-                 <li><Link to="/privacy">Privacy Policy</Link></li>
-                 <li><Link to="/cookies">Cookie Policy</Link></li>
+                 <li><a href="/terms">Terms &amp; Conditions</a></li>
+                 <li><a href="/privacy">Privacy Policy</a></li>
+                 <li><a href="/cookies">Cookie Policy</a></li>
              </ul>
          </div>
         
