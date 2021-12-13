@@ -11,7 +11,12 @@ const Warranty = (props) => {
   const [dealerType, setDealerType] = useState("dealer");
 
   const [products, setProducts] = useState([]);
+  const [city, setCity] = useState("");
+  const [cities, setCities] = useState([]);
   const [stores, setStores] = useState([]);
+  const [country, setCountry] = useState(true);
+    const [subdomain, setSubdomain] = useState("");
+    const [loader, setLoader] = useState(false);
 
   const formRef = useRef(null);
 
@@ -59,17 +64,33 @@ const Warranty = (props) => {
       });
   }
 
-  const loadStores = async() => {
+  const loadStores = async (city) => {
     await axios
-      .post(server + "/api/store/read")
-      .then((rsp) => {
-        console.log(rsp);
-        setStores(rsp.data.payload)
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }
+        .post(server + "/api/store/read", { "search": city })
+        .then((rsp) => {
+            // console.log(rsp);
+            setStores(rsp.data.payload);
+        })
+        .catch((err) => {
+            checkAccess(err);
+            console.error(err);
+        });
+}
+
+  const loadCities = async (e) => {
+    axios
+        .get(server + `/api/store/read-states`)
+        .then((rsp) => {
+            // console.log(rsp);
+            setCities(rsp.data.payload.cities);
+            loadStores(rsp.data.payload.cities[0] || "");
+        })
+        .catch((err) => {
+            // console.log(err.response);
+            if (err.response) {
+            }
+        });
+    }
 
   const sendWarranty = async (e) => {
 
@@ -134,9 +155,26 @@ const Warranty = (props) => {
 
   }
 
+  useEffect(() => {
+    (async () => {
+        setLoader(true)
+    if (city)
+        loadStores(city);
+    let sub = localStorage.getItem('subDomain');
+    setSubdomain(sub);
+   await loadProducts()
+    setLoader(false)
+    })()
+    }, [city, country]);
+
+  useEffect(() => {
+    loadCities();
+    let sub = localStorage.getItem('subDomain');
+    setSubdomain(sub);
+    }, [country])
+
   useEffect(()=>{
     loadProducts();
-    loadStores();
   }, [])
 
   return(
@@ -285,6 +323,23 @@ const Warranty = (props) => {
                                     dealerType === "dealer" ?
                                     <div class="col-lg-6">
                                         <div class="form-group">
+                                            <label for="">Select City</label>
+                                            <select name="city" id="" class="form-control" defaultValue="Balaji" onChange={e => setCity(e.target.value)}>
+                                            {
+                                                                    <>
+                                                                        {
+                                                                            cities.map(x => <option value={x}>{x}</option>)
+                                                                        }
+                                                                    </>
+                                                                }
+                                            </select>
+                                        </div>
+                                    </div> : ""
+                                }
+                                {
+                                    dealerType === "dealer" ?
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
                                             <label for="">Select Store</label>
                                             <select name="dealerName" id="" class="form-control" defaultValue="Balaji">
                                                 {
@@ -300,7 +355,7 @@ const Warranty = (props) => {
                                             <select name="dealerName" id="" class="form-control" defaultValue="">
                                                 <option value="">Select Store</option>
                                                 {
-                                                ["EM Offlicail Website","Amazon", "Flipkart","Blive","CMB","EWheeler"].map(x=><option value={x}>{x}</option>)
+                                                ["EM Official Website","Amazon", "Flipkart","Blive","CMB","EWheeler"].map(x=><option value={x}>{x}</option>)
                                                 }
                                             </select>
                                         </div>

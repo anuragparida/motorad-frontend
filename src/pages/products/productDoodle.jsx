@@ -23,6 +23,7 @@ const ProductDOODLE = (props) => {
   const [pincodes, setPincodes] = useState([]);
   const [reviews, setReviews] = useState([]);
   const [products, setProducts] = useState([]);
+  const [currProduct, setCurrProduct] = useState({});
   const [productID, setProductID] = useState("");
   const [deviceType, setDeviceType] = useState("");
   const [delivery, setDelivery] = useState(true);
@@ -227,6 +228,7 @@ const ProductDOODLE = (props) => {
             // console.log(filteredRsp);
             setProducts(filteredRsp);
             setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].id);
+            setCurrProduct(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0]);
             setProductPrice({
               ...productPrice,
               trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
@@ -238,6 +240,7 @@ const ProductDOODLE = (props) => {
           } else if (domain == 'uae') {
             setProducts(filteredRsp);
             setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0].id);
+            setCurrProduct(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("doodle"))[0]);
             setProductPrice({
               ...productPrice,
               trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
@@ -350,6 +353,7 @@ const ProductDOODLE = (props) => {
                           <label class="chck">
                             <input type="radio" checked={prod.id === productID} onChange={() => {
                               setProductID(prod.id);
+                              setCurrProduct(prod);
                             }} />
                             <span class="checkmark" style={{ "background": prod.color == "light-green" ? "green" : prod.color }}></span>
                           </label>
@@ -368,7 +372,12 @@ const ProductDOODLE = (props) => {
                       }
                     </li>
                     <li class="d-none d-lg-block">
-                      <h6>{products.length > 0 && <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>}</h6>
+                    {
+                                                currProduct.stock === "yes" ?
+                                                <h6>{products.length > 0 && <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>}</h6>
+                                                :
+                                                <h6>{products.length > 0 && <a href="javascript:void(0)" class="disabled">Out of Stock</a>}</h6>
+                                            }
                     </li>
                   </ul>
                 </div>

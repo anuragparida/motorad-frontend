@@ -27,6 +27,7 @@ const ProductEnerg = (props) => {
     const [pincodes, setPincodes] = useState([]);
     const [reviews, setReviews] = useState([]);
     const [products, setProducts] = useState([]);
+    const [currProduct, setCurrProduct] = useState({});
     const [productID, setProductID] = useState("");
     const [deviceType, setDeviceType] = useState("");
     const [delivery, setDelivery] = useState(true);
@@ -193,6 +194,7 @@ const ProductEnerg = (props) => {
                         console.log(filteredRsp);
                         setProducts(filteredRsp);
                         setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("ener g"))[0].id);
+                        setCurrProduct(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("ener g"))[0]);
                         setProductPrice({
                             ...productPrice,
                             trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
@@ -204,6 +206,7 @@ const ProductEnerg = (props) => {
                     } else if (domain == 'uae') {
                         setProducts(filteredRsp);
                         setProductID(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("ener g"))[0].id);
+                        setCurrProduct(rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("ener g"))[0]);
                         setProductPrice({
                             ...productPrice,
                             trex: rsp.data.payload.filter(prod => prod.name.toLowerCase().includes("t-rex"))[0].price,
@@ -317,6 +320,7 @@ const ProductEnerg = (props) => {
                                                 <label class="chck">
                                                     <input type="radio" checked={prod.id === productID} onChange={() => {
                                                         setProductID(prod.id); changeColor(prod.id);
+                                                        setCurrProduct(prod);
                                                     }} />    
                                                     <span class="checkmark whitechecked" style={{ "background": prod.color }}></span>
                                                 </label>
@@ -327,7 +331,12 @@ const ProductEnerg = (props) => {
                                             <h6>AED {productPrice.energ.toLocaleString()}</h6>
                                         </li>
                                         <li class="d-none d-lg-block">
-                                            <h6>{products.length > 0 && <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>}</h6>
+                                        {
+                                                currProduct.stock === "yes" ?
+                                                <h6>{products.length > 0 && <a href="javascript:void(0)" onClick={addToCart}>BUY NOW</a>}</h6>
+                                                :
+                                                <h6>{products.length > 0 && <a href="javascript:void(0)" class="disabled">Out of Stock</a>}</h6>
+                                            }
                                         </li>
                                     </ul>
                                 </div>

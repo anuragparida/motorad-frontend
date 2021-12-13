@@ -177,7 +177,7 @@ const Footer = (props) => {
                                         </ul>
                                     </li>
                                     <li><Link to="#">&copy; 2021 EMotorad, All Rights Reserved</Link></li>
-                                    <li><a href="https://flamecloud.co.uk/">Designed &amp; Developed by <img src="images/fc.svg" alt="a" class="img-fluid" /></a></li>
+                                    {/* <li><a href="https://flamecloud.co.uk/">Designed &amp; Developed by <img src="images/fc.svg" alt="a" class="img-fluid" /></a></li> */}
                                 </ul>
                             </div>
                         </div>
