@@ -205,7 +205,8 @@ const BookRide = (props) => {
             .then((rsp) => {
                 // console.log(rsp);
                 //setBookSuccess(true)
-                history.push("/book-success");
+                //history.push("/book-success");
+                document.location.href='/book-success';
             })
             .catch((err) => {
                 // console.log(err.response);
