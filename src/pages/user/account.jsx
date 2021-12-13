@@ -112,19 +112,19 @@ const Account = (props) => {
       .filter((el) => el.name)
       .reduce((a, b) => ({ ...a, [b.name]: b.value }), {});
 
-    // axios UNCOMMENT THIS WHEN API DONE
-    // .post(server + "/api/user/update-profile", params, config)
-    // .then((rsp) => {
-    //   console.log(rsp);
-    //   setMessage(<Alert className="success" message={rsp.data.message} />);
-    //   setLoader("");
-    //   window.location.reload();
-    // })
-    // .catch((err) => {
-    //   console.log(err.response);
-    //   setMessage(<Alert className="danger" message={err.response.data.message} />);
-    //   setLoader("");
-    // });
+    axios
+    .put(server + "/api/user/update-profile", params, config)
+    .then((rsp) => {
+      console.log(rsp);
+      setMessage(<Alert className="success" message={rsp.data.message} />);
+      setLoader("");
+      window.location.reload();
+    })
+    .catch((err) => {
+      console.log(err.response);
+      setMessage(<Alert className="danger" message={err.response.data.message} />);
+      setLoader("");
+    });
   }
 
   useEffect(()=>{
@@ -187,7 +187,7 @@ const Account = (props) => {
                     </div>
                     <form action="">
                       <div class="row">
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                           <div class="form-group">
                             <label for="">Full Name</label>
                             <input
@@ -195,6 +195,17 @@ const Account = (props) => {
                               class="form-control"
                               placeholder="Your Name"
                               value={address.name || "Needs db conf"}
+                            />
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="form-group">
+                            <label for="">Phone Number</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Your Number"
+                              value={address.phone || "Not entered"}
                             />
                           </div>
                         </div>
@@ -220,17 +231,6 @@ const Account = (props) => {
                             />
                           </div>
                         </div>
-                        <div class="col-lg-8">
-                          <div class="form-group">
-                            <label for="">Full Address</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              placeholder="Your Address"
-                              value={address.address}
-                            />
-                          </div>
-                        </div>
                         <div class="col-lg-4">
                           <div class="form-group">
                             <label for="">Pincode</label>
@@ -239,6 +239,17 @@ const Account = (props) => {
                               class="form-control"
                               placeholder="Your Pincode"
                               value={address.pin}
+                            />
+                          </div>
+                        </div>
+                        <div class="col-lg-12">
+                          <div class="form-group">
+                            <label for="">Full Address</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Your Address"
+                              value={address.address}
                             />
                           </div>
                         </div>
@@ -404,6 +415,18 @@ const Account = (props) => {
                             class="form-control"
                             placeholder="Enter your pincode"
                             name="pin"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="form-group">
+                          <label for="">Phone Number</label>
+                          <input
+                            type="number"
+                            class="form-control"
+                            placeholder="Enter your contact number"
+                            name="phone"
                             required
                           />
                         </div>

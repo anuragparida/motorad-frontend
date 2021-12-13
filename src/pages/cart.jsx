@@ -759,6 +759,18 @@ const Cart = (props) => {
                       </div>
                       <div class="col-lg-12">
                         <div class="form-group">
+                          <label for="">Phone Number</label>
+                          <input
+                            type="number"
+                            class="form-control"
+                            placeholder="Enter your contact number"
+                            name="phone"
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="form-group">
                           <label for="">Your Address</label>
                           <textarea
                             cols="30"
