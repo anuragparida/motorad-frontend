@@ -289,12 +289,12 @@ const ProductEnerg = (props) => {
                                 <div class="peoduct_menu_lft">
                                     <h6>ENER - G</h6>
                                     <ul class="d-none d-lg-block">
-                                        {/* <li><i class="fa fa-star-o"></i></li>
-                                        <li><i class="fa fa-star-o"></i></li>
-                                        <li><i class="fa fa-star-o"></i></li>
-                                        <li><i class="fa fa-star-o"></i></li>
-                                        <li><i class="fa fa-star-o"></i></li> */}
-                                        {/* <li><span>(1351+)</span></li> */}
+                                    <li><i class="fa fa-star" style={{ "color": reviews.reduce((r, t)=>r+t.rating, 0) >= 1 ? "green" : "grey" }}></i></li>
+                                        <li><i class="fa fa-star" style={{ "color": reviews.reduce((r, t)=>r+t.rating, 0) >= 2 ? "green" : "grey" }}></i></li>
+                                        <li><i class="fa fa-star" style={{ "color": reviews.reduce((r, t)=>r+t.rating, 0) >= 3 ? "green" : "grey" }}></i></li>
+                                        <li><i class="fa fa-star" style={{ "color": reviews.reduce((r, t)=>r+t.rating, 0) >= 4 ? "green" : "grey" }}></i></li>
+                                        <li><i class="fa fa-star" style={{ "color": reviews.reduce((r, t)=>r+t.rating, 0) >= 5 ? "green" : "grey" }}></i></li>
+                                        <li><span>({Math.floor(Math.random() * (50-20+1) + 20)}+)</span></li>
                                     </ul>
                                 </div>
                             </div>
