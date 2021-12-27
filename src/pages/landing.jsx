@@ -147,6 +147,8 @@ const Landing = (props) => {
                     <Helmet>
                         <title>Buy Electric Bicycle | Buy Online Electric Bike - EMotorad</title>
                         <meta name="description" content="Emotorad offers high tech, reliable, and fast electric cycles with premium quality. Now book electric bicycle & buy online electric bike with Emotorad at best price." />
+                        //facebook domain verfication link added 
+                        <meta name="facebook-domain-verification" content="a1byokxcvbfozw6wqflskoglhpl5q2" />
                     </Helmet>    
                     <PageLoader loader={loader} style={{zIndex:"99999999"}}/>
                     <Navbar setCountry={setCountry} country={country} />
