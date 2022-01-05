@@ -68,9 +68,7 @@ const BookSuccess = (props) => {
                         fbq('track', 'Lead');`
                         }}
                         />
-                        <noscript>{`<img height="1" width="1" style="display:none"
-                        src="https://www.facebook.com/tr?id=264188729053706&ev=Lead&noscript=1"
-                        />`}</noscript>
+                        
                     </Helmet>        
                 : (subdomain == 'nepal') ?
                     <Helmet>
