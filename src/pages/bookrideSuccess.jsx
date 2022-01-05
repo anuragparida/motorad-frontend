@@ -14,7 +14,7 @@ const BookSuccess = (props) => {
     {
                 (subdomain == 'india') ?
                     <Helmet>
-                        <script dangerouslySetInnerHTML={{ __html: `
+                        <script innerHTML={{ __html: `
                                 !function(f,b,e,v,n,t,s)
                                 {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
                                 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -27,9 +27,7 @@ const BookSuccess = (props) => {
                                 
                                 }}
                                 />
-                                <noscript>{`<img height="1" width="1" style="display:none"
-                                src="https://www.facebook.com/tr?id=1034452493992700&ev=Lead&noscript=1"
-                            />`}</noscript>  
+                                 
                         
                     </Helmet>
                 : (subdomain == 'uae') ?
@@ -55,7 +53,7 @@ const BookSuccess = (props) => {
                 : (subdomain == 'japan') ?
                     <Helmet>
                         <script
-                        innerHTML={{ __html: `
+                        dangerouslySetInnerHTML={{ __html: `
                         !function(f,b,e,v,n,t,s)
                         {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
                         n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -68,7 +66,9 @@ const BookSuccess = (props) => {
                         fbq('track', 'Lead');`
                         }}
                         />
-                        
+                        <noscript>{`<img height="1" width="1" style="display:none"
+                        src="https://www.facebook.com/tr?id=264188729053706&ev=Lead&noscript=1"
+                        />`}</noscript>
                     </Helmet>        
                 : (subdomain == 'nepal') ?
                     <Helmet>
