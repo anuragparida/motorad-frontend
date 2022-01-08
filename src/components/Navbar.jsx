@@ -269,23 +269,7 @@ const Navbar = (props) => {
                             gtag('config', 'UA-180929846-1');
                             `}
                         </script>
-                        {/*
-                        <script 
-                                !function(f,b,e,v,n,t,s)
-                                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-                                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-                                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-                                n.queue=[];t=b.createElement(e);t.async=!0;
-                                t.src=v;s=b.getElementsByTagName(e)[0];
-                                s.parentNode.insertBefore(t,s)}(window, document,'script',
-                                'https://connect.facebook.net/en_US/fbevents.js');
-                                fbq('init', '1034452493992700');
-                                fbq('track', 'PageView');`
-                                }}
-                                />
-                                <noscript>{`<img height="1" width="1" style="display:none"
-                                src="https://www.facebook.com/tr?id=1034452493992700&ev=PageView&noscript=1"
-                            />`}</noscript>  */}
+                        {}
 
                             <script>
                                 
@@ -310,24 +294,7 @@ const Navbar = (props) => {
                             gtag('config', 'G-7733F902PJ');
                             `}
                         </script>
-                       {/*
-                        <script
-                        dangerouslySetInnerHTML={{ __html: `
-                        !function(f,b,e,v,n,t,s)
-                        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-                        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-                        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-                        n.queue=[];t=b.createElement(e);t.async=!0;
-                        t.src=v;s=b.getElementsByTagName(e)[0];
-                        s.parentNode.insertBefore(t,s)}(window, document,'script',
-                        'https://connect.facebook.net/en_US/fbevents.js');
-                        fbq('init', '598631247954691');
-                        fbq('track', 'PageView');`
-                        }}
-                        />
-                        <noscript>{`<img height="1" width="1" style="display:none"
-                        src="https://www.facebook.com/tr?id=598631247954691&ev=PageView&noscript=1"
-                    />`}</noscript>*/}
+                       {}
                     </Helmet>
                 : (subdomain == 'japan') ?
                     <Helmet>
@@ -344,24 +311,7 @@ const Navbar = (props) => {
                             gtag('config', 'G-SN141VWQ4E');
                             `}
                         </script>
-                       {/*
-                        <script
-                        dangerouslySetInnerHTML={{ __html: `
-                        !function(f,b,e,v,n,t,s)
-                        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-                        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-                        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-                        n.queue=[];t=b.createElement(e);t.async=!0;
-                        t.src=v;s=b.getElementsByTagName(e)[0];
-                        s.parentNode.insertBefore(t,s)}(window, document,'script',
-                        'https://connect.facebook.net/en_US/fbevents.js');
-                        fbq('init', '264188729053706');
-                        fbq('track', 'PageView');`
-                        }}
-                        />
-                        <noscript>{`<img height="1" width="1" style="display:none"
-                        src="https://www.facebook.com/tr?id=264188729053706&ev=PageView&noscript=1"
-                    />`}</noscript>*/}
+                       {}
                     </Helmet>        
                 : (subdomain == 'nepal') ?
                     <Helmet>
@@ -389,24 +339,7 @@ const Navbar = (props) => {
                         </script>
 
                         
-                        {/*
-                        <script
-                        dangerouslySetInnerHTML={{ __html: `
-                        !function(f,b,e,v,n,t,s)
-                        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-                        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-                        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-                        n.queue=[];t=b.createElement(e);t.async=!0;
-                        t.src=v;s=b.getElementsByTagName(e)[0];
-                        s.parentNode.insertBefore(t,s)}(window, document,'script',
-                        'https://connect.facebook.net/en_US/fbevents.js');
-                        fbq('init', '3068496336696715');
-                        fbq('track', 'PageView');`
-                        }}
-                        />
-                        <noscript>{`<img height="1" width="1" style="display:none"
-                        src="https://www.facebook.com/tr?id=3068496336696715&ev=PageView&noscript=1"
-                    />`}</noscript>*/}
+                        {}
                     </Helmet>    
                 : ''    
             }
