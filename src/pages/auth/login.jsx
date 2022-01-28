@@ -115,7 +115,7 @@ const Login = (props) => {
   //   // Setup first refresh timer
   //   setTimeout(refreshToken, refreshTiming);
   // };
-
+/*
   const googleLogin = () => {
     const gapi = window.gapi;
 
@@ -147,7 +147,7 @@ const Login = (props) => {
 
       });
     });
-  };
+  };*/
 
   return(
     <>
@@ -186,7 +186,7 @@ const Login = (props) => {
                     cookiePolicy={'single_host_origin'}
                     style={{ marginTop: '100px' }}
                   /> */}
-                <a href="javascript:void(0)" onClick={googleLogin}><i class="fa fa-google"></i>Sign Up with Google</a>
+                {/*<a href="javascript:void(0)" onClick={googleLogin}><i class="fa fa-google"></i>Sign Up with Google</a>*/}
                 {/* <a href={facebookLoginUrl} class="blue_bg"
                   ><i class="fa fa-facebook"></i>Sign Up with Facebook</a
                 > */}
