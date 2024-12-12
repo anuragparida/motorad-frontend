@@ -28,12 +28,12 @@ module.exports = {
   server,
   //server: "http://localhost:7400",
 
-  // SITE_KEY: "6LdaGssUAAAAAFMBwO3VPUNlV6pZE_uIY04zK8dh", ASK?
+  // SITE_KEY: "", ASK?
 
-  // FACEBOOK_APP_ID: 296252462110494,
-  FACEBOOK_APP_ID: 889533278598326,
+  // FACEBOOK_APP_ID: ,
+  FACEBOOK_APP_ID: 0,
 
-  REACT_APP_GOOGLE_API_KEY: "AIzaSyAJ_0_tWZb3bqaNUYu-vYI3L4jhFui1dv4",
+  REACT_APP_GOOGLE_API_KEY: "",
 
   config: {
     headers: {
